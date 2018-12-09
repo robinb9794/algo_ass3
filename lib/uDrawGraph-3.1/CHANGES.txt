@@ -1,0 +1,474 @@
+Changes uDraw(Graph) 3.1 -> 3.1.1:
+-----------------------------------------------------------
+
+3.1.1 is a minor release with repairs for known
+defects and a few other changes:
+
+- the API command special(version) now returns version("... 3.1.1")
+- documentation now contains the images that were missing in the 3.1
+  distribution
+- a port for Mac OSX was added
+- Windows and FreeBSD versions are released
+- Img was updated from Img 1.2.4 to version tkImg 1.3. It is now loaded
+  by the package command instead of linking it into uDraw(Graph)
+- BWidget was upgraded from 1.2.1 to 1.7
+- Linux version is now dynamically linked on SuSE 8.1, GCC 2.2
+- Minor internal changes for the new platforms
+
+The repairs for defects are:
+
+(uDG31/001) Pressing keys PageUp and PageDown produces Tcl error 
+
+
+
+Changes 3.0.5 -> uDraw(Graph) 3.1:
+-----------------------------------------------------------
+
+IMPORTANT: The tool uDraw(Graph) was formerly well known by another
+name, which was the surname of a famous scientist, inventor and artist,
+born 1452 in Anchiano, Italy. With this release we had to rename it due
+to trademark conflicts. Therefore we have replaced the old tool name
+in this document by uDraw(Graph) in some places although there was
+never a version called uDraw(Graph) 3.0.x but we think replacing it
+like this makes the document more readable.
+
+
+
+Changes 3.0.2 -> 3.0.3:
+-----------------------------------------------------------
+
+3.0.3 is a minor release with repairs for known
+defects and a few other changes:
+
+- the API command special(version) now returns version("... 3.0.3")
+- a port for FreeBSD was added
+- the installation process for Windows(R) was improved
+- under Windows(R) the default browser is used for viewing the documentation
+- zlib was updated to version 1.1.4.
+
+The repairs for defects are:
+
+(dp30/018) Wrong localization at one place in grapheditor dialog
+
+(dp30/019) Crash with spline edges, error "array index out of range"
+
+(dp30/020) Immediate crash on Solaris(R) 2.6 and 7.0
+
+(dp30/021) Crash when started by user "root"
+
+(dp30/022) Value "first" for edge attribute "_dir" is broken
+
+(dp30/023) The tools flattenterm and formatterm eventually do not run
+under Windows(R)
+
+(dp30/025) uDraw(Graph) eventually could not open the HTML
+browser under Windows(R)
+
+(dp30/026) uDraw(Graph) could not locate the users home directory
+running Windows(R) 9x
+
+(dp30/027) Installing uDraw(Graph) as Windows(R) administrator does
+not give other users access
+
+
+Changes 3.0.1 -> 3.0.2:
+-----------------------------------------------------------
+
+3.0.2 is a minor release with repairs for known
+defects:
+
+(dp30/006) Having dollar character in edge or node names will cause
+some Tcl/Tk errors to be printed and the drawing is corrupt.
+
+(dp30/007) Under certain circumstances some of the edges are
+invisible. They are still there and may be revealed by moving some of
+the nodes attached.
+
+(dp30/008) An absolute pathname does not work as command line
+parameter. The file could not be loaded and a respective error message
+is printed.
+
+(dp30/009) Unlike other software running under Windows the "Save As" 
+dialog ignores the given type and does not expand the chosen filename
+with the appropriate postfix.
+
+(dp30/010) If uDraw(Graph) has been started with option -server,
+then a loaded graph can not be exported with API command
+menu(file(export(...))).
+
+(dp30/011) The RPM package of uDraw(Graph) can be installed only
+on i686 systems. On systems identified as i586 or lower the redhat
+packager manager refuses to install because of a "Wrong architecture".
+
+(dp30/012) When the API command "change_type" is invoked for the edges
+of a cyclic graph, the last edge of the cycle misses a redraw.
+
+(dp30/013) When changing the protocol from "TCP/IP" to "Pipes" in the
+"Connect Application" dialog, the command-line option "-client :2542"
+is not removed. The grapheditor cannot be connected when started with
+this option.
+
+(dp30/015) The dialog which pops up to remind you of the almost
+reached time-limit of your license key interferes with the API
+communication. The effects are the same as if you did not wait for the
+initial "ok" from uDraw(Graph).
+
+(dp30/016) API command special(focus_node_animated()) returns the
+error message 'communication_error("Stepwidth must be greater than 0")' 
+when animation is turned off in the Options/General Settings
+dialog.
+
+(dp30/017) API command special(focus_node_animated()) scrolls to the
+wrong node when the View/Scale dialog is not set to 100%.
+
+Addendum (2002-04-30):
+- the API command special(version) now returns version("... 3.0.2")
+
+
+Changes 3.0 -> 3.0.1:
+---------------------------------------------------------
+
+3.0.1 is a minor release with repairs for known
+defects.
+
+1. The API command "special(version)" now returns 
+   "version(... 3.0.1)".
+
+2. Minor corrections and improvements have been added to the manual
+   pages (online and offline).
+
+3. Defect repair: Now there is no need to define the environment variables
+   running Windows if they have values in the
+   registry. The latter are set when calling Setup.exe. Version 3.0
+   required the additional setting of the environment variables.
+
+4. Defect repair: There were problems with paths and filenames with embedded
+   blanks.
+
+5. Defect repair: Generated PostScript files contained a syntax error
+   under certan circumstances.
+
+6. Defect repair: Printing directly to the printer (not to a file) failed
+   under Windows.
+
+7. Defect repair: The sample boot scripts for starting lise (license server) 
+   had syntax errors.
+
+Changes <former tool name> V2.1 -> 3.0:
+----------------------------------------------
+
+This document describes all changes between V2.1 and 3.0. The documentation
+of V2.1 can be found in a previous distribution.
+
+Overview:
+---------
+
+1.  Installation and start dialogs
+2.  License manager
+3.  Revised user interface
+4.  Internationalization
+5.  Fully configurable user interface
+6.  New printing feature "color mode"
+7.  Export feature for GIF/TIFF/JPEG/PNG
+8.  Splines for edges
+9.  Edge labels
+10. Tool-tips for graph nodes and edges
+11. New rendering engine
+12. New graphical objects (color icons and additional edge options)
+13. API via Sockets
+14. New API commands and features
+15. New Tcl/Tk engine
+16. New command-line options and environment variables
+17. New node and edge attributes
+18. New graph editor supporting the new features
+19. Improved efficiency and scalability
+20. New platforms: Windows NT/2000
+21. Removed features and important modifications
+22. Miscellaneous goodies
+
+Detail:
+-------
+
+1.  Installation and start dialogs:
+  - The binary has been moved to bin.
+
+2.  License manager:
+  - A key is required in order to start uDraw(Graph).
+  - The key can be entered at each start or installed for permanent use
+    with the install option which is available in the license key dialog.
+  - A time limited evaluation license will be available with the final 
+    release.   
+  - Floating licenses are available for network installation (the type
+    of license is coded inside the key).
+
+3.  Revised user interface:
+  - Fresh layout, all dialogs have been streamlined to be more compact.
+  - Access to control new features (see below), e.g. export, splines, 
+    tool-tips.
+  - Using dialogs with keyboard commands is no longer supported.
+
+4.  Internationalization:
+  - The user interface is available in different languages: english 
+    (default) and german.
+  - The language is controlled by environment variable UDG_LANG. 
+    Supported values are "C" (english) and "de" (german). 
+  - Additional languages can be added by the user by giving translations 
+    in file lib/uDrawGraph/uDrawGraph_XX.lang, where XX is the name of the 
+    language set by environment variable UDG_LANG. Please note that 
+    translations for all keys in the file must be present in order to 
+    avoid runtime errors.
+
+5.  Fully configurable user interface:
+  - The appearance of the user interface can be fully controlled by 
+    an application program at start-up time using API commands.
+  - An application can hide the menu area, icon area and/or status 
+    area of the user interface, so uDraw(Graph) windows with 
+    nothing more than the graph display are possible.
+  - An application can build the complete menu and icon structure on 
+    its own by mixing given system menu or icon entries and additional
+    application specific menu or icon entries in any combination.
+  - User interface customization is explained in the online 
+    documentation delivered with this distribution. Please refer to 
+    chapter "Overview -> Reference -> API Reference -> Commands of 
+    Category Graphical User-Interface".
+
+6.  New printing feature:
+  - The color mode (color, grayscale, black/white) can be set in menu 
+    File/Print.
+
+7.  Export feature:
+  - Save a graph in GIF, TIFF, JPEG or PNG format with menu File/Export.
+
+8.  Splines:
+  - Edges with intermediate dummy nodes (which are passing more than one
+    level) can be displayed with splines/curves instead of straight 
+    line segments.
+  - The spline feature can be controlled for each individual edge with
+    edge attribute EDGEPATTERN, see API below.
+  - Individual settings can be overwritten with a global setting in 
+    menu Options/Layout Settings/Edge Style.
+
+9.  Edge labels:
+  - Edges can have an optional text using edge attribute OBJECT, see
+    API below.
+  - Edge labels are displayed in grey in the background. If the edge 
+    is selected, the text is displayed in black in the foreground.
+
+10. Tool-tips:
+  - Nodes and edges can have a tool-tip (popup text) using attribute 
+    INFO, see API below.
+  - The tool-tip is displayed automatically after a delay when the 
+    mouse pointer is over the node or edge.
+  - The tool-tip delay can be controlled with menu Options/General 
+    Settings.
+
+11. New rendering engine:
+  - The graph display and all drawing functions are reimplemented for 
+    better performance and more comfort.
+  - Edges are no longer displayed in an abstract way when using 
+    fine-tuning, so their style and arrow is kept visible when their
+    parent or child node is moved with the mouse.
+  - Dummy nodes which are at the bends of edges (where the levels are 
+    passed) are automatically highlighted when they are reached by the 
+    mouse pointer.
+  - Pixmap caching is no longer necessary and has been removed. 
+   
+12. New graphical objects:
+  - Color icons given in GIF, XPM or BMP format can be used for nodes
+    with node attribute IMAGE, see "New attributes" below. The icons 
+    are expected to be in the directories given by environment variable 
+    UDG_ICONDIR.
+  - The text field under an icon is omitted if the text of this node
+    is an empty string. In previous versions there was a small empty 
+    field under the icon in this case.
+  - Edges have more visualization options, where all of these features
+    can be combined with each other:
+      - single or double line
+      - solid, dotted or dashed style
+      - arbitrary width in pixel
+      - drawn as spline or straight line, overwritable by global setting
+
+13. API via Sockets:
+  - One application program can connect to the API via TCP/IP Sockets,
+    if uDraw(Graph) is started with option -server. 
+  - Using Sockets, uDraw(Graph) and the application program can 
+    be located on different computers anywhere in a network.
+  - By default, a uDraw(Graph) server is listening for API commands 
+    on Socket port 2542 which is exclusively registered by IANA for this 
+    purpose. A different port can be specified after -server. 
+  - API communication via sockets is explained in the online 
+    documentation delivered with this distribution. Please refer to 
+    chapter "Overview -> Reference -> API Reference -> How to Connect 
+    an Application".
+
+14. New API commands and features:
+  - To support the new features descripted here, the API has been 
+    extended by the following commands:
+      - gui(configure(filename))
+          Define the user interface elements from a configuration file.
+          Details in chapter 5., see above.
+      - gui(activate_menus(menu_ids) 
+          Enable menus. Details see 5. above.
+      - gui(set_radio_menus(menu_ids))           
+          Set radio menu values. Details see 5. above.
+      - gui(activate_icons(icon_ids))            
+          Enable icons. Details. Details see 5. above.
+      - gui(set_radio_icons(icon_ids))
+          Set radio icon values. Details see 5. above.
+      - menu(file(print_to_printer)))
+          Send the graph to the printer.
+      - menu(file(export(boolean,string,filename)))
+          Exports the current graph to a file.
+            boolean: true means whole graph, false means visible area
+            1. string: the type, either "tiff","gif","jpeg" or "png"
+            2. filename: the destination file
+      - menu(file(export)))
+          Opens the export dialog.
+      - menu(navigation(select_parent(edge_id)))
+          Selects the parent node of the edge with label edge_id.
+      - menu(navigation(select_child(edge_id)))
+          Selects the child node of the edge with label edge_id.
+      - menu(option(layout_algorithm)) 
+          To open the layout algorithm dialog window. 
+      - menu(option(layout_settings)) 
+          To open the layout settings dialog window. 
+      - menu(option(general_settings)) 
+          To open the general settings dialog window.
+      - menu(option(save))
+          To save the options.
+      - set(keep_nodes_at_levels(boolean)) 
+          To set whether or not nodes should keep their level when using the
+          graph layout algorithm. 
+      - set(manual_layout(manual_constraints)) 
+          To set constraint used for fine-tuning (manual layout). 
+          manual_constraints ::= modify | preserve | fixed. 
+      - set(edge_style(spline_drawing))
+        spline_drawing ::= off | graph | all
+          Sets the global style used for drawing edges. Parameter:
+            off:   edges are always straight line segments.
+            graph: straight line or spline according to the EDGEPATTERN 
+                   attribute of each individual edge.
+            all:   edges are always drawn using splines.
+      - set(browser(string))
+          To set name and path of the web browser. 
+      - set(documentation(string))
+          To set the URL prefix to the online documentation. 
+      - set(print(string))
+          To set command and options used for printing graphs in PostScript.
+      - set(measure(measures))
+          To set the measure unit used in the print dialog. 
+          measures ::= cm | inch. Detai
+      - set(tooltip_delay(integer))
+          Sets the time delay between entering a node/edge with the
+          mouse and appearance of the tooltip text, if available.
+          The integer has to be between -1 and 3000.
+      - special(add_language(filename))
+          To add additional text translations from the given file at run-time.
+          The key contains key/value pairs used for internationalization.
+      - special(version)
+          Answer the current version of uDraw(Graph) with the new API answer:
+            version(string)
+          For the current version, string will be: "... 3.0" .
+          Attention: All former versions will deliver a
+          communication_error for this command and obviously not the correct
+          version information.
+      - window(background(string))
+          Sets the main window background color to string. The string
+          is in RGB value format, e.g. "#406fa8".
+
+  - The API command syntax for mixed updates (where node and edge 
+    updates can be mixed in one list instead of two separate lists) 
+    has been changed. In V2.x and its online documentation 
+    there are two commands using mixed updates:
+        graph(update(mixed_updates))
+        update_and_change_attr(mixed_updates,attr_changes)
+    This doesn't work and has been changed to the following syntax:
+        uDG_command ::=
+          graph         (graph_cmd)
+          ...
+        graph_cmd ::=
+          ...
+        | mixed_update  (mixed_updates)
+        | mixed_update_and_change_attr (mixed_updates,attr_changes)
+          ...
+    "mixed_updates" is a list [...] as described in the V2.x online
+    documentation, see chapter "Overview -> Reference -> API Reference 
+    -> Overview: API Commands"
+
+15. New Tcl/Tk engine:
+  - uDraw(Graph) is based on Tcl/Tk 8.3, important for applications 
+    using API command tcl(eval(...)) and tcl(eval_file(...)).
+  - The old V2.1 grapheditor cannot be used together with uDraw(Graph). 
+    uDraw(Graph) and the grapheditor share the Tcl/Tk 
+    libraries in $UDG_HOME/lib which have been upgraded.
+
+16. New command-line options and environment variables:
+  - New options:
+    - -graphedit_old   
+         connect the grapheditor application at start-up time without 
+         modifying the uDraw(Graph) user interface.
+    - -install          
+         show license key dialog at start-up time even if a valid key 
+         is already installed. Use this to use or install a different key.
+    - -nogui            
+         start uDraw(Graph) without any user interface. Configuration 
+         has to be done by an application program connected to the API, 
+         see 5. above.
+    - -server [port]    
+         Enable API socket communication on the given port which defaults 
+         to 2542. The port is optional.
+
+17. New node and edge attributes:
+  - Node attributes:
+    - Color icons: a("_GO","image"),a("IMAGE","file.gif")
+    - Tool-tips: a("INFO","text")
+  - Edge attributs:
+    - Style options: a("EDGEPATTERN","format") where format has 4 arguments: 
+      type=single|double;shape=solid|dotted|dashed;width=<int>;spline=0|1
+    - Tool-tips: INFO (same as for nodes)
+    - Edge label text: OBJECT (same as for nodes)
+    - Edge label font: FONTFAMILY (same as for nodes)
+    - Edge label style: FONTSTYLE (same as for nodes)
+
+--- graph example showing new features in term representation: ---
+[l("n1",n("",[a("OBJECT","text node 1")],[l("e1",e("",[a("EDGEPATTERN","double;dotted;3;1"),a("OBJECT","edge label"),a("INFO","edge tool-tip")],l("n2",n("n2",[a("OBJECT","text node 2"),a("_GO","image"),a("IMAGE","icons/uDrawGraph_logo.gif"),a("INFO","node tool-tip")],[]))))]))]
+--- end of example ---
+
+18. New graph editor:
+  - Support for API communication via sockets, so both programs can 
+    be started on different computers. Try "uDrawGraph -server 10000" 
+    on host foo and "grapheditor -client foo:10000" anywhere else to 
+    communicate on port 10000 (host and port are optional).
+  - New streamlined compact user interface.
+  - The graph editor supports new features such as tool-tips for nodes 
+    and edges, splines, edge labels, new edge pattern settings. All
+    these features are described above.
+  - It is now possible to start uDraw(Graph) from commandline with 
+    the graph editor and an initial graph which is passed to the editor,
+    e.g. "uDrawGraph -graphedit my_graph_file.status"
+ 
+19. Improved efficiency and scalability:
+  - Memory consumption has been reduced significantly, especially for
+    large graphs and when used for a longer time.
+  - Serious memory leaks have been eliminated.
+
+20. New platforms:
+  - Windows NT/2000 is supported.
+
+21. Removed features and important modifications
+  - uDraw(Graph) 3.0 cannot load status files written by 
+    V1.1 (this was the first public release in 1993). Loading status 
+    files written by  V1.2 or greater is still supported. The 
+    version is written at the beginning inside a status file which is 
+    pure ASCII. Work-around: load the V1.1 status file in V2.1 
+    and save the status there to load it in uDraw(Graph) 3.0.
+  - Commandline options -speedy and -nocache, relicts from the early 
+    days, have been removed. When used, these option will be ignored.
+
+22. Miscellaneous goodies:
+  - In survey views, the blue rectangle with the visible portion of the
+    corresponding detail view can be moved directly with the mouse.
+  - When an edge is selected, navigation to the parent or child node is
+    possible using menu Navigation.
+  - Pagewise vertical scrolling is now possible using the PageUp/Down
+    Keys which are usually located above the cursor keys.

@@ -1,28 +1,45 @@
 package controllers;
 
-import models.ViewModel;
-import views.*;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-import javax.swing.JPanel;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.BorderFactory;
+import javax.swing.JPanel;
 
-import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import models.ViewModel;
+import redblack.RedBlackTree;
+import views.InsertionWindow;
+import views.RedBlackTreeInsertionWindow;
+import workers.UDrawGraphClient;
 
 public class RedBlackTreeController {
     private ViewModel viewModel;
-	private InsertionWindow insertionWindow;
-		
-	public RedBlackTreeController() {
-        this.insertionWindow = new RedBlackTreeInsertionWindow();
+    private InsertionWindow insertionWindow;
+
+    private RedBlackTree redBlackTree;
+    private UDrawGraphClient graphClient;
+
+    public RedBlackTreeController() {
         this.viewModel = new ViewModel();
+        this.insertionWindow = new RedBlackTreeInsertionWindow();
+        this.redBlackTree = new RedBlackTree();
+        this.graphClient = new UDrawGraphClient();
 	}
 	
 	public void work() {
         insertionWindow.buildInteractionPanel();
+        insertionWindow.addWindowListener(new WindowAdapter(){
+            @Override
+            public void windowClosing(WindowEvent e){
+                insertionWindow.dispose();
+                graphClient.close();
+            }
+        });
         insertionWindow.insertionButton.addActionListener(getInsertionButtonListener());
         insertionWindow.packAndShow();
     }
@@ -35,6 +52,7 @@ public class RedBlackTreeController {
                 JPanel infoRow = getNewInfoRow(key);
                 insertionWindow.infoPanel.add(infoRow);
                 insertionWindow.infoPanel.revalidate();
+                redBlackTree.insert(key);
             }
         };
     }

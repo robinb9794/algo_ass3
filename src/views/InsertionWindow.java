@@ -27,9 +27,8 @@ public class InsertionWindow extends JFrame{
     public InsertionWindow(String title){
         super(title);
         setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(800, 600));
+        setPreferredSize(new Dimension(400, 400));
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void buildInteractionPanel(){
@@ -62,7 +61,7 @@ public class InsertionWindow extends JFrame{
 
         interactionPanel.add(BorderLayout.SOUTH, topDownButton);
 
-        add(BorderLayout.EAST, interactionPanel);
+        add(BorderLayout.CENTER, interactionPanel);
     }
 
     public void packAndShow(){

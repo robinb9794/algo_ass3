@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Internationalization and Localization</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Internationalization</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  <H1>Internationalization and Localization</H1>
+  
+  <P>
+    The uDraw(Graph) user interface can be configured for most languages 
+    in order to provide native texts for the end user.
+    The system is pre-configured for English (default) and German locales,
+    but the text output of the user interface can be customized by 
+    experienced users to show character sets that are supported by the 
+    Unicode/UTF-8 encoding.
+    Note that the layout of dialog windows cannot be manipulated, which might
+    be inconvenient for languages not written from left to right. 
+    All text elements of the user interface are stored in plain language 
+    files that can be edited by the user.
+  </P>
+
+  <A name="language_key"></A>
+  <H2>
+    Basics: Language Files and Language Keys
+  </H2>
+  <P>
+    A language file contains a mapping between language keys and 
+    language values (both strings), so one key/value pair occurs in 
+    each line of the file.
+    The value is the translation of the corresponding key for the 
+    particular language.
+  </P>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+<TR>
+<TH COLSPAN="0">Example for Lines in an English Language File:</TH>
+</TR>
+<TR>
+<TD class="table">PrintDlg.Landscape "Landscape"</TD>
+</TR>
+<TR>
+<TD class="table">PrintDlg.Width "Page Width:"</TD>
+</TR>
+</TABLE>
+</P>
+
+  <P>
+    A separate language file is used for all available languages.
+    The set of keys is identical in all files, so only the values may 
+    vary. A particular language file is chosen at initialization time
+    by considering environment variable
+  <A href="var.html#udg_lang" target="_top">$UDG_LANG</A>, 
+  <A href="int.html#language_files" target="_top">see below</A>.
+    The language file is loaded into a translation table when starting 
+    uDraw(Graph).
+    All text messages, buttons, menus etc. are represented by language
+    keys internally. 
+    When a particular text (language key) has to be displayed, it is 
+    first converted into the native language according to the 
+    translation table.
+  </P>
+
+  <P>
+    This mechanism for internationalization can even be used by 
+  <A href="api.html" target="_top">uDraw(Graph) applications</A>. 
+    With command
+  <A href="api_cmd_special.html#add_language" target="_top">special(add_language(...))</A>,
+    the application can provide an additional language file with
+    its own language keys and values.
+    When the application 
+  <A href="api_gui_extend.html" target="_top">extends</A>
+    or
+  <A href="api_gui_config.html" target="_top">configures</A>
+    the uDraw(Graph) user interface by its own menus, icons etc., 
+    it can use the language keys (from both the application and 
+    preconfigured language files) for particular string parameters
+    which are marked with type
+  <A href="api_param.html#lang_string" target="_top">lang_string</A>
+    in the grammar for
+  <A href="api_cmd.html" target="_top">API commands</A>
+    and 
+  <A href="api_gui_config_syntax.html" target="_top">configuration files</A>.
+    Language keys can be used in a string parameter by starting with
+    an initial "#%" sequence, followed by the key as it is written 
+    in the language file.
+    You cannot use the language key inside of a larger string.
+    Here is an example showing how to use a language key in the
+    string parameter of an API command:
+  </P>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+<TR>
+<TH COLSPAN="0">Example for using a Language Key:</TH>
+</TR>
+<TR>
+<TD class="table">window(show_message("#%PrintDlg.Width"))</TD>
+</TR>
+</TABLE>
+</P>
+
+  <A name="language_files"></A>
+  <H2>
+    Position and naming of language files
+  </H2>
+  <P>
+    The recommended default directory for all language files is directory 
+    "$UDG_HOME/lib/uDrawGraph". 
+    When uDraw(Graph) is started, it looks for the language file 
+    in the current start directory and afterwards in the default directory.
+    The system will not start if it cannot find at least one language
+    file according to the following selection rules.
+  </P>
+  <P>
+    All language file names look like "uDrawGraph_C.lang". This can be 
+    split into three parts, where the first one ("uDrawGraph_") and
+    the last one (".lang") are fixed and the second part is the 
+    current language setting ("C" in this case which is the default 
+    language).
+    The current language is retrieved from environment variable
+  <A href="var.html#udg_lang" target="_top">$UDG_LANG</A>.
+    So for example you can switch to the German user interface
+    by setting "$UDG_LANG" to value "de" before starting uDraw(Graph).
+    This will use the language file "uDrawGraph_de.lang", located in the
+    default directory.
+    After the start, the language setting is fixed.
+  </P>
+
+  <A name="syntax"></A>
+  <H2>
+    Syntax and Layout of Language Files
+  </H2>
+  <P>
+    The syntax of language files is very easy. 
+    At each line of the file, you have to use exactly two strings 
+    that are separated by white space.
+    The first string is the language key and the second string is 
+    the language value, see 
+  <A href="int.html#language_key" target="_top">example above</A>.
+    Please enclose the language value in double quotes, although 
+    this is only necessary when the the value contains white space.
+    So in the example above, it would be a failure to replace
+    the bullets by white space (e.g. no keys like "PrintDlg Landscape").
+  </P>
+  <P>
+    The language keys you can find in the "uDrawGraph_C.lang" default 
+    file are hard coded in uDraw(Graph), so if you want to provided an
+    additional translation file, make sure that you keep the keys
+    as is, especially the exact number.
+    Some keys with particular endings have a special semantic, 
+    whereas all others may have an arbitrary string as value. 
+    For keys ending with ".mne", the value has to be an integer
+    which specifies the position of the character that should be 
+    underlined in a menu and used as a mnemonic (see section about
+  <A href="api_gui_config.html#menu_entry" target="_top">user interface configuration</A>
+    for more information).
+    Here, a value of "-1" means no mnemonic. 
+    The keys ending with ".mod" define the modifier key used for 
+    keyboard bindings of menus and should only have the values 
+    Control, Meta, Alt, Shift or "" (for no modifier).
+    The accelerator for the keyboard binding is defined by 
+    the language keys ending with ".acc".
+    Their value should contain only a single character. 
+    Please note that accelerators have to be mutually exclusive 
+    with respect to the complete user interface and mnemonics 
+    have to be mutually exclusive for each menu.
+  </P>
+  <P>
+    To avoid mistakes, it is recommended to copy the standard 
+    language file "uDrawGraph_C.lang" in the default directory 
+  (<A href="int.html#language_files" target="_top">see above</A>)
+    as a basis for a new language file.
+  </P>
+
+  <A name="preconditions"></A>
+  <H2>
+    Preconditions for Language Files
+  </H2>
+  <P>
+    Every language file is checked against the default language file,
+    so even if your actual language setting is different, the default
+    file ("uDrawGraph_C.lang") must always be present to be used as 
+    reference.
+    So make sure that you do not edit the default file in order to 
+    avoid serious problems.
+    Each language file must declare a special key "Version" with the
+    uDraw(Graph) version number the file is written for.
+    The required number of language keys is hard coded in uDraw(Graph),
+    so make sure that your own language files matches the default file
+    with respect to the exact number and name of keys.
+    A language value must be specified for all language keys in the 
+    file.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

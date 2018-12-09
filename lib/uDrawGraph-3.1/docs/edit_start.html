@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Starting the Graph Editor</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="edit.html"><B>Graph Editor</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Starting</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Starting the Graph Editor</H1>
+  
+  <P>
+    Before editing a graph, you have to connect the editor to the 
+    uDraw(Graph) API. 
+    This can be done with the user interface at run-time with menu 
+  <A href="gui_file_connect.html" target="_top">File/Connect Application...</A>. 
+    Simply navigate with the file browser and select the graph editor 
+    executable file named "grapheditor(.exe)" in the "bin" directory 
+    of the uDraw(Graph) distribution. 
+  <STRONG>Note:</STRONG> 
+    if you do not know where uDraw(Graph) is installed on your 
+    computer, then display the environment variable 
+  <A href="var.html#udg_home" target="_top">$UDG_HOME</A>
+    in a command-line or ask your system administrator. 
+  </P>
+
+  <A name="modes"></A>
+  <H2>Graph Editor Modes</H2>
+  <P>
+    Another way to connect the graph editor is by starting uDraw(Graph) 
+    and the editor at the same time using one of the command-line options
+  <A href="opt.html#graphedit" target="_top">-graphedit</A>
+    (referred to as "-graphedit mode" for the rest of the 
+    graph editor chapter) or 
+  <A href="opt.html#graphedit_old" target="_top">-graphedit_old</A>
+    (referred to as "-graphedit_old mode"). 
+  </P>
+  
+  <A name="reconfig"></A>
+  <H2>User Interface Reconfiguration</H2>
+  <P>
+    When connected initially using option -graphedit, the graph editor
+    will slightly reconfigure the uDraw(Graph) user interface to add 
+    additional entries in the menus usually reserved for uDraw(Graph) 
+    operations 
+    (namely menu entries "View/Open New Graph in New View" and 
+    "Help/Grapheditor").
+  <A href="new_gui.html" target="_top">User interface reconfiguration</A>
+    is a new feature since version 3.0.
+    Reconfiguration only works at start-up time of uDraw(Graph), so you
+    will not see these additional menu entries when you connect the 
+    editor at run-time using menu 
+  <A href="gui_file_connect.html" target="_top">File/Connect Application...</A>.
+    When you disconnect the editor by 
+  <A href="gui_file.html" target="_top">menu</A>, 
+    all uDraw(Graph) windows will disappear for a short time to reset
+    user interface reconfigurations.
+    Afterwards you will see the standard user interface which is
+    mostly identical to the interface configured by the graph editor.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

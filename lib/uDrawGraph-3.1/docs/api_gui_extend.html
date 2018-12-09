@@ -1,0 +1,443 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: User Interface Extension</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">User Interface Extension</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+     
+   
+  
+  <H1>User Interface Extension</H1>
+  
+  <P>
+    Extending the user interface is the traditional way to add application 
+    specific menus and icons at a predefined places in the uDraw(Graph) 
+    user interface.
+    It is even possible to 
+  <A href="api_gui_config.html" target="_top">configure the whole user interface</A>
+    of uDraw(Graph), so it is a good idea to look at this more flexible 
+    mechanism first.
+  </P>
+
+  <H2>
+    Why attaching Menus and Icons to the uDraw(Graph) User Interface?
+  </H2>
+  <P>
+    By extending uDraw(Graph) with application specific menus and icons, 
+    an application program connected to the API can offer the user a way
+    to start operations (processed by the application itself) by
+    interacting with a uDraw(Graph) graph visualization.
+    So the user has the same kind of menu access to both the standard
+    visualization operations offered by uDraw(Graph) and to operations 
+    that modify the graph structure and have to be executed by the 
+    application program. 
+  </P>
+  <P>
+    For example, an application might add a menu named "Delete Node". 
+    If the user selects this menu in the uDraw(Graph) user interface, the
+    application is informed about this event by receiving the answer
+  <A href="api_answ_all.html#menu_selection" target="_top">menu_selection(...)</A>
+    from the API. 
+    With respect to the current node selection (which has been propagated 
+    by the API before with answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>),
+    the application is able to remove the selected node(s) in its own data 
+    structure. 
+    Afterwards, the application has to send one of the commands of the 
+  <A href="api_cmd_graph.html" target="_top">graph category</A>
+    back to the API to inform uDraw(Graph) about its modifications to the graph
+    in order to update the visualization. 
+    Even with this trivial example, uDraw(Graph) has been extended by 
+    the functions of a simple graph editor without the need to provide 
+    the necessary code inside the visualization system. 
+    This way, uDraw(Graph) is as flexible and generic as possible to be 
+    extended by any kind of function, depending on the behavior of an 
+    application that is connected to the API. 
+  </P>
+
+  <A name="application_menus"></A>
+  <H2>Adding Application Menus and Icons</H2>
+  <P>
+    An application is able to attach menus in the uDraw(Graph) user interface
+    at any time by sending command
+  <A href="api_cmd_app_menu.html#create_menus" target="_top">app_menu(create_menus(...))</A>. 
+    It is even possible to add more menus later in a session, although 
+    this is not a recommended practice with respect to human computer 
+    interaction guidelines. 
+    uDraw(Graph) will always attach these application menus in the 
+  <A href="gui_edit.html" target="_top">Edit menu</A> 
+    hierarchy, because these operations should usually have to do with 
+    modification of the structure of a loaded graph. 
+    Each time the user selects an entry of a menu that is provided by 
+    the application, answer 
+  <A href="api_answ_all.html#menu_selection" target="_top">menu_selection(...)</A>
+    is sent back by the API to inform about this event. 
+    Afterwards, the application can perform any appropriated task to 
+    handle the event, e.g. by manipulating its own data and sending 
+    commands to the API. 
+  </P>
+  <P>
+    Application icons, added by using the API command 
+  <A href="api_cmd_app_menu.html#create_icons" target="_top">app_menu(create_icons(...))</A>
+    are always attached on a separate plane of the 
+  <A href="gui_base.html" target="_top">icon bar</A>.
+    The other (default) plane of the icon bar, visible at start-up time, 
+    is reserved for the built-in icons which are shortcuts to 
+    frequently used menu operations. 
+    The user can 
+  <A href="tut_edit_start.html#switch_planes" target="_top">switch between both icon planes</A>
+    by clicking on the arrow at the lower side of the icon bar. 
+    As soon as the API receives the first icons, the application plane and 
+    the arrow become visible automatically.
+    Each time the user selects an icon that is provided by the application, 
+    answer 
+  <A href="api_answ_all.html#icon_selection" target="_top">icon_selection(...)</A>
+    is sent back by the API to inform about this event. 
+    Afterwards, the application can perform any appropriated task to 
+    handle the event, e.g. by manipulating the own data and sending 
+    commands to the API. 
+  </P>
+  <P>
+    In 
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>, 
+    each context (i.e. graph) has its own menus and icons. 
+    To guarantee that the user interface is consistent, application 
+    menus and icons cannot be removed later. 
+    If particular menu entries or icons are not applicable in a 
+    current situation (e.g. with respect to the current node or 
+    edge selection in uDraw(Graph)), the application should deactivate 
+    them by using the commands 
+  <A href="api_cmd_app_menu.html#activate_menus" target="_top">app_menu(activate_menus(...))</A>. 
+    and 
+  <A href="api_cmd_app_menu.html#activate_icons" target="_top">app_menu(activate_icons(...))</A>. 
+    Both activation commands enable the menus (or icons) specified in 
+    the command's parameter and automatically disable all remaining 
+    application menus (or icons). 
+  </P>
+
+  <A name="interpose_file_events"></A>
+  <H2>
+    A closer Integration by Interposing the File Menu Events
+  </H2>
+  <P>
+    The application is unable to attach its menus in uDraw(Graph) at other 
+    places than the "Edit" menu, 
+    with the exception of 
+  <A href="api_gui_config.html" target="_top">user interface configuration</A>
+    at initialization time.
+    This might be inappropriate for I/O operations, for example if 
+    the applications would like to have a menu to save its own data 
+    structure. 
+    With respect to most user interface style guides, such an operation 
+    should usually be available in the "File" menu. 
+    After connecting an application to the API, uDraw(Graph) will disable 
+    most of the entries in the 
+  <A href="gui_file.html" target="_top">File</A>
+    menu to avoid a situation where the user can load a different graph 
+    without permission by the application. 
+  </P>
+  <P>
+    If desired, the application can use command 
+  <A href="api_cmd_app_menu.html#control_file_events" target="_top">app_menu(control_file_events)</A>
+    to take control of all entries of the "File" menu,
+    except for 
+  <A href="gui_file.html" target="_top">File/Connect Application</A>
+    and 
+  <A href="gui_file.html" target="_top">File/Disconnect Application</A>.
+    After doing so, the application will receive events with the
+  <A href="api_answ_all.html#menu_selection" target="_top">menu_selection(...)</A>
+    answer as soon as any entry of the "File" menu is selected by the user. 
+    After losing control of the "File" menu, uDraw(Graph) will not perform 
+    any operation if these menu entries are selected by the user. 
+    Instead, the application has to decide on its own what to do. 
+    To simulate the built-in behavior on these events, read the 
+  <A href="api_gui_extend.html#recommended_actions" target="_top">recommended actions</A>
+    below. 
+    The entries of the "File" menu have special predefined menu IDs 
+    (with prefix "#%") which are used in the string parameter of the
+  <A href="api_answ_all.html#menu_selection" target="_top">menu_selection(...)</A>
+    answer in case of selection.
+    These reserved menu IDs cannot be used as identifier for 
+    application menus.
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+<TR>
+<TH COLSPAN="2">Reserved Menu IDs:</TH>
+</TR>
+<TR>
+  <TD class="table">#%new</TD>
+  <TD class="table">-&gt; user has selected menu File/New</TD>
+  </TR>
+<TR>
+  <TD class="table">#%open</TD>
+  <TD class="table">-&gt; user has selected menu File/Open...</TD>
+  </TR>
+<TR>
+  <TD class="table">#%save</TD>
+  <TD class="table">-&gt; user has selected menu File/Save</TD>
+  </TR>
+<TR>
+  <TD class="table">#%saveas</TD>
+  <TD class="table">-&gt; user has selected menu File/Save As...</TD>
+  </TR>
+<TR>
+  <TD class="table">#%print</TD>
+  <TD class="table">-&gt; user has selected menu File/Print...</TD>
+  </TR>
+<TR>
+  <TD class="table">#%export</TD>
+  <TD class="table">-&gt; user has selected menu File/Export...</TD>
+  </TR>
+<TR>
+  <TD class="table">#%close</TD>
+  <TD class="table">-&gt; user has selected menu File/Close</TD>
+  </TR>
+<TR>
+  <TD class="table">#%exit</TD>
+  <TD class="table">-&gt; user has selected menu File/Exit</TD>
+  </TR>
+</TABLE>
+</P>
+
+  <P>
+    These menu IDs can be used with command 
+  <A href="api_cmd_app_menu.html#activate_menus" target="_top">app_menu(activate_menus(...))</A>
+    to enable or disable the corresponding entries in the "File" menu. 
+    Of course, "File" menu events not applicable in the current situation
+    can simply be ignored by the application, but it is better to 
+    deactivate these menu entries for ergonomic reasons.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    each time the command 
+  <A href="api_cmd_app_menu.html#activate_menus" target="_top">app_menu(activate_menus(...))</A>
+    is sent to 
+    the API, all the other menus not listed in the command's parameter 
+    list will be automatically deactivated, even in the "File" menu 
+    (but of course only if the application has taken control of the 
+    "File" menu). 
+    So an application programmer must always consider the entries of 
+    the "File" menu with each menu activation, because otherwise the 
+    user might not be able to exit uDraw(Graph) when menu "File/Exit" has 
+    automatically been disabled this way. 
+  </P>
+  <P>
+  <STRONG>Very important:</STRONG> 
+    After taking control of the "File" menu events, 
+    the application is responsible for closing a context and quitting
+    uDraw(Graph) when the user selects the corresponding operation, i.e. menu
+  <A href="gui_file.html" target="_top">File/Close</A>
+    (or the equivalent generic window function of the operating system
+    respective window manager)
+    and 
+  <A href="gui_file.html" target="_top">File/Exit</A>.
+    In this case, the answer menu_selection("#%close") respective
+    menu_selection("#%exit") is sent to the application which should 
+    usually be handled by performing the recommended actions that are 
+    listed directly below. 
+    The user will not be able to close windows or exit uDraw(Graph) if 
+    the application ignores these events.
+  </P>
+
+  <A name="recommended_actions"></A>
+  <H2>Recommended Actions on File Events</H2>
+  <P>
+    If the application controls the "File" menu 
+  (<A href="api_gui_extend.html#interpose_file_events" target="_top">read above</A>)
+    and the user selects an entry of this menu, then uDraw(Graph) does 
+    not perform any operation. 
+    Instead, the event is forwarded to the application by using the 
+    API answer 
+  <A href="api_answ_all.html#menu_selection" target="_top">menu_selection(...)</A>.
+    At this time, the application has to decide what to do. 
+    For example, if menu 
+  <A href="gui_file.html" target="_top">File/New</A> 
+    is selected, the application will receive the answer 
+    menu_selection("#%new"). 
+    An appropriate behavior to handle this event might be to clear the 
+    application's internal graph data structure and send an empty graph 
+    back to uDraw(Graph). 
+  </P>
+  <P>
+    If the application would like to simulate the built-in behavior 
+    that is usually executed in case of file events, it can do so by 
+    sending the following API commands back to the API:
+  </P>
+  
+  <UL>
+  <LI>
+  <B>Menu event "File/New"</B>
+<BR>
+    The application receives the answer menu_selection("#%new").
+    Clear the graph in uDraw(Graph) by sending command 
+  <A href="api_cmd_menu.html#file_new" target="_top">menu(file(new))</A>. 
+  </LI>
+
+  <LI>
+  <B>Menu event "File/Open..."</B>
+<BR>
+    The application receives the answer menu_selection("#%open").
+    Use a file browser in "open" mode with command 
+  <A href="api_cmd_window.html#file_browser" target="_top">window(file_browser(...))</A>
+    and wait for answer 
+  <A href="api_answ_all.html#browser_answer" target="_top">browser_answer(...)</A>. 
+    Load the selected file by using command 
+  <A href="api_cmd_menu.html#file_open_graph" target="_top">menu(file(open_graph(...)))</A>
+    or 
+  <A href="api_cmd_menu.html#file_open_status" target="_top">menu(file(open_status(...)))</A>
+    with the filename returned with the browser answer. 
+  </LI>
+
+  <LI>
+  <B>Menu event "File/Save"</B>
+<BR>
+    The application receives the answer menu_selection("#%save").
+    Save the status of the graph that is currently loaded in uDraw(Graph)
+    with command 
+  <A href="api_cmd_menu.html#file_save_status" target="_top">menu(file(save_status(...)))</A>. 
+  </LI>
+
+  <LI>
+  <B>Menu event "File/Save As..."</B>
+<BR>
+    The application receives the answer menu_selection("#%saveas").
+    Use a file browser in "save" mode with command 
+  <A href="api_cmd_window.html#file_browser" target="_top">window(file_browser(...))</A>
+    and wait for answer 
+  <A href="api_answ_all.html#browser_answer" target="_top">browser_answer(...)</A>. 
+    Save the loaded graph in term representation or status format 
+    (depending on the selected type in the browser answer) by using command 
+  <A href="api_cmd_menu.html#file_save_graph" target="_top">menu(file(save_graph(...)))</A> 
+    or 
+  <A href="api_cmd_menu.html#file_save_status" target="_top">menu(file(save_status(...)))</A>
+    with the filename returned by the browser answer. 
+  </LI>
+
+  <LI>
+  <B>Menu event "File/Print..."</B>
+<BR>
+    The application receives the answer menu_selection("#%print").
+    Open the print dialog window with command 
+  <A href="api_cmd_menu.html#file_print" target="_top">menu(file(print))</A>.
+  </LI>
+
+  <LI>
+  <B>Menu event "File/Export..."</B>
+<BR>
+    The application receives the answer menu_selection("#%export").
+    Open the export dialog window with command 
+  <A href="api_cmd_menu.html#file_export" target="_top">menu(file(export))</A>.
+  </LI>
+
+  <LI>
+  <B>Menu event "File/Close"</B>
+<BR>
+    The application receives the answer menu_selection("#%close").
+    Close the current context (i.e. graph) by sending command 
+  <A href="api_cmd_menu.html#file_close" target="_top">menu(file(close))</A>.
+    This menu should only be available in 
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>. 
+    Never close a context in single-graph mode! 
+  </LI>
+
+  <LI>
+  <B>Menu event "File/Exit"</B>
+<BR>
+    The application receives the answer menu_selection("#%exit").
+    Terminate uDraw(Graph) with command 
+  <A href="api_cmd_menu.html#file_exit" target="_top">menu(file(exit))</A>.
+    Maybe you should exit your application program, too.
+ </LI>
+  </UL>
+
+  <P>
+  <STRONG>Note:</STRONG> 
+    in
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>,
+    you also have to consider the context of the menu event sent 
+    to the application in a preluding 
+  <A href="api_answ_all.html#context" target="_top">context(...)</A>
+    answer. 
+    The current context must be set using command 
+  <A href="api_cmd_multi.html#set_context" target="_top">multi(set_context(...))</A>
+    to the context ID returned by the event answer before sending 
+    the next command. 
+    Otherwise, the reaction of your application may affect other graphs
+    than the one where the event actually happened. 
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

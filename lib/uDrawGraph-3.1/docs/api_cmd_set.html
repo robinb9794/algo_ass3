@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Set Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Set Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Set Commands</H1>
+  
+  <P>
+    On this page, API commands of the set category are described. 
+    This category covers all commands to set options in uDraw(Graph). 
+    The commands of this category are enclosed by keyword "set(...)". 
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+
+  </P>
+
+  <A name="layout_accuracy"></A>
+  <H2>
+    set(layout_accuracy(<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    Sets the accuracy of the 
+  <A href="conc_lay.html" target="_top">graph layout algorithm</A>
+    and thereby the processing time. 
+    The "integer" parameter of the command has to be in the range from 
+    1 to 5, where higher values mean better layout quality and more 
+    processing time. 
+    The default value is 3. 
+    A higher value may yield fewer edge crossings after using the 
+    layout algorithm, but the processing time will rise substantially. 
+    So, manipulate this option with caution, especially for very large 
+    graphs.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_alg.html" target="_top">Options/Layout Algorithm...</A>.
+  </P>
+
+  <A name="keep_nodes_at_levels"></A>
+  <H2>
+    set(keep_nodes_at_levels(<A href="api_param.html#boolean" target="_top">boolean</A>))
+  </H2>
+  <P>
+    Specifies whether or not nodes should be kept at their current 
+    level when the graph layout algorithm is performed. The default value
+    is "true". 
+    Using argument "false" will place the nodes back to their initial 
+    level with the next start of the layout algorithm.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_alg.html" target="_top">Options/Layout Algorithm...</A>.
+  </P>
+
+  <A name="manual_layout"></A>
+  <H2>
+    set(manual_layout(<A href="api_param.html#manual_constraints" target="_top">manual_constraints</A>))
+  </H2>
+  <P>
+    To set the mode for 
+  <A href="conc_fin.html" target="_top">fine-tuning</A>.
+    The mode specifies the behavior when a node that is moved with 
+    the mouse will touch its left or right neighbour node at the same level.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_alg.html" target="_top">Options/Layout Algorithm...</A>.
+  </P>
+
+  <A name="font_size"></A>
+  <H2>
+    set(font_size(<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    Sets the font size which is used for drawing the text of nodes 
+    in the graph. 
+    The size "integer" is in "point/pt". The default value is 12. 
+    The integer has to be a supported font size, either 6, 8, 10, 12, 
+    14, 18, 24 or 36. 
+    Setting the font size to a smaller value is useful to reduce the 
+    scale of a graph without losing the text of nodes. 
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>.
+  </P>
+
+  <A name="edge_style"></A>
+  <H2>
+    set(edge_style(<A href="api_param.html#spline_drawing" target="_top">spline_drawing</A>))
+  </H2>
+  <P>
+    Sets the style used for drawing edges.
+    Value "off" means that all long span edges are always drawn with 
+    straight line segments.
+    With value "all", uDraw(Graph) will draw all these edges with splines
+    (i.e. curves). 
+    When the value is "graph", the attribute
+  <A href="term_eattr.html#edgepattern" target="_top">EDGEPATTERN</A>
+    of each edge is used to determine whether or not the edge is drawn
+    with splines or straight lines.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>.
+  </P>
+
+  <A name="edge_text_black"></A>
+  <H2>
+    set(edge_text_black(<A href="api_param.html#boolean" target="_top">boolean</A>))
+  </H2>
+  <P>
+    Specifies if the edge text should be always displayed in black ("true") or
+    in grey ("false") if the edge is unselected and only in black if the edge
+    is selected. Setting this option to "true" can lead to an unreadable
+    layout of the graph, because edge texts can cross nodes and other edges
+    or other edge texts.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>.
+  </P>
+
+  <A name="gap_width"></A>
+  <H2>
+    set(gap_width(<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    Sets the minimal gap distance between nodes at the same level to 
+    the given integer. 
+    The value has to be in the range between 4 and 300, the default 
+    value is 20. 
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>.
+  </P>
+
+  <A name="gap_height"></A>
+  <H2>
+    set(gap_height(<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    Sets the minimal gap distance between the levels to the given integer. 
+    The value has to be in the range between 4 and 300, the default
+    value is 60. 
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>.
+  </P>
+
+  <A name="multi_edge_gap"></A>
+  <H2>
+    set(multi_edge_gap(<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    Sets the distance used for drawing 
+  <A href="term_mul.html" target="_top">multi-edges</A>
+    to the given integer. 
+    The value has to be in the range between 2 and 40, 
+    the default value is 10. 
+    Multi-edges are used when there is more than one edge between two nodes. 
+    The single edges of a multi-edge are spread by using this gap. 
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>.
+  </P>
+
+  <A name="self_edge_radius"></A>
+  <H2>
+    set(self_edge_radius(<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    Sets the radius used for drawing 
+  <A href="term_mul.html" target="_top">self-edges</A>
+    to the given integer. 
+    The value has to be in the range between 8 and 60, the default value is
+    16. 
+    Self-edges are used when the parent and child node of an edge are 
+    the same. 
+    Self-edges are drawn at the left or lower side of a node using a 
+    circle with a radius specified here. 
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>.
+  </P>
+
+  <A name="scrolling_on_selection"></A>
+  <H2>
+    set(scrolling_on_selection(<A href="api_param.html#boolean" target="_top">boolean</A>))
+  </H2>
+  <P>
+    This command is used to switch the auto-selection behavior. 
+    If auto-selection is on (i.e. parameter is "true") and the user selects 
+    a node in a survey view, then uDraw(Graph)  automatically scrolls to 
+    the same node in the corresponding detail view.
+  (<A href="conc_mul.html" target="_top">More information about multi-view</A>
+    can be found in the concepts document). 
+    This behavior can be switched off using parameter "false". 
+    The default value is "true". 
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>.
+  </P>
+
+  <A name="animation_speed"></A>
+  <H2>
+    set(animation_speed(<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    Sets the speed used for scrolling animation to the given integer. 
+    The value has to be either in the range between 10 and 100 or 0 
+    (0 is a special case to switch the animation off). 
+    The default value is 25. 
+    Animation is used to scroll the visible part of a base window 
+    towards a particular node, for example after using the commands
+  <A href="api_cmd_menu.html#navigation_find" target="_top">menu(navigation(find(...)))</A> 
+    or 
+  <A href="api_cmd_menu.html#navigation_navigator" target="_top">menu(navigation(navigator(...)))</A>.
+    The smaller the value, the slower the speed of scrolling from 
+    the old to the new position.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>.
+  </P>
+
+  <A name="browser"></A>
+  <H2>
+    set(browser(<A href="api_param.html#string" target="_top">string</A>))
+  </H2>
+  <P>
+    To set the command used for starting the web browser.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>,
+    where 
+  <A href="gui_opt_gen.html#help_system" target="_top">more information about the browser and online documentation</A>
+    can be found.
+  </P>
+
+  <A name="documentation"></A>
+  <H2>
+    set(documentation(<A href="api_param.html#string" target="_top">string</A>))
+  </H2>
+  <P>
+    To set the directory (URL prefix) where the online documentation 
+    is located.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>,
+    where 
+  <A href="gui_opt_gen.html#help_system" target="_top">more information about the browser and online documentation</A>
+    can be found.
+  </P>
+
+  <A name="print"></A>
+  <H2>
+    set(print(<A href="api_param.html#string" target="_top">string</A>))
+  </H2>
+  <P>
+    To specify the print command.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>,
+    where 
+  <A href="gui_opt_gen.html#printing" target="_top">more information about the printing command</A>
+    can be found.
+  </P>
+
+  <A name="measure"></A>
+  <H2>
+    set(measure(<A href="api_param.html#measures" target="_top">measures</A>))
+  </H2>
+  <P>
+    To set the measure unit used in the print dialog.
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>.
+  </P>
+
+  <A name="tooltip_delay"></A>
+  <H2>
+    set(tooltip_delay(<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    To set the delay for tooltips in milliseconds.
+    When the mouse pointer is over a node or edge with a tooltip attribute,
+    then you have to wait this time before the tooltip will appear.
+    The value has to be in the range between 0 and 3000, the default value is
+    1500. 
+    Setting this option can also be done by the user with menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>,
+    where 
+  <A href="gui_opt_gen.html#tooltips" target="_top">more information about tooltips</A>
+    can be found.
+  </P>
+
+  <A name="rules_first"></A>
+  <H2>
+    set(rules_first(<A href="api_param.html#boolean" target="_top">boolean</A>))
+  </H2>
+  <P>
+    To control the attribute evaluation order used for visualization 
+    definitions 
+  <A href="conc_def.html" target="_top">as described in the concepts document</A>.
+    When using "true", the value of a node or edge attribute is taken from 
+    a matching visualization rule even if the node or edge has the same
+    attribute (a rule matches when the node/edge has the same type).
+    When using "false", an attribute value is only taken from a matching
+    visualization rule when the node or edge does not have this particular
+    attribute.
+    So this command is used to specify the priority between visualization
+    rules and individual attributes.
+    This option cannot be set with the user interface.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

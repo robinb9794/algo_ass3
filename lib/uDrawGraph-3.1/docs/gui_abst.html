@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Abstraction Menu</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Abstraction Menu</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Abstraction Menu</H1>
+  
+  <IMG border="0" alt="Abstraction File" width="" height="" src="uDG31_men_abst.gif" align="JUSTIFY">
+  <P>
+    The "Abstraction" menu contains operations for hiding particular parts 
+    of a graph visualization. 
+    Two kinds of abstractions are available: 
+  <A href="gui_abst.html#subgraph" target="_top">subgraph abstractions</A> 
+    and 
+  <A href="gui_abst.html#edge" target="_top">edge abstractions</A>.
+  </P>
+  <P>
+    Subgraph abstraction is used to hide the subgraph(s) of the 
+    currently selected node(s). 
+    The advantage of using this abstraction is to get a clearer
+    graph layout where uninteresting or confusing subgraphs do not appear. 
+    The operation is only available when nodes are selected where the 
+    subgraph is not already hidden. 
+    After using this function, all children (and their children, and so on) 
+    of the selected node(s) will be removed from the graph visualization. 
+    This recursive hiding process stops as soon as a child is reached 
+    that has at least one parent which is not hidden at the same time. 
+    So, this operation will hide only the children that can be 
+    exclusively reached by starting at the selected node(s). 
+    Nodes with hidden subgraphs get an alternative visualization. 
+    This alternative visualization can be specified with the
+    node attributes
+  <A href="term_nattr.html#_cgo" target="_top">_CGO</A>
+    and
+  <A href="term_nattr.html#_cimage" target="_top">_CIMAGE</A>
+    in the term representation of a graph. 
+    In the default case, an icon with a pair of scissors is used to 
+    emphasize that subgraph abstraction has been applied to a node:
+  </P>
+  <P>
+  <IMG border="0" alt="subgraph abstraction" width="" height="" src="uDG31_abst_subgr.gif" align="JUSTIFY">
+    Symbol for applied subgraph abstraction
+  </P>
+  <P>
+    Edge abstraction is used to temporarily hide the incoming and 
+    outgoing edges (from the parents and to the children) of the 
+    currently selected node(s). 
+    The advantage of using this abstraction is to get a clearer graph 
+    layout where uninteresting or confusing edges do not appear. 
+    The operation is only available when nodes are selected where the 
+    edges are not already hidden. 
+    After using this function, all edges of the selected node(s) will
+    be removed from the graph visualization. 
+    Nodes with hidden edges get an alternative visualization by 
+    drawing a rectangular frame around the node: 
+  </P>
+  <P>
+  <IMG border="0" alt="edge abstraction" width="" height="" src="uDG31_abst_edge.gif" align="JUSTIFY">
+    Symbol for applied edge abstraction
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    Menu operations can also be invoked without the mouse by using
+  <A href="gui_keyb.html" target="_top">keyboard commands</A>. 
+  </P>
+
+  <A name="subgraph"></A>
+  <H2>Subgraph Abstraction</H2>
+  <UL>
+  <A name="hide_subgraph"></A>
+  <LI>
+  <B>
+    Hide Subgraph 
+  </B>
+<BR>
+    This operation is used to hide the subgraph(s) of the 
+    currently selected node(s). 
+    To undo a subgraph abstraction, use menu "Show Subgraph" or 
+    "Restore all Subgraphs", see below. 
+    This will unhide the hidden subgraph(s) again. 
+    After using this abstraction, the corresponding subgraph will be 
+    removed from the visualization without taking advance of the 
+    space that becomes free. 
+    If you want to utilize the free space in the layout after using 
+    subgraph abstractions, choose menu 
+  <A href="gui_lay.html" target="_top">Layout/Improve Spacing</A>. 
+  </LI>
+
+  <A name="show_subgraph"></A>
+  <LI>
+  <B>
+    Show Subgraph 
+  </B>
+<BR>
+    To undo previously applied subgraph abstractions for the currently 
+    selected node(s). 
+    The operation is only available when nodes are selected where the 
+    subgraph is actually hidden.
+    The subgraph is inserted by using 
+  <A href="conc_lay.html#incr" target="_top">incremental graph layout</A>. 
+    If the layout has changed by using menus 
+  <A href="gui_lay.html" target="_top">Layout/Improve All</A>, 
+  <A href="gui_lay.html" target="_top">Layout/Improve Spacing</A>
+    or after 
+  <A href="conc_fin.html" target="_top">fine-tuning</A>,
+    the graph nodes may not be at the same position as before,
+    because other nodes may have occupied the space needed to show
+    the subgraph again. 
+  </LI>
+ 
+  <A name="restore_all_subgraphs"></A>
+  <LI>
+  <B>
+    Restore all Subgraphs  
+  </B>
+<BR>
+    This operation undoes previously applied subgraph abstractions for 
+    all nodes in the graph in one step. 
+    See menu operation "Show Subgraph" above for details about 
+    undoing subgraph abstractions. 
+  </LI>
+  </UL>
+
+  <A name="edge"></A>
+  <H2>Edge Abstraction</H2>
+  <UL>
+  <A name="hide_edges"></A>
+  <LI>
+  <B>
+    Hide Edges
+  </B>
+<BR>
+    This operation is used to hide the incoming and outgoing 
+    edges (from the parents and to the children) of the currently 
+    selected node(s). 
+    To undo an edge abstraction, select menu "Show Edges" or 
+    "Restore all Edges", see below.
+    This will unhide the hidden edge(s) again. 
+    After using this abstraction, the corresponding edges will be 
+    removed from the visualization.
+    They can be redrawn at any time by using the two menu operations 
+    below without calculating a new graph layout. 
+  </LI>
+
+  <A name="show_edges"></A>
+  <LI>
+  <B>
+    Show Edges
+  </B>
+<BR>
+    To undo previously applied edge abstractions for the currently 
+    selected node(s). 
+    The operation is only available when nodes are selected where the 
+    edges are actually hidden.
+    Unlike subgraph abstractions, showing the edges will never start 
+    the layout algorithm. 
+    So after using this operation, the graph nodes will always be at 
+    the same position as before. 
+  </LI>
+
+  <A name="restore_all_edge"></A>
+  <LI>
+  <B>
+    Restore all Edges
+  </B>
+<BR>
+    This operation undoes previously applied edge abstractions for 
+    all nodes in the graph in one step. 
+    See menu operation "Show Edges" above for details about 
+    undoing edge abstractions. 
+  </LI>
+  </UL>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

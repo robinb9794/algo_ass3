@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: New API Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="new.html"><B>New Features</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">API Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>
+    New API Commands and Features
+  </H1>
+  
+  <P>
+    This page covers new features and modifications in version 3.0, 
+    compared to the previous release V2.1.
+    The new and old API commands are listed in the 
+  <A href="api_cmd.html" target="_top">complete API syntax</A>.
+  </P>
+
+  <UL>
+
+  <LI>
+  <B>
+    gui(configure(filename))
+  </B>
+<BR>
+    To 
+  <A href="new_gui.html" target="_top">configure</A> 
+    the whole user interface from the specified configuration file.
+  <A href="api_cmd_gui.html#configure" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    gui(activate_menus(menu_ids))
+  </B>
+<BR>
+    To enable or disable menu entries configured by the application
+    in the uDraw(Graph) user interface.
+  <A href="api_cmd_gui.html#activate_menus" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    gui(set_radio_menus(menu_ids))
+  </B>
+<BR>
+    To set the value of a group of configured menu entries that behave like 
+    radio buttons.
+  <A href="api_cmd_gui.html#set_radio_menus" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    gui(activate_icons(icon_ids))
+  </B>
+<BR>
+    To enable or disable icons configured by the application in the uDraw(Graph)
+    user interface.
+  <A href="api_cmd_gui.html#activate_icons" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    gui(set_radio_icons(icon_ids))
+  </B>
+<BR>
+    To set the value of a group of configured icons that behave like 
+    radio buttons.
+  <A href="api_cmd_gui.html#set_radio_icons" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    menu(file(print_to_printer))
+  </B>
+<BR>
+    To send the graph to the printer.
+  <A href="api_cmd_menu.html#file_print_to_printer" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    menu(file(export(boolean,string,filename)))
+  </B>
+<BR>
+    To 
+  <A href="new_export.html" target="_top">export</A> 
+    the current graph to a file. 
+    boolean: true means whole graph, 
+    false means visible area. 
+    string: the type, either "gif", "tiff"  or "png".
+    filename: the destination file.
+  <A href="api_cmd_menu.html#file_export" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    menu(file(export))
+  </B>
+<BR>
+    To open the 
+  <A href="gui_file_export.html" target="_top">export dialog</A>
+    window.
+  <A href="api_cmd_menu.html#file_export2" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    menu(navigation(select_parent(edge_id)))
+  </B>
+<BR>
+    To select the parent node of the edge with the specified ID.
+  <A href="api_cmd_menu.html#navigation_select_parent" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    menu(navigation(select_child(edge_id)))
+  </B>
+<BR>
+    To select the parent node of the edge with the specified ID.
+  <A href="api_cmd_menu.html#navigation_select_child" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    menu(option(layout_algorithm))
+  </B>
+<BR>
+    To open the 
+  <A href="gui_opt_alg.html" target="_top">layout algorithm dialog</A>
+    window.
+  <A href="api_cmd_menu.html#option_layout_algorithm" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    menu(option(layout_settings))
+  </B>
+<BR>
+    To open the 
+  <A href="gui_opt_set.html" target="_top">layout settings dialog</A>
+    window.
+  <A href="api_cmd_menu.html#option_layout_settings" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    menu(option(general_settings))
+  </B>
+<BR>
+    To open the 
+  <A href="gui_opt_gen.html" target="_top">general settings dialog</A>
+    window.
+  <A href="api_cmd_menu.html#option_general_settings" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    menu(option(save))
+  </B>
+<BR>
+    To save the options.
+  <A href="api_cmd_menu.html#option_save" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    set(keep_nodes_at_levels(boolean))
+  </B>
+<BR>
+  
+    To set whether or not nodes should keep their level when using the
+    graph layout algorithm.
+  <A href="api_cmd_set.html#keep_nodes_at_levels" target="_top">Details</A>.
+  <BR>
+  </LI>
+
+  <LI>
+  <B>
+    set(manual_layout(manual_constraints))
+  </B>
+<BR>
+  
+    To set constraint used for fine-tuning (manual layout).
+  <BR>
+    manual_constraints ::= modify | preserve | fixed.
+  <A href="api_cmd_set.html#manual_layout" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    set(edge_style(spline_drawing))
+  </B>
+<BR>
+  
+    To set the global style used for drawing edges.
+  <BR>
+    spline_drawing ::= off | graph | all. off means edges are always 
+    straight line segments, graph means straight lines or  
+  <A href="new_major.html" target="_top">splines</A>
+    according to the EDGEPATTERN attribute of each individual edge,
+    all means edges are always drawn using splines.
+  <A href="api_cmd_set.html#edge_style" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    set(browser(string))
+  </B>
+<BR>
+    To set name and path of the web browser.
+  <A href="api_cmd_set.html#browser" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    set(documentation(string))
+  </B>
+<BR>
+    To set the URL prefix to the online documentation.
+  <A href="api_cmd_set.html#documentation" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    set(print(string))
+  </B>
+<BR>
+    To set command and options used for printing graphs in PostScript&reg;.
+  <A href="api_cmd_set.html#print" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    set(measure(measures))
+  </B>
+<BR>
+  
+    To set the measure unit used in the print dialog.
+  <BR>
+    measures ::= cm | inch.
+  <A href="api_cmd_set.html#measure" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    set(tooltip_delay(integer))
+  </B>
+<BR>
+    To set the time delay between entering a node/edge with the
+    mouse and appearance of the 
+  <A href="new_major.html" target="_top">tooltip</A>
+    text, if available. The integer has to be between -1 and 3000.
+  <A href="api_cmd_set.html#tooltip_delay" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    special(add_language(string))
+  </B>
+<BR>
+    To add additional text translations from the given file prefix 
+    (i.e. file name without suffix ".menu") at run-time.
+    The file contains key/value pairs used for internationalization.
+  <A href="api_cmd_special.html#add_language" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    special(version)
+  </B>
+<BR>
+    To ask for the version number of uDraw(Graph). Returns the new
+    answer "version" with parameter "uDraw(Graph) 3.1" in this release.
+  <A href="api_cmd_special.html#version" target="_top">Details</A>.
+  </LI>
+
+  <LI>
+  <B>
+    window(background(string))
+  </B>
+<BR>
+    To set the 
+  <A href="gui_base.html" target="_top">base window</A> 
+    background color to string. The string
+    is a RGB hex-value format, e.g. "#406fa8".
+  <A href="api_cmd_window.html#background" target="_top">Details</A>.
+  </LI>
+
+  </UL>
+
+  <P>
+    Next:
+  <A href="new_options.html" target="_top">
+    New Command-Line Options and Environment Variables</A>.
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Adobe and PostScript are registered trademarks of Adobe Systems, Inc.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

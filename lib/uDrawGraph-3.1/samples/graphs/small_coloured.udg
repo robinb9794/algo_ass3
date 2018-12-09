@@ -1,0 +1,19 @@
+  [
+  l("Node A",n("Module",[a("OBJECT","Node A"),a("COLOR","lightblue")],
+        [
+        e("anything",[a("EDGECOLOR","red")],
+          l("Node B",n("anything",[a("OBJECT","Node B"),a("COLOR","lightred")],
+                [
+                e("anything",[a("EDGEPATTERN","dotted")],
+                  r("1"))
+                ]))),
+        e("anything",[a("EDGEPATTERN","dotted")],
+          l("Node C",n("anything",[a("OBJECT","Node C"),a("COLOR","lightgreen")],
+                [
+                e("anything",[a("EDGECOLOR","blue")],
+                  l("1",n("Module",[a("OBJECT","Node D")],[])))
+                ]))),
+        e("anything",[a("EDGEPATTERN","dashed")],
+          l("Node E",n("anything",[a("OBJECT","Node E"),a("COLOR","yellow")],[])))
+        ]))
+  ]

@@ -1,14 +1,12 @@
 package redblack;
 
-public class Node<K extends Comparable<K>, V> {
+public class Node<K> {
 	private K key;
-	private V value;
 	Node left = null;
 	Node right = null;
 	boolean isRed;
 	
-	public Node(K key, V value) {
-		this.value = value;
+	public Node(K key) {
 		this.key = key;
 	}
 	
@@ -18,14 +16,6 @@ public class Node<K extends Comparable<K>, V> {
 	
 	public void setKey(K key) {
 		this.key = key;
-	}
-	
-	public V getValue() {
-		return this.value;
-	}
-	
-	public void setValue(V value) {
-		this.value = value;
 	}
 	
 	public Node getLeft() {

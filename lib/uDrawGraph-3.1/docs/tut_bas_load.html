@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tutorial, Loading</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_bas.html"><B>Basic Tasks</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Loading</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>Tutorial Exercise 1.1: Loading a Graph from File</H1>
+  
+  <P>
+    After starting uDraw(Graph) without any options or arguments, an 
+    empty base window will appear 
+ (<A href="gui_base.html" target="_top">
+    click here to see an image and more information about the base window
+  </A>). 
+    In the upper part of the window, you have pull down menus
+    where you can access all functions. 
+    The icons at the left side are buttons for direct access to frequently 
+    used menu operations. 
+    We will come to this later. 
+    One important part of the base window is the lower footer area
+    where status messages are displayed. 
+    Keep your eye on this area to be informed about important system events, 
+    for example when you have to wait for an operation to be finished. 
+  </P>
+  <P>
+    Now we will load a graph for visualization. 
+    Graphs are stored in files with a "*.udg" suffix.
+    They contain a so called "term representation". 
+    This format only defines the structure of a graph, but has no layout 
+    information like the coordinates of a particular node. 
+    Refer to the 
+  <A href="term.html" target="_top">term representation documentation</A>
+    for information about the graph format. 
+    To load a graph, you need the file browser to select a file name. 
+    You can get the browser by selecting menu 
+  <A href="gui_file.html" target="_top">File/Open...</A> 
+    (that means move the mouse pointer to the File pull down menu 
+    and press the left mouse button which will give you the 
+  <A href="gui_file.html" target="_top">File menu</A>. 
+    Then move the mouse pointer to the Open... menu entry by still 
+    pressing the mouse button and finally release the mouse button 
+    when you are over the Open... menu entry). 
+    This will bring up the 
+  <A href="gui_file_open.html" target="_top">file browser</A> 
+    to open a graph. 
+  </P>
+  <P>
+    (The rest of this exercise applies only to UNIX&reg; and Linux&reg; systems. 
+    On Microsoft&reg; and on Mac OS&reg; X platforms, you will get the well-known standard 
+    Windows&reg; file browser instead of the one discussed here.)
+  </P>
+  <P>
+    The file browser has two different lists: 
+    One for the directories inside the current directory and one for 
+    the files in the current directory. 
+    The current directory is always displayed in the selection field of 
+    the file browser. 
+    Now you can browse through the directories of the file system of 
+    your computer by double-clicking the list elements of the directories 
+    view with the left mouse button (the left mouse button is used to 
+    select or manipulate objects visible on the screen, whereby the 
+    right button is used to choose from a pop-up/context menu). 
+    A double-click on '..', the first element of the directory list, 
+    will move to the parent directory. 
+    You can use the vertical scrollbars at the right side of the lists 
+    to move the scrolling region if there is not enough place to show all 
+    directories or files. 
+    Finally, go into the "samples/graphs" directory of the uDraw(Graph) 
+    distribution. 
+    Ask your administrator if you are not sure about the location 
+    where the distribution is installed on your file system. 
+  </P>
+  <P>
+    When you are inside the "samples/graphs" directory, click on the 
+    types option button to select the "Graph Files" filter. 
+    This will remove all files without suffix "*.udg" from the 
+    files view. 
+    Now double-click on file "graph_example.udg" to load this 
+    graph in uDraw(Graph). 
+    This action will automatically close the file browser. 
+  </P>
+  <P>
+    End of Exercise 1.1.
+  <A href="tut_bas.html" target="_top">Go back to the Section 1 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

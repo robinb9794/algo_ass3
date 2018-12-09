@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Command-Line Options</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Command-Line Options</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  <H1>Command-Line Options</H1>
+  
+  <P>
+    uDraw(Graph) supports the command-line options listed below.
+    Further, the file name of either a 
+  <A href="term.html" target="_top">term representation file</A> 
+    or 
+  <A href="conc_sta.html" target="_top">status file</A> 
+    can be used as the last argument when starting 
+    uDraw(Graph) in a command-line in order to load a graph at 
+    initialization time.  
+    In uDraw(Graph), option "-graphedit" and a graph file can now be
+    combined to load the graph initially in the 
+  <A href="edit.html" target="_top">graph editor</A>.
+  </P>
+
+  <A name="options"></A>
+  <H2>uDraw(Graph) Command-Line Syntax</H2>
+  <P>
+  <PRE>uDrawGraph 
+            <A href="opt.html#display" target="_top">-display</A> &lt;X11-display&gt;
+            <A href="opt.html#font" target="_top">-font</A> { normal | large | extra_large }
+            <A href="opt.html#graphbg" target="_top">-graphbg</A> &lt;colorvalue&gt;
+            <A href="opt.html#graphedit" target="_top">-graphedit</A>
+            <A href="opt.html#graphedit_old" target="_top">-graphedit_old</A>
+            <A href="opt.html#help" target="_top">-help</A>
+            <A href="opt.html#init" target="_top">-init</A> &lt;init-file&gt;
+            <A href="opt.html#log" target="_top">-log</A> &lt;log-file&gt;
+            <A href="opt.html#nogui" target="_top">-nogui</A>
+            <A href="opt.html#pipe" target="_top">-pipe</A>
+            <A href="opt.html#server" target="_top">-server</A> ?port?
+            <A href="opt.html#startappl" target="_top">-startappl</A> &lt;directory&gt; &lt;filename/options&gt;
+            <A href="opt.html#verify" target="_top">-verify</A>
+            <A href="opt.html#version" target="_top">-version</A>
+            <A href="opt.html#window_api" target="_top">-window_api</A>
+            &lt;graph-file&gt;
+  </PRE>
+  </P>
+
+  <A name="display"></A>
+  <H2>-display &lt;X11-display&gt;</H2>
+  <P>
+    (This option has no effect on the Windows&reg; platform.)
+    To send the graphical output (i.e. all windows and dialogs) 
+    to the specified X11<SUP class="tm">TM</SUP> display, for example to start uDraw(Graph) 
+    on one computer and redirect the user interface to be displayed 
+    on another computer. X11<SUP class="tm">TM</SUP> displays are specified in the format  
+    <EM>hostname</EM><STRONG>:</STRONG><EM>display</EM><STRONG>.</STRONG><EM>screen</EM>, 
+    for example: "myhost:0.0".
+  </P>
+
+  <A name="font"></A>
+  <H2>-font { normal | large | extra_large }</H2>
+  <P>
+    (This option has no effect on the Windows&reg; platform.)
+    To set the fonts in the dialog windows of the graph editor to a 
+    larger size. 
+    Fonts larger than the default value "normal" are useful for 
+    demonstrations when people should read the text of menus, dialog 
+    windows etc. from the distance.
+  </P>
+
+  <A name="graphbg"></A>
+  <H2>-graphbg &lt;color&gt;</H2>
+  <P>
+    To set the background of the uDraw(Graph) 
+  <A href="gui_base.html" target="_top">base window</A> 
+    to the specified color. 
+    The value of this option can be any X11<SUP class="tm">TM</SUP> colorname on UNIX&reg;
+    and Linux&reg; platforms (see file lib/X11/rgb.txt in your X11<SUP class="tm">TM</SUP> directory) 
+    or any RGB color specification in a format like "#0f331e", 
+    where "0f" is the hexadecimal value for the red part of the color, 
+    "33" is the green part and "1e" is the blue. 
+  </P>
+
+  <A name="graphedit"></A>
+  <H2>-graphedit</H2>
+  <P>
+    To connect the 
+  <A href="edit.html" target="_top">graph editor application</A> 
+    at initialization time to the uDraw(Graph) 
+  <A href="api.html" target="_top">API</A>.
+    The uDraw(Graph) user interface will be slightly different using this 
+    option, because uDraw(Graph) starts without the standard user interface 
+    (same as option 
+  <A href="opt.html#nogui" target="_top">-nogui</A>)
+    and the editor 
+  <A href="edit_start.html" target="_top">reconfigures</A>
+    it to add some extra menus.
+    In the uDraw(Graph) distribution, the graph editor application is located 
+    in directory "bin". 
+    The file name of the editor executable file ("grapheditor(.exe)") 
+    must not be changed.
+    Environment variable 
+  <A href="var.html#grapheditor_directory" target="_top">$GRAPHEDITOR_DIRECTORY</A> 
+    can be used to specify an alternative directory for the editor.
+    The graph editor can also be connected to uDraw(Graph) at runtime 
+    by using menu 
+  <A href="gui_file_connect.html" target="_top">File/Connect Application...</A>. 
+  </P>
+
+  <A name="graphedit_old"></A>
+  <H2>-graphedit_old</H2>
+  <P>
+    Same as option
+  <A href="opt.html#graphedit" target="_top">-graphedit</A>,
+    but starts the editor in the classic way without taking advantage of the
+  <A href="edit_start.html" target="_top">user interface reconfiguration</A>
+    feature.
+  </P>
+
+  <A name="help"></A>
+  <H2>-help</H2>
+  <P>
+    Displays a help message to show the options' syntax without actually
+    starting uDraw(Graph).
+  </P>
+
+  <A name="init"></A>
+  <H2>-init &lt;init-file&gt;</H2>
+  <P>
+    To pass a file containing a list of initial
+  <A href="api.html" target="_top">API</A>
+    commands.
+    The content of the file must be conform to rule
+  <A href="api_cmd.html#uDG_commands" target="_top">uDG_commands</A>
+    of the API grammar, so the file content must begin with "[".
+    The commands in the file are executed immediately after starting 
+    uDraw(Graph).
+    You can use all API commands, except those of the categories 
+  <A href="api_cmd_multi.html" target="_top">Multi</A>, 
+  <A href="api_cmd_app_menu.html" target="_top">Application Menu</A>, 
+  <A href="api_cmd_dad.html" target="_top">Drag &amp; Drop</A>.
+    The answers to these commands you usually get when you send them via 
+    API are dropped, if no application is connected.
+    Otherwise they are sent to the application as usual.
+    Use this option carefully when you have connected an application
+    on command-line with the options 
+  <A href="opt.html#pipe" target="_top">-pipe</A>,
+  <A href="opt.html#startappl" target="_top">-startappl</A> or
+  <A href="opt.html#graphedit" target="_top">-graphedit</A>,
+    because the answers of these initial commands may be unexpected for
+    the application and may result in strange effects.
+  </P>
+
+  <A name="log"></A>
+  <H2>-log &lt;log-file&gt;</H2>
+  <P>
+    To create a file where all commands and answers sent and received
+    by the 
+  <A href="api.html" target="_top">API</A>
+    are logged. 
+    In the file, every command sent by a connected application is 
+    preceded by "Command:" and every reply sent back by
+    uDraw(Graph) API is preceded by "Answer:". 
+  </P>
+  <P>
+    Use - as filename (i.e. "-log -") when your application is connected 
+    to the API via sockets (option 
+  <A href="opt.html#server" target="_top">-server</A>) 
+    and you want to see log messages printed on stdout instead of the file.
+    Logging on stdout is not possible when you use option 
+  <A href="opt.html#pipe" target="_top">-pipe</A>, 
+    because in this case stdout is needed for pipe communication, of course.
+  </P>
+
+  <A name="nogui"></A>
+  <H2>-nogui</H2>
+  <P>
+    This option is used to start uDraw(Graph) without an initial
+    user interface.
+    With this option, application programs connecting to the API must 
+    configure the user interface (menus, icons and/or footer area) 
+    with API command
+  <A href="api_cmd_gui.html#configure" target="_top">gui(configure(...))</A>,
+    but without using any API command of 
+  <A href="api_cmd_app_menu.html" target="_top">category Application Menu</A>.
+  <STRONG>Note:</STRONG> 
+    using this option without connecting an application initially (with 
+  <A href="opt.html#graphedit" target="_top">-graphedit</A>,
+  <A href="opt.html#pipe" target="_top">-pipe</A>
+    or
+  <A href="opt.html#startappl" target="_top">-startappl</A>)
+    is only meaningful when you use option 
+  <A href="opt.html#server" target="_top">-server</A>,
+    too.
+    In this case you will not see a user interface immediately, but 
+    uDraw(Graph) will wait in the background for applications that connect 
+    to the API on the designated socket port later.
+  </P>
+
+  <A name="pipe"></A>
+  <H2>-pipe</H2>
+  <P>
+    Used when uDraw(Graph) is started by an application program that
+    connects to the API using pipes.
+    Refer to the 
+  <A href="api_connect.html" target="_top">API documentation</A>
+    for further details.
+    The same can be done based on socket communication with option 
+  <A href="opt.html#server" target="_top">-server</A> (see below).
+    With option "-pipe", the API will start listening for commands.
+    Most of the <A href="gui_file.html" target="_top">File menu</A> 
+    will be deactivated to ensure that the user is unable 
+    to remove or exchange a loaded graph without approval by the 
+    application, but the application can 
+  <A href="api_gui_extend.html#interpose_file_events" target="_top">take control of the "File" menu</A>.
+    You can also use this option to test the uDraw(Graph) API by being 
+    able to enter API commands on the command-line after the system
+    has started.
+  </P>
+
+  <A name="server"></A>
+  <H2>-server ?port?</H2>
+  <P>
+    Similar to option
+  <A href="opt.html#pipe" target="_top">-pipe</A> (see above), but here the API
+    communication is based on TCP/IP sockets.
+    If the optional port parameter is not given, port 2542 is used which
+    is exclusively registered for uDraw(Graph). So there is usually no need
+    to switch to another port.
+    With sockets, the application can be located on another computer
+    and it can even connect to the API when uDraw(Graph) has already been
+    started, which are both drawbacks of pipe communication.
+    Refer to the 
+  <A href="api.html" target="_top">API documentation</A>
+    for further details.
+  </P>
+  <P>
+  <A name="security_note"></A>
+  <STRONG>Security note:</STRONG>
+    You have to be careful with this option, because after entering the
+    socket server mode, any application can connect to uDraw(Graph) from
+    any computer in the network at any time.
+    Although the  
+  <A href="api_tcl.html" target="_top">Tcl/Tk interface</A>
+    in the API is restricted to a safe Tcl interpreter after using option
+    "-server" (to avoid that 
+    the sender of API commands can cause harm,
+  <A href="api_tcl.html#security_restrictions" target="_top">refer to the API documentation</A>
+    for details),
+    a malicious application program can still open a dialog window to 
+    ask the uDraw(Graph) user to execute dangerous operations.
+    You have to establish a security policy for the users of your system
+    to avoid "social engineering attacks" like this.  
+  </P>
+
+  <A name="startappl"></A>
+  <H2>-startappl &lt;directory&gt; &lt;filename/options&gt;</H2>
+  <P>
+    To connect the application specified by "filename" and located in 
+    the given "directory" at initialization time to the uDraw(Graph) 
+  <A href="api.html" target="_top">API</A>.
+    Note that there has to be an unusual space between the directory 
+    and the file name!
+    If options are required in order to start the application then the
+    file name has to be quoted in the shell together with the options.
+    This example starts the application "testappl" in directory "dir"
+    with the given options:
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">-startappl /bin `testappl -opt1 arg1 arg2 -opt2'</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    The equivalent operation is to connect the application at run-time
+    with menu
+  <A href="gui_file_connect.html" target="_top">File/Connect Application...</A>.   
+  </P>
+
+  <A name="verify"></A>
+  <H2>-verify</H2>
+  <P>
+    This option is used for special debugging of the incremental 
+    layout algorithm and is not intended for the normal user.
+    With this option, uDraw(Graph) verifies internal data structures 
+    after updating a graph with API command 
+  <A href="api.html" target="_top">graph(update(...))</A>. 
+    You should use this option at the start when you get strange 
+    effects or bugs after graph updates. 
+    The verification might be very complex, so it is usually 
+    switched off.
+  </P>
+
+  <A name="version"></A>
+  <H2>-version</H2>
+  <P>
+    To show the current version of uDraw(Graph) in the command-line
+    without actually starting the system.
+  </P>
+
+  <A name="window_api"></A>
+  <H2>-window_api</H2>
+  <P>
+    To enable the 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window feature</A> 
+    where a connected application has full control over each 
+  <A href="gui_base.html" target="_top">base window</A>.
+    This is not the default to ensure compatibility with applications
+    written for previous versions of uDraw(Graph) where only the first
+    base window to a graph was accessible for the application in
+    multi-graph mode.
+    Refer to the command category
+  <A href="api.html" target="_top">Multi</A> in the API documentation for 
+    more information.     
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    X Window System and X11 are trademarks of The Open Group.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

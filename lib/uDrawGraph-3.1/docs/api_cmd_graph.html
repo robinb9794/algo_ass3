@@ -1,0 +1,419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Graph Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Graph Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Graph Commands</H1>
+  
+  <P>
+    On this page, API commands of the graph category are described. 
+    This category covers all commands to send graphs in 
+  <A href="term.html" target="_top">term representation format</A>
+    and updates on graphs. 
+    The commands of this category are enclosed by keyword "graph(...)". 
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+  </P>
+
+  <A name="new"></A>
+  <H2>
+    graph(new(<A href="api_param.html#graphterm" target="_top">graphterm</A>))
+  </H2>
+  <P>
+    Sends a graph in 
+  <A href="term.html" target="_top">term representation format</A>
+    "graphterm" to uDraw(Graph) for visualization. 
+    This is the same format used for file representation of
+    uDraw(Graph) graphs, i.e. the files with suffix ".udg". 
+  <STRONG>Note:</STRONG>
+    Unlike the file format, newline characters are not allowed 
+    in term representations if sent to the API. 
+    After transmitting a graph with this command, the 
+  <A href="conc_lay.html" target="_top">layout algorithm</A> 
+    for reducing edge crossing will not be started automatically. 
+    You can either do this later using API command 
+  <A href="api_cmd_menu.html#layout_improve_all" target="_top">menu(layout(improve_all))</A>
+    or by combining both steps with command
+  <A href="api_cmd_graph.html#new_placed" target="_top">graph(new_placed(...))</A>, 
+    see below. 
+    The advantage of using the second method is that the user will 
+    not see the intermediate graph visualization where the layout 
+    algorithm is not applied.
+    If you do not want to send the whole graph via API, you can save 
+    it to a file and use command 
+  <A href="api_cmd_menu.html#file_open_graph" target="_top">menu(file(open_graph(...)))</A>
+    to load the graph from file. 
+  </P>
+
+  <A name="new_placed"></A>
+  <H2>
+    graph(new_placed(<A href="api_param.html#graphterm" target="_top">graphterm</A>))
+  </H2>
+  <P>
+    This command combines 
+  <A href="api_cmd_graph.html#new" target="_top">graph(new(...))</A>, 
+    (i.e. transmitting a graph) and 
+  <A href="api_cmd_menu.html#layout_improve_all" target="_top">menu(layout(improve_all))</A>
+    (i.e. starting the 
+  <A href="conc_lay.html" target="_top">graph layout algorithm</A> 
+    to reduce edge crossings) in one step. 
+    The advantage of using this command (instead of the previous one) 
+    is that the user will not see the intermediate graph visualization 
+    where the layout algorithm is not applied.
+    The parameter "graphterm" is the 
+  <A href="term.html" target="_top">term representation format</A>
+    of the graph.
+    If you do not want to send the whole graph via API, you can save 
+    it to a file and use command 
+  <A href="api_cmd_menu.html#file_open_graph" target="_top">menu(file(open_graph(...)))</A>
+    to load the graph from file. 
+  </P>
+
+  <A name="update"></A>
+  <H2>
+    graph(update(<A href="api_param.html#node_updates" target="_top">node_updates</A>,<A href="api_param.html#edge_updates" target="_top">edge_updates</A>))
+  </H2>
+  <P>
+    This command can be used to update the structure of the currently
+    loaded graph. 
+    You can remove existing nodes and edges, add new nodes or connect 
+    nodes with new edges. 
+    Here a graph update contains two lists: one for the node and one for
+    the edge updates. 
+    After sending this command, 
+  <A href="conc_lay.html#incr" target="_top">incremental layout</A>
+    will be used to integrate the update into the graph 
+    to make sure that the layout remains as stable as possible.
+    After an update, all nodes (and edges) previously selected become
+    implicitly deselected without sending the API answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+    For the list of "node_updates", there are two different kinds of 
+    list elements which can be mixed in any order:
+  </P>
+  
+  <UL>
+  <LI>
+  <B>
+    delete_node(<A href="api_param.html#node_id" target="_top">node_id</A>)
+  </B>
+<BR> 
+    Deletes the node with given "node_id". 
+    The ID must exist in the current graph. 
+    All edges of this node, coming from the parents and leading to
+    the children, are implicitly removed as well.
+  </LI>
+
+  <LI>
+  <B>
+    new_node(<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#type" target="_top">type</A>,<A href="api_param.html#attributes" target="_top">attributes</A>) 
+  </B>
+<BR> 
+    Inserts a new node in the graph with given 
+  <A href="term_syntax.html" target="_top">node_id</A>, 
+  <A href="term_type.html" target="_top">type</A>
+    and
+  <A href="term_attr.html" target="_top">node attributes</A>.
+    The node ID must be unique for all nodes in the current graph 
+    and update. 
+    If the new node is not connected with new edges in the same update 
+    (see below), it will be visualized as an unconnected root node. 
+  </LI>
+  </UL>
+   
+  <P>
+    For the list of "edge_updates", there are three different kinds of 
+    list elements which can be mixed in any order: 
+  </P>
+  
+  <UL>
+  <LI>
+  <B>
+    delete_edge(<A href="api_param.html#edge_id" target="_top">edge_id</A>) 
+  </B>
+<BR> 
+    Deletes the edge with given "edge_id". 
+    The ID must exist in the current graph. 
+    Note: The edges coming from the parents and leading to the children 
+    of a node that is removed in the same update must not be deleted, 
+    because they are removed implicitly.
+  </LI>
+
+  <LI>
+  <B>
+    new_edge(<A href="api_param.html#edge_id" target="_top">edge_id</A>,<A href="api_param.html#type" target="_top">type</A>,<A href="api_param.html#attributes" target="_top">attributes</A>,<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#node_id" target="_top">node_id</A>)
+  </B>
+<BR> 
+    Inserts a new edge in the graph with given  
+  <A href="term_syntax.html" target="_top">edge_id</A>, 
+  <A href="term_type.html" target="_top">type</A>
+    and
+  <A href="term_attr.html" target="_top">edge attributes</A>.
+    The "edge_id" must be unique for all edges in the current graph 
+    and update. 
+    The first "node_id" is the parent and the second "node_id" is the 
+    child of the new edge. 
+    Both, the child and parent, have to be IDs of existing nodes in 
+    the current graph or new nodes of the update. 
+    Note: You cannot delete the parent and child node of a new edge
+    in the same update.
+  </LI>
+
+  <LI>
+  <B>
+    new_edge_behind(<A href="api_param.html#edge_id" target="_top">edge_id</A>,<A href="api_param.html#edge_id" target="_top">edge_id</A>,<A href="api_param.html#type" target="_top">type</A>,<A href="api_param.html#attributes" target="_top">attributes</A>,<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#node_id" target="_top">node_id</A>) 
+  </B>
+<BR> 
+    Same as "new_edge" (see directly above), but this inserts the 
+    new edge behind a left neighbour edge which is specified
+    by the additional first "edge_id". 
+    So, the new edge will be the right neighbour of the first "edge_id". 
+    The left neighbour edge has to be an existing edge in the current 
+    graph or a new edge of the update. 
+  </LI>
+  </UL>
+
+  <A name="mixed_update"></A>
+  <H2>
+    graph(mixed_update(<A href="api_param.html#mixed_updates" target="_top">mixed_updates</A>))
+  </H2>
+  <P>
+    Same as command
+  <A href="api_cmd_graph.html#update" target="_top">graph(update(...))</A> 
+    above, but here the node and edge updates can be mixed in one common
+    list where the order is not significant.
+    Creating mixed updates is easier in many situations because
+    the node updates must not be collected before starting with the 
+    edge updates.
+  </P>
+
+  <A name="change_attr"></A>
+  <H2>
+    graph(change_attr(<A href="api_param.html#attr_changes" target="_top">attr_changes</A>))
+  </H2>
+  <P>
+    This command is used to update the attributes of nodes and edges 
+    that exist in the current graph. 
+    The semantic of this operation is either to add the attribute if
+    it does not previously exist (for that particular node or edge) 
+    or to overwrite it otherwise. 
+    For example, the current graph has a node with attributes to specify 
+    a red background and a text "test". 
+    So the attributes of the node are: 
+  </P>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">[a("COLOR","red"), a("OBJECT","test")]</TD>
+</TR>
+  </TABLE>
+</P>
+
+  <P>
+    Now study the following attribute update for that node:
+  </P>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">[a("OBJECT","new test"),a("FONTFAMILY","times")]</TD>
+</TR>
+  </TABLE>
+</P>
+
+  <P>
+    After sending this list of updates as parameter of command 
+    "graph(change_attr(...))", the node will be still drawn in red 
+    (the "COLOR" attribute is not overwritten), 
+    but with text "new test" and font "times". 
+  </P>
+
+  <P>
+    In order to remove an attribute of a particular node or edge, you 
+    can set its value to an empty string using this API command. 
+    When removing the attribute, the default value for this attribute
+    is used or (if the type of the node or edge has a 
+  <A href="conc_def.html" target="_top">visualization rule</A>)
+    the value from the corresponding visualization rule is applied.
+  </P>
+
+  <P>
+    The parameter of the API command (i.e. attr_changes) is a list of 
+    attribute changes with two different kinds of list elements. 
+    Both types of elements of this API command can be mixed in any order:
+  </P>
+
+  <UL>
+  <LI>
+  <B>
+    node(<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#attributes" target="_top">attributes</A>) 
+  </B>
+<BR>
+    Add or overwrite the attributes for the node specified by 
+    "node_id" that must exist in the current graph.
+  </LI>
+  <LI>
+  <B>
+    edge(<A href="api_param.html#edge_id" target="_top">edge_id</A>,<A href="api_param.html#attributes" target="_top">attributes</A>) 
+  </B>
+<BR>
+    Add or overwrite the attributes for the edge specified by 
+    "edge_id" that must exist in the current graph.
+  </LI>
+  </UL>
+
+  <A name="update_and_change_attr"></A>
+  <H2>
+    graph(update_and_change_attr(<A href="api_param.html#node_updates" target="_top">node_updates</A>,<A href="api_param.html#edge_updates" target="_top">edge_updates</A>,<A href="api_param.html#attr_changes" target="_top">attr_changes</A>))
+  </H2>
+  <P>
+    This command combines the API commands 
+  <A href="api_cmd_graph.html#update" target="_top">graph(update(...))</A>
+    and
+  <A href="api_cmd_graph.html#change_attr" target="_top">graph(change_attr(...))</A>
+    (described above) 
+    to update the structure of a graph and modify attributes of 
+    existing nodes and edges in one step.
+    The benefit of this command instead of using the other two commands 
+    directly after each other is that the graph is not displayed
+    between applying the updates and modifying the attributes. 
+    First the updates in "node_updates" and "edge_updates" are applied 
+    to the graph and afterwards the attributes are changed according to the 
+    parameter "attr_changes".
+    So here it is not allowed to modify the attributes of nodes and edges
+    that are simultaneously removed.
+  </P> 
+
+  
+  <A name="mixed_update_and_change_attr"></A>
+  <H2>
+    graph(mixed_update_and_change_attr(<A href="api_param.html#mixed_updates" target="_top">mixed_updates</A>,<A href="api_param.html#attr_changes" target="_top">attr_changes</A>))
+  </H2>
+  <P>
+    Same as command
+  <A href="api_cmd_graph.html#update_and_change_attr" target="_top">graph(update_and_change_attr(...))</A> 
+    above, but here the node and edge updates can be mixed in one common
+    list where the order is not significant.
+    Creating mixed updates is easier in many situations because
+    the node updates must not be collected before starting with the 
+    edge updates.
+  </P>
+
+  <A name="change_type"></A>
+  <H2>
+    graph(change_type(<A href="api_param.html#type_changes" target="_top">type_changes</A>))
+  </H2>
+  <P>
+    This command is used to update the 
+  <A href="term_type.html" target="_top">type</A>
+    of nodes and edges that have to exist in the current graph. 
+    The parameter of the command is a list of modifications with two 
+    different kinds of list elements. 
+    Both types of elements can be mixed in any order: 
+  </P>
+
+  <UL>
+  <LI>
+  <B>
+    node(<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#type" target="_top">type</A>) 
+  </B>
+<BR>
+    Changes the type for the node specified by 
+    "node_id" that must exist in the current graph.
+  </LI>
+  <LI>
+  <B>
+    edge(<A href="api_param.html#edge_id" target="_top">edge_id</A>,<A href="api_param.html#type" target="_top">type</A>)
+  </B>
+<BR>
+    Change the type for the edge specified by 
+    "edge_id" that must exist in the current graph.
+  </LI>
+  </UL>
+
+  <P>
+    This command is especially useful when several 
+  <A href="conc_def.html" target="_top">visualization rules</A>
+    have been supplied for different node and edge types using the
+  <A href="api_cmd_visual.html" target="_top">visualization definition commands</A>. 
+    Afterwards you can modify the appearance of nodes and edges 
+    by simply changing their type. 
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

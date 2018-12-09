@@ -1,0 +1,704 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Programmer's Guide for API Users</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Programmer's Guide</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Programmer's Guide for API Users</H1>
+  
+  <P>
+    The following is an overview of the API for programmers who want 
+    to connect their application with uDraw(Graph). 
+  </P>
+
+  <H2>Commands of the API</H2>
+  <P>
+    After connecting your application program with uDraw(Graph) 
+    (section 
+  <A href="api_connect.html" target="_top">How to connect an Application</A> 
+    explains this topic in detail),
+    you can start sending commands to the API. 
+    The 
+  <A href="api_cmd.html" target="_top">Overview of API Commands</A>
+    is a useful reference to browse through the command syntax.
+    The commands are divided into categories with respect to their semantics. 
+    They are built hierarchically with parenthesis according to the 
+    category they belong to, e.g. command "menu(file(exit))" belongs to
+    category "menu". 
+    The following categories are available: 
+  </P>
+
+  <UL>
+  <LI>
+  <B>graph(...)</B>
+<BR>
+  <P>
+    The 
+  <A href="api_cmd_graph.html" target="_top">graph category</A> 
+    covers commands to send and update graphs. 
+    You can 
+  <A href="api_cmd_graph.html#new_graph" target="_top">send a complete graph</A> 
+    in 
+  <A href="term.html" target="_top">term representation format</A> 
+    or update the structure of an already loaded graph by 
+  <A href="api_cmd_graph.html#update" target="_top">adding and deleting nodes and edges</A>. 
+    Further, it is possible to
+  <A href="api_cmd_graph.html#change_attr" target="_top">change the attributes</A>
+    of existing nodes and edges 
+  (<A href="term_attr.html" target="_top">more information about attributes</A>)
+    and to 
+  <A href="api_cmd_graph.html#change_type" target="_top">change the type</A>
+    of nodes and edges
+  (<A href="term_type.html" target="_top">more information about types</A>).
+  <A href="api_cmd_graph.html#update_and_change_attr" target="_top">Graph updates and attribute modifications</A>
+    can be combined to be performed in one step. 
+  </P>
+  </LI>
+
+  <LI>
+  <B>multi(...)</B>
+<BR>
+  <P>
+    The  
+  <A href="api_cmd_multi.html" target="_top">multi category</A> 
+    covers commands to work with many graphs in different windows at the 
+    same time.
+    Please read the 
+  <A href="api_multi_modes.html" target="_top">introduction to multi-graph/view/window modes</A>
+    for background information.
+    In the multi category, commands are available to 
+  <A href="api_cmd_multi.html#new_context" target="_top">open a new context</A>,
+    i.e. to get a new empty base window where an additional graph can be
+    visualized. 
+    Each context (graph) has its own unique context ID. 
+    In multi-graph mode, uDraw(Graph) maintains a current context state 
+    which can be set with command
+  <A href="api_cmd_multi.html#set_context" target="_top">multi(set_context(...))</A>.
+    The current context specifies the graph that should be affected by all
+    subsequent commands sent to the API. 
+    On the other side, in multi-graph mode each answer from the API has a 
+    preluding answer
+  <A href="api_answ_all.html#context" target="_top">context(...)</A> 
+    to specify the graph where the event happened. 
+    The multi-graph mode is entered as soon as the first context is opened. 
+    If you intend to use more than one graph later in a session, you 
+    should 
+  <A href="api_multi_modes.html#initialization" target="_top">open the first context at initialization time</A>. 
+  </P>
+  <P>
+    In multi-graph mode, you can only access each context (graph) on its 
+    own, but you have no access to the individual base windows opened 
+    in a context. 
+    Especially the commands of the 
+  <A href="api_cmd_window.html" target="_top">window category</A> 
+    may not work as expected, because they only apply to the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>
+    of a context. 
+    Accessing all base windows is only possible by using the
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>
+    that is available after using command-line option
+  <A href="opt.html#window_api" target="_top">-window_api</A>
+    by opening the first context.
+    Here, the current context must be set with a different command 
+  <A href="api_cmd_multi.html#context" target="_top">multi(set_context(...))</A>
+    where both the context and window ID are specified. 
+    The current context and window represent the graph and base window 
+    that will be affected by subsequent commands sent to the API. 
+    On the other side, in multi-window mode each answer from the API
+    has a preluding answer
+  <A href="api_answ_all.html#context_window" target="_top">context_window(...)</A>
+    to specify the graph and window where the event happened. 
+    Further, in multi-window mode the application is informed about 
+    creation and destruction of base windows by using the answers 
+  <A href="api_answ_all.html#open_window" target="_top">open_window</A> 
+    and 
+  <A href="api_answ_all.html#close_window" target="_top">close_window(...)</A>.
+  </P>
+  </LI>
+
+  <LI>
+  <B>menu(...)</B>
+<BR>
+  <P>
+    The 
+  <A href="api_cmd_menu.html" target="_top">menu category</A> 
+    covers commands to call the menu functions of the uDraw(Graph) 
+    user interface. 
+    All these commands are further divided into subcategories with 
+    respect to the menu they belong to: file, view, navigation, 
+    abstraction, layout and option. 
+  </P>
+  </LI>
+
+  <LI>
+  <B>app_menu(...)</B>
+<BR>
+  <P>
+    The 
+  <A href="api_cmd_app_menu.html" target="_top">application menu category</A> 
+    covers commands to let the application attach its own menus and icons 
+    to the uDraw(Graph) user interface. 
+    Please read the 
+  <A href="api_gui_extend.html" target="_top">introduction about user interface extension</A>
+    for background information.
+  <A href="api_cmd_app_menu.html#create_menus" target="_top">Application menus</A> 
+    are always attached to the 
+  <A href="gui_edit.html" target="_top">Edit menu</A> 
+    and 
+  <A href="api_cmd_app_menu.html#create_icons" target="_top">application icons</A> 
+    are placed on a separate plane of the 
+  <A href="gui_base.html" target="_top">icon bar</A>. 
+    Using these commands is the traditional way to
+  <A href="api_gui_extend.html" target="_top">extend the user interface</A>,
+    but meanwhile it is also possible to 
+  <A href="api_gui_config.html" target="_top">configure the whole user interface</A>
+    with the commands of the
+  <A href="api_cmd_gui.html" target="_top">gui category</A>, 
+    see below.
+    Application menus and icons that are not applicable in a current state 
+    should be disabled by the application. 
+    This can be done with  
+  <A href="api_cmd_app_menu.html#activate_menus" target="_top">activation commands</A>
+    where the list of currently enabled menus/icons is specified;
+    all the remaining menus/icons are automatically disabled.
+    To interpose the file operations, the application can 
+  <A href="api_gui_extend.html#interpose_file_events" target="_top">take control on the uDraw(Graph) file menu events</A>, 
+    for example to store its own data structure when the user selects the 
+    "File/Save" menu in uDraw(Graph). 
+  </P>
+  <P>
+    The commands of this category are not available if the command-line 
+    option 
+  <A href="opt.html#nogui" target="_top">-nogui</A> 
+    has been used. 
+  </P>
+  </LI>
+
+  <LI>
+  <B>gui(...)</B>
+<BR>
+  <P> 
+    The 
+  <A href="api_cmd_gui.html" target="_top">graphical user interface category</A> 
+    covers commands to let the application configure all menus, icons and 
+    footer areas of the uDraw(Graph) user interface. 
+    Please read the 
+  <A href="api_gui_config.html" target="_top">introduction about user interface configuration</A>
+    for background information.
+    The configuration has to be done at initialization time before the first
+  <A href="gui_base.html" target="_top">base window</A> 
+    gets visible.
+    Otherwise the base windows will only have the graph area and the 
+    scrollbars without access to the other user interface elements 
+    (menus, icons and footer). 
+    There are  
+  <A href="api_cmd_gui.html#activate_menus" target="_top">activation commands</A>
+    for all menus and icons where the list of currently enabled menus/icons 
+    is specified; all the remaining menus/icons are automatically disabled
+    in this case.
+    Further commands can be used to 
+  <A href="api_cmd_gui.html#set_radio_menus" target="_top">set the values of radio menus and icons</A>. 
+  </P>
+  <P>
+    The commands of this category are only available if the command-line 
+    option 
+  <A href="opt.html#nogui" target="_top">-nogui</A> 
+    has been used. 
+  </P>
+  </LI>
+
+  <LI>
+  <B>set(...)</B>
+<BR>
+  <P> 
+    The 
+  <A href="api_cmd_set.html" target="_top">set category</A> 
+    covers commands to set different options of uDraw(Graph) which are
+    usually manipulated by the user with the dialog windows of the 
+  <A href="gui_opt.html" target="_top">option menu</A>.
+    Commands are available to set the 
+  <A href="api_cmd_set.html#layout_accuracy" target="_top">accuracy</A>
+    of the graph layout algorithm, 
+    to 
+  <A href="api_cmd_set.html#keep_nodes_at_levels" target="_top">specify if the node levels should be preserved</A>
+    by the layout algorithm,
+    to set the
+  <A href="api_cmd_set.html#manual_layout" target="_top">fine-tuning constraints</A>,
+    to specify the
+  <A href="api_cmd_set.html#font_size" target="_top">font size</A>,
+  <A href="api_cmd_set.html#edge_style" target="_top">edge style</A>,
+    and 
+  <A href="api_cmd_set.html#gap_width" target="_top">distances</A>
+    between nodes and edges in the graph visualization, 
+    to control the 
+  <A href="api_cmd_set.html#scrolling_on_selection" target="_top">scrolling behavior</A>,
+    to define the 
+  <A href="api_cmd_set.html#animation_speed" target="_top">speed of animation</A>
+    used for scrolling,
+    to specify the
+  <A href="api_cmd_set.html#browser" target="_top">name of the web browser</A>
+    and the
+  <A href="api_cmd_set.html#documentation" target="_top">location of the online documentation</A>,
+    to set the
+  <A href="api_cmd_set.html#print" target="_top">print command</A>
+    and
+  <A href="api_cmd_set.html#measure" target="_top">measure unit</A>
+    used in the print dialog and to define the
+  <A href="api_cmd_set.html#tooltip_delay" target="_top">tooltip delay</A>.
+    One option that cannot be set in the user interface is
+    the precedence used for visualization definitions, i.e. the
+  <A href="conc_def.html" target="_top">attribute evaluation order</A>.
+    The precedence can only be 
+  <A href="api_cmd_set.html#rules_first" target="_top">set with an API command</A>.
+  </P>
+  </LI>
+
+  <LI>
+  <B>window(...)</B>
+<BR>
+  <P> 
+    The
+  <A href="api_cmd_window.html" target="_top">window category</A> 
+    covers commands to manipulate the 
+  <A href="gui_base.html" target="_top">base windows</A>. 
+    In 
+  <A href="api_multi_modes.html" target="_top">multi-graph</A>
+    mode, only the
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>
+    is affected this way; use the
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window</A>
+    mode if you want to manipulate any base window that is opened in a 
+    context. The window category contains commands to set the 
+  <A href="api_cmd_window.html#title" target="_top">window title</A>,
+    to 
+  <A href="api_cmd_window.html#show_message" target="_top">show messages</A>
+    and 
+  <A href="api_cmd_window.html#show_status" target="_top">status information</A>
+    in the footer area, to set the 
+  <A href="api_cmd_window.html#position" target="_top">window position</A>
+    and 
+  <A href="api_cmd_window.html#size" target="_top">size</A>,
+    to 
+  <A href="api_cmd_window.html#raise" target="_top">raise</A>
+    the window (i.e. bring it to the front), and to 
+  <A href="api_cmd_window.html#iconify" target="_top">iconify</A>
+    or 
+  <A href="api_cmd_window.html#deiconify" target="_top">deiconify</A>
+    the window. With the commands 
+  <A href="api_cmd_window.html#activate" target="_top">activate</A>
+    and 
+  <A href="api_cmd_window.html#deactivate" target="_top">deactivate</A>,
+    all user input can be blocked for a time. 
+    Finally, there is a command to 
+  <A href="api_cmd_window.html#file_browser" target="_top">use the uDraw(Graph) file browser</A>
+    for the application's own purpose and to set the
+  <A href="api_cmd_window.html#background" target="_top">background color</A>.
+
+  </P>
+  </LI>
+
+  <LI>
+  <B>tcl(...)</B>
+<BR>
+  <P>  
+    The 
+  <A href="api_cmd_tcl.html" target="_top">tcl category</A> 
+    covers commands to access a Tcl/Tk interpreter which is used to
+    implement the user interface of uDraw(Graph).
+    This way the application is able to 
+  <A href="api_cmd_tcl.html#eval" target="_top">evaluate scripts</A>
+    written for Tcl/Tk version 8.4, for example to implement dialog windows 
+    which should appear when application menus or icons are selected.
+    Please read the 
+  <A href="api_gui_config.html" target="_top">introduction to the Tcl/Tk interface</A>
+    for background information.
+  </P>
+  </LI>
+
+  <LI>
+  <B>special(...)</B>
+<BR>
+  <P>  
+    The 
+  <A href="api_cmd_special.html" target="_top">special category</A> 
+    covers commands to 
+  <A href="api_cmd_special.html#select_nodes" target="_top">set the current node or edge selection</A>,
+    to 
+  <A href="api_cmd_special.html#focus_node" target="_top">scroll to a particular node</A> 
+    with and without animation, to 
+  <A href="api_cmd_special.html#show_url" target="_top">display a HTML page</A>
+    (URL) in the browser and to
+  <A href="api_cmd_special.html#add_language" target="_top">add a file with additional text translations</A>
+    for internationalization.
+  </P>
+  </LI>
+
+  <LI>
+  <B>visual(...)</B>
+<BR>
+  <P>  
+    The 
+  <A href="api_cmd_visual.html" target="_top">visual category</A> 
+    covers commands to 
+  <A href="api_cmd_visual.html#new_rules" target="_top">create new rules</A>
+    or 
+  <A href="api_cmd_visual.html#add_rules" target="_top">add rules</A>
+    used for
+  <A href="conc_def.html" target="_top">visualization definitions</A>. 
+  </P>
+  </LI>
+
+  <LI>
+  <B>drag_and_drop(...)</B>
+<BR>
+  <P>  
+    The 
+  <A href="api_cmd_dad.html" target="_top">drag and drop category</A> 
+    covers commands to control direct manipulation in a graph 
+    visualization. Commands are available to 
+  <A href="api_cmd_dad.html#dragging_on" target="_top">activate</A>
+    and 
+  <A href="api_cmd_dad.html#dragging_off" target="_top">deactivate</A>
+    the drag and drop mode and to
+  <A href="api_cmd_dad.html#new_node_at_coord" target="_top">create a node</A>
+    or 
+  <A href="api_cmd_dad.html#new_node_and_edge_at_coord" target="_top">a node and edge</A>
+    at the position where the mouse button was released. 
+    Please read the 
+  <A href="api_dad.html" target="_top">introduction to the drag and drop mode</A>
+    for background information.
+  </P>
+  </LI>
+  </UL>
+
+  <H2>Answers from the API</H2>
+  <P>
+    All commands sent to the API are confirmed after execution by 
+    returning an answer which is usually 
+  <A href="api_answ_all.html#ok" target="_top">ok</A> 
+    or
+  <A href="api_answ_all.html#communication_error" target="_top">communication_error(...)</A> 
+    when the command failed. 
+    Some commands 
+  (<A href="api_answ_info.html#commands_without_ok" target="_top">listed here</A>)
+    return another confirmation answer instead of ok. 
+    It is very important to wait for confirmation before sending the 
+    next command, because in rare situations, the API accepts
+    new commands even if the previous command is still in process 
+    and not yet confirmed, so the confirmation answers may not
+    appear in the right order afterwards. 
+    The rest of the answers 
+  (<A href="api_answ_all.html#event_answers" target="_top">listed here</A>)
+    are events that are triggered by the user, e.g. to inform the 
+    application about selection of a graph node. 
+    Events can occur at any time, except when an API command is 
+    currently executed and not yet confirmed. 
+  </P>
+  
+  <A name="asynchronous"></A>
+  <H2>Very important note about Asynchronization</H2>
+  <P>
+    Due to the strange effects of asynchronous communication caused by
+    message delays, an event must also be expected by the application 
+    after sending a command to the API and before receiving the 
+    corresponding confirmation answer! 
+    uDraw(Graph) guarantees that event answers are not propagated during 
+    execution of an API command, but if the event occurred during transfer
+    time of the command (i.e. after it is sent by the application and 
+    before it is received by the API), then the event answer may 
+    interfere and will arrive at the application side in the time 
+    interval after sending the command and before receiving the
+    corresponding confirmation answer. 
+    So never expect that the confirmation answer will come back directly 
+    after sending an API command. 
+    Your application must accept event answers at any time! 
+  <P>
+  </P>
+    Your application is responsible for handling an event answer. 
+    The event may trigger an operation in the application or can simply
+    be ignored. 
+  </P>
+
+  <A name="notes"></A>
+  <H2>Important Notes about the API</H2>
+  <P>
+    Please consider the following facts when using the uDraw(Graph) API: 
+
+  <UL>
+  <LI>
+  <B>
+    No return characters inside API commands
+  </B>
+<BR>
+  <P>
+    API commands must not contain newline (ASCII 10) or return characters 
+    (ASCII 13). 
+    They must have exactly one newline at the end of the command 
+    ("end-of-line") to flush the write buffer. 
+    No other characters, even no spaces, should follow after this 
+    concluding return, except of the next complete command. 
+    When these restrictions are not considered, communication with the  
+    API will likely fail. 
+    For example, in "C" you can send a command to the API this way, 
+    whereby "dv_fd" is a file descriptor of a pipe or socket to send 
+    API commands to uDraw(Graph):
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">fprintf(dv_fd,"window(show_message(\"Hi\"))\n");</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    Note that there is a newline at the end of the "C" string and that 
+    there is another API string inside the "C" string. 
+    Quotes inside "C" strings have to be escaped with a backslash 
+    character "\". 
+    The same is true for quotes inside API strings, refer to the next 
+    list item. 
+  </P>
+  </LI>
+
+  <LI>
+  <B>
+    No unescaped double quotes inside API commands 
+  </B>
+<BR>
+  <P>
+    Some API commands have a 
+  <A href="api_param.html#string" target="_top">string</A> 
+    parameter which is always enclosed by double quotes, 
+    for example:
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">window(show_message("This is a string"))</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    If you have to use double quotes inside a string, make sure 
+    that they are always escaped with a backslash character "\". 
+    Example: 
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">window(show_message("Here is a quote \" inside."))</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    But do not escape the outermost double quotes of the string! 
+  </P>
+  </LI>
+
+  <LI>
+  <B>
+    Use only balanced braces "{" and "}" in API commands 
+  </B>
+<BR>
+  <P>
+    Because Tcl/Tk is used for the implementation of the uDraw(Graph)
+    user interface, some characters have a special meaning.
+    Braces ("{" and "}") are used as delimiters for sending strings 
+    to Tcl/Tk. 
+    As a restriction, you cannot use unbalanced braces somewhere inside 
+    of an API 
+  <A href="api_param.html#string" target="_top">string</A>,
+    even if they are escaped with "\". 
+    Using strings like "}" or "{" inside of an API command will result 
+    in Tcl/Tk error messages on command-line, whereas a balanced "{}" is 
+    allowed.
+    So you have to avoid sending strings with unbalanced braces.
+  </P>
+  </LI>
+
+  <LI>
+  <B>
+    Initial ok answer
+  </B>
+<BR>
+  <P>
+    After 
+  <A href="api_connect.html" target="_top">connecting an application</A>
+    to the uDraw(Graph) API, the application program has to wait for the 
+  <A href="api_answ_info.html#initialization" target="_top">initial ok answer</A>
+    before sending any commands to the API. 
+  </P>
+  </LI>
+
+  <LI>
+  <B>
+    Disconnection
+  </B>
+<BR>
+  <P>
+    An application will receive the answer 
+  <A href="api_answ_all.html#disconnect" target="_top">disconnect</A>
+    if the user selects menu
+  <A href="gui_file.html" target="_top">File/Disconnect</A>. 
+    The appropriate action for this event is to terminate the application 
+    in order to let the user connect another application in uDraw(Graph).
+  </P>
+  </LI>
+
+  <LI>
+  <B>
+    Multi-graph mode
+  </B>
+<BR>
+  <P>
+    In 
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>, 
+    each answer has a preluding 
+  <A href="api_answ_all.html#context" target="_top">context(...)</A>
+    answer to specify the context (graph) where the event happened. 
+    So, your application has to receive two answers at a time after 
+    entering multi-graph mode. 
+  </P>
+  </LI>
+
+  <LI>
+  <B>
+    Multi-window mode
+  </B>
+<BR>
+  <P>
+    In 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>, 
+    each answer has a preluding  
+  <A href="api_answ_all.html#context_window" target="_top">context_window(...)</A>
+    answer to specify the context (graph) and base window where the 
+    event happened. 
+    So, your application has to receive two answers at a time after 
+    entering multi-window mode. 
+    Further, the application is informed about creation (answer 
+  <A href="api_answ_all.html#open_window" target="_top">open_window</A>) 
+    and destruction (answer 
+  <A href="api_answ_all.html#close_window" target="_top">close_window(...)</A>) 
+    of all base windows. 
+  </P>
+  </LI>
+
+  <LI>
+  <B>
+    Close and exit when file events are controlled
+  </B>
+<BR>
+  <P>
+    When the application 
+  <A href="api_gui_extend.html#interpose_file_events" target="_top">controls the "File" menu events</A>, 
+    it will receive the following answer each time the user wants to 
+    close a particular context (graph) by using menu 
+  <A href="gui_file.html" target="_top">File/Close</A>:
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">menu_selection("#%close")</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    The appropriate action in this case is to set the current context 
+    (and window in multi-window mode) to the ID where the event happened
+    and to close this context by sending command "menu(file(close))". 
+    In the same way, the application will receive the following answer
+    when the user wants to exit uDraw(Graph) by using menu 
+  <A href="gui_file.html" target="_top">File/Exit</A>:
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">menu_selection("#%exit")</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    The appropriate action in this case is to send 
+    "menu(file(exit))" in any context to terminate uDraw(Graph).
+  </P>
+  </LI>
+  </UL>
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

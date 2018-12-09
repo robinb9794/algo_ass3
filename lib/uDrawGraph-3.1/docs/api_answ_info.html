@@ -1,0 +1,404 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Information about API Answers</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Information about API Answers</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Information about API Answers</H1>
+  
+
+  <A name="initialization"></A>
+  <H2>
+    Answer at initialization time
+  </H2>
+  <P>
+    uDraw(Graph) can be connected to an application program 
+    using several options, refer to page
+  <A href="api_connect.html" target="_top">How to connect an Application</A>
+    for details. 
+    After connecting uDraw(Graph) to the application, an initial answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>
+    is sent to the application to signal preparedness for receiving 
+    commands. 
+    An application must not start sending commands to uDraw(Graph) before
+    receiving the initial "ok" as the first answer from the API. 
+  </P>
+
+  <A name="confirmation_answers"></A>
+  <H2>
+    Answers to confirm API commands
+  </H2>
+  <P>
+    In general, 
+  <A href="api_cmd.html" target="_top">commands</A>
+    sent to the API are confirmed by sending the answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>
+    back to the application after successfully executing the command. 
+    All commands that do not return "ok" are listed below. 
+    If an error occurred while executing the command, uDraw(Graph) will 
+    send the answer
+  <A href="api_answ_all.html#communication_error" target="_top">communication_error</A>
+    instead of "ok". 
+    Usually, this exception should not happen when the application 
+    meets all rules and restrictions of the API. 
+    The application can find the reason for the error in the string 
+    parameter of answer "communication_error(...)". 
+  </P>
+
+  <A name="commands_without_ok"></A>
+  <P>
+    These are the API commands that do not return the "ok" answer: 
+  </P>
+   
+  <UL>
+  <LI>
+  <A href="api_cmd_menu.html#file_close" target="_top">menu(file(close))</A>:
+    returns 
+  <A href="api_answ_all.html#close" target="_top">close</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_parents" target="_top">menu(navigation(select_parents(...)))</A>:
+    returns
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_parent" target="_top">menu(navigation(select_parent(...)))</A>:
+    returns
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_siblings" target="_top">menu(navigation(select_siblings(...)))</A>:
+    returns
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_children" target="_top">menu(navigation(select_children(...)))</A>:
+    returns
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_child" target="_top">menu(navigation(select_child(...)))</A>:
+    returns
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_navigator" target="_top">menu(navigation(navigator(...)))</A>:
+    returns
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_find" target="_top">menu(navigation(find(...)))</A>:
+    returns
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_window.html#file_browser" target="_top">menu(window(file_browser(...)))</A>:
+    returns
+  <A href="api_answ_all.html#browser_answer" target="_top">browser_answer(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_tcl.html#eval" target="_top">tcl(eval(...))</A>:
+    returns
+  <A href="api_answ_all.html#tcl_answer" target="_top">tcl_answer(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_tcl.html#eval_file" target="_top">tcl(eval_file(...))</A>:
+    returns
+  <A href="api_answ_all.html#tcl_answer" target="_top">tcl_answer(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_special.html#select_nodes" target="_top">special(select_nodes(...))</A>:
+    returns
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_special.html#select_edge" target="_top">special(select_edge(...))</A>:
+    returns
+  <A href="api_answ_all.html#edge_selection_label" target="_top">edge_selection_label(...)</A>.
+  </LI>
+  <LI>
+  <A href="api_cmd_special.html#version" target="_top">special(version)</A>:
+    returns
+  <A href="api_answ_all.html#version" target="_top">version(...)</A>.
+  </LI>
+  </UL>
+
+  <P>
+    In 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>, 
+    the following commands answer 
+  <A href="api_answ_all.html#open_window" target="_top">open_window</A>
+    instead of 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>:
+  </P>
+
+  <UL>
+  <LI>
+  <A href="api_cmd_menu.html#view_open_new_view" target="_top">menu(view(open_new_view))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#view_open_survey_view" target="_top">menu(view(open_survey_view))</A>
+  </LI>
+  </UL>
+
+  <A name="event_answers"></A>
+  <H2>
+    Answers to notify events
+  </H2>
+  <P>
+    Beside the 
+  <A href="api_answ_info.html#confirmation_answers" target="_top">answers used to confirm a command</A>
+    sent to the API, some answers may occur at any time. 
+    These are notifications for events that are triggered by the user. 
+    A uDraw(Graph) application must be prepared to receive these 
+    answers at any time, even in the time interval between sending 
+    a command and receiving the corresponding confirmation answer. 
+    The API sends the following events: 
+  </P>
+
+  <UL>
+  <LI>
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>: 
+    Some nodes have been selected in the graph. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#node_double_click" target="_top">node_double_click(...)</A>: 
+    The previously selected node has been clicked twice. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#edge_selection_label" target="_top">edge_selection_label(...)</A>: 
+    One edge has been selected in the graph. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#edge_selection_labels" target="_top">edge_selection_labels(...)</A>: 
+    Obsolete, for compatibility with previous V1.x versions. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#edge_double_click" target="_top">edge_double_click(...)</A>: 
+    The previously selected edge has been clicked twice. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#menu_selection" target="_top">menu_selection(...)</A>: 
+    A 
+  <A href="api_gui_config.html" target="_top">menu entry added by the application</A> 
+    has been selected. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#icon_selection" target="_top">icon_selection(...)</A>: 
+    An   
+  <A href="api_gui_config.html" target="_top">icon entry added by the application</A> 
+    has been selected. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#tcl_answer" target="_top">tcl_answer(...)</A>: 
+    Return value from a 
+  <A href="api_tcl.html" target="_top">Tcl/Tk script</A>
+    sent to uDraw(Graph). 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#popup_selection_node" target="_top">popup_selection_node(...)</A>: 
+    An entry in the   
+  <A href="term_nattr.html#menu" target="_top">pop-up menu</A>
+    of a node has been selected. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#popup_selection_edge" target="_top">popup_selection_edge(...)</A>: 
+    An entry in the 
+  <A href="term_eattr.html#menu" target="_top">pop-up menu</A>
+    of an edge has been selected. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#create_node" target="_top">create_node(...)</A>: 
+    Create a new node in 
+  <A href="api_dad.html" target="_top">drag and drop mode</A>. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#create_node_and_edge" target="_top">create_node_and_edge(...)</A>: 
+    Create a new node and edge starting at a parent in 
+  <A href="api_dad.html" target="_top">drag and drop mode</A>. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#create_edge" target="_top">create_edge(...)</A>: 
+    Create a new edge between two nodes in 
+  <A href="api_dad.html" target="_top">drag and drop mode</A>. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#drop_node" target="_top">drop_node(...)</A>: 
+    Drop a node on another node in 
+  <A href="api_dad.html" target="_top">drag and drop mode</A>. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#disconnect" target="_top">disconnect(...)</A>: 
+    The user has selected menu 
+  <A href="gui_file.html" target="_top">File/Disconnect Application</A>. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#close" target="_top">close(...)</A>: 
+    In 
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>, 
+    the current context has been closed. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#quit" target="_top">quit(...)</A>: 
+    uDraw(Graph) has terminated. 
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#open_window" target="_top">open_window(...)</A>: 
+    User has opened a new 
+  <A href="gui_base.html" target="_top">base window</A>
+    in 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>.
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#close_window" target="_top">close_window(...)</A>: 
+    User has closed a 
+  <A href="gui_base.html" target="_top">base window</A>
+    in 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>.
+  </LI>
+  </UL>
+
+  <P>
+  <STRONG>VERY IMPORTANT:</STRONG> 
+    Due to the strange effects of asynchronous communication caused by
+    message delays, an event must also be expected by the application 
+    after sending a command to the API and before receiving the 
+    corresponding confirmation answer! 
+    uDraw(Graph) guarantees that event answers are not propagated during 
+    execution of an API command, but if the event occurs during transfer
+    time of the command (i.e. after it has been sent by the application and 
+    before it has been received by the API), then the event answer may 
+    interfere and will arrive at the application side in the time 
+    interval after sending the command and before receiving the
+    corresponding confirmation answer. 
+    So never expect that the confirmation answer will come back directly 
+    after sending an API command. 
+    Your application must accept event answers at any time! 
+  </P>
+
+  <A name="multi_graph"></A>
+  <H2>Answers in Multi-Graph Mode</H2>
+  <P>
+
+    When uDraw(Graph) has left the default single-graph mode to enter 
+    the 
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>, 
+    the behavior for confirming commands and sending event 
+    notifications will slightly change. 
+    In multi-graph mode, all answers from uDraw(Graph) will always 
+    have a preluding answer 
+  <A href="api_answ_all.html#context" target="_top">context(...)</A>
+    to specify the context (graph) where the following answer happened. 
+    So in multi-graph mode, an application will 
+  <A href="api_multi_modes.html#two_answers" target="_top">always get two answers</A>
+    instead of one: 
+    The first one is the context and the second one is the event 
+    or confirmation answer.
+  </P>
+
+  <A name="multi_window"></A>
+  <H2>Answers in Multi-Window Mode</H2>
+  <P>
+    In the
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view</A>
+    mode where the user (or the application) has opened additional
+    views (base windows) to the graph, the application is unable to
+    access each individual view.
+    To solve this restriction, you can use the 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>
+    by using command-line option
+  <A href="opt.html#window_api" target="_top">-window_api</A>.
+    Here, the behavior of 
+  <A href="api_answ_info.html#multi_graph" target="_top">sending two answers</A>
+    with each confirmation or event is the same, but instead 
+    the preluding answer
+  <A href="api_answ_all.html#context_window" target="_top">context_window(...)</A>
+    is used where the application can find an additional window ID.
+    Further, the commands
+  <A href="api_cmd_menu.html#view_open_new_view" target="_top">menu(view(open_new_view))</A>
+    and 
+  <A href="api_cmd_menu.html#view_open_survey_view" target="_top">menu(view(open_survey_view))</A>
+    return the confirmation answer
+  <A href="api_answ_all.html#open_window" target="_top">open_window</A>
+    instead of the usual
+  <A href="api_answ_all.html#ok" target="_top">ok</A>
+    that is sent by these commands when the multi-window mode is not active.
+
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

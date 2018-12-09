@@ -1,0 +1,14 @@
+ [
+ l("A",n("",[a("OBJECT","Node A"),a("INFO","")],
+        [
+        l("@A",e("edge",[a("EDGEPATTERN","single;solid;1;0"),a("HEAD","farrow"),a("_DIR","normal"),a("OBJECT","Label"),a("FONTFAMILY","lucida"),a("FONTSTYLE","bold"),a("INFO","")],
+         r("B"))),
+        l("@B",e("edge",[a("EDGEPATTERN","single;solid;1;0"),a("HEAD","farrow"),a("_DIR","normal"),a("OBJECT",""),a("FONTFAMILY","lucida"),a("FONTSTYLE","bold"),a("INFO","")],
+         l("_A",n("node",[a("OBJECT","Node C"),a("INFO","")],
+                [
+                l("@C",e("edge",[a("EDGEPATTERN","single;solid;1;0"),a("HEAD","farrow"),a("_DIR","normal"),a("OBJECT","Label"),a("FONTFAMILY","lucida"),a("FONTSTYLE","bold"),a("INFO","")],
+                 r("B")))
+                ]))))
+        ])),
+ l("B",n("",[a("OBJECT","Node B"),a("INFO","")],[]))
+ ]

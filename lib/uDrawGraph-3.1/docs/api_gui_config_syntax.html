@@ -1,0 +1,553 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Configuration File Syntax</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Configuration File Syntax</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+     
+   
+  
+  <H1>User Interface Configuration File Syntax</H1>
+  
+  <P>
+    This document describes the syntax of the configuration file
+    used for
+  <A href="api_gui_config.html" target="_top">user interface configuration.</A>
+    The configuration file syntax differs from the 
+  <A href="api_cmd.html" target="_top">syntax of API commands</A>, 
+    although some terminal and non-terminal symbols are the same.
+    Terminal symbols are written in 
+  <STRONG>bold face</STRONG> 
+    and non-terminal symbols are written with a
+  <A href="api_gui_config_syntax.html" target="_top">link</A>
+    referring to the corresponding rule.
+  </P>
+
+  <P>
+    Each line of the configuration file starts with a terminal symbol. 
+    Therefore the newline characters in the syntax rules have to 
+    occur in the file.
+    For example, by applying rule
+  <A href="api_gui_config_syntax.html#menubar1" target="_top">menubar1</A>
+    one line of the configuration file can be:
+  </P>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">menu "Example" "0"</TD>
+</TR>
+  </TABLE>
+</P>
+
+  <P>
+    This must be followed by a newline character (so the example above
+    must be on a separate line) and the next line must be of type 
+  <A href="api_gui_config_syntax.html#menu1" target="_top">menu1</A>
+    (and probably more separate lines of that type).
+    Afterward, the terminal symbol "finish_menu" must follow on a 
+    separate line.
+    Indent (white space) is not part of the syntax, but should be used 
+    in order to obtain better readability in the file. 
+    Please look at the files with suffix ".menu" in directory 
+    "$UDG_HOME/lib/uDrawGraph" for examples of configuration files. 
+  </P>
+
+  <P>
+    Non-terminal symbol enclosed in "?" are optional, the meta-symbols 
+    "?" are not part of the syntax.
+    The place holder &lt;nothing&gt; is used for an empty string and 
+    is not part of the syntax, too. 
+    Please refer to the
+  <A href="api_gui_config.html#language_key" target="_top">section user interface configuration</A>
+    for an explanation of the non-terminal symbols "string" and "lang_string". 
+  </P>
+  
+  <H2>Grammar with Syntax Rules</H2>
+
+
+<P class="grammar">
+<TABLE border="0">
+
+
+<TR>
+<TD COLSPAN="2"><A name="configuration"></A>configuration ::=</TD>
+<TD><EM><A href="api_gui_config.html" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="configuration"></A>configuration ::=</TD>
+<TD><EM><A href="api_gui_config.html" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_gui_config_syntax.html#configuration1" target="_top">configuration1</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><A href="api_gui_config_syntax.html#configuration" target="_top">configuration</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD>&lt;nothing&gt;.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="configuration1"></A>configuration1 ::=</TD>
+<TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>menubar</STRONG></TD><TD><EM><A href="api_gui_config.html#menubar" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><A href="api_gui_config_syntax.html#menubar" target="_top">menubar</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><STRONG>finish_menubar</STRONG></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>popup_menu</STRONG>                                           </TD>
+<TD><EM><A href="api_gui_config.html#popup_menu" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><A href="api_gui_config_syntax.html#menus" target="_top">menus</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><STRONG>finish_popup_menu</STRONG></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>iconbar</STRONG> <A href="api_gui_config_syntax.html#which_iconbar" target="_top">which_iconbar</A>                                </TD>
+<TD><EM><A href="api_gui_config.html#iconbar" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><A href="api_gui_config_syntax.html#iconbar" target="_top">iconbar</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><STRONG>finish_iconbar</STRONG></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>message_bar</STRONG>                                          </TD>
+<TD><EM><A href="api_gui_config.html#message_bar" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>status_bar</STRONG>                                           </TD>
+<TD><EM><A href="api_gui_config.html#status_bar" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>close_event</STRONG> <A href="api_gui_config_syntax.html#close_id" target="_top">close_id</A> <A href="api_gui_config_syntax.html#close_type" target="_top">close_type</A>.                     </TD>
+<TD><EM><A href="api_gui_config.html#close_event" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menubar"></A>menubar ::=</TD>
+<TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_gui_config_syntax.html#menubar1" target="_top">menubar1</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><A href="api_gui_config_syntax.html#menubar" target="_top">menubar</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD>&lt;nothing&gt;.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menubar1"></A>menubar1 ::=</TD>
+<TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>menu</STRONG> <A href="api_gui_config_syntax.html#label" target="_top">label</A> ?<A href="api_gui_config_syntax.html#mne" target="_top">mne</A>?                                     </TD><TD><EM><A href="api_gui_config.html#menu" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><A href="api_gui_config_syntax.html#menus" target="_top">menus</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><STRONG>finish_menu</STRONG></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>help_menu</STRONG>                                            </TD>
+<TD><EM><A href="api_gui_config.html#help_menu" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><A href="api_gui_config_syntax.html#menus" target="_top">menus</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><STRONG>finish_menu</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menus"></A>menus ::=</TD>
+<TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_gui_config_syntax.html#menus1" target="_top">menus1</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><A href="api_gui_config_syntax.html#menus" target="_top">menus</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD>&lt;nothing&gt;.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menus1"></A>menus1 ::=</TD>
+<TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>menu_entry</STRONG> <A href="api_gui_config_syntax.html#menu_id" target="_top">menu_id</A> <A href="api_gui_config_syntax.html#label" target="_top">label</A> ?<A href="api_gui_config_syntax.html#mne" target="_top">mne</A>? ?<A href="api_gui_config_syntax.html#modifier" target="_top">modifier</A> <A href="api_gui_config_syntax.html#acc" target="_top">acc</A>?        </TD><TD><EM><A href="api_gui_config.html#menu_entry" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>sys_menu_entry</STRONG> <A href="api_gui_config_syntax.html#function" target="_top">function</A> <A href="api_gui_config_syntax.html#label" target="_top">label</A> ?<A href="api_gui_config_syntax.html#mne" target="_top">mne</A>? ?<A href="api_gui_config_syntax.html#modifier" target="_top">modifier</A> <A href="api_gui_config_syntax.html#acc" target="_top">acc</A>?   </TD>
+<TD><EM><A href="api_gui_config.html#sys_menu_entry" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>radio_menu_entry</STRONG> <A href="api_gui_config_syntax.html#menu_var" target="_top">menu_var</A>                            </TD>
+<TD><EM><A href="api_gui_config.html#radio_menu_entry" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><A href="api_gui_config_syntax.html#menus" target="_top">menus</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><STRONG>finish_radio_menu_entry</STRONG></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>submenu_entry</STRONG> <A href="api_gui_config_syntax.html#label" target="_top">label</A> ?<A href="api_gui_config_syntax.html#mne" target="_top">mne</A>?                            </TD>
+<TD><EM><A href="api_gui_config.html#submenu_entry" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><A href="api_gui_config_syntax.html#menus" target="_top">menus</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><STRONG>finish_submenu_entry</STRONG></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>blank</STRONG>.                                               </TD>
+<TD><EM><A href="api_gui_config.html#blank_menu" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="iconbar"></A>iconbar ::=</TD>
+<TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_gui_config_syntax.html#iconbar1" target="_top">iconbar1</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><A href="api_gui_config_syntax.html#iconbar" target="_top">iconbar</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD>&lt;nothing&gt;.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="iconbar1"></A>iconbar1 ::=</TD>
+<TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>icon_entry</STRONG> <A href="api_gui_config_syntax.html#icon_id" target="_top">icon_id</A> <A href="api_gui_config_syntax.html#bitmap" target="_top">bitmap</A> ?<A href="api_gui_config_syntax.html#help" target="_top">help</A>?                     </TD><TD><EM><A href="api_gui_config.html#icon_entry" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>sys_icon_entry</STRONG> <A href="api_gui_config_syntax.html#function" target="_top">function</A> <A href="api_gui_config_syntax.html#bitmap" target="_top">bitmap</A> ?<A href="api_gui_config_syntax.html#help" target="_top">help</A>?                </TD>
+<TD><EM><A href="api_gui_config.html#sys_icon_entry" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>radio_icon_entry</STRONG> <A href="api_gui_config_syntax.html#icon_var" target="_top">icon_var</A>                            </TD>
+<TD><EM><A href="api_gui_config.html#radio_icon_entry" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><A href="api_gui_config_syntax.html#iconbar" target="_top">iconbar</A></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD></TD><TD><IMG width="10" height="1" alt="" src="space.gif"><STRONG>finish_radio_icon_entry</STRONG> </TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>blank</STRONG> .                                              </TD>
+<TD><EM><A href="api_gui_config.html#blank_icon" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="which_iconbar"></A>which_iconbar ::=</TD>
+<TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>first</STRONG>                                                </TD><TD><EM><A href="api_gui_config.html#iconbar" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>second</STRONG>.                                              </TD>
+<TD><EM><A href="api_gui_config.html#iconbar" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="close_type"></A>close_type ::=</TD>
+<TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>window</STRONG>                                               </TD><TD><EM><A href="api_gui_config.html#close_event" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>context</STRONG>.                                             </TD>
+<TD><EM><A href="api_gui_config.html#close_event" target="_top">Details.</A></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="bitmap"></A>bitmap ::=  <A href="api_gui_config_syntax.html#lang_string" target="_top">lang_string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="label"></A>label       ::=  <A href="api_gui_config_syntax.html#lang_string" target="_top">lang_string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="mne"></A>mne         ::=  <A href="api_gui_config_syntax.html#lang_string" target="_top">lang_string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="modifier"></A>modifier    ::=  <A href="api_gui_config_syntax.html#lang_string" target="_top">lang_string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="acc"></A>acc         ::=  <A href="api_gui_config_syntax.html#lang_string" target="_top">lang_string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="help"></A>help        ::=  <A href="api_gui_config_syntax.html#lang_string" target="_top">lang_string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="lang_string"></A>lang_string ::=</TD>
+<TD><EM><A href="api_gui_config.html#language_key" target="_top">Details.</A></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD>"#%..."                         </TD><TD><EM>A string beginning with "#%".</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><A href="api_param.html#string" target="_top">string</A>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="function"></A>function    ::=  <A href="api_param.html#string" target="_top">string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_id"></A>menu_id     ::=  <A href="api_param.html#string" target="_top">string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_var"></A>menu_var    ::=  <A href="api_param.html#string" target="_top">string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="icon_id"></A>icon_id     ::=  <A href="api_param.html#string" target="_top">string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="icon_var"></A>icon_var    ::=  <A href="api_param.html#string" target="_top">string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="close_id"></A>close_id    ::=  <A href="api_param.html#string" target="_top">string</A>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+</TABLE>
+</P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Tcl/Tk Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Tcl/Tk Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Tcl/Tk Commands</H1>
+  
+  <P>
+    For background information about the commands described on this page, 
+    refer to the
+  <A href="api_tcl.html" target="_top">information about the Tcl/Tk interface</A> 
+    in the corresponding section of the API reference.
+  </P>
+  <P>
+    On this page, API commands of the Tcl category are described. 
+    This category covers all commands to use the uDraw(Graph) Tcl/Tk
+    interface. 
+    The commands of this category are enclosed by keyword "tcl(...)". 
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+  </P>
+
+  <A name="eval"></A>
+  <H2>
+    tcl(eval(<A href="api_param.html#string" target="_top">string</A>))
+  </H2>
+  <P>
+    Sends a Tcl/Tk script "string" to the uDraw(Graph) 
+  <A href="api_tcl.html" target="_top">Tcl/Tk interface</A>
+    and waits for the result (i.e. return value) of this script 
+    which can be found in the "string" of the API answer 
+  <A href="api_answ_all.html#tcl_answer" target="_top">tcl_answer</A> 
+    that is sent back to the application as soon as the script 
+    has finished. 
+    uDraw(Graph) is blocked as long as the Tcl script is executed. 
+  </P>
+  <P>
+    <STRONG>Note 1:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#tcl_answer" target="_top">tcl_answer</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+  <STRONG>Note 2:</STRONG> 
+    The Tcl/Tk script in "string" must not contain return or newline 
+    characters and all double quotes inside the string have to be
+    escaped (i.e. \"). 
+  </P>
+
+  <A name="eval_file"></A>
+  <H2>
+    tcl(eval_file(<A href="api_param.html#filename" target="_top">filename</A>))
+  </H2>
+  <P>
+    Same as API command 
+  <A href="api_cmd_tcl.html#eval" target="_top">tcl(eval(...))</A>
+    above, but here the Tcl/Tk script is read from the specified file 
+    rather than taken from the parameter. 
+    So the whole script does not need to be transferred by the API. 
+    Use this command for large scripts or if you cannot fulfill the 
+    API restriction for strings in the Tcl script (i.e. no return/newline 
+    characters and no unescaped double quotes). 
+  </P>
+  <P>
+    <STRONG>Note 1:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#tcl_answer" target="_top">tcl_answer</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+  <STRONG>Note 2:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

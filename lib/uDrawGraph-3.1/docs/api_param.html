@@ -1,0 +1,924 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Parameter</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Parameters</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Parameters</H1>
+  
+  <P>
+  <A href="api_cmd_syntax.html" target="_top">Help about API syntax</A>.
+  </P>
+  <H2>Grammar with Syntax Rules</H2>
+  <P>
+
+
+  <P class="grammar">
+<TABLE border="0">
+
+
+<TR>
+<TD COLSPAN="2">Term Representation for Graphs</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="graphterm"></A>graphterm ::=</TD>                           <TD><EM>Graph = root node list. <A href="term.html" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#graphterm1" target="_top">graphterm1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="graphterm1"></A>graphterm1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#node" target="_top">node</A> | <A href="api_param.html#node" target="_top">node</A><STRONG>,</STRONG><A href="api_param.html#graphterm1" target="_top">graphterm1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="node"></A>node ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>l(</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>,n(</STRONG><A href="api_param.html#type" target="_top">type</A><STRONG>,</STRONG><A href="api_param.html#attributes" target="_top">attributes</A><STRONG>,</STRONG><A href="api_param.html#edges" target="_top">edges</A><STRONG>))</STRONG> 
+</TD>
+<TD><EM>Node with ID / type / attributes / children.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>r(</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>)</STRONG>.                         </TD>
+<TD><EM>Reference to a node.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="edges"></A>edges ::=</TD>                               <TD><EM>Edge list.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#edges1" target="_top">edges1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="edges1"></A>edges1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#edge" target="_top">edge</A> | <A href="api_param.html#edge" target="_top">edge</A><STRONG>,</STRONG><A href="api_param.html#edges1" target="_top">edges1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="edge"></A>edge ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>l(</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>,e(</STRONG><A href="api_param.html#type" target="_top">type</A><STRONG>,</STRONG><A href="api_param.html#attributes" target="_top">attributes</A><STRONG>,</STRONG><A href="api_param.html#node" target="_top">node</A><STRONG>))</STRONG>. </TD>
+<TD><EM>Edge with ID / type / attributes / child.</EM></TD>
+</TR>
+
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="attributes"></A>attributes ::=</TD>                          <TD><EM>Attribute list. <A href="term_attr.html" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#attributes1" target="_top">attributes1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="attributes1"></A>attributes1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#attribute" target="_top">attribute</A> | <A href="api_param.html#attribute" target="_top">attribute</A><STRONG>,</STRONG><A href="api_param.html#attributes1" target="_top">attributes1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="attribute"></A>attribute     ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>a(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>,</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>)</STRONG>                    </TD>
+<TD><EM>Attribute = key / value pair.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>m(</STRONG><A href="api_param.html#menus" target="_top">menus</A><STRONG>)</STRONG>.                           </TD>
+<TD><EM>Pop-up menu attribute. <A href="term_nattr.html#menu" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2">Graph Updates</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="mixed_updates"></A>mixed_updates  ::=</TD>                      <TD><EM>Both forms in one list. <A href="api_cmd_graph.html#update" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#mixed_updates1" target="_top">mixed_updates1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="mixed_updates1"></A>mixed_updates1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#mixed_update" target="_top">mixed_update</A> | <A href="api_param.html#mixed_update" target="_top">mixed_update</A><STRONG>,</STRONG><A href="api_param.html#mixed_updates1" target="_top">mixed_updates1</A>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+
+<TR>
+<TD COLSPAN="2"><A name="mixed_update"></A>mixed_update   ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#node_update" target="_top">node_update</A> | <A href="api_param.html#edge_update" target="_top">edge_update</A>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+
+<TR>
+<TD COLSPAN="2"><A name="node_updates"></A>node_updates ::=</TD>                        <TD><EM>Add or delete nodes. <A href="api_cmd_graph.html#update" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#node_updates1" target="_top">node_updates1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="node_updates1"></A>node_updates1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#node_update" target="_top">node_update</A> | <A href="api_param.html#node_update" target="_top">node_update</A><STRONG>,</STRONG><A href="api_param.html#node_updates1" target="_top">node_updates1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="node_update"></A>node_update ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>delete_node(</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>)</STRONG>                </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>new_node(</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>,</STRONG><A href="api_param.html#type" target="_top">type</A><STRONG>,</STRONG><A href="api_param.html#attributes" target="_top">attributes</A><STRONG>)</STRONG>.  </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="edge_updates"></A>edge_updates ::=</TD>                        <TD><EM>Add or delete edges. <A href="api_cmd_graph.html#update" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#edge_updates1" target="_top">edge_updates1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="edge_updates1"></A>edge_updates1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#edge_update" target="_top">edge_update</A> | <A href="api_param.html#edge_update" target="_top">edge_update</A><STRONG>,</STRONG><A href="api_param.html#edge_updates1" target="_top">edge_updates1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="edge_update"></A>edge_update   ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>delete_edge(</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>)</STRONG>                </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>new_edge(</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>,</STRONG><A href="api_param.html#type" target="_top">type</A><STRONG>,</STRONG><A href="api_param.html#attributes" target="_top">attributes</A><STRONG>,</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>,</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>)</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD COLSPAN="2">
+<STRONG>new_edge_behind(</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>,</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>,</STRONG><A href="api_param.html#type" target="_top">type</A><STRONG>,</STRONG><A href="api_param.html#attributes" target="_top">attributes</A><STRONG>,</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>,</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>)</STRONG>.
+</TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="attr_changes"></A>attr_changes ::=</TD>                        <TD><EM>Change attributes. <A href="api_cmd_graph.html#change_attr" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#attr_changes1" target="_top">attr_changes1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="attr_changes1"></A>attr_changes1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#attr_change" target="_top">attr_change</A> | <A href="api_param.html#attr_change" target="_top">attr_change</A><STRONG>,</STRONG><A href="api_param.html#attr_changes1" target="_top">attr_changes1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="attr_change"></A>attr_change ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>node(</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>,</STRONG><A href="api_param.html#attributes" target="_top">attributes</A><STRONG>)</STRONG>            </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>edge(</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>,</STRONG><A href="api_param.html#attributes" target="_top">attributes</A><STRONG>)</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="type_changes"></A>type_changes ::=</TD>                        <TD><EM>Change types. <A href="api_cmd_graph.html#change_type" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#type_changes1" target="_top">type_changes1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="type_changes1"></A>type_changes1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#type_change" target="_top">type_change</A> | <A href="api_param.html#type_change" target="_top">type_change</A><STRONG>,</STRONG><A href="api_param.html#type_changes1" target="_top">type_changes1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="type_change"></A>type_change ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>node(</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>,</STRONG><A href="api_param.html#type" target="_top">type</A><STRONG>)</STRONG></TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>edge(</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>,</STRONG><A href="api_param.html#type" target="_top">type</A><STRONG>)</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2">Application Menus and Icons</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menus"></A>menus ::=</TD>                               <TD><EM>Create menus. <A href="api_cmd_app_menu.html#create_menu" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#menus1" target="_top">menus1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menus1"></A>menus1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD COLSPAN="2"><A href="api_param.html#menu_entry" target="_top">menu_entry</A> | <A href="api_param.html#menu_entry" target="_top">menu_entry</A><STRONG>,</STRONG><A href="api_param.html#menus1" target="_top">menus1</A>.</TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_entry"></A>menu_entry ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>menu_entry(</STRONG><A href="api_param.html#menu_id" target="_top">menu_id</A><STRONG>,</STRONG><A href="api_param.html#menu_label" target="_top">menu_label</A><STRONG>)</STRONG></TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD COLSPAN="2">
+<STRONG>menu_entry_mne(</STRONG><A href="api_param.html#menu_id" target="_top">menu_id</A><STRONG>,</STRONG><A href="api_param.html#menu_label" target="_top">menu_label</A><STRONG>,</STRONG><A href="api_param.html#menu_mne" target="_top">menu_mne</A><STRONG>,</STRONG><A href="api_param.html#menu_mod" target="_top">menu_mod</A><STRONG>,</STRONG><A href="api_param.html#menu_acc" target="_top">menu_acc</A><STRONG>)</STRONG>
+</TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>menu_entry_disabled(</STRONG><A href="api_param.html#menu_id" target="_top">menu_id</A><STRONG>,</STRONG><A href="api_param.html#menu_label" target="_top">menu_label</A><STRONG>)</STRONG></TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD COLSPAN="2">
+<STRONG>submenu_entry(</STRONG><A href="api_param.html#menu_id" target="_top">menu_id</A><STRONG>,</STRONG><A href="api_param.html#menu_label" target="_top">menu_label</A><STRONG>,</STRONG><A href="api_param.html#menus" target="_top">menus</A><STRONG>)</STRONG>
+</TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD COLSPAN="2">
+<STRONG>submenu_entry_mne(</STRONG><A href="api_param.html#menu_id" target="_top">menu_id</A><STRONG>,</STRONG><A href="api_param.html#menu_label" target="_top">menu_label</A><STRONG>,</STRONG><A href="api_param.html#menus" target="_top">menus</A><STRONG>,</STRONG><A href="api_param.html#menu_mne" target="_top">menu_mne</A><STRONG>)</STRONG>
+</TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>submenu_entry_disabled(</STRONG><A href="api_param.html#menu_id" target="_top">menu_id</A><STRONG>,</STRONG><A href="api_param.html#menu_label" target="_top">menu_label</A><STRONG>,</STRONG><A href="api_param.html#menus" target="_top">menus</A><STRONG>)</STRONG></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>blank</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="icons"></A>icons ::=</TD>                               <TD><EM>Create icons. <A href="api_cmd_app_menu.html#create_icons" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#icons1" target="_top">icons1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="icons1"></A>icons1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#icon_entry" target="_top">icon_entry</A> | <A href="api_param.html#icon_entry" target="_top">icon_entry</A><STRONG>,</STRONG><A href="api_param.html#icons1" target="_top">icons1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="icon_entry"></A>icon_entry ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>icon_entry(</STRONG><A href="api_param.html#icon_id" target="_top">icon_id</A><STRONG>,</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>,</STRONG><A href="api_param.html#lang_string" target="_top">lang_string</A><STRONG>)</STRONG></TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>blank</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2">Visualization definitions</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="visual_rules"></A>visual_rules ::=</TD>                        <TD><EM>Visualization defs. <A href="api_cmd_visual.html" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_param.html#visual_rules1" target="_top">visual_rules1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.    </TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="visual_rules1"></A>visual_rules1 ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#visual_rule" target="_top">visual_rule</A> | <A href="api_param.html#visual_rule" target="_top">visual_rule</A><STRONG>,</STRONG><A href="api_param.html#visual_rules1" target="_top">visual_rules1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="visual_rule"></A>visual_rule   ::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>nr(</STRONG><A href="api_param.html#type" target="_top">type</A><STRONG>,</STRONG><A href="api_param.html#attributes" target="_top">attributes</A><STRONG>)</STRONG></TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <STRONG>er(</STRONG><A href="api_param.html#type" target="_top">type</A><STRONG>,</STRONG><A href="api_param.html#attributes" target="_top">attributes</A><STRONG>)</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2">Strings</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+
+<TR>
+<TD COLSPAN="2"><A name="node_ids"></A>node_ids ::= <STRONG>[</STRONG><A href="api_param.html#node_ids1" target="_top">node_ids1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.       </TD><TD><EM>List of node IDs.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="node_ids1"></A>node_ids1   ::= <A href="api_param.html#node_id" target="_top">node_id</A> | <A href="api_param.html#node_id" target="_top">node_id</A><STRONG>,</STRONG><A href="api_param.html#node_ids1" target="_top">node_ids1</A>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_ids"></A>menu_ids    ::= <STRONG>[</STRONG><A href="api_param.html#menu_ids1" target="_top">menu_ids1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.       </TD><TD><EM>List of menu IDs.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_ids1"></A>menu_ids1   ::= <A href="api_param.html#menu_id" target="_top">menu_id</A> | <A href="api_param.html#menu_id" target="_top">menu_id</A><STRONG>,</STRONG><A href="api_param.html#menu_ids1" target="_top">menu_ids1</A>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="icon_ids"></A>icon_ids    ::= <STRONG>[</STRONG><A href="api_param.html#icon_ids1" target="_top">icon_ids1</A><STRONG>]</STRONG> | <STRONG>[ ]</STRONG>.       </TD><TD><EM>List of icon IDs.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="icon_ids1"></A>icon_ids1   ::= <A href="api_param.html#icon_id" target="_top">icon_id</A> | <A href="api_param.html#icon_id" target="_top">icon_id</A><STRONG>,</STRONG><A href="api_param.html#icon_ids1" target="_top">icon_ids1</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="node_id"></A>node_id     ::= <A href="api_param.html#string" target="_top">string</A>.                 </TD><TD><EM>Unique node ID. <A href="term_syntax.html#node_id" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="edge_id"></A>edge_id     ::= <A href="api_param.html#string" target="_top">string</A>.                 </TD><TD><EM>Unique edge ID. <A href="term_syntax.html#edge_id" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_id"></A>menu_id     ::= <A href="api_param.html#string" target="_top">string</A>.                 </TD><TD><EM>Unique menu ID. <A href="api_cmd_app_menu.html#create_menus" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_label"></A>menu_label  ::= <A href="api_param.html#lang_string" target="_top">lang_string</A>.            </TD><TD><EM>Text of menu entry. <A href="api_cmd_app_menu.html#create_menus" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_mne"></A>menu_mne    ::= <A href="api_param.html#lang_string" target="_top">lang_string</A>.            </TD><TD><EM>Mnemonic character. <A href="api_cmd_app_menu.html#create_menus" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_acc"></A>menu_acc    ::= <A href="api_param.html#lang_string" target="_top">lang_string</A>.            </TD><TD><EM>Accelerator key. <A href="api_cmd_app_menu.html#create_menus" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="icon_id"></A>icon_id     ::= <A href="api_param.html#string" target="_top">string</A>.                 </TD><TD><EM>Unique icon ID. <A href="api_cmd_app_menu.html#create_icons" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="type"></A>type        ::= <A href="api_param.html#string" target="_top">string</A>.                 </TD><TD><EM>Arbitrary type. <A href="term_type.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="filename"></A>filename    ::= <A href="api_param.html#string" target="_top">string</A>.                 </TD><TD><EM>A string containing a valid file name. <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="context_id"></A>context_id  ::= <A href="api_param.html#string" target="_top">string</A>.                 </TD><TD><EM>Context ID. <A href="api_multi_modes.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="window_id"></A>window_id   ::= <A href="api_param.html#string" target="_top">string</A>.                 </TD><TD><EM>Window ID. <A href="api_multi_modes.html#multi_window" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="string"></A>string      ::= ... </TD><TD><EM>Informally: A character sequence without newline,
+                     carriage return and double quotes, enclosed by double 
+                     quotes ("). For example: "This is a string". 
+                     Special characters can be written in C-notation, e.g. 
+                     \n for newline or \" for a quote inside the string.</EM></TD> </TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="lang_string"></A>lang_string ::=</TD>     <TD><EM>Informally: A string beginning with "#%". <A href="int.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD>    "#%..."       </TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD> <A href="api_param.html#string" target="_top">string</A>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2">Basic Types</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+
+<TR>
+<TD COLSPAN="2"><A name="integer"></A>integer    ::= ... </TD><TD><EM>Informally: A positive number without fraction.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="boolean"></A>boolean    ::= <STRONG>true</STRONG> | <STRONG>false</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="orientation"></A>orientation ::= <STRONG>top_down</STRONG> | <STRONG>bottom_up</STRONG> | <STRONG>left_right</STRONG> | <STRONG>right_left</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="direction"></A>direction  ::= <STRONG>up</STRONG> | <STRONG>down</STRONG> | <STRONG>left</STRONG> | <STRONG>right</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="btypes"></A>btypes     ::= <STRONG>[</STRONG><A href="api_param.html#btypes1" target="_top">btypes1</A><STRONG>]</STRONG>.               </TD><TD><EM>Types for file browser. <A href="api_cmd_window.html#file_browser" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="btypes1"></A>btypes1    ::= <A href="api_param.html#btype" target="_top">btype</A> | <A href="api_param.html#btype" target="_top">btype</A><STRONG>,</STRONG><A href="api_param.html#btypes1" target="_top">btypes1</A>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="btype"></A>btype ::=</TD>                               <TD><EM>Text, pattern and title text.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>bt(</STRONG><A href="api_param.html#lang_string" target="_top">lang_string</A><STRONG>,</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>,</STRONG><A href="api_param.html#lang_string" target="_top">lang_string</A>).</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="measures"></A>measures ::=</TD>                            <TD><EM>Measure unit. <A href="api_cmd_set.html#measure" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>cm</STRONG> | <STRONG>inch</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_mod"></A>menu_mod ::=</TD>                            <TD><EM>Modifier key. <A href="api_cmd_app_menu.html#create_menu" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>alt</STRONG> | <STRONG>shift</STRONG> | <STRONG>control</STRONG> | <STRONG>meta</STRONG> | <STRONG>none</STRONG> | <STRONG>lookup</STRONG> <A href="api_param.html#string" target="_top">string</A>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="manual_constraints"></A>manual_constraints ::=</TD>                  <TD><EM>Layout constraints. <A href="api_cmd_set.html#manual_layout" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>modify</STRONG> | <STRONG>preserve</STRONG> | <STRONG>fixed</STRONG> | <STRONG>freehand</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="spline_drawing"></A>spline_drawing ::=</TD>                      <TD><EM>Edge style. <A href="api_cmd_set.html#edge_style" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>off</STRONG> | <STRONG>graph</STRONG> | <STRONG>all</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+  </TABLE>
+</P>
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

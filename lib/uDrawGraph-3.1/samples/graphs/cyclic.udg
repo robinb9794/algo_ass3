@@ -1,0 +1,28 @@
+[
+l("1",n("anything",[a("OBJECT","1")],
+    [
+    e("anything",[],
+    l("2",n("anything",[a("OBJECT","2")],
+        [
+        e("anything",[],
+    	l("4",n("anything",[a("OBJECT","4")],
+            [
+            e("anything",[],
+            r("1"))
+            ]))),
+        ]))),
+    e("anything",[],
+    l("3",n("anything",[a("OBJECT","3")],
+        [
+        e("anything",[],
+        r("4"))
+        ])))
+    ])),
+l("5",n("anything",[a("OBJECT","5")],
+    [
+    e("anything",[],
+    r("3")),
+    e("anything",[],
+    r("4"))
+    ]))
+]

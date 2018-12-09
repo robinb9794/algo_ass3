@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tutorial, Navigation</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_int.html"><B>Interactions</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Navigation</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 3.3: Navigation Features to browse in a Graph 
+  </H1>
+  
+  <P>
+    For the last exercise in this section, we will come to the 
+    operations of the 
+  <A href="gui_navi.html" target="_top">Navigation</A> 
+    menu. 
+    First, select an arbitrary node in the graph. To see the parents, 
+    siblings or children of the current selection (the siblings 
+    are the children of all parents of a particular node), choose 
+    one of the first three menu entries of the "Navigation" menu, e.g. 
+  <A href="gui_navi.html" target="_top">Navigation/Select Children</A>.
+    This will clear the current selection and the corresponding set 
+    of parent, sibling or child nodes is selected, depending on the 
+    operation you choose. 
+    You can even select more than one node before using these operations 
+    to find all of their parents, siblings or children 
+    (please follow this link if you need 
+  <A href="gui_mous.html" target="_top">more information about how to select more 
+    than one node at a time</A>). 
+    When you have selected an edge, the menu entries for selecting
+    parents and children are available to select these particular nodes 
+    of the edge.
+  </P>
+  <P>
+    A very useful feature is the 
+  <A href="gui_navi_navi.html" target="_top">navigator dialog</A> 
+    which appears after using menu 
+  <A href="gui_navi.html" target="_top">Navigation/Navigator...</A>. 
+    Please select exactly one node in the graph and press one of the 
+    four arrow buttons in the navigator dialog to go to the next node 
+    in the corresponding direction. 
+    This way you can easily browse a graph by hopping from node to node. 
+    The speed of animation, used for scrolling to the new focus point, 
+    can be adjusted with menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>. 
+    You can also use the cursor keys of the keyboard to trigger navigation, 
+    so usually you do not need the navigator dialog
+    (by the way, you can scroll in a base window in vertical direction
+    by using the PageUp and PageDown keys of the keyboard which are 
+    usually located above the cursor keys).
+    The check button "Structural Navigation" is explained on the 
+  <A href="gui_navi_navi.html" target="_top">navigator dialog help page</A> 
+    of the user interface documentation. 
+  </P>
+  <P>
+    Finally we will search for nodes with a specified text with the 
+  <A href="gui_navi_find.html" target="_top">find dialog</A>. 
+    Select menu 
+  <A href="gui_navi.html" target="_top">Navigation/Find...</A> 
+    to get this window.	
+    Now enter the (sub-) string you are looking for in the find field. 
+    If you have loaded file "graph_example.udg", then for example 
+    type a 6 and press the find push button afterwards. 
+    This will search for a node with a text containing the 6. 
+    Press find again to go to the next match. 
+  </P>
+  <P>
+    After playing a little bit with these features, close both the 
+    find and navigator dialogs by selecting the close button, if
+    not already done. 
+  </P>
+  <P>
+    End of Exercise 3.3.
+  <A href="tut_int.html" target="_top">Go back to the Section 3 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

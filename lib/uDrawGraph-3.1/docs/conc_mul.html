@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Concepts / Multi-View</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="conc.html"><B>Concepts</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Multi-View</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Multi-View and Multi-Graph</H1>
+  
+
+  <P>
+    uDraw(Graph) has built-in support for multi-view and multi-graph. 
+    With these features, one can work on the same graph in different 
+    coupled windows (views) or load many graphs in several uncoupled 
+    windows at the same time. 
+  </P>
+  <P>
+    The user is able to open an additional view of a graph from any 
+    base window by using menu 
+  <A href="gui_view.html" target="_top">View/Open New View</A>. 
+    This opens a second coupled window showing the same graph. 
+    Interactions in one view of the graph (e.g. fine-tuning) always
+    manipulates the other views, too. 
+    One exception is the scale, so each view may have its own scale. 
+    The current fine-tuning mode is also set independently for each view. 
+  </P>
+  <P>
+    A special view with additional functionality is the survey view 
+    which can be opened from any base window (called detail view)
+    with menu 
+  <A href="gui_view.html" target="_top">View/Open Survey View</A>. 
+    A survey view shows the graph of the detail view in a reduced 
+    scale so it is completely visible, even if the window 
+    size is changed for the survey view. 
+    The visible area of the graph in the detail view is visualized 
+    in the survey view with a continuously updated blue rectangle. 
+    When the user selects a node in the survey view, uDraw(Graph) 
+    scrolls to this node in the detail view smoothly with animation. 
+    If not desired, this behavior can be switched off in dialog 
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>. 
+    by deselecting checkbox "On selection in Survey View". 
+    The blue rectangle can also be moved with the mouse directly.
+  </P>
+  <P>
+    A second, independent graph can be loaded with menu 
+  <A href="gui_file.html" target="_top">File/Open...</A>. 
+    in each view. 
+    The new graph is only displayed in the view where the load 
+    operation was triggered and not in the other views. 
+    So technically, a view of a graph is disconnected from the
+    other views of the same graph as soon as a new graph is loaded 
+    there. 
+    For example, when you have only one window (i.e. no views) and 
+    would like to visualize a second graph simultaneously, then open 
+    a view to get a second window and load the new graph there. 
+    The maximal number of opened base windows in uDraw(Graph) for 
+    multi-view and multi-graph is 64. 
+  </P>
+  <P>
+    More
+  <A href="api_multi_modes.html" target="_top">technical information about the multi-modes</A>
+    can be found in the application programming interface reference.
+  </P>
+
+  <P>
+    Next:
+  <A href="conc_dad.html" target="_top">Drag and Drop</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

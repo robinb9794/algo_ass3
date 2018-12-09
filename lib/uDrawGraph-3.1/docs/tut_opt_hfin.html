@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>
+    uDraw(Graph) 3.1 Online Documentation: Tutorial, Horizontal Fine-Tuning
+  </TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_opt.html"><B>Optimizing Layouts</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Horizontal Fine-Tuning</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 2.2:  Horizontal Fine-Tuning 
+  </H1>
+  
+  <P>
+    Now we will modify the automatically calculated graph layout 
+    with the mouse. 
+    This kind of direct manipulation is called fine-tuning. 
+    To do this, select some graph node with the mouse. 
+    Then move the mouse slowly to the left and to the right by 
+    still holding down the left mouse button.
+    This is called dragging. 
+    Be careful not to drag the node up or downwards to the next 
+    or previous level. This will cause a vertical fine tuning 
+    which is discussed in the next exercise. 
+    By moving the mouse to the left and to the right, you can see 
+    how the position of the node is changed. 
+    Move the node towards its left or right neighbour node at the 
+    same level. 
+    When you have reached the minimal distance, the neighbour node 
+    is moved as well in the same direction, and so on. 
+  </P>
+  <P>
+    We will now manually change the order of nodes at a level. 
+    Select menu 
+  <A href="gui_opt.html" target="_top">Options/Layout Algorithm</A> 
+    to open the
+  <A href="gui_opt_alg.html" target="_top">layout algorithm dialog</A>. 
+    Under "Manual Layout" you can find three radio buttons to set 
+    the constraints of the horizontal fine tuning. 
+    The current setting is "Preserve Node Order" to move a touched 
+    neighbour node as well. 
+    This is what we have just seen before. 
+    Now select button "Modify Node Order" and press the ok push 
+    button afterwards. 
+    Move some node again towards its left or right neighbour node.
+    This time, when you have reached the minimal distance, both 
+    nodes will exchange their positions. 
+    This operation allows you to change the order of nodes at
+    a level, for example to eliminate obvious edge crossings by hand 
+    which have been left by the graph layout algorithm. 
+  </P>
+  <P>
+    You might have noticed that by selecting the "Modify Node Order" 
+    constraint, the last group of buttons on the 
+  <A href="gui_base.html" target="_top">icon bar</A> 
+    has been modified, too. 
+    For more comfort, the last three radio buttons on the icon bar 
+    can also be used to set the fine tuning constraints. 
+  </P>
+  <IMG border="1" alt="Preserve Order Icon" width="" height="" src="uDG31_but_po.gif">
+  <IMG border="1" alt="Modify Order Icon" width="" height="" src="uDG31_but_mo.gif">
+  <IMG border="1" alt="Fixed Neighbour Icon" width="" height="" src="uDG31_but_fi.gif">
+    Buttons of the icon bar to control fine tuning 
+  <P>
+    So select the last button (the one with STOP) of the base window's 
+    icon bar to set the "Fixed Neighbour Nodes" constraint. 
+    By moving some node, you can see that this setting protects the 
+    position of the left and right neighbour node when they are touched 
+    by a dragged node. 
+  </P>
+  <P>
+    End of Exercise 2.2.
+  <A href="tut_opt.html" target="_top">Go back to the Section 2 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

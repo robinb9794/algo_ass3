@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Drag and Drop Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Drag and Drop Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Drag and Drop Commands</H1>
+  
+  <P>
+    For background information about the commands described on this page, 
+    refer to the
+  <A href="api_dad.html" target="_top">information about the drag and drop mode</A> 
+    in the corresponding section of the API reference.
+  </P>
+  <P>
+    On this page, API commands of the drag and drop category are described. 
+    This category covers all commands to implement user interaction with 
+    drag and drop available for an application. 
+    The commands of this category are enclosed by keyword "drag_and_drop(...)".
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+  </P>
+
+  <A name="dragging_on"></A>
+  <H2>
+    drag_and_drop(dragging_on)
+  </H2>
+  <P>
+    To enable the 
+  <A href="api_dad.html" target="_top">drag and drop mode</A>
+    for accessing functions of the application by using direct manipulation 
+    interactions in a uDraw(Graph) graph visualization.
+    Afterwards the
+  <A href="gui_mous.html#middle" target="_top">2-D scrolling</A>
+    that can usually be accessed with the middle mouse button is no
+    longer available.
+    After sending this command, the application has to be prepared for
+    the following API answers used to inform about drag and drop operations:
+  </P>
+
+  <UL>
+  <LI>
+  <A href="api_answ_all.html#create_node" target="_top">create_node(...)</A>
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#create_node_and_edge" target="_top">create_node_and_edge(...)</A>
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#create_edge" target="_top">create_edge(...)</A>
+  </LI>
+  <LI>
+  <A href="api_answ_all.html#drop_node" target="_top">drop_node(...)</A>
+  </LI>
+  </UL>
+
+  <A name="dragging_off"></A>
+  <H2>
+    drag_and_drop(dragging_off)
+  </H2>
+  <P>
+    To disable the 
+  <A href="api_dad.html" target="_top">drag and drop mode</A>,
+    so
+  <A href="gui_mous.html#middle" target="_top">2-D scrolling</A>
+    is available again.
+  </P>
+
+  <A name="new_node_at_coord"></A>
+  <H2>
+    drag_and_drop(new_node_at_coord(<A href="api_param.html#node_update" target="_top">node_update</A>))
+  </H2>
+  <P>
+    This command is the recommended action after receiving the API answer 
+  <A href="api_answ_all.html#create_node" target="_top">create_node(...)</A>,
+    see 
+  <A href="api_dad.html" target="_top">information about the drag and drop mode</A>.
+    When the API has sent this answer, the coordinates where the mouse 
+    button was released are stored internally and used as the preferred 
+    position of the next node that will be inserted with this command.
+    Therefore only a single node can be used in the parameter.
+    uDraw(Graph) tries to insert the new node at the stored coordinate, but 
+    this may not be (completely) possible due to layout restrictions, see
+  <A href="conc_lay.html" target="_top">graph layout concepts</A>.
+    Without a previous 
+  <A href="api_answ_all.html#create_node" target="_top">create_node(...)</A>,
+  <A href="api_answ_all.html#create_node_and_edge" target="_top">create_node_and_edge(...)</A>
+    or
+  <A href="api_answ_all.html#drop_node" target="_top">drop_node(...)</A>
+    answer, no coordinate is available and the command behaves like an
+    usual graph update with command 
+  <A href="api_cmd_graph.html#update" target="_top">graph(update(...))</A>.
+  </P>
+
+  <A name="new_edge_and_node_at_coord"></A>
+  <H2>
+    drag_and_drop(new_edge_and_node_at_coord(<A href="api_param.html#node_update" target="_top">node_update</A>,<A href="api_param.html#edge_update" target="_top">edge_update</A>))
+  </H2>
+  <P>
+    This command is the recommended action after receiving the API answer 
+  <A href="api_answ_all.html#create_node_and_edge" target="_top">create_node_and_edge(...)</A>,
+    see 
+  <A href="api_dad.html" target="_top">information about the drag and drop mode</A>.
+    All information about parameter "node_update" in command
+  <A href="api_cmd_dad.html#new_node_at_coord" target="_top">drag_and_drop(new_node_at_coord(...))</A>
+    is applicable here, too.
+    The additional "edge_update" has to be used to insert a new edge 
+    where the parent is the start node of the drag and drop operation 
+    (reported to the application by answer
+  <A href="api_answ_all.html#create_node_and_edge" target="_top">create_node_and_edge(...)</A>)
+    and the child is the new node created here in parameter "node_update".
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

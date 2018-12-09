@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Edge Labels, Splines, Tooltips</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="new.html"><B>New Features</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Edge Labels, Splines, Tooltips</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>
+    Edge Labels, Splines and Tooltips
+  </H1>
+  
+  <P>
+    This page covers new features and modifications in version 3.0, 
+    compared to the previous release V2.1.
+  <UL>
+  <LI>
+  <B>Edge Labels</B>
+<BR>
+    Edges can have an optional text using the
+    edge attribute
+  <A href="term_eattr.html#object" target="_top">OBJECT</A>.
+    Edge labels are usually displayed grey in the background. 
+    If the edge is selected, the text is displayed with the edge color 
+    in the foreground.
+    To test it, you can simply enter an edge label in the edge 
+    attributes dialog of the new
+  <A href="edit.html" target="_top">graph editor</A>.
+  </LI>   
+
+  <LI>
+  <B>Splines</B>
+<BR>
+    Long span edges with intermediate dummy nodes (which are passing 
+    more than one level) can be displayed with splines (curves)
+    instead of straight line segments.
+    The spline feature can be controlled for each individual edge 
+    using the edge attribute
+  <A href="term_eattr.html#edgepattern" target="_top">EDGEPATTERN</A>.
+    The new
+  <A href="edit.html" target="_top">graph editor</A>
+    can also set this edge attribute.
+    The individual definitions can be overwritten with a global setting 
+    in dialog 
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings</A>.
+  </LI>   
+
+  <LI>
+  <B>Tooltips</B>
+<BR>
+    Nodes and edges can have a tooltip (pop-up text) that is defined
+    with attribute
+  <A href="term_nattr.html#info" target="_top">INFO</A> 
+    which is also available in the node and edge attributes dialogs 
+    of the new
+  <A href="edit.html" target="_top">graph editor</A>.
+    Tooltips are displayed automatically after a delay when the 
+    mouse pointer is over the node or edge with such an information.
+    The tooltip delay can be controlled with menu 
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings</A>.
+  </LI>   
+
+  </UL>
+  </P>
+
+  <P>
+    Next:
+  <A href="new_attrs.html" target="_top">Color Icons and new Edge Options</A>.
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

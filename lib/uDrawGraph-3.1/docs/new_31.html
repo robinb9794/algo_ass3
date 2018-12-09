@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: New Features 3.1...</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="new.html"><B>New Features</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">uDraw(Graph) 3.1</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>New features in uDraw(Graph) 3.1</H1>
+  
+  <P>
+    This page covers new features and modifications in uDraw(Graph) 3.1, 
+    compared to the previous release 3.0.
+  <UL>
+  <A name="oarrow"></A>
+  <LI>
+  <B>New arrow head</B>
+<BR>
+  <P>
+  <IMG border="0" alt="New Features" width="" height="" src="uDG31_new_oarrow.gif" align="JUSTIFY">
+  </P>
+  <P>
+    There is a new value "oarrow" for the edge attribute 
+  <A href="term_eattr.html#head" target="_top">HEAD</A>. In the above example you
+    can see three edges with the values "arrow", "oarrow" and "farrow" for
+    the attribute HEAD.
+  </P>
+  </LI>   
+
+  <A name="etb"></A>
+  <LI>
+  <B>Text of unselected edges in black instead of grey</B>
+<BR>
+  <P>
+  <IMG border="0" alt="New Features" width="" height="" src="uDG31_new_etb.gif" align="JUSTIFY">
+  </P>
+  <P>
+    Edge labels are displayed in grey for all edges. Only if the user selects an
+    edge, the edge label is displayed in black. If edge labels are very
+    important for the graph, this can be a problem, because the labels are
+    very hard to see. Therefore it is possible now to display all edge labels
+    in black by setting an option in
+    <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A> or with
+    the API command
+    <A href="api_cmd_set.html#edge_text_black" target="_top">set(edge_text_black(boolean))</A>. Setting this option can lead to an unreadable
+    layout of the graph, because edge texts can cross nodes and other edges
+    or other edge texts.
+  
+  </P>
+  </LI>   
+
+  <A name="tcltk"></A>
+  <LI>
+  <B>Updated Tcl/Tk version to 8.4.9</B>
+<BR>
+  <P>
+    The version of Tcl/Tk compiled into uDraw(Graph) has been updated to version
+    8.4.9. This should be no problem for normal users. Only applications
+    that are using the <A href="api_tcl.html" target="_top">Tcl/Tk interface</A> 
+    may have to be updated as well. Starting with release 3.1.1 we have
+    upgraded from Img 1.2.4 to tkImg 1.3 and from BWidget 1.2.1 to 1.7.
+  </P>
+  </LI>   
+  </UL>
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tutorial, Abstractions</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_int.html"><B>Interactions</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Abstractions</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 3.2: Using Abstractions to simplify a Layout
+  </H1>
+  
+  <P>
+    Interactive abstractions are used to hide particular parts of 
+    a graph that may be uninteresting or confusing at the moment.
+    Abstractions are temporary operations that can be undone at 
+    any time. 
+    Select some node in the graph that has at least one child node. 
+    Now you can hide the subgraph of this node by selecting menu 
+  <A href="gui_abst.html" target="_top">Abstraction/Hide Subgraph</A>.
+    After doing so, the children of the node are removed from the 
+    visualization and the selected node is drawn with an
+    icon showing a pair of scissors to emphasize the applied 
+    abstraction: 
+  </P>
+  <P>
+  <IMG border="0" alt="subgraph abstraction" width="" height="" src="uDG31_abst_subgr.gif"> Node with a hidden subgraph 
+  </P>
+  <P>
+    You can restore the subgraph of the selected node by using menu 
+  <A href="gui_abst.html" target="_top">Abstraction/Show Subgraph</A>. 
+    Make sure to select a node with a hidden subgraph, otherwise the 
+    show operation is not available. 
+    Try to hide three or four large subgraphs. 
+    You can see that the position of the other nodes is not affected 
+    by this operation, to reserve the space until the subgraph is 
+    shown again. 
+    So maybe a lot of unused space is present in the visualization 
+    after hiding some subgraphs. 
+    Take advance of this space by selecting menu 
+  <A href="gui_lay.html" target="_top">Layout/Improve Spacing</A> 
+    which gives you in a more compact layout. 
+    Now you can restore the original layout by using menu 
+  <A href="gui_abst.html" target="_top">Layout/Restore all Subgraphs</A> 
+    to restore all subgraphs in one step. 
+    Because the place of the subgraphs is occupied after 
+    compactification, the layout may not look as it looked before 
+    applying the abstractions, but with the incremental graph layout 
+    that is automatically applied when fading in subgraphs you will get 
+    a quite reasonable layout. 
+  </P>
+  <P>
+    Another abstraction is hiding all the edges of a selected node: 
+    both the incoming (from the parent nodes) and the outgoing edges 
+    (to the child nodes). 
+    The three operations for edge abstractions are also available 
+    in the 
+  <A href="gui_abst.html" target="_top">Abstraction</A> 
+    menu. 
+    After hiding the edges of a selected node, they are removed from 
+    the graph visualization and the node is drawn with a rectangular 
+    border to emphasize the applied abstraction: 
+  </P>
+  <P>
+  <IMG border="0" alt="edge abstraction" width="" height="" src="uDG31_abst_edge.gif"> Node with hidden edges 
+  </P>
+    In opposition to subgraph abstractions, applying an edge abstraction 
+    has no effect on the position of nodes and edges, so you can use 
+    it at any time without worrying about losing your layout.
+  <P>
+    End of Exercise 3.2.
+  <A href="tut_int.html" target="_top">Go back to the Section 3 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

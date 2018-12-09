@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Concepts / Graphs</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="conc.html"><B>Concepts</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Graphs</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Graphs</H1>
+  
+  <P>
+    uDraw(Graph) is an interactive tool to visualize directed graphs. 
+    A graph is a structure with a number of objects (nodes) and
+    relationships between them (edges). 
+    For directed graphs, all edges have a direction, i.e. for each 
+    edge there is a parent node (the source) and a child node 
+    (the target). 
+    The graph layout in uDraw(Graph) reflects these hierarchical 
+    relationships by arranging the nodes on horizontal levels so 
+    all parent nodes are above their child nodes and all edges point 
+    downwards (in a top-down layout).
+    Further, the direction of an edge is usually visualized by an 
+    arrow pointing to the child node. 
+    This kind of representation is called hierarchical visualization 
+    of a directed graph. 
+  </P>
+  <IMG border="0" alt="graph" width="" height="" src="uDG31_gra.gif" align="JUSTIFY">
+  <P>
+    Although hierarchical visualization is only possible for non-cyclic 
+    graphs, uDraw(Graph) is also able to handle cyclic graphs where each
+    cycle is broken by inverting the direction of one edge.
+    This way, a cyclic graph is transformed into an acyclic one which 
+    can be handled by the hierarchical layout algorithm. 
+  </P>
+  <P>
+    Graphs are loaded in uDraw(Graph) using a format called 
+  <A href="term.html" target="_top">term representation</A>. 
+  <STRONG>Note:</STRONG> 
+    files containing a uDraw(Graph) term representation should 
+    always have suffix ".udg". 
+    The term representation format supports all kind of directed graphs: 
+    cyclic or acyclic graphs, empty graphs, graphs with only one level 
+    (a list of nodes without any edges), multi-edges (two or more edges 
+    between two nodes) or even self-edges (edges where the parent and 
+    child node are the same).
+    The term representation is a plain text ASCII format, so uDraw(Graph) 
+    graphs can even be created with an ordinary text editor. But
+    normally this is not done by hand. 
+    Instead, graphs are generated automatically by some application 
+    program connected to the API. 
+  </P>
+
+  <P>
+    Next:
+  <A href="conc_api.html" target="_top">Applications using the API</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

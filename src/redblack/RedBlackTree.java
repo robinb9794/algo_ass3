@@ -1,7 +1,9 @@
 package redblack;
 
-public class RedBlackTree<K extends Comparable<K>, V> {
-	private Node<K, V> root;
+import workers.UDrawGraphClient;
+
+public class RedBlackTree<K> {	
+	private Node root;
 	
 	public Node getRoot() {
 		return this.root;
@@ -18,7 +20,7 @@ public class RedBlackTree<K extends Comparable<K>, V> {
 		return null;
 	}	
 	
-	public void insert(K key, V value) {
+	public void insert(K key) {
 		System.out.println("Inserting node: " + key.toString());
 		NodeHandler nodeHandler = new NodeHandler(root);
 		while(!nodeHandler.isNull()) {
@@ -31,7 +33,7 @@ public class RedBlackTree<K extends Comparable<K>, V> {
 				return;
 			nodeHandler.down(RES < 0);
 		}
-		nodeHandler.set(new Node(key, value), NodeFamily.NODE);
+		nodeHandler.set(new Node(key), NodeFamily.NODE);
 		nodeHandler.split();
 	}
 	

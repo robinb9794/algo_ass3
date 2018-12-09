@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Layout Settings Dialog</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui_opt.html"><B>Options Menu</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Layout Settings...</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>Layout Settings Dialog Window</H1>
+  
+  <IMG border="0" alt="Layout Settings Dialog" width="" height="" src="uDG31_win_set.gif" align="JUSTIFY">
+
+  <P>
+    This dialog window is used to control the settings and dimensions 
+    of a graph visualization.
+    Modifying the dimensions has an influence on the extension of a 
+    graph visualization, so if you do not want to reduce the scale of 
+    a graph with dialog 
+  <A href="gui_view_scale.html" target="_top">View/Scale...</A>
+    then you can reduce the font size or the node distances here to 
+    get a smaller visualization. 
+  </P>
+  <P>
+    After changing the dimensions, the graph layout has to be 
+    recalculated to deal with new node extensions, but the order of 
+    nodes is preserved. 
+    This way all interactive fine-tuning operations performed on a 
+    graph layout will be lost afterwards. 
+    So be sure to set the final dimensions before starting with 
+    serious fine-tuning. 
+    By selecting a smaller or larger font size, the other dimensions 
+    in this window are adjusted proportionally. 
+  </P>
+  <P>
+    The edge style, either straight lines or curves respective
+    splines, can also be controlled here.
+    This setting only affects long edges that span more than one 
+    horizontal node level.
+    These long span edges are filled up with invisible dummy nodes at 
+    each passed level. 
+    Usually the segments of long span edges (starting at the parent,
+    going from dummy to dummy and ending at the child node) are drawn 
+    with straight lines.
+    An optional spline edge style can be used which looks much more 
+    pleasant.
+    The style of an edge can be individually controlled with edge
+    attribute
+  <A href="term_eattr.html#edgepattern" target="_top">EDGEPATTERN</A>
+    in the term representation of the graph.
+    If not defined, straight lines are used as default.
+    To overwrite the individual style settings, the global edge style
+    can be set in this dialog window.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    when using splines, the dummy nodes are usually not laying on 
+    the spline curve. 
+    Instead, they are control points of the spline functions. 
+    So especially when there are sharp bends in the spline, the edge 
+    may overlap with neighbour nodes which is not the case when using
+    straight lines.
+  </P>
+
+  <H2>
+    Dialog Elements of the Layout Settings Window
+  </H2>
+  <UL>
+  <LI>
+  <B>Font Size (pt)</B>
+<BR>
+    To set the font size in the visualization of a graph between 6 point
+    and 34 point. 
+    Changing the font size with this option button will also adjust 
+    the other dimensions in this dialog window to keep the layout 
+    proportional. 
+    The font family and style cannot be selected interactively in 
+    uDraw(Graph). 
+    This is determined by the 
+  <A href="term_nattr.html" target="_top">node attributes</A> 
+    in the term representation of a graph. 
+  </LI>
+
+  <LI>
+  <B>Edge Style</B>
+<BR>
+    To choose whether long span edges are drawn as straight 
+    lines or as curves (splines).
+    When using "As defined in Graph", the actual style of each individual
+    edge is determined by the value of its  
+  <A href="term_eattr.html#attr" target="_top">EDGEPATTERN</A>
+    attribute in the term representation.
+    When not defined, straight lines are assumed as default.
+    These individual settings can be globally overwritten by using 
+    either the "Straight Lines" or "Curves (Splines)" setting.
+  </LI>
+
+  <LI>
+  <B>Edge Text</B>
+<BR>
+   Specifies if the edge text should be always displayed in black or
+    in grey if the edge is unselected and only in black if the edge
+    is selected. Setting this option can lead to an unreadable
+    layout of the graph, because edge texts can cross nodes and other edges
+    or other edge texts.
+  </LI>
+
+  <LI>
+  <B>Node Distance Gap Width</B>
+<BR>
+    To set the minimal horizontal distance between nodes at the 
+    levels (vertical distance for left-to-right and right-to-left 
+  <A href="gui_lay.html#orientation" target="_top">orientations</A>).
+  </LI>
+
+  <LI>
+  <B>Node Distance Gap Height</B>
+<BR>
+    To set the minimal vertical distance between the levels 
+    (horizontal distance for left-to-right and right-to-left 
+  <A href="gui_lay.html#orientation" target="_top">orientations</A>).
+  </LI>
+
+  <LI>
+  <B>Multi-Edge Gap Width</B>
+<BR>
+    To set the gap between individual edges of a
+  <A href="term_mul.html" target="_top">multi-edge</A>.
+  </LI>
+
+  <LI>
+  <B>Self-Edge Radius</B>
+<BR>
+    To set the radius which is used for drawing
+  <A href="term_mul.html" target="_top">self-edge</A>.
+  </LI>
+
+  <LI>
+  <B>Ok</B>
+<BR>
+    Push button to accept the current settings of this dialog window. 
+    Without pressing this button, modifications to these options are not 
+    considered.   
+  </LI>
+
+  <LI>
+  <B>Cancel</B>
+<BR>
+    Push button to close the layout settings dialog window without 
+    performing any action.
+  </LI>
+
+  <LI>
+  <B>Reset</B>
+<BR>
+    Push button to undo any modification to these options which were not
+    confirmed using the "Ok" push button yet.
+    So reset goes back to the current settings. 
+  </LI>
+
+  <LI>
+  <B>Help </B>
+<BR>
+     Push button to start the 
+  <A href="gnrl_use.html#help_system" target="_top">online help system</A>
+     with this page. 
+  </LI>
+  </UL>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

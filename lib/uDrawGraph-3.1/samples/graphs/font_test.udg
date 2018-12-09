@@ -1,0 +1,94 @@
+  [
+  l("L",n("anything",[	a("OBJECT","This is font Lucida"),
+  			a("FONTFAMILY","lucida"),
+  			a("FONTSTYLE","normal")],
+ 	[
+ 	e("anything",[],
+ 	  l("LB",n("anything",[	a("OBJECT","This is font Lucida Bold"),
+  				a("FONTFAMILY","lucida"),
+  				a("FONTSTYLE","bold")],
+ 		[
+ 		e("anything",[],
+ 	  	  l("LI",n("anything",[	a("OBJECT","This is font Lucida Italic"),
+  					a("FONTFAMILY","lucida"),
+  					a("FONTSTYLE","italic")],
+ 			[
+ 			e("anything",[],
+ 	  		  l("LBI",n("anything",[	a("OBJECT","This is font Lucida Bold Italic"),
+  						a("FONTFAMILY","lucida"),
+  						a("FONTSTYLE","bold_italic")],
+ 				[
+ 				])))
+ 			])))
+ 		])))
+ 	])),
+  l("T",n("anything",[	a("OBJECT","This is font Times"),
+  			a("FONTFAMILY","times"),
+  			a("FONTSTYLE","normal")],
+ 	[
+ 	e("anything",[],
+ 	  l("TB",n("anything",[	a("OBJECT","This is font Times Bold"),
+  				a("FONTFAMILY","times"),
+  				a("FONTSTYLE","bold")],
+ 		[
+ 		e("anything",[],
+ 	  	  l("TI",n("anything",[	a("OBJECT","This is font Times Italic"),
+  					a("FONTFAMILY","times"),
+  					a("FONTSTYLE","italic")],
+ 			[
+ 			e("anything",[],
+ 	  		  l("TBI",n("anything",[	a("OBJECT","This is font Times Bold Italic"),
+  						a("FONTFAMILY","times"),
+  						a("FONTSTYLE","bold_italic")],
+ 				[
+ 				])))
+ 			])))
+ 		])))
+ 	])),
+  l("H",n("anything",[	a("OBJECT","This is font Helvetica"),
+  			a("FONTFAMILY","helvetica"),
+  			a("FONTSTYLE","normal")],
+ 	[
+ 	e("anything",[],
+ 	  l("HB",n("anything",[	a("OBJECT","This is font Helvetica Bold"),
+  				a("FONTFAMILY","helvetica"),
+  				a("FONTSTYLE","bold")],
+ 		[
+ 		e("anything",[],
+ 	  	  l("HI",n("anything",[	a("OBJECT","This is font Helvetica Italic"),
+  					a("FONTFAMILY","helvetica"),
+  					a("FONTSTYLE","italic")],
+ 			[
+ 			e("anything",[],
+ 	  		  l("HBI",n("anything",[	a("OBJECT","This is font Helvetica Bold Italic"),
+  						a("FONTFAMILY","helvetica"),
+  						a("FONTSTYLE","bold_italic")],
+ 				[
+ 				])))
+ 			])))
+ 		])))
+ 	])),
+  l("C",n("anything",[	a("OBJECT","This is font Courier"),
+  			a("FONTFAMILY","courier"),
+  			a("FONTSTYLE","normal")],
+ 	[
+ 	e("anything",[],
+ 	  l("CB",n("anything",[	a("OBJECT","This is font Courier Bold"),
+  				a("FONTFAMILY","courier"),
+  				a("FONTSTYLE","bold")],
+ 		[
+ 		e("anything",[],
+ 	  	  l("CI",n("anything",[	a("OBJECT","This is font Courier Italic"),
+  					a("FONTFAMILY","courier"),
+  					a("FONTSTYLE","italic")],
+ 			[
+ 			e("anything",[],
+ 	  		  l("CBI",n("anything",[	a("OBJECT","This is font Courier Bold Italic"),
+  						a("FONTFAMILY","courier"),
+  						a("FONTSTYLE","bold_italic")],
+ 				[
+ 				])))
+ 			])))
+ 		])))
+ 	])),
+]

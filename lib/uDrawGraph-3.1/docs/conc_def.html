@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Concepts / Visualization Definition</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="conc.html"><B>Concepts</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Visualization Definition</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Visualization Definition</H1>
+  
+  <P>
+    Rules from a visualization definition are used to define the visual 
+    appearance for a family of graphs. 
+    With visualization rules, you can control the default visualization
+    for a subset of nodes and edges in order to manage this at a central
+    place. For example, you can specify a rule to draw all nodes of 
+    some arbitrary
+  <A href="term_type.html" target="_top">type</A> 
+    X with a red circle, instead of using 
+  <A href="term_attr.html" target="_top">attributes</A> 
+    for each individual node of a graph. 
+    The modification of a rule affects all elements of the same node 
+    type in a graph at the same time. 
+    So, the central visualization definition is a comfortable method 
+    to define a universal visualization for a family of graphs. 
+    Please refer to API command category 
+  <A href="api_cmd_visual.html" target="_top">Visual</A>
+    for technical information. 
+  </P>
+
+  <H2>Setting Rules</H2>
+  <P>
+    One visualization rule is a list of attributes (keys and values)
+    for a specified type. The rule is used for all nodes/edges
+    with this particular type and usually only for the attributes that 
+    are not locally defined in the nodes/edges with that type 
+    (but read about the 
+  <A href="conc_def.html#evaluation_order" target="_top">attribute evaluation order</A>
+    below).
+    The rules are set with API command
+  <A href="api_cmd_visual.html#new_rules" target="_top">visual(new_rules())</A>
+    and 
+  <A href="api_cmd_visual.html#add_rules" target="_top">visual(add_rules())</A>.
+   </P>
+ 
+  <H2>Overriding Rules with individual Attributes</H2>
+  <P>
+    When a node or edge has a type and there is a visualization rule defined
+    for that type, you can override the corresponding rule by setting 
+    individual local attributes in the particular node or edge.
+    Use API command 
+  <A href="api_cmd_graph.html#change_attr" target="_top">graph(change_attr())</A>
+    to set individual attributes.
+    To remove an individual attribute in order to reset to the attribute
+    value from the visualization rule, simply set the individual attribute
+    value to an empty string ("") with API command
+  <A href="api_cmd_graph.html#change_attr" target="_top">graph(change_attr())</A>
+   </P>
+
+  <A name="evaluation_order"></A>
+  <H2>Attribute Evaluation Order</H2>
+  <P>
+    When no visualization definition is present, the visualization style
+    is determined by the individual attribute settings of the nodes and 
+    edges (color, pattern, line thickness etc).
+    When an individual attribute is not set, an internal default value 
+    is taken. 
+    But when rules of a visualization definition are present, 
+    the attribute evaluation order is modified. 
+    First the value of the attribute of the individual node or edge 
+    is considered. 
+    If an individual attribute is not present, the corresponding rule 
+    for the type of the node or edge is applied. 
+    If a rule is present and the attribute is defined in that rule, 
+    the value is taken from the visualization definition, otherwise the 
+    default value is used. 
+  </P>
+  <P>
+    In a graph where each node and edge has its own attributes, 
+    it would be impossible to use visualization definitions. 
+    So it is possible to control the attribute evaluation with the 
+    API command 
+  <A href="api_cmd_set.html#rules_first" target="_top">set(rules_first(...)</A>.
+  </P>
+
+ <P>
+    Next:
+  <A href="conc_fin.html" target="_top">Fine-Tuning of a Layout</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

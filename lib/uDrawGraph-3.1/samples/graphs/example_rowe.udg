@@ -1,0 +1,114 @@
+  [
+  l("root",n("Module",[a("OBJECT","root")],
+        [
+        e("",[],
+          l("main",n("Module",[a("OBJECT","main")],
+                [
+                e("",[],
+                  l("call",n("Module",[a("OBJECT","call")],
+                        [
+                        e("",[],
+                          r("L putcol"))
+                        ]))),
+                e("",[],
+                  l("sclose",n("Module",[a("OBJECT","sclose")],
+                        [
+                        e("",[],
+                          l("L putcol",n("Module",[a("OBJECT","putcol")],
+                                [
+                                e("",[],
+                                  l("L setin",n("Module",[a("OBJECT","setin")],[])))
+                                ]))),
+                        e("",[],
+                          l("visit",n("Module",[a("OBJECT","visit")],[])))
+                        ]))),
+                e("",[],
+                  l("L print",n("Module",[a("OBJECT","print")],
+                        [
+                        e("",[],
+                          r("L putcol"))
+                        ]))),
+                e("",[],
+                  l("execute",n("Module",[a("OBJECT","execute")],
+                        [
+                        e("",[],
+                          r("L print"))
+                        ]))),
+                e("",[],
+                  l("report",n("Module",[a("OBJECT","report")],
+                        [
+                        e("",[],
+                          r("L putcol")),
+                        e("",[],
+                          r("L setin")),
+                        e("",[],
+                          l("alphabetize",n("Module",[a("OBJECT","alphabetize")],[]))),
+                        e("",[],
+                          l("L find1",n("Module",[a("OBJECT","find1")],[])))
+                        ]))),
+                e("",[],
+                  l("home",n("Module",[a("OBJECT","home")],
+                        [
+                        e("",[],
+                          l("L find",n("Module",[a("OBJECT","find")],
+                                [
+                                e("",[],
+                                  r("L find1"))
+                                ])))
+                        ]))),
+                e("",[],
+                  l("down",n("Module",[a("OBJECT","down")],
+                        [
+                        e("",[],
+                          r("L find"))
+                        ]))),
+                e("",[],
+                  l("edit",n("Module",[a("OBJECT","edit")],
+                        [
+                        e("",[],
+                          r("L find")),
+                        e("",[],
+                          l("readin",n("Module",[a("OBJECT","readin")],
+                                [
+                                e("",[],
+                                  l("getstr",n("Module",[a("OBJECT","getstr")],[]))),
+                                e("",[],
+                                  l("addarc",n("Module",[a("OBJECT","addarc")],
+                                        [
+                                        e("",[],
+                                          l("addarc1",n("Module",[a("OBJECT","addarc1")],
+                                                [
+                                                e("",[],
+                                                  l("L lookup1",n("Module",[a("OBJECT","lookup1")],
+                                                        [
+                                                        e("",[],
+                                                          l("L savestr",n("Module",[a("OBJECT","savestr")],[])))
+                                                        ])))
+                                                ])))
+                                        ])))
+                                ])))
+                        ]))),
+                e("",[],
+                  l("readindex",n("Module",[a("OBJECT","readindex")],
+                        [
+                        e("",[],
+                          r("L savestr")),
+                        e("",[],
+                          l("getitem",n("Module",[a("OBJECT","getitem")],[]))),
+                        e("",[],
+                          r("L lookup1"))
+                        ]))),
+                e("",[],
+                  l("up",n("Module",[a("OBJECT","up")],[]))),
+                e("",[],
+                  l("toggle",n("Module",[a("OBJECT","toggle")],[]))),
+                e("",[],
+                  l("quit",n("Module",[a("OBJECT","quit")],[]))),
+                e("",[],
+                  l("help",n("Module",[a("OBJECT","help")],[])))
+                ])))
+        ])),
+  l("sorry",n("Module",[a("OBJECT","sorry")],[])),
+  l("pop",n("Module",[a("OBJECT","pop")],[])),
+  l("panic",n("Module",[a("OBJECT","panic")],[]))
+  ]

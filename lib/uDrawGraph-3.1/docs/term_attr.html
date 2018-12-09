@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Term Representation Attributes</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="term.html"><B>Term Representation</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Attributes</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Attributes</H1>
+  
+  <P>
+    Attributes are used in the term representation to specify the
+    visualization properties of individual nodes and edges.
+    Each node and edge has its own attributes which is a list of
+    string pairs with a constructor "a" followed by an attribute 
+    name and an attribute value in parentheses, or a constructor 
+    "m" followed by a list of pop-up menus. 
+    Here is an example for a list of attributes that can be used
+    in the subterm of a node: 
+  </P>
+  <P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">
+<PRE>
+[a("OBJECT","Node Text"),
+ a("COLOR","red"),
+ a("FONTFAMILY","times"),
+ m([menu_entry("MenuID","Menu Text")])
+]</PRE>
+</TD>
+</TR>
+  </TABLE>
+</P>
+  </P>
+  <P>
+    If a particular attribute is specified for a node or edge, 
+    it will overwrite the default value for this attribute
+    which would be used otherwise. 
+    Please look at the 
+  <A href="conc_def.html" target="_top">concepts chapter</A> 
+    to learn more about the evaluation order for attributes. 
+  </P>
+  <P>
+  <A href="term_nattr.html" target="_top">Node attributes</A>
+    and 
+  <A href="term_eattr.html" target="_top">edge attributes</A>
+    are distinguished from each other. 
+    For example, there are different attributes (more precisely: 
+    attribute names) to set the color of nodes ("COLOR") and 
+    edges ("EDGECOLOR"). 
+    Edge attributes cannot be used for nodes and vice versa. 
+    Unknown attribute names and values are simply ignored without 
+    any warning. 
+    This way, the term representation is both up- and backward 
+    compatible with previous and future releases of uDraw(Graph). 
+    Some attributes, starting with character '_', are needed for
+    internal purposes, but can also be used in a term representation. 
+    The usage of attributes is demonstrated in the 
+  <A href="term_exam.html" target="_top">example</A> 
+    below. 
+  </P>
+ 
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

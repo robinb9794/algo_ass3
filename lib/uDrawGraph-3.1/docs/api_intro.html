@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Getting started: Introduction to the API</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Introduction</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Getting started: Introduction to the API</H1>
+  
+  <P>
+    After becoming acquainted with uDraw(Graph), you might wish to 
+    have a similar user interface for an application program you have 
+    developed on your own.
+    Until now, you have been afraid of the cost of such an expensive 
+    implementation. 
+    Imagine how the user will be able to handle your complicated 
+    graph data structure by easily interacting with an elegant and 
+    intuitive graph drawing of high quality!
+    How about controlling your application by simply clicking on 
+    nodes and edges in a graph visualization? 
+    This is the typical scenario where you want to start using the 
+    API to plug uDraw(Graph) on top of your application program. 
+  </P>
+  <P>
+    First of all, uDraw(Graph) does not control the structure of a 
+    displayed graph. 
+    It is a pure visualization system and is unable to alter 
+    the graph structure on its own. 
+    So unlike usual graph editors (which may take control on the 
+    structure of a graph by offering arbitrary creation and removing 
+    operations on nodes and edges without any notion about the 
+    specific underlying graph semantics), uDraw(Graph) lets your application 
+    decide what operations need to be applied when nodes and edges 
+    are selected in a visualization or when menus and icons are chosen
+    in a particular context.
+    Therefore the application program has to maintain its own graph
+    data structure in order to be able to send it on demand to uDraw(Graph) 
+    for visualization.
+  </P> 
+
+  <P>
+    It is a primary concept of the uDraw(Graph) architecture to have two 
+    levels of responsibility: 
+  </P> 
+  <UL>
+  <LI>
+    The visualization layer (uDraw(Graph)), responsible for graphical 
+    representation, but without permission to manipulate the graph
+    structure on its own. 
+  </LI>
+  <LI>
+    The application layer (some program connected to the API) 
+    which decides what to do if an operation that modifies the graph
+    structure should be applied. 
+  </LI>
+  </UL>
+
+  <P>
+    The following figure illustrates the data flow between an 
+    application program and uDraw(Graph):
+  </P>
+
+  <P>
+  
+  <IMG border="1" alt="API data flow" width="" height="" src="uDG31_api.gif">
+  <BR>
+  
+    API data flow
+  <BR>
+   </P>
+
+  <P>
+    An application is connected with the uDraw(Graph) API using two 
+    communication channels: One to send commands (e.g. graphs) and
+    one to receive the answers (e.g. events). 
+    With API commands, the application is able to initiate virtually
+    any uDraw(Graph) operation, for example sending graphs for visualization 
+    or attaching additional dialog elements (i.e. menus and icons) 
+    to the uDraw(Graph) user interface. 
+    Afterwards, the application has to wait for answers from the API. 
+    These are events triggered by user interaction in the 
+  <A href="gui_base.html" target="_top">base windows</A>. 
+    By being informed about these events, the application can decide 
+    about the particular operations that have to be applied on its 
+    own local graph data structure.
+    For example, if the user has selected a node before invoking an 
+    application menu named "Delete Node" (added to the uDraw(Graph) user
+    interface by the application before), then the application can decide 
+    from the events that the user is asking to remove the selected node.
+    After carrying out the required operation on its own data structure, 
+    the application has to send the new graph (or an incremental update) 
+    to the API in order to renew the graph visualization. 
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

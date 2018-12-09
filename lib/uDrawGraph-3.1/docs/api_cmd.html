@@ -1,0 +1,715 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Commands Overview</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Commands Overview</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Commands Overview</H1>
+  
+  <P>
+  <A href="api_cmd_syntax.html" target="_top">Help about API syntax</A>.
+  </P>
+  <P>
+    API commands are built by applying the following rules.
+    A single API command 
+  <A href="api_cmd.html#uDG_command" target="_top">uDG_command</A>
+    can be sent to the API, i.e. one after the other.
+    A list of API commands
+  <A href="api_cmd.html#uDG_commands" target="_top">uDG_commands</A>
+    is used in an initialization file that can be loaded in uDraw(Graph)
+    with command-line option
+  <A href="opt.html#init" target="_top">-init</A>.
+  </P>
+  <H2>Grammar with Syntax Rules</H2>
+  <P>
+
+  <P class="grammar">
+<TABLE border="0">
+
+
+<TR>
+<TD COLSPAN="2"><A name="uDG_commands"></A>uDG_commands ::=</TD>            
+<TD><EM>List of API commands.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>[</STRONG><A href="api_cmd.html#uDG_commands1" target="_top">uDG_commands1</A><STRONG>]</STRONG>.</TD>
+<TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="uDG_commands1"></A>uDG_commands1::=</TD><TD><EM></EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD COLSPAN="2"><A href="api_cmd.html#uDG_command" target="_top">uDG_command</A> | <A href="api_cmd.html#uDG_command" target="_top">uDG_command</A><STRONG>,</STRONG><A href="api_cmd.html#uDG_commands1" target="_top">uDG_commands1</A>.</TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="uDG_command"></A>uDG_command ::=</TD>             <TD><EM>Commands of the API (top-level). </EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>graph(</STRONG><A href="api_cmd.html#graph_cmd" target="_top">graph_cmd</A><STRONG>)</STRONG>                    </TD><TD><EM>Graph category. <A href="api_cmd_graph.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>multi(</STRONG><A href="api_cmd.html#multi_cmd" target="_top">multi_cmd</A><STRONG>)</STRONG>                    </TD><TD><EM>Multi category. <A href="api_cmd_multi.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>menu(</STRONG><A href="api_cmd.html#menu_cmd" target="_top">menu_cmd</A><STRONG>)</STRONG>                      </TD><TD><EM>Menu category. <A href="api_cmd_menu.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>app_menu(</STRONG><A href="api_cmd.html#app_menu_cmd" target="_top">app_menu_cmd</A><STRONG>)</STRONG>              </TD><TD><EM>Appl. menu category. <A href="api_cmd_app_menu.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>gui(</STRONG><A href="api_cmd.html#gui_cmd" target="_top">gui_cmd</A><STRONG>)</STRONG>                        </TD><TD><EM>GUI category. <A href="api_cmd_gui.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>set(</STRONG><A href="api_cmd.html#set_cmd" target="_top">set_cmd</A><STRONG>)</STRONG>                        </TD><TD><EM>Set category. <A href="api_cmd_set.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>window(</STRONG><A href="api_cmd.html#window_cmd" target="_top">window_cmd</A><STRONG>)</STRONG>                  </TD><TD><EM>Window category. <A href="api_cmd_window.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>tcl(</STRONG><A href="api_cmd.html#tcl_cmd" target="_top">tcl_cmd</A><STRONG>)</STRONG>                        </TD><TD><EM>Tcl category. <A href="api_cmd_tcl.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>special(</STRONG><A href="api_cmd.html#special_cmd" target="_top">special_cmd</A><STRONG>)</STRONG>                </TD><TD><EM>Special category. <A href="api_cmd_special.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>visual(</STRONG><A href="api_cmd.html#visual_cmd" target="_top">visual_cmd</A><STRONG>)</STRONG>                  </TD><TD><EM>Visual category. <A href="api_cmd_visual.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>drag_and_drop(</STRONG><A href="api_cmd.html#drag_and_drop_cmd" target="_top">drag_and_drop_cmd</A><STRONG>)</STRONG>    </TD><TD><EM>Drag and Drop category. <A href="api_cmd_dad.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>nothing</STRONG>.                            </TD><TD><EM>No operation, for synchronization.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="graph_cmd"></A>graph_cmd ::=</TD>                   <TD><EM>Send and update graphs. <A href="api_cmd_graph.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>new(</STRONG><A href="api_param.html#graphterm" target="_top">graphterm</A><STRONG>)</STRONG>                      </TD><TD><EM>Send new graph. <A href="api_cmd_graph.html#new" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>new_placed(</STRONG><A href="api_param.html#graphterm" target="_top">graphterm</A><STRONG>)</STRONG>               </TD><TD><EM>As above, but with better layout. <A href="api_cmd_graph.html#new_placed" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>update(</STRONG><A href="api_param.html#node_updates" target="_top">node_updates</A><STRONG>,</STRONG><A href="api_param.html#edge_updates" target="_top">edge_updates</A><STRONG>)</STRONG>   </TD><TD><EM>Send graph updates. <A href="api_cmd_graph.html#update" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>mixed_update(</STRONG><A href="api_param.html#mixed_updates" target="_top">mixed_updates</A><STRONG>)</STRONG>         </TD><TD><EM>Node / edges in a list. <A href="api_cmd_graph.html#mixed_update" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>change_attr(</STRONG><A href="api_param.html#attr_changes" target="_top">attr_changes</A><STRONG>)</STRONG>           </TD><TD><EM>Change attributes. <A href="api_cmd_graph.html#change_attr" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD COLSPAN="2"><STRONG>update_and_change_attr(</STRONG><A href="api_param.html#node_updates" target="_top">node_updates</A><STRONG>,</STRONG><A href="api_param.html#edge_updates" target="_top">edge_updates</A><STRONG>,</STRONG><A href="api_param.html#attr_changes" target="_top">attr_changes</A><STRONG>)</STRONG>      
+                                        </TD>
+</TR>
+<TR>
+<TD ALIGN="right" COLSPAN="3"><EM>Combination of both. <A href="api_cmd_graph.html#update_and_change_attr" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD COLSPAN="2"><STRONG>mixed_update_and_change_attr(</STRONG><A href="api_param.html#mixed_updates" target="_top">mixed_updates</A><STRONG>,</STRONG><A href="api_param.html#attr_changes" target="_top">attr_changes</A><STRONG>)</STRONG></TD>
+</TR>
+
+<TR>
+<TD ALIGN="right" COLSPAN="3"><EM>Node / edges in a list. <A href="api_cmd_graph.html#mixed_update_and_change_attr" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>change_type(</STRONG><A href="api_param.html#type_changes" target="_top">type_changes</A><STRONG>)</STRONG>.          </TD>
+<TD><EM>Change type. <A href="api_cmd_graph.html#change_type" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="multi_cmd"></A>multi_cmd ::=</TD>                   <TD><EM>For multi-graph mode. <A href="api_cmd_multi.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>new_context</STRONG>                        </TD><TD><EM>Open graph context. <A href="api_cmd_multi.html#new_context" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>open_context(</STRONG><A href="api_param.html#context_id" target="_top">context_id</A><STRONG>)</STRONG>            </TD><TD><EM>As above, but ID is given. <A href="api_cmd_multi.html#open_context" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>set_context(</STRONG><A href="api_param.html#context_id" target="_top">context_id</A><STRONG>)</STRONG>.            </TD><TD><EM>Switch to context. <A href="api_cmd_multi.html#set_context" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>set_context(</STRONG><A href="api_param.html#context_id" target="_top">context_id</A><STRONG>,</STRONG><A href="api_param.html#window_id" target="_top">window_id</A><STRONG>)</STRONG>.  </TD><TD><EM>Switch to context+window. <A href="api_cmd_multi.html#set_context_win" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="menu_cmd"></A>menu_cmd ::=</TD>                    <TD><EM>Call functions of menu. <A href="api_cmd_menu.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>file(</STRONG><A href="api_cmd.html#file_menu_cmd" target="_top">file_menu_cmd</A><STRONG>)</STRONG>                 </TD><TD><EM>File menu category. <A href="api_cmd_menu.html#file" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>view(</STRONG><A href="api_cmd.html#view_menu_cmd" target="_top">view_menu_cmd</A><STRONG>)</STRONG>                 </TD><TD><EM>View menu category. <A href="api_cmd_menu.html#view" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>navigation(</STRONG><A href="api_cmd.html#navigation_menu_cmd" target="_top">navigation_menu_cmd</A><STRONG>)</STRONG>     </TD><TD><EM>Navigation menu category. <A href="api_cmd_menu.html#navigation" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>abstraction(</STRONG><A href="api_cmd.html#abstraction_menu_cmd" target="_top">abstraction_menu_cmd</A><STRONG>)</STRONG>   </TD><TD><EM>Abstraction menu category. <A href="api_cmd_menu.html#abstraction" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>layout(</STRONG><A href="api_cmd.html#layout_menu_cmd" target="_top">layout_menu_cmd</A><STRONG>)</STRONG>             </TD><TD><EM>Layout menu category. <A href="api_cmd_menu.html#layout" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>option(</STRONG><A href="api_cmd.html#option_menu_cmd" target="_top">option_menu_cmd</A><STRONG>)</STRONG>.            </TD><TD><EM>Option menu category. <A href="api_cmd_menu.html#option" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="file_menu_cmd"></A>file_menu_cmd ::=</TD>               <TD><EM>File menu functions. <A href="api_cmd_menu.html#file" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>new</STRONG>                                 </TD><TD><EM>Clear graph. Get <A href="api_cmd_menu.html#file_new" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>open_graph(</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>                </TD><TD><EM>Load graph from file. <A href="api_cmd_menu.html#file_open_graph" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>open_graph_placed(</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>         </TD><TD><EM>As above, but with better layout. <A href="api_cmd_menu.html#file_open_graph_placed" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>open_status(</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>               </TD><TD><EM>Load status from file. <A href="api_cmd_menu.html#file_open_status" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>save_graph(</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>                </TD><TD><EM>Save graph as term. <A href="api_cmd_menu.html#file_save_graph" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>save_status(</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>               </TD><TD><EM>Save graph as status. <A href="api_cmd_menu.html#file_save_status" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>print(</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>                     </TD><TD><EM>Save as PostScript. <A href="api_cmd_menu.html#file_print" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>print_to_printer</STRONG>                    </TD><TD><EM>Print graph on printer. <A href="api_cmd_menu.html#file_print_to_printer" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>print</STRONG>                               </TD><TD><EM>Open print dialog. <A href="api_cmd_menu.html#file_print2" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>export(</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>,</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>,</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>	</TD><TD><EM>Export graph to file. <A href="api_cmd_menu.html#file_export" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>export</STRONG>                              </TD><TD><EM>Open export dialog. <A href="api_cmd_menu.html#file_export2" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>close</STRONG>                               </TD><TD><EM>Close graph window. <A href="api_cmd_menu.html#file_close" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>exit</STRONG>.                               </TD><TD><EM>Exit uDraw(Graph). <A href="api_cmd_menu.html#file_exit" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="view_menu_cmd"></A>view_menu_cmd ::=</TD>               <TD><EM>View menu functions. <A href="api_cmd_menu.html#view" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>open_new_view</STRONG>                       </TD><TD><EM>Open additional view. <A href="api_cmd_menu.html#view_open_new_view" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>open_survey_view</STRONG>                    </TD><TD><EM>Open survey view. <A href="api_cmd_menu.html#view_open_survey_view" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>full_scale</STRONG>                          </TD><TD><EM>Set scale to 100%. <A href="api_cmd_menu.html#view_full_scale" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>fit_scale_to_window</STRONG>                 </TD><TD><EM>Set scale to fit. <A href="api_cmd_menu.html#view_fit_scale_to_window" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>scale(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>                      </TD><TD><EM>Set scale to integer. <A href="api_cmd_menu.html#view_scale" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>scale</STRONG>                               </TD><TD><EM>Open Scale dialog. <A href="api_cmd_menu.html#view_scale2" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>graph_info</STRONG>                          </TD><TD><EM>Open Graph Info dialog. <A href="api_cmd_menu.html#view_graph_info" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>uDrawGraph_info</STRONG>.                       </TD><TD><EM>Open uDraw(Graph) Info dialog. <A href="api_cmd_menu.html#view_uDrawGraph_info" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="navigation_menu_cmd"></A>navigation_menu_cmd ::=</TD>         <TD><EM>Navigation menu functions. <A href="api_cmd_menu.html#navigation" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>select_parents(</STRONG><A href="api_param.html#node_ids" target="_top">node_ids</A><STRONG>)</STRONG>            </TD><TD><EM>Select parents of nodes. <A href="api_cmd_menu.html#navigation_select_parents" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>select_parent(</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>)</STRONG>              </TD><TD><EM>Select parent of edge. <A href="api_cmd_menu.html#navigation_select_parent" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>select_siblings(</STRONG><A href="api_param.html#node_ids" target="_top">node_ids</A><STRONG>)</STRONG>           </TD><TD><EM>Select siblings of nodes. <A href="api_cmd_menu.html#navigation_select_siblings" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>select_children(</STRONG><A href="api_param.html#node_ids" target="_top">node_ids</A><STRONG>)</STRONG>           </TD><TD><EM>Select children of nodes. <A href="api_cmd_menu.html#navigation_select_children" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>select_child(</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>)</STRONG>               </TD><TD><EM>Select child of edge. <A href="api_cmd_menu.html#navigation_select_child" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>navigator(</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>,</STRONG><A href="api_param.html#direction" target="_top">direction</A><STRONG>,</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>)</STRONG></TD><TD><EM>Navigate in graph. <A href="api_cmd_menu.html#navigation_navigator" target="_top">Details</A>.</EM></TD> </TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>navigator</STRONG>                           </TD><TD><EM>Open Navigator dialog. <A href="api_cmd_menu.html#navigation_navigator2" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>find(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>,</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>,</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>)</STRONG>        </TD><TD><EM>Find a node. <A href="api_cmd_menu.html#navigation_find" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>find</STRONG>.                               </TD><TD><EM>Open Find dialog. <A href="api_cmd_menu.html#navigation_find2" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="abstraction_menu_cmd"></A>abstraction_menu_cmd ::=</TD>        <TD><EM>Abstraction menu functions. <A href="api_cmd_menu.html#abstraction" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>hide_subgraph(</STRONG><A href="api_param.html#node_ids" target="_top">node_ids</A><STRONG>)</STRONG>             </TD><TD><EM>Hide subgraphs of nodes. <A href="api_cmd_menu.html#abstraction_hide_subgraph" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>show_subgraph(</STRONG><A href="api_param.html#node_ids" target="_top">node_ids</A><STRONG>)</STRONG>             </TD><TD><EM>Show subgraphs of nodes. <A href="api_cmd_menu.html#abstraction_show_subgraph" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>restore_all_subgraphs</STRONG>               </TD><TD><EM>Show all hidden subgraphs. <A href="api_cmd_menu.html#abstraction_restore_all_subgraphs" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>hide_edges(</STRONG><A href="api_param.html#node_ids" target="_top">node_ids</A><STRONG>)</STRONG>                </TD><TD><EM>Hide edges of nodes. <A href="api_cmd_menu.html#abstraction_hide_edges" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>show_edges(</STRONG><A href="api_param.html#node_ids" target="_top">node_ids</A><STRONG>)</STRONG>                </TD><TD><EM>Show edges of nodes. <A href="api_cmd_menu.html#abstraction_show_edges" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>restore_all_edges</STRONG>.                  </TD><TD><EM>Show all hidden edges. <A href="api_cmd_menu.html#abstraction_restore_all_edges" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="layout_menu_cmd"></A>layout_menu_cmd ::=</TD>             <TD><EM>Layout menu functions. <A href="api_cmd_menu.html#layout" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>improve_all</STRONG>                         </TD><TD><EM>Start layout algorithm. <A href="api_cmd_menu.html#layout_improve_all" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>improve_edges</STRONG>                       </TD><TD><EM>As above, but only dummy nodes. <A href="api_cmd_menu.html#layout_improve_edges" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>improve_spacing</STRONG>                     </TD><TD><EM>As above, but keeps node order. <A href="api_cmd_menu.html#layout_improve_spacing" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>improve_selected</STRONG>                    </TD><TD><EM>As above, but only selected nodes. <A href="api_cmd_menu.html#layout_improve_selected" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>improve_nodes(</STRONG><A href="api_param.html#node_ids" target="_top">node_ids</A><STRONG>)</STRONG>             </TD><TD><EM>As above, but only supplied nodes. <A href="api_cmd_menu.html#layout_improve_nodes" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>improve_spacing</STRONG>                     </TD><TD><EM>Compact graph layout. <A href="api_cmd_menu.html#layout_improve_spacing" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>orientation(</STRONG><A href="api_param.html#orientation" target="_top">orientation</A><STRONG>)</STRONG>.           </TD><TD><EM>Switch orientation. <A href="api_cmd_menu.html#layout_orientation" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="option_menu_cmd"></A>option_menu_cmd ::=</TD>             <TD><EM>Option menu functions. <A href="api_cmd_menu.html#option" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>layout_algorithm</STRONG>                    </TD><TD><EM>Open this option dialog. <A href="api_cmd_menu.html#option_layout_algorithm" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>layout_settings</STRONG>                     </TD><TD><EM>Open this option dialog. <A href="api_cmd_menu.html#option_layout_settings" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>general_settings</STRONG>                    </TD><TD><EM>Open this option dialog. <A href="api_cmd_menu.html#option_general_settings" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>save</STRONG>.                               </TD><TD><EM>Save options. <A href="api_cmd_menu.html#option_save" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="app_menu_cmd"></A>app_menu_cmd ::=</TD>                <TD><EM>Create menus / icons. <A href="api_cmd_app_menu.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>create_menus(</STRONG><A href="api_param.html#menus" target="_top">menus</A><STRONG>)</STRONG>                 </TD><TD><EM>Add menus in Edit. <A href="api_cmd_app_menu.html#create_menus" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>create_icons(</STRONG><A href="api_param.html#icons" target="_top">icons</A><STRONG>)</STRONG>                 </TD><TD><EM>Add icons in icon-bar. <A href="api_cmd_app_menu.html#create_icons" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>activate_menus(</STRONG><A href="api_param.html#menu_ids" target="_top">menu_ids</A><STRONG>)</STRONG>            </TD><TD><EM>Enable menus. <A href="api_cmd_app_menu.html#activate_menus" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>activate_icons(</STRONG><A href="api_param.html#icon_ids" target="_top">icon_ids</A><STRONG>)</STRONG>            </TD><TD><EM>Enable icons. <A href="api_cmd_app_menu.html#activate_icons" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>control_file_events</STRONG>.                </TD><TD><EM>Get events of File menu. <A href="api_cmd_app_menu.html#control_file_events" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="gui_cmd"></A>gui_cmd ::=</TD>                     <TD><EM>Configure user interface. <A href="api_cmd_gui.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>configure(</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>                   </TD><TD><EM>Read configuration file. <A href="api_cmd_gui.html#configure" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>activate_menus(</STRONG><A href="api_param.html#menu_ids" target="_top">menu_ids</A><STRONG>)</STRONG>            </TD><TD><EM>Enable menus. <A href="api_cmd_gui.html#activate_menus" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>set_radio_menus(</STRONG><A href="api_param.html#menu_ids" target="_top">menu_ids</A><STRONG>)</STRONG>           </TD><TD><EM>Set value in radio menus. <A href="api_cmd_gui.html#set_radio_menus.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>activate_icons(</STRONG><A href="api_param.html#icon_ids" target="_top">icon_ids</A><STRONG>)</STRONG>            </TD><TD><EM>Enable icons. <A href="api_cmd_gui.html#activate_icons" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>set_radio_icons(</STRONG><A href="api_param.html#icon_ids" target="_top">icon_ids</A><STRONG>)</STRONG>.          </TD><TD><EM>Set value in radio icons. <A href="api_cmd_gui.html#set_radio_icons" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="set_cmd"></A>set_cmd ::=</TD>                     <TD><EM>Set options. <A href="api_cmd_set.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>layout_accuracy(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>            </TD><TD><EM>Layout algorithm param. <A href="api_cmd_set.html#layout_accuracy" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>keep_nodes_at_levels(</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>)</STRONG>       </TD><TD><EM>Keep nodes at levels. <A href="api_cmd_set.html#keep_nodes_at_levels" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>manual_layout(</STRONG><A href="api_param.html#manual_constraints" target="_top">manual_constraints</A><STRONG>)</STRONG>   </TD><TD><EM>Manual layout constraints. <A href="api_cmd_set.html#manual_layout" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>font_size(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>                  </TD><TD><EM>Font size of nodes. <A href="api_cmd_set.html#font_size" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>edge_style(</STRONG><A href="api_param.html#spline_drawing" target="_top">spline_drawing</A><STRONG>)</STRONG>		</TD><TD><EM>Draw splines or not. <A href="api_cmd_set.html#edge_style" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>edge_text_black(</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>)</STRONG>		</TD><TD><EM>Draw unselected edges black or not. <A href="api_cmd_set.html#edge_text_black" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>gap_width(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>                  </TD><TD><EM>Min. node distance. <A href="api_cmd_set.html#gap_width" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>gap_height(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>                 </TD><TD><EM>Min. level distance. <A href="api_cmd_set.html#gap_height" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>multi_edge_gap(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>             </TD><TD><EM>Distance for multi-edges. <A href="api_cmd_set.html#multi_edge_gap" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>self_edge_radius(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>           </TD><TD><EM>Distance for self-edges. <A href="api_cmd_set.html#self_edge_radius" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>scrolling_on_selection(</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>)</STRONG>     </TD><TD><EM>Auto focusing node. <A href="api_cmd_set.html#scrolling_on_selection" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>animation_speed(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>            </TD><TD><EM>Speed of animation. <A href="api_cmd_set.html#animation_speed" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>browser(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>)</STRONG>                     </TD><TD><EM>Browser path. <A href="api_cmd_set.html#browser" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>documentation(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>)</STRONG>               </TD><TD><EM>Online documentation URL. <A href="api_cmd_set.html#documentation" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>print(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>)</STRONG>                       </TD><TD><EM>Print command. <A href="api_cmd_set.html#print" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>measure(</STRONG><A href="api_param.html#measures" target="_top">measures</A><STRONG>)</STRONG>                   </TD><TD><EM>Measures in cm or inch. <A href="api_cmd_set.html#measure" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>tooltip_delay(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>		</TD><TD><EM>Delay for tooltips in ms. <A href="api_cmd_set.html#tooltip_delay" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>rules_first(</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>)</STRONG>.               </TD><TD><EM>Attr. evaluation order. <A href="api_cmd_set.html#rules_first" target="_top">Details</A></EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="window_cmd"></A>window_cmd ::=</TD>                  <TD><EM>Control windows. <A href="api_cmd_window.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>title(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>)</STRONG>                       </TD><TD><EM>Set window title. <A href="api_cmd_window.html#title" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>show_message(</STRONG><A href="api_param.html#lang_string" target="_top">lang_string</A><STRONG>)</STRONG>           </TD><TD><EM>Show text in left footer. <A href="api_cmd_window.html#show_message" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>show_status(</STRONG><A href="api_param.html#lang_string" target="_top">lang_string</A><STRONG>)</STRONG>            </TD><TD><EM>Show text in right footer. <A href="api_cmd_window.html#show_status" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>position(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>,</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>           </TD><TD><EM>Window origin x / y. <A href="api_cmd_window.html#position" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>size(</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>,</STRONG><A href="api_param.html#integer" target="_top">integer</A><STRONG>)</STRONG>               </TD><TD><EM>Window width / height. <A href="api_cmd_window.html#size" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>raise</STRONG>                               </TD><TD><EM>Bring window to top. <A href="api_cmd_window.html#raise" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>iconify</STRONG>                             </TD><TD><EM>Hide window. <A href="api_cmd_window.html#iconify" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>deiconify</STRONG>                           </TD><TD><EM>Show window again. <A href="api_cmd_window.html#deiconify" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>activate</STRONG>                            </TD><TD><EM>Enable interaction. <A href="api_cmd_window.html#activate" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>deactivate</STRONG>                          </TD><TD><EM>Disable interaction. <A href="api_cmd_window.html#deactivate" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>background(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>)</STRONG>			</TD><TD><EM>Window background color. <A href="api_cmd_window.html#background" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD COLSPAN="2"><STRONG>file_browser(</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>,</STRONG><A href="api_param.html#lang_string" target="_top">lang_string</A><STRONG>,</STRONG><A href="api_param.html#lang_string" target="_top">lang_string</A><STRONG>,</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>,</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>,</STRONG><A href="api_param.html#btypes" target="_top">btypes</A><STRONG>,</STRONG><A href="api_param.html#boolean" target="_top">boolean</A><STRONG>)</STRONG>.</TD>
+</TR>
+                                        
+<TR>
+<TD ALIGN="right" COLSPAN="3"><EM>Show file browser. <A href="api_cmd_window.html#file_browser" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="tcl_cmd"></A>tcl_cmd ::=</TD>                     <TD><EM>Tcl / Tk interface. <A href="api_cmd_tcl.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>eval(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>)</STRONG>                        </TD><TD><EM>Eval Tcl / Tk script. <A href="api_cmd_tcl.html#eval" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>eval_file(</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>.                </TD><TD><EM>As above, but reads script from file. <A href="api_cmd_tcl.html#eval_file" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="special_cmd"></A>special_cmd ::=</TD>                 <TD><EM>Special commands. <A href="api_cmd_special.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>select_nodes(</STRONG><A href="api_param.html#node_ids" target="_top">node_ids</A><STRONG>)</STRONG>              </TD><TD><EM>Select specified nodes. <A href="api_cmd_special.html#select_nodes" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>select_edge(</STRONG><A href="api_param.html#edge_id" target="_top">edge_id</A><STRONG>)</STRONG>                </TD><TD><EM>Select specified edge. <A href="api_cmd_special.html#select_edge" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>focus_node(</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>)</STRONG>                 </TD><TD><EM>Scroll to specified node. <A href="api_cmd_special.html#focus_node" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>focus_node_animated(</STRONG><A href="api_param.html#node_id" target="_top">node_id</A><STRONG>)</STRONG>        </TD><TD><EM>As above, but with animation. <A href="api_cmd_special.html#focus_node_animated" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>show_url(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>)</STRONG>                    </TD><TD><EM>Show HTML page in browser. <A href="api_cmd_special.html#show_url" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>add_language(</STRONG><A href="api_param.html#filename" target="_top">filename</A><STRONG>)</STRONG>              </TD><TD><EM>Add language file. <A href="api_cmd_special.html#add_language" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>version</STRONG>.                            </TD><TD><EM>Return version info. <A href="api_cmd_special.html#version" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="visual_cmd"></A>visual_cmd ::=</TD>                  <TD><EM>Visualization definitions. <A href="api_cmd_visual.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>new_rules(</STRONG><A href="api_param.html#visual_rules" target="_top">visual_rules</A><STRONG>)</STRONG>             </TD><TD><EM>Define new rules. <A href="api_cmd_visual.html#new_rules" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>add_rules(</STRONG><A href="api_param.html#visual_rules" target="_top">visual_rules</A><STRONG>)</STRONG>.            </TD><TD><EM>Add or overwrite rules. <A href="api_cmd_visual.html#add_rules" target="_top">Details</A>.</EM></TD>
+</TR>
+        
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="drag_and_drop_cmd"></A>drag_and_drop_cmd ::=</TD>           <TD><EM>Drag and Drop. <A href="api_cmd_dad.html" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>dragging_on</STRONG>                         </TD><TD><EM>Switch drag and drop on. <A href="api_cmd_dad.html#dragging_on" target="_top">Details</A>.</EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>dragging_off</STRONG>                        </TD><TD><EM>Switch drag and drop off. <A href="api_cmd_dad.html#dragging_off" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>new_node_at_coord(</STRONG><A href="api_param.html#node_update" target="_top">node_update</A><STRONG>)</STRONG>      </TD>
+<TD><EM>New node at drop pos. <A href="api_cmd_dad.html#new_node_at_coord" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD COLSPAN="2"><STRONG>new_edge_and_node_at_coord(</STRONG><A href="api_param.html#node_update" target="_top">node_update</A><STRONG>,</STRONG><A href="api_param.html#edge_update" target="_top">edge_update</A><STRONG>)</STRONG>.</TD>
+</TR>
+
+<TR>
+<TD ALIGN="right" COLSPAN="3"><EM>New node and edge at drop position. <A href="api_cmd_dad.html#new_edge_and_node_at_coord.html" target="_top">Details</A>.</EM></TD>
+</TR>
+
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+  </TABLE>
+</P>
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

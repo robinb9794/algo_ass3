@@ -1,0 +1,31 @@
+ [
+ l("Node A",n("Module",[a("COLOR","#f31d8b"),a("OBJECT","Knoten A"),a("_GO","ellipse"),a("FONTFAMILY","helvetica"),a("INFO","Farbige Ellipse")],
+        [
+        l("Edge A->B",e("",[a("EDGECOLOR","#ff0000"),a("EDGEPATTERN","single;solid;4;0"),a("HEAD","farrow"),a("_DIR","normal"),a("OBJECT",""),a("FONTFAMILY","lucida"),a("FONTSTYLE","bold"),a("INFO","Rote Kante")],
+         l("Node B",n("anything",[a("COLOR","light steel blue"),a("OBJECT","Knoten B\nDieser Knoten hat zwei Striche"),a("BORDER","double"),a("INFO","Zweizeiliger Knoten\nmit doppeltem Rand")],
+                [
+                l("Edge B->D",e("",[a("EDGEPATTERN","single;dotted;1;0"),a("HEAD","farrow"),a("_DIR","inverse"),a("OBJECT","Kanten Label"),a("FONTFAMILY","lucida"),a("FONTSTYLE","bold"),a("INFO","Gepunktete Kante\nr\374ckw\344rts gerichtet")],
+                 r("Node D")))
+                ])))),
+        l("Edge A->C",e("",[a("EDGECOLOR","#0054aa"),a("EDGEPATTERN","single;dotted;1;0"),a("OBJECT",""),a("INFO","Farbige gepunktete Kante")],
+         l("Node C",n("anything",[a("IMAGE","uDrawGraph_logo.gif"),a("COLOR","gold"),a("OBJECT",""),a("_GO","image"),a("FONTSTYLE","italic"),a("INFO","Knoten mit GIF Bild")],
+                [
+                l("Edge C->D",e("anything",[a("EDGECOLOR","#00aaaa"),a("EDGEPATTERN","single;solid;1;0"),a("_DIR","both"),a("OBJECT",""),a("INFO","Farbige Kante in beide Richtungen")],
+                 l("Node D",n("Module",[a("OBJECT","Knoten D"),a("_GO","text"),a("FONTFAMILY","times"),a("FONTSTYLE","italic"),a("INFO","Textknoten")],[])))),
+                l("Edge C->F",e("anything",[a("EDGEPATTERN","double;solid;5;0"),a("OBJECT",""),a("INFO","Doppelte Kante")],
+                 r("Node F")))
+                ])))),
+        l("Edge A->E",e("",[a("EDGEPATTERN","single;dashed;1;0"),a("_DIR","none"),a("OBJECT",""),a("INFO","Gestrichelte Kante\nohne Richtung")],
+         l("Node E",n("anything",[a("COLOR","LightGray"),a("OBJECT","Knoten E"),a("_GO","rhombus"),a("FONTFAMILY","courier"),a("FONTSTYLE","normal"),a("BORDER","double"),a("INFO","Grauer Rhombus Knoten")],
+                [
+                l("Edge E->F",e("anything",[a("EDGEPATTERN","single;solid;3;0"),a("OBJECT",""),a("INFO","Dicke Kante")],
+                 r("Node F")))
+                ])))),
+        l("@A",e("edge",[a("EDGECOLOR","#ff0000"),a("EDGEPATTERN","single;solid;1;1"),a("HEAD","farrow"),a("_DIR","normal"),a("OBJECT","Spline !"),a("FONTFAMILY","lucida"),a("FONTSTYLE","bold"),a("INFO","Rote Kante")],
+         l("Node F",n("anything",[a("COLOR","#00dddd"),a("OBJECT","Knoten F"),a("HIDDEN","true"),a("INFO","Ausgeblendeter Knoten")],
+                [
+                l("Edge F->G",e("anything",[a("EDGEPATTERN","single;solid;1;0"),a("OBJECT",""),a("INFO","Normale Kante")],
+                 l("Node G",n("anything",[a("OBJECT","Knoten G"),a("INFO","Normaler Knoten")],[]))))
+                ]))))
+        ]))
+ ]

@@ -1,0 +1,31 @@
+[
+l("A",n("anything",[a("OBJECT"," A "),a("COLOR","yellow")],
+    [
+    e("anything",[a("_DIR","inverse")],
+    l("B",n("anything",[a("OBJECT"," B "),a("COLOR","orange")],
+        [
+        e("anything",[a("_DIR","inverse")],
+        r("D"))
+        ]))),
+    e("anything",[a("_DIR","normal")],
+    l("D",n("anything",[a("OBJECT"," D "),a("COLOR","red")],
+        [
+        e("anything",[a("_DIR","none")],
+        r("F"))
+        ]))),
+    e("anything",[a("_DIR","inverse")],
+    l("C",n("anything",[a("OBJECT"," C "),a("COLOR","orange")],
+        [
+        e("anything",[a("_DIR","inverse")],
+        r("D")),
+        e("anything",[a("_DIR","both")],
+        l("F",n("anything",[a("OBJECT"," F "),a("COLOR","magenta")],[]))),
+        e("anything",[],
+        l("E",n("anything",[a("OBJECT"," E "),a("COLOR","red")],
+            [
+            e("anything",[a("_DIR","none")],
+            r("F"))
+            ])))
+        ])))
+    ]))
+]

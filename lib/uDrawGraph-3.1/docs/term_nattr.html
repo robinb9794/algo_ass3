@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Term Representation Node Attributes</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="term.html"><B>Term Representation</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Node Attributes</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Supported Node Attributes</H1>
+  
+  <UL>
+  <LI>
+  <A href="term_nattr.html#object" target="_top">OBJECT</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#fontfamily" target="_top">FONTFAMILY</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#fontstyle" target="_top">FONTSTYLE</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#info" target="_top">INFO</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#hidden" target="_top">HIDDEN</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#border" target="_top">BORDER</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#color" target="_top">COLOR</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#ccolor" target="_top">CCOLOR</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#_go" target="_top">_GO</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#_cgo" target="_top">_CGO</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#image" target="_top">IMAGE</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#iconfile" target="_top">ICONFILE</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#cimage" target="_top">CIMAGE</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#ciconfile" target="_top">CICONFILE</A>
+  </LI>
+  <LI>
+  <A href="term_nattr.html#menu" target="_top">Pop-Up Menu</A>
+  </LI>
+  </UL>
+
+  <A name="object"></A>
+  <H2>Node Attribute "OBJECT"</H2>
+  <P>
+    This is the most important attribute in a graph visualization.
+    It is used to specify the text that appears inside a node. 
+    Usually each node should have this attribute. 
+    See edge attribute
+  <A href="term_eattr.html#object" target="_top">OBJECT</A>,
+    too.
+    The text, i.e. the attribute value, can be an arbitrary string.
+    International characters are supported (ISO 8bit). 
+    The extension of a node in the graph visualization will 
+    automatically follow the size of the text by considering the 
+    current font, so nodes may have any size. 
+    Even multi-line text is possible using a "\n" character 
+    inside the attribute value. 
+    The default value for this attribute is the empty string "". 
+  </P>
+
+  <A name="fontfamily"></A>
+  <H2>Node Attributes "FONTFAMILY"</H2>
+  <P>
+    This is used to visualize the text of a node in a different font. 
+    Supported values are: "lucida" (default), "times", "helvetica", 
+    and "courier". 
+    See edge attribute
+  <A href="term_eattr.html#fontfamily" target="_top">FONTFAMILY</A>,
+    too.
+  </P>
+
+  <A name="fontstyle"></A>
+  <H2>Node Attribute "FONTSTYLE"</H2>
+  <P>
+    This is used to visualize the text of a node in a different font. 
+    Supported values are: "normal", "bold" (default), "italic", 
+    and "bold_italic". 
+    See edge attribute
+  <A href="term_eattr.html#fontstyle" target="_top">FONTSTYLE</A>,
+    too.
+  </P>
+
+  <A name="info"></A>
+  <H2>Node Attribute "INFO"</H2>
+  <P>
+    This is used to define the 
+  <A href="new_major.html" target="_top">tooltip text</A> 
+    that appears after a delay when the mouse pointer is over 
+    the node. Tooltips can be controlled with menu
+  <A href="gui_opt_gen.html" target="_top">Layout/General Settings...</A>.
+    See edge attribute
+  <A href="term_eattr.html#info" target="_top">INFO</A>,
+    too.
+  </P>
+
+  <A name="hidden"></A>
+  <H2>Node Attribute "HIDDEN"</H2>
+  <P>
+    This attribute is used to hide the subgraph of a node initially. 
+    It is the same operation available in menu 
+  <A href="gui_abst.html" target="_top">Abstraction/Hide Subgraph</A>.
+    Supported values for this attribute are "true" and "false" 
+    ("false" is the default). 
+  </P>
+
+  <A name="border"></A>
+  <H2>Node Attribute "BORDER"</H2>
+  <P>
+    This attribute defines the border of the geometrical object
+    (except for "text" and "invisible"). 
+    The values for this attribute may be: "none", "single" (default) 
+    and "double". 
+    The objects "text" and "invisible" cannot lack a border at all. 
+    The default value for this attribute is "single". 
+  </P>
+
+  <A name="color"></A>
+  <H2>Node Attribute "COLOR"</H2>
+  <P>
+    Can be used to define the background color of a node. 
+    The value of this attribute can be any X11<SUP class="tm">TM</SUP> colorname on UNIX&reg;
+    and Linux&reg; platforms (see file lib/X11/rgb.txt in your X11<SUP class="tm">TM</SUP> directory).
+    On all platforms, a RGB color specification in a format like "#0f331e"
+    can be used.
+    Here, "0f" is the hexadecimal value for the red part of the color, 
+    "33" is the green part and "1e" is the blue part of the color. 
+    Hence, a palette of 16.7 million colors is supported. 
+    The default color for nodes is "white". 
+    See edge attribute
+  <A href="term_eattr.html#edgecolor" target="_top">EDGECOLOR</A>,
+    too.
+  </P>
+
+  <A name="ccolor"></A>
+  <H2>Node Attribute "CCOLOR"</H2>
+  <P>
+    Same as attribute 
+  <A href="term_nattr.html#color" target="_top">COLOR</A>, 
+    but used when the subgraph of the 
+    node is hidden using 
+  <A href="gui_abst.html" target="_top">abstractions</A>. 
+    The default value for this attribute is the value of the 
+    attribute "COLOR" or its default value. 
+  </P>
+
+  <A name="_go"></A>
+  <H2>Node Attribute "_GO" (Graphical Object)"</H2>
+  <P>
+    This attribute specifies the geometrical object used to draw 
+    a node. Supported values are:
+    "box" (default), "circle", "ellipse", "rhombus", "triangle", "text", 
+    "invisible", "image" and "scissors"
+    (note: value "icon", available in previous releases, has been replaced 
+    by "image", but is still supported for compatibility).
+    Object "text" is similar to object "box", in fact it is a box without 
+    the border.
+    With object "image", color icons can be used to visualize a graph node.
+    Unfortunately, "image" is more complicated than the other graphical 
+    objects. 
+    The file with the image of the icon has to be specified with a 
+    second attribute 
+  <A href="term_nattr.html#image" target="_top">IMAGE</A>, 
+    (see below), so for icons you need two attributes: "_GO" and "IMAGE". 
+  <STRONG>Note:</STRONG> 
+    object "scissors" is usually used to display nodes with 
+    hidden subgraph. 
+    It is not recommended to use this object, because the user may 
+    be confused. 
+  </P>
+
+  <A name="_cgo"></A>
+  <H2>Node Attribute "_CGO" (Graphical Object)</H2>
+  <P>
+    Same as attribute   
+  <A href="term_nattr.html#_go" target="_top">_GO</A>, 
+    but used when the subgraph of the 
+    node is hidden using 
+  <A href="gui_abst.html" target="_top">abstractions</A>. 
+    The default value for this attribute is "scissors". 
+    You also need attribute 
+  <A href="term_nattr.html#cimage" target="_top">CIMAGE</A>, 
+    if you choose the geometrical object "image" as attribute value, 
+    as described above for attribute 
+  <A href="term_nattr.html#_go" target="_top">_GO</A>. 
+  </P>
+
+  <A name="image"></A>
+  <H2>Node Attribute "IMAGE"</H2>
+  <P>
+    This is used as a supplement for attribute 
+  <A href="term_nattr.html#_go" target="_top">_GO</A> 
+    when its value is set to "image". 
+    Attribute "IMAGE" specifies the file name of the image used to 
+    draw the node as icon. 
+    The file specified in the attribute value must be in 
+    GIF, XBM, XPM or BMP format. 
+    Absolute file names are not allowed as a value for this attribute. 
+    uDraw(Graph) is looking for this file in all directories given by 
+    environment variable 
+  <A href="var.html#udg_icondir" target="_top">$UDG_ICONDIR</A>. 
+    So for example, when the icon is in file 
+    "/home/me/images/my_image.gif" (this is UNIX&reg; notation, 
+    use "C:" and "\" on Windows&reg;), then add "/home/me/images"
+    to the search path of environment variable "$UDG_ICONDIR"
+    before starting uDraw(Graph), set attribute "_GO" to "image" 
+    and attribute "IMAGE" to "my_image.gif" for a particular node. 
+    The default value for this attribute is "". 
+  </P>
+  <P>
+  Notes about attribute "IMAGE":
+  <UL>
+  <LI>
+    Using attribute "IMAGE" without setting "_GO" to "image" will 
+    have no effect. 
+    Do not forget to set both attributes when you want to have icons in 
+    a graph visualization. 
+  </LI>
+  <LI>
+    Icon images are not saved in a status file, so when you want to 
+    transfer the status file of a graph with icons, make sure to 
+    transfer the image files, too! 
+  </LI>
+  <LI>
+    If uDraw(Graph) does not find the specified image file in the directories 
+    defined by environment variable
+  <A href="var.html#udg_icondir" target="_top">$UDG_ICONDIR</A>,
+    then a default image with a question mark is used instead. 
+  </LI>
+  </UL>
+  </P>
+
+  <A name="iconfile"></A>
+  <H2>Node Attribute "ICONFILE"</H2>
+  <P>
+    Used in former releases, but replaced by 
+   <A href="term_nattr.html#image" target="_top">IMAGE</A>.
+    Is still available for backward compatibility.
+  </P>
+
+  <A name="cimage"></A>
+  <H2>Node Attribute "CIMAGE"</H2>
+  <P>
+    Same as attribute 
+  <A href="term_nattr.html#image" target="_top">IMAGE</A>,
+    but used when the subgraph of the node is hidden using 
+  <A href="gui_abst.html" target="_top">abstractions</A>
+    The default value for this attribute is "". 
+    This attribute is used as a supplement for attribute 
+  <A href="term_nattr.html#_cgo" target="_top">_CGO</A>
+    when its value is set to "image". 
+  </P>
+
+  <A name="ciconfile"></A>
+  <H2>Node Attribute "CICONFILE"</H2>
+  <P>
+    Used in former releases, but replaced by 
+  <A href="term_nattr.html#cimage" target="_top">CIMAGE</A>.
+    Is still available for backward compatibility.
+  </P>
+
+  <A name="menu"></A>
+  <H2>Node Attribute for Pop-Up Menu</H2>
+  <P>
+    This attribute defines a pop-up menu for a node. 
+    This has to be done with a completely different syntax.
+    Instead of using "a(...,...)", menus are defined with "m(menus)". 
+    The syntax for the 
+  <A href="api_cmd_app_menu.html#create_menus" target="_top">menus parameter</A>
+    is described in the API documentation.
+    The pop-up menu is displayed when the user presses the right 
+    mouse button over the node. 
+    In this case, the ID of the menu is sent to the application,
+    so this attribute does not make sense when no application is 
+    connected to the API.
+    Please take a look in the section about 
+  <A href="api_gui_extend.html" target="_top">user interface extension</A> 
+    for further information regarding menus. 
+    See edge attribute for
+  <A href="term_eattr.html#menu" target="_top">pop-up menus</A>,
+    too.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    X Window System and X11 are trademarks of The Open Group.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    GIF is a service mark property of CompuServe, Inc.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Special Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Special Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Special Commands</H1>
+  
+  <P>
+    On this page, API commands of the special category are described. 
+    This category covers all commands to select or scroll to
+    particular nodes or execute some special actions. 
+    The commands of this category are enclosed by keyword "special(...)". 
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+  </P>
+
+  <A name="select_nodes"></A>
+  <H2>
+    special(select_nodes(<A href="api_param.html#node_ids" target="_top">node_ids</A>))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    This command is used to set the current selection in a graph 
+    to the nodes specified by "node_ids". The new selection is returned
+    by a 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A> 
+    answer. 
+  </P>
+
+  <A name="select_edge"></A>
+  <H2>
+    special(select_edge(<A href="api_param.html#edge_id" target="_top">edge_id</A>))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#edge_selection_label" target="_top">edge_selection_label(...)</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    This command is used to set the current selection in a graph
+    to the edge specified by "edge_id". The new selection is returned by a 
+  <A href="api_answ_all.html#edge_selection_label" target="_top">edge_selection_label(...)</A> 
+    answer. 
+    Note that in opposition to nodes, only one edge can be selected at a time
+    in uDraw(Graph).
+  </P>
+
+  <A name="focus_node"></A>
+  <H2>
+    special(focus_node(<A href="api_param.html#node_id" target="_top">node_id</A>))
+  </H2>
+  <P>
+    Scrolls the visible part of the graph visualization to the node 
+    specified by "node_id". 
+    It might be a better practice to use command 
+  <A href="api_cmd_special.html#focus_node_animated" target="_top">special(focus_node_animated(...))</A>
+    which takes advantage of animation to avoid that the user is
+    getting confused about the new location of the focus. 
+    In
+  <A href="api_multi_modes.html" target="_top">multi-view mode</A>, 
+    this operation only affects the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>, 
+    and in 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>, 
+    it affects the current window of the context.
+  </P>
+
+  <A name="focus_node_animated"></A>
+  <H2>
+    special(focus_node_animated(<A href="api_param.html#node_id" target="_top">node_id</A>))
+  </H2>
+  <P>
+    Same as 
+  <A href="api_cmd_special.html#focus_node" target="_top">special(focus_node(...))</A>,
+    but here animation is used where the visible part of the
+    graph visualization scrolls smoothly to the new point of focus
+    to avoid that the user is getting confused about the new location
+    of the focus.
+    The speed of animation can be set with command 
+  <A href="api_cmd_set.html#animation_speed" target="_top">set(animation_speed(...))</A>. 
+    In
+  <A href="api_multi_modes.html" target="_top">multi-view mode</A>, 
+    this operation only affects the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>, 
+    and in 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>, 
+    it affects the current window of the context.
+  </P>
+
+  <A name="show_url"></A>
+  <H2>
+    special(show_url(<A href="api_param.html#string" target="_top">string</A>))
+  </H2>
+  <P>
+    Displays a particular HTML page specified by the URL (or URL fraction)
+    in parameter "string".
+    The page is given to the browser application that can be specified with
+    command
+  <A href="api_cmd_set.html#browser" target="_top">set(browser(...))</A>.
+    A proper configuration with a working help system is required in order 
+    to use this feature, refer to the section about
+  <A href="gnrl_use.html" target="_top">using the help system</A>.
+    When the string contains a ":/" substring, the parameter is expected to 
+    be a final URL and passed to the browser as is. 
+    Otherwise, if no substring ":/" occurs, the parameter is expected to be 
+    a relative file name in the "$UDG_HOME/docs" directory of the 
+    distribution. 
+    In the second case, uDraw(Graph) will add the URL prefix that can be 
+    specified with command
+  <A href="api_cmd_set.html#documentation" target="_top">set(documentation(...))</A>
+    to the string of this command here before passing the URL to the 
+    HTML browser.
+  </P>
+
+  <A name="add_language"></A>
+  <H2>
+    special(add_language(<A href="api_param.html#filename" target="_top">filename</A>))
+  </H2>
+  <P>
+    To add additional language keys and values from the specified file 
+    to the text translation table.
+    The parameter "string" is the file name, but without suffix 
+    "_<EM>language</EM>.menu", where "<EM>language</EM>" is the current value of
+    environment variable 
+  <A href="var.html#udg_lang" target="_top">$UDG_LANG</A>.
+    For details, please refer to the section about
+  <A href="int.html" target="_top">internationalization</A>.
+    Language keys are starting with "#%..." to use the 
+    internationalization feature for multilingual interfaces.
+    By using this command, the application can participate in the
+    uDraw(Graph) internationalization mechanism. 
+    The key/value pairs in the file are added to the text translation 
+    table, so the value of an already existing key is replaced by the 
+    new value.
+    The language file is expected in the directory where uDraw(Graph) was 
+    started or in directory "$UDG_HOME/lib/uDrawGraph".
+    When "string" completed by "_<EM>language</EM>.menu" is an
+    absolute file name, then the file is loaded directly from this 
+    location.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+
+  <A name="version"></A>
+  <H2>
+    special(version)
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#version" target="_top">version(...)</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    To ask for the version number of uDraw(Graph). 
+    Returns the answer "version(string)" where the parameter is
+    "uDraw(Graph) 3.1" in this release. 
+    For compatibility, note that minor releases (i.e. format 
+    "uDraw(Graph) x.y.z") may follow for defect repairs.
+    This command is not available in former releases, so there you 
+    will get the answer 
+  <A href="api_answ_all.html#communication_error" target="_top">communication_error(...)</A>.
+    This is the only way in the API to see that your application is 
+    communicating with an version prior to uDraw(Graph) 3.1.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Environment Variables</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Environment Variables</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  <H1>Environment Variables</H1>
+  
+  <P>
+    uDraw(Graph) supports the environment variables listed below.
+  </P>
+  <H2>
+    Notes for the Windows&reg; platform:
+  </H2>
+  <P>
+    Instead of using environment variables you can set corresponding
+    variables of type "zero terminated string" in the following paths
+    of the registry. The variables are searched in both paths in this order:
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">
+    HKEY_CURRENT_USER\SOFTWARE\uni-bremen\uDrawGraph\3.1\
+  </TD>
+</TR>
+  <TR>
+<TD class="table">
+    HKEY_LOCAL_MACHINE\SOFTWARE\uni-bremen\uDrawGraph\3.1\
+  </TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    After you have   
+  <A href="gnrl_inst_win.html" target="_top">installed uDraw(Graph)</A> 
+    with the self extracting installer, the values for the 
+    variables $UDG_HOME, 
+    $UDG_ICONDIR and $UDG_LANG are automatically determined 
+    from your current environment and are automatically 
+    inserted into or overwritten in the Windows&reg; registry.
+    The automatic installer uses the following registry keys:
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">
+    HKEY_LOCAL_MACHINE\SOFTWARE\uni-bremen\uDrawGraph\3.1\UDG_HOME
+  </TD>
+</TR>
+  <TR>
+<TD class="table">
+    HKEY_LOCAL_MACHINE\SOFTWARE\uni-bremen\uDrawGraph\3.1\UDG_ICONDIR
+  </TD>
+</TR>
+  <TR>
+<TD class="table">
+    HKEY_LOCAL_MACHINE\SOFTWARE\uni-bremen\uDrawGraph\3.1\UDG_LANG
+  </TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    If you do not have the permissions to modify HKEY_LOCAL_MACHINE entries
+    in the registry (i.e. no administration rights), then the alternative 
+    root HKEY_CURRENT_USER is used instead. 
+    The registry entries have the same semantics as described for the 
+    variables described below. 
+    uDraw(Graph) will use them if it cannot find the environment variable 
+    as a fallback and there is no need to set the environment
+    variables any more. 
+    If the registry is set at both locations (HKEY_LOCAL_MACHINE and
+    HKEY_CURRENT_USER), uDraw(Graph) will use only HKEY_CURRENT_USER.
+  </P>
+
+  <A name="udg_home"></A>
+  <H2>$UDG_HOME</H2>
+  <P>
+    This is the only mandatory environment variable that must be set to 
+    be able to start uDraw(Graph).
+    This variable is automatically set by the uDraw(Graph) installation on
+    Windows&reg; and when you use the *.rpm distribution on Linux&reg;.
+    This environment variable specifies the directory where the uDraw(Graph) 
+    distribution is located on your computer, i.e. the absolute file name 
+    of the topmost directory "uDrawGraph-3.1.X"
+    (where X is the actual minor release number).
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    Be careful with moving the uDraw(Graph) distribution to another 
+    location on a filesystem shared by many users. 
+    You can do so (by setting $UDG_HOME 
+    to the new location), but other users may have problems accessing the 
+  <A href="gnrl_use.html" target="_top">help system</A> 
+    afterwards. 
+    The reason is that the current location of the online documentation 
+    is stored when using menu 
+  <A href="gui_opt.html" target="_top">Options/Save</A>,
+    so for these users the system will always look at the former location. 
+    The current setting can be seen and modified with menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings</A>.
+    So if you have to move the distribution, make sure that all users 
+    are updating their options or leave a link (or alias) at the former 
+    location.
+  </P>
+
+  <A name="udg_icondir"></A>
+  <H2>$UDG_ICONDIR</H2>
+  <P>
+    This environment variable is used to specify the directories where 
+    the system will look for files containing images in the ".gif", ".xbm",
+    ".xpm" or ".bmp" graphic format. 
+    Images can be used to visualize particular nodes of a graph (see
+    node attribute 
+  <A href="term_nattr.html#image" target="_top">IMAGE</A>
+    and for the 
+  <A href="gui_base.html" target="_top">icon bar</A> which can be extended 
+    by application specific icons with API command
+  <A href="api_cmd_app_menu.html#create_icons" target="_top">app_menu(create_icons(...))</A>. 
+    uDraw(Graph)  will look for icons in the default "icons" directory
+    of the distribution, before going on in the directories specified
+    with this variable.
+    The individual directories must be separated with ":" on UNIX&reg;
+    and Linux&reg; and with ";" on Windows&reg;.
+  </P>
+
+  <A name="udg_lang"></A>
+  <H2>$UDG_LANG</H2>
+  <P>
+    This variable is used to set the text of the user interface to another 
+    language. 
+    If unset, value "C" is supposed which is the English user interface.
+    A German user interface can be used with value "de".
+    Other languages may be provided by the user, see chapter
+  <A href="int.html" target="_top">internationalization</A>
+    for more information.
+    The variable is used to select one of the translation files located 
+    in directory "lib/uDrawGraph/" of the uDraw(Graph) distribution.
+    A translation file begins with "uDrawGraph_" and ends with ".lang". 
+  </P>
+
+  <A name="grapheditor_directory"></A>
+  <H2>$GRAPHEDITOR_DIRECTORY</H2>
+  <P>
+    By default, uDraw(Graph) will look for the 
+  <A href="edit.html" target="_top">graph editor application</A> 
+    in directory $UDG_HOME/bin/grapheditor, 
+    if started with 
+  <A href="opt.html#graphedit" target="_top">option -graphedit</A>. 
+    To let the system look for the editor at another location 
+    you can set this environment variable to a different directory. 
+  </P>
+
+  <A name="tmp"></A>
+  <A name="home"></A>
+  <H2>$HOME and $TMP</H2>
+  <P>
+    Sometimes uDraw(Graph) has to create temporary files.  
+    If the environment variable $TMP is set, its value is used 
+    as the directory for temporary files. 
+    Otherwise the environment variable $HOME is used. 
+    If neither $TMP nor $HOME is set, the current working 
+    directory is used.
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

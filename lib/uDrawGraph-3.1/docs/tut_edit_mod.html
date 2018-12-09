@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tutorial, Edit Graph</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_edit.html"><B>Graph Editor</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Modify Graph</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 5.3: Modifying existing Graphs 
+  </H1>
+  
+  <P>
+    After getting familiar with the basic editing operations, we 
+    will now come to some more advanced features of the graph editor. 
+    They will be explained based on one of the example graphs of 
+    the uDraw(Graph) distribution, to see how modification of an 
+    existing graph works. 
+    You should now save your current graph before with menu 
+  <A href="gui_file.html" target="_top">File/Save As...</A> 
+    if you want to keep it for a later session. 
+    After doing this, load file "graph_example.udg" or 
+    "graph_example.status" in the "samples/graphs" directory of the 
+    distribution.
+  </P>
+  <P>
+    Now you should see a large graph in the base window. You can 
+    modify the structure of this graph with the basic editing 
+    operations 
+  <A href="tut_edit_new.html" target="_top">described before</A>. 
+    But here is something new: select an arbitrary node in this 
+    graph and choose menu 
+  <A href="edit_node.html" target="_top">Edit/Node/Attributes...</A> 
+    afterwards. 
+    A 
+  <A href="edit_nattr.html" target="_top">dialog window</A>
+    will appear where you can modify all attributes of this 
+    specific node. 
+    To get this dialog, you can also click on the third  
+  <A href="edit_icons.html" target="_top">graph editor icon</A>
+    (when a node is selected) or simply double-click 
+    on a node or use the 
+  <A href="edit_npop.html#node" target="_top">node's pop-up menu</A>. 
+    Play a little bit with the dialog items of this attribute window 
+    and press the apply button to use your modifications in the graph
+    visualization. 
+    For more convenience, the window will remain open until you 
+    press the close button. 
+    When you select a new node in the graph, the window is updated 
+    to show the attributes of the current selection. 
+    You can even modify the attributes of many selected nodes in one step. 
+  </P>
+  <P>
+    For example, change the shape to value Image for one specific node 
+    and enter the string "uDrawGraph_logo.gif"  in the "Image File" field that becomes 
+    available. 
+
+    This .gif file is in the "icons" directory of the uDraw(Graph) 
+    distribution, which is part of the icon search path by default 
+    (refer to environment variable 
+  <A href="var.html#udg_icondir" target="_top">$UDG_ICONDIR</A>). 
+  </P>
+  <P>
+    Different colors are also available to be used as node attribute. 
+    If you do not like the given palette, then you can set your own 
+    preferences with the 
+  <A href="edit_color.html" target="_top">color editor</A> 
+    that appears after clicking on 
+    the color field and then on the "Edit Colors..." button. 
+    Next, change the text of a particular node with the attributes dialog. 
+    You can even get nodes with multi-line text by typing return
+    in the text entry field. 
+    As you have already seen, newly inserted nodes will get a default 
+    text. 
+    You can specify the pattern for this text with menu 
+  <A href="edit_name.html" target="_top">Edit/Node/Naming Scheme...</A>, 
+    Here, the special character # is a placeholder for the current 
+    node number. 
+  </P>
+  <P>
+    Edges also have attributes. 
+    Double-click on one of the edges in the graph to get the 
+  <A href="edit_eattr.html" target="_top">edge attributes dialog</A>. 
+    Modify the attributes of some edges to see what happens. 
+  </P>
+  <P>
+    End of Exercise 5.3.
+  <A href="tut_edit.html" target="_top">Go back to the Section 5 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

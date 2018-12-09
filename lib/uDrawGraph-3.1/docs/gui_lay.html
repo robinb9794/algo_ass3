@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Layout Menu</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Layout Menu</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Layout Menu</H1>
+  
+  <IMG border="0" alt="Layout File" width="" height="" src="uDG31_men_lay.gif" align="JUSTIFY">
+  <P>
+    The Layout menu contains operations for controlling the layout 
+    of a graph visualization which is shown in the graph area of a 
+  <A href="gui_base.html" target="_top">base window</A>. 
+    There are operations to
+  <A href="gui_lay.html#optimize" target="_top">optimize a layout</A> 
+    and to 
+  <A href="gui_lay.html#orientation" target="_top">select the layout orientation</A>.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    menu operations can also be invoked without the mouse by using
+  <A href="gui_keyb.html" target="_top">keyboard commands</A>. 
+  </P>
+
+  <A name="optimize"></A>
+  <H2>Layout Optimization</H2>
+  <UL>
+  <A name="improve_all"></A>
+  <LI>
+  <B>
+    Improve All
+  </B>
+<BR>
+    This operation starts an algorithm to optimize the layout of the 
+    whole graph. 
+    The most important task of the layout algorithm is to reduce 
+    the number of crossings between edges.
+    Reducing edge crossings is a technique to clarify a graph layout. 
+    The current number of crossings is displayed in the 
+  <A href="gui_view_info.html" target="_top">View/Graph Info...</A> 
+    dialog. 
+    Edge Crossing reduction is done by reordering the nodes at each 
+    level using a heuristical approach. 
+  <A href="conc_lay.html" target="_top">Details about the layout algorithm</A>
+    can be found in the concepts document. 
+    Because crossing reduction is an expensive operation, the layout 
+    algorithm will not be used immediately after loading a graph. 
+    So the user has to do this manually with this menu operation.     
+  </LI>
+
+  <A name="improve_edges"></A>
+  <LI>
+  <B>
+    Improve Edges
+  </B>
+<BR>
+    Same as "Improve All" (see above), but the order of the nodes 
+    is fixed here, so only the position of the invisible dummy nodes 
+    (used to fill long span edges) is calculated. 
+    For the user, this function has the effect of better edge routing, 
+    without changing the order of the regular nodes.
+  <STRONG>Note:</STRONG> 
+    even if the order of regular nodes is fixed here, their
+    absolute position may change.
+  </LI>
+
+  <A name="improve_spacing"></A>
+  <LI>
+  <B>
+    Improve Spacing
+  </B>
+<BR>
+    This layout operation moves all nodes closer together in the 
+    graph visualization to take advantage of unused space. 
+    The order of nodes is not affected. 
+    Usually, one will use this operation after hiding subgraphs 
+    with menu operation 
+  <A href="gui_abst.html" target="_top">Abstraction/Hide Subgraph</A> 
+    to get a more compact layout. 
+  </LI>
+
+  <A name="improve_selected_nodes"></A>
+  <LI>
+  <B>
+    Improve Selected Nodes
+  </B>
+<BR>
+    Same as "Improve All" (see above), but this operation optimizes
+    the position of the nodes that are currently selected in the base 
+    window and all of their dummy nodes.
+    The advantage of a local layout optimization is that the resulting 
+    visualization may be better for the selected nodes, because the 
+    surrounding nodes which are not visible this time must not be 
+    taken into account. 
+    The disadvantage is that the layout of the other nodes may be
+    getting worse after using this operation. 
+    So use this operation when you are not interested in a good 
+    overall layout, but want to get the best result for the selected 
+    nodes. 
+  </LI>
+  </UL>
+
+  <A name="orientation"></A>
+  <H2>Controlling the Layout Orientation</H2>
+  <UL>
+  <A name="Orientation"></A>
+  <LI>
+  <B>
+    Orientation
+  </B>
+<BR>
+    The operations in this cascade menu are used to set the general
+    orientation of a graph layout. 
+    By default, a hierarchical visualization of a graph is drawn in 
+    top-down direction so the first level (with the root nodes) 
+    is at the upper side of the graph layout and all edges point
+    downwards. 
+    Use any of these menus to draw the graph in one of the four 
+    orientations.
+  <A href="conc_gra.html" target="_top">Details about the graph layout</A>
+    can be found in the concept chapter. 
+
+  <UL>
+  <LI>
+  <B>
+    Top Down
+  </B>
+<BR>
+    To draw the graph with a top-down layout where the first level 
+    is at the upper side and all edges point downwards. 
+    This is the default direction.
+  </LI>
+
+  <LI>
+  <B>
+    Bottom Up 
+  </B>
+<BR>
+    To draw the graph with a bottom-up layout where the first level 
+    is at the lower side and all edges point upwards. 
+  </LI>
+
+  <LI>
+  <B>
+    Left to Right 
+  </B>
+<BR>
+    To draw the graph with a left-to-right layout where the first level 
+    is at the left side and all edges point to the right. 
+  </LI>
+
+  <LI>
+  <B>
+    Right to Left 
+  </B>
+<BR>
+    To draw the graph with a right-to-left layout where the first level 
+    is at the right side and all edges point to the left. 
+  </LI>
+  </UL>
+  </LI>
+  </UL>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

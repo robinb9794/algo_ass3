@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tcl/Tk Interface</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Tcl/Tk Interface</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+     
+   
+  
+  <H1>Tcl/Tk Interface</H1>
+  
+  <P>
+    Tcl/Tk is a programming language that is used by uDraw(Graph)
+    for the realization of the user interface.
+    General information about Tcl/Tk is for example provided by the 
+  <NOBR><A href="http://tcl.activestate.com/software/tcltk/" target="_blank">Tcl Developer Xchange</A></NOBR>.
+  </P>
+  <P>
+    uDraw(Graph) offers a Tcl/Tk interpreter that is accessible by the API.
+    This interface can be used by application programmers to create 
+    their own application specific windows. 
+    The uDraw(Graph) Tcl/Tk interface is able to execute any Tcl/Tk 8.4 
+    script in the same way as a "wish shell" (i.e. Tcl/Tk execution 
+    environment) can do. 
+    So the application program does not need to embed its own "wish shell" 
+    (or a separate Tcl/Tk interpreter) in order to use Tcl/Tk, because 
+    that function is offered by uDraw(Graph). 
+    This way the application does not need to deal with an additional 
+    toolkit to realize a graphical front-end. 
+    All it has to do to implement a graphical user interface is 
+    sending API commands with Tcl/Tk scripts to the API. 
+  </P>
+  <P>
+    Tcl/Tk scripts can be sent either to uDraw(Graph) with API 
+    command 
+  <A href="api_cmd_tcl.html#eval" target="_top">tcl(eval(string))</A>, 
+    where "string" is the Tcl/Tk script, or the script can be loaded 
+    from a file with API command 
+  <A href="api_cmd_tcl.html#eval_file" target="_top">tcl(eval_file(filename))</A>.
+    Sending the complete script via the API with command
+  <A href="api_cmd_tcl.html#eval" target="_top">tcl(eval(string))</A>
+    is only useful for small scripts or Tcl/Tk function calls, because 
+    the string parameter has to fulfill the 
+  <A href="api_guide.html#notes" target="_top">conventions for API strings</A>,
+    especially double quote characters inside the string have to be 
+    escaped (i.e. \") and newline or return characters are not allowed
+    (use \n instead). 
+    These  restrictions are not necessary for Tcl/Tk scripts loaded 
+    from file with command 
+  <A href="api_cmd_tcl.html#eval_file" target="_top">tcl(eval_file(filename))</A>.
+    For both commands, the result of the Tcl/Tk script will be immediately 
+    returned to the application with answer 
+  <A href="api_answ_all.html#tcl_answer" target="_top">tcl_answer(...)</A>
+    as soon as the script is executed. 
+  </P>
+  <P>
+    A reasonable approach for using the Tcl/Tk interface is to save a script 
+    of Tcl/Tk functions in a file and execute it with API command
+  <A href="api_cmd_tcl.html#eval_file" target="_top">tcl(eval_file(filename))</A>
+    at start time of uDraw(Graph). 
+    During run-time, particular Tcl/Tk functions of the script can be 
+    called by sending API command
+  <A href="api_cmd_tcl.html#eval" target="_top">tcl(eval(string))</A>.
+  </P>
+  
+  <H2>The "uDrawGraph" command in Tcl/Tk</H2>
+  <P>
+    The uDraw(Graph) Tcl/Tk interpreter that can be accessed by the API
+    has all the features of a usual Tcl/Tk 8.4 interpreter (i.e. 
+    everything a "wish shell" can do), 
+    plus one additional object (or function) "uDrawGraph" that supports 
+    the two methods (or parameters) "tcl_answer" and "command",
+    see below. 
+    The "uDrawGraph" Tcl object can be used in a Tcl/Tk script to send 
+    strings back to the application via the API or to send
+    API commands directly to uDraw(Graph) from inside the script. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    the user interface and graph visualization of uDraw(Graph) 
+    cannot be manipulated with the Tcl/Tk interface, so the "uDrawGraph" 
+    Tcl object does not offer the options you might expect. 
+    Precautions have been taken to avoid that the Tcl/Tk interface is
+    misused to mesh with internal operations, disfigure dialog windows, etc.
+    The only way to manipulate the uDraw(Graph) system is by communicating
+    with the API. 
+  </P>
+
+  <A name="security_restrictions"></A>
+  <H2>Security Restrictions in Socket Server Mode</H2>
+  <P>
+    When uDraw(Graph) acts as a socket server by using the command-line option
+  <A href="opt.html#server" target="_top">-server</A>,
+    an unknown application program can connect to the API at any time
+    from any computer in the network.
+    This can be a security problem, especially when all features of the 
+    Tcl/Tk interpreter would be offered to an unknown application. 
+    Therefore the uDraw(Graph) Tcl/Tk interface is restricted to a 
+    "safe Tcl" interpreter after entering the socket server mode.
+    Safe Tcl is a mechanism for executing untrusted Tcl/Tk scripts safely 
+    and for providing mediated access by such scripts to potentially
+    dangerous functionality.
+    Please refer to the
+  <NOBR><A href="http://www.tcl.tk/man/tcl8.4/TclCmd/safe.htm" target="_blank">Tcl/Tk documentation</A></NOBR>
+    about the restrictions for scripts in a safe Tcl/Tk interpreter.
+    Make sure that you have 
+  <A href="opt.html#security_note" target="_top">read about security risks</A>
+    in the documentation of command-line option "-server".
+  </P>
+
+  <H2>
+    Tcl command "uDrawGraph tcl_answer &lt;string&gt;"
+  </H2>
+  <P>  
+    This Tcl command can be used in a Tcl/Tk script to send an arbitrary 
+    string back to the application. 
+    uDraw(Graph) will redirect parameter "string" via the API to the 
+    application which will receive the answer 
+  <A href="api_answ_all.html#tcl_answer" target="_top">tcl_answer(...)</A>
+    from the API. 
+    This feature is useful to implement callbacks. 
+  </P>
+  
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+<TR>
+<TH COLSPAN="0">Example for "uDrawGraph tcl_answer":</TH>
+</TR>
+<TR>
+<TD class="table">
+     tcl(eval("button .b -text Hello -command {uDrawGraph tcl_answer Pressed} ; pack .b"))
+  </TD>
+</TR>
+</TABLE>
+</P>
+
+  <P>  
+    By sending this API command with a Tcl/Tk script to the uDraw(Graph) 
+    API, a window with a button "Hello" will appear. 
+    The API will send answer tcl_answer("Pressed") back to the 
+    application as soon as the user presses the button. 
+  </P>  
+  <P>  
+  <STRONG>Note:</STRONG> 
+    It is not possible to use the Tcl/Tk delimiters (i.e. "{" and "}") 
+    inside the string parameter of command "tcl_answer". 
+    So it is not allowed to use "...-command {uDrawGraph tcl_answer {Pressed}}"
+    in the example above, although it is a valid Tcl/Tk expression. 
+  </P>  
+
+  <H2>
+    Tcl command "uDrawGraph command &lt;api-command&gt;"
+  </H2>
+  <P>  
+    This Tcl command can be used in a Tcl/Tk script to send API commands 
+    directly to uDraw(Graph) without detour through the application. 
+    The result of the Tcl command in the Tcl/Tk script is the answer of 
+    the API command that was executed.
+    So if the application has to be informed about the answer of the
+    API command, then the Tcl/Tk script has to forward this result to 
+    the application using the Tcl command "uDrawGraph tcl_answer {...}".
+  </P>
+  
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+<TR>
+<TH COLSPAN="0">Example for "uDrawGraph command":</TH>
+</TR>
+<TR>
+<TD class="table">
+    tcl(eval("button .b -text Clear -command {uDrawGraph command menu(file(new))} ; pack .b")) 
+  </TD>
+</TR>
+</TABLE>
+</P>
+
+  <P>  
+    By sending this API command with a Tcl/Tk script to the uDraw(Graph) 
+    API, a window with a button "Clear" will appear. 
+    After pressing this button, the API command 
+  <A href="api_cmd_menu.html#file_new" target="_top">menu(file(new))</A> 
+    will be executed by uDraw(Graph).
+    This will clear the graph that is probably loaded. 
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tutorial, Starting Editor</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_edit.html"><B>Graph Editor</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Starting</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 5.1: Starting the Graph Editor
+  </H1>
+  
+  <P>
+    The graph editor is an external application program that 
+    communicates with uDraw(Graph) by using the 
+  <A href="api.html" target="_top">API</A>. 
+    With the editor you can modify the structure of a graph that is
+    currently loaded in uDraw(Graph), e.g. to interactively insert or 
+    delete nodes and edges. 
+    The responsibility of the graph editor (and any other uDraw(Graph)
+    application) is to maintain the structure of the graph, whereas 
+    uDraw(Graph) can only visualize the graph, without any permission 
+    to manipulate the graph's structure on its own. 
+    This topic is discussed in detail in the 
+  <A href="api_intro.html" target="_top">API introduction</A>. 
+  <P>
+  </P>
+    The user does not see anything of this system interaction with 
+    two different processes communicating with each other. 
+    The user controls the application (i.e. the graph editor in 
+    this case) from inside the uDraw(Graph) user interface.
+    The easiest way is to see the graph editor as a separate 
+    "plug-in" that extends the basic functionality of uDraw(Graph) 
+    and that runs in another process or even on another computer. 
+  <P>
+  </P>
+    Before using the graph editor, you have to connect it to the 
+    API. 
+    This can be done in uDraw(Graph) at runtime by using menu 
+  <A href="gui_file.html" target="_top">File/Connect Application...</A>.
+    Another way is to start uDraw(Graph) on command-line with
+  <A href="opt.html#graphedit" target="_top">option -graphedit</A>. 
+    When you use the menu, a file browser appears to let you select 
+    the executable file of the application program that should be connected.
+    Of course, you cannot connect an arbitrary executable file here, because
+    the application must be designed to communicate with uDraw(Graph) 
+    using the API protocol. 
+    The file name of the graph editor executable is "grapheditor(.exe)". 
+    You can find it in the "bin" directory of the uDraw(Graph) distribution. 
+    If you do not know where uDraw(Graph) is installed on your computer, 
+    then display the UDG_HOME environment variable in a command-line
+    or ask your system administrator.
+  <P>
+  </P>
+    Now, move to the "bin" directory in the file browser and 
+    double-click on file "grapheditor(.exe)". 
+    This will open another dialog where you can specify the 
+    command-line options for the graph editor and the type of 
+    communication.
+    Choose "TCP/IP Sockets" and press the connect button to start 
+    the editor. 
+    You can see the status message "GraphEditor 3.0 (Drag &amp; Drop)" 
+    in the lower right 
+  <A href="gui_base.html" target="_top">footer area</A>.
+    The 
+  <A href="gui_edit.html" target="_top">Edit</A>
+    menu is now enabled with a few new menu entries.
+    The graph editor has added these entries to the user interface,
+    but there are no functions behind for uDraw(Graph).
+    When you select something in the "Edit" menu, uDraw(Graph) will send
+    an information to the graph editor via the API.
+    The editor knows what to do in this case (i.e. adding/deleting
+    node or edges) and sends an appropriate graph update back to 
+    uDraw(Graph).
+  <A name="switch_icons"></A>
+    You can also see some new icons on the 
+  <A href="gui_base.html" target="_top">icon bar</A> 
+    of the uDraw(Graph) base window for quick access to the edit 
+    operations that are also available in the menu. 
+    Do not worry, the standard icons are still there. 
+    You can switch between the standard icons and the graph editor
+    icons by using the small arrow that is located at the lower end 
+    of the icon bar. 
+  </P>
+  <P>
+  
+  <IMG border="0" alt="Icon Bar Switch" width="" height="" src="uDG31_win_arrows.gif">
+  <BR>
+  
+    Arrows to switch the icon bar
+  <BR>
+  </P>
+  <P>
+    End of Exercise 5.1.
+  <A href="tut_edit.html" target="_top">Go back to the Section 5 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>
