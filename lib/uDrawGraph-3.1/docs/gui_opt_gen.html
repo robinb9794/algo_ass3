@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: General Settings Dialog</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui_opt.html"><B>Options Menu</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">General Settings...</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>General Settings Dialog Window</H1>
+  
+  <IMG border="0" alt="General Settings Dialog" width="" height="" src="uDG31_win_gen.gif" align="JUSTIFY">
+
+  <A name="scrolling"></A>
+  <P>
+    This dialog window is used to control some general settings of 
+    uDraw(Graph). 
+    The first set of dialog elements deals with the scrolling management. 
+    After opening a survey view from a detail view with menu 
+  <A href="gui_view.html" target="_top">View/Open Survey View</A>, 
+    the system will automatically scroll to a particular node in the 
+    detail view when the same node is selected in the survey view. 
+    This scrolling is animated by moving the visible area of the base 
+    window smoothly towards the selected node.
+    The 
+  <A href="gui_navi_navi.html" target="_top">navigator</A> 
+    and the
+  <A href="gui_navi_find.html" target="_top">find operation</A> 
+    use animation, too. 
+    The animation's moving speed can be set with the slider 
+    "Speed of Animation" or turned off with check button "No Animation".
+    Further, the behavior that selection in a survey view will 
+    automatically scroll in the detail view can be switched off with 
+    check button "On Selection in Survey View". 
+  </P>
+
+  <A name="help_system"></A>
+  <H2>Help System Options</H2>
+  <P>
+    uDraw(Graph) generates calls to an external browser for viewing the
+    HTML online documentation when the user activates the help system
+    by pressing a "Help" button in some dialog window or by using the
+    <A href="gui_help.html" target="_top">Help menu</A>.
+  </P>
+
+  <P>
+    <STRONG>Windows&reg; only</STRONG>:
+    The "Browser Application" field is not used. Instead your default
+    browser is used for viewing the HTML online documentation.
+  </P>
+
+  <P>
+    <STRONG>UNIX&reg; and Linux&reg; only</STRONG>: The "Browser Application" field is used
+    to set the local or absolute file name of the browser application
+    used for viewing the HTML online documentation. The Netscape&reg;
+    Navigator&reg;, Mozilla&reg; or Firefox&reg; browser are preferred in order to reuse an
+    open browser when consecutive calls to the help system are invoked
+    by the user; with other browsers, you will get a new browser
+    window each time you use the online help system. If you do not get
+    a browser window with the online documentation after pressing the
+    "Help" button in a dialog then type the content of the "Browser
+    Application" field in a shell to see if the browser starts.
+  </P>
+
+  <P>
+    The "Online Documentation" field is an URL which specifies a
+    directory where the documentation is contained.  When using the
+    help system, the file name of a particular HTML page in the
+    documentation is added after this URL.  Usually, the documentation
+    can be found in the "docs" directory of the distribution package.
+    This is the default place where the system will look when the
+    "Online Documentation" field is empty.
+  </P>
+
+  <A name="printing"></A>
+  <H2>Printing Options</H2>
+  <P>
+    The settings for printing are used in the 
+  <A href="gui_file_print.html" target="_top">File/Print...</A> 
+    dialog window. 
+    In the "Print Command" entry you have to specify the command and
+    options to print a PostScript&reg; file on your computer. 
+    Of course, the name of the PostScript&reg; file is not entered here, 
+    it is a temporary file created when the graph is actually printed. 
+    On UNIX&reg; and Linux&reg; platforms, please check that you can print
+    a PostScript&reg; file in a shell using the command and options 
+    entered here.
+    On the Microsoft&reg; Windows&reg; platform, printing from uDraw(Graph)
+    is only possible when you have a local or network printer that 
+    supports the PostScript&reg; format.
+    In this case, please enter "print /d &lt;device&gt;" if you have a printer 
+    connected directly to the LPT or COM port or 
+    "print /d//&lt;printserver&gt;/&lt;printername&gt;" if there is a printer
+    connected to your network. 
+    Please refer to your printer documentation or system administrator
+    to find out more about printing.
+    As a work-around, you can 
+  <A href="gui_file_print.html" target="_top">print</A> 
+    or
+  <A href="gui_file_export.html" target="_top">export</A> 
+    the graph to a file and import it in a suitable program that has
+    direct access to the printer
+     recommends 
+  <NOBR><A href="http://www.ghostscript.com/" target="_blank">ghostscript</A></NOBR>
+    to render PostScript&reg; for printers without PostScript&reg; support.
+    Binary distribution are available at
+  <NOBR><A href="http://sourceforge.net/projects/ghostscript/" target="_blank">http://sourceforge.net/projects/ghostscript/</A></NOBR>
+    for the most common platforms.
+  </P>
+  <P>
+    The "Measures" radio button specifies the unit (cm or inch) used 
+    to display page and graph size in the print dialog window.     
+  </P>
+
+  <A name="tooltips"></A>
+  <H2>Tooltip Options</H2>
+  <P>
+    With the tooltip settings you can control the yellow pop-up windows
+    that automatically appears when the mouse pointer is over a node
+    or edge with tooltip information.
+    The tooltip text or a particular node or edge is specified with the
+  <A href="term_nattr.html#info" target="_top">INFO</A>
+    attribute.
+    You can also use the 
+  <A href="edit.html" target="_top">graph editor application</A>
+    to set tooltips to nodes and edges.
+    In this dialog you can switch off the tooltips and you can control 
+    the delay between the time when the node or edge is reached by the
+    mouse pointer and the appearance of the tooltip.
+  </P>
+
+  <H2>
+    Dialog Elements of the General Settings Window
+  </H2>
+  <UL>
+  <LI>
+  <B>On Selection in Survey View</B>
+<BR>
+    To switch the auto-selection feature. If auto-selection is on 
+    and the user selects a node in a 
+  <A href="gui_view.html" target="_top">survey view</A>
+    then uDraw(Graph) automatically scrolls to the same node in the 
+    corresponding detail view.
+    More information about 
+  <A href="conc_mul.html" target="_top">multi-view</A> 
+    can be found in the concepts document. 
+  </LI>
+
+  <LI>
+  <B>No Animation</B>
+<BR>
+    Use this check button to turn off scrolling animation completely. 
+    Animation is used for node selections in a 
+  <A href="gui_view.html" target="_top">survey view</A>
+    (see above), for the 
+  <A href="gui_navi_navi.html" target="_top">navigator</A> 
+    and the
+  <A href="gui_navi_find.html" target="_top">find operation</A> 
+     to scroll the visible part of a base window towards a particular 
+     node. 
+  </LI>
+
+  <LI>
+  <B>Speed of Animation</B>
+<BR>
+    With this slider, the speed of scrolling animation can be set.
+    Use a fast setting on slow computers to get a sufficient result. 
+    Animation is used for node selections in a 
+  <A href="gui_view.html" target="_top">survey view</A>
+    (see above), for the 
+  <A href="gui_navi_navi.html" target="_top">navigator</A> 
+    and the
+  <A href="gui_navi_find.html" target="_top">find operation</A> 
+     to scroll the visible part of a base window towards a particular 
+     node. 
+  </LI>
+
+  <LI>
+  <B>Browser Application</B>
+<BR>
+    The command to start the HTML browser on your computer.
+    Read 
+  <A href="gui_opt_gen.html#help_system" target="_top">above</A>
+    for details.
+  </LI>
+
+  <LI>
+  <B>Online Documentation</B>
+<BR>
+    Directory where the uDraw(Graph) online documentation is located. 
+    This is usually the "docs" directory of the distribution 
+    (i.e. "$UDG_HOME/docs", but do not use shell variables such as 
+    $UDG_HOME in this dialog, because the browser may not accept this).
+    The directory entered here is an URL, so for an online documentation 
+    on the local file system, the URL has to start with "file:/",
+    but you can also use a remote URL starting with "http://".
+    Read 
+  <A href="gui_opt_gen.html#help_system" target="_top">above</A>
+    for details.
+  </LI>
+
+  <LI>
+  <B>Print Command</B>
+<BR>
+    Enter the command and options to print a PostScript&reg; file on your 
+    computer here.
+    Read 
+  <A href="gui_opt_gen.html#printing" target="_top">above</A>
+    for details.
+  </LI>
+
+  <LI>
+  <B>Measures</B>
+<BR>
+    Use these radio buttons to switch between "cm" and "inch" measure 
+    units in the
+  <A href="gui_file_print.html" target="_top">File/Print...</A>
+    dialog window.   </LI>
+
+  <LI>
+  <B>Show pop-up text</B>
+<BR>
+    Use this check button to switch automatic tooltip text on or off
+    for nodes and edges.
+    Read 
+  <A href="gui_opt_gen.html#tooltips" target="_top">above</A>
+    for details.
+  </LI>
+
+  <LI>
+  <B>Delay</B>
+<BR>
+    Use this slider to control the delay between the time when the user
+    moves the mouse over a node or edge with tooltip information and
+    the appearance of the pop-up window with the tooltip text.
+    The delay is given in milliseconds.
+  </LI>
+
+  <LI>
+  <B>Ok</B>
+<BR>
+    Push button to accept the current settings of this dialog window. 
+    Without pressing this button, modifications to these options are not 
+    considered.   
+  </LI>
+
+  <LI>
+  <B>Cancel</B>
+<BR>
+    Push button to close the general settings dialog window without 
+    performing any action.
+  </LI>
+
+  <LI>
+  <B>Reset</B>
+<BR>
+    Push button to undo any modification to these options which were not
+    confirmed using the "Ok" push button yet.
+    So reset goes back to the current settings. 
+  </LI>
+
+  <LI>
+  <B>Help </B>
+<BR>
+     Push button to start the 
+  <A href="gnrl_use.html#help_system" target="_top">online help system</A>
+     with this page. 
+  </LI>
+  </UL>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Netscape and Navigator are registered trademarks of Netscape Communications Corporation.
+  
+    Mozilla and Firefox are registered trademarks of The Mozilla Foundation.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    Adobe and PostScript are registered trademarks of Adobe Systems, Inc.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

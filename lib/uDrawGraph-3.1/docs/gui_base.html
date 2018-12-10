@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Base Window</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Base Window</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Base Window</H1>
+  
+  <P>
+    The base window is the central place where graphs are visualized.
+    uDraw(Graph) is a 
+  <A href="conc_mul.html" target="_top">
+    multi-graph and multi-view environment</A>, 
+    so in one base window you can open a new view of the current graph 
+    (i.e. another base window) by using menu 
+  <A href="gui_view.html" target="_top">View/Open New View</A>. 
+    When two or more base windows are open at a time, you can close 
+    one of them with menu 
+  <A href="gui_file.html" target="_top">File/Close</A> 
+    without terminating the system. 
+    To exit from any base window, select menu 
+  <A href="gui_file.html" target="_top">File/Exit</A>.
+  </P>
+  <IMG border="0" alt="Base Window" width="" height="" src="uDG31_base.gif" align="JUSTIFY">
+  <P>
+    After loading a graph from file, it will be displayed in the 
+    graph area of the base window. If the graph exceeds the size of 
+    the window, the horizontal and vertical scrollbar can be used to 
+    adjust the currently visible area (2D-scrolling is possible by 
+    dragging with the 
+  <A href="gui_mous.html" target="_top">middle mouse button</A>, 
+    if available). 
+    In the footer area, system messages are displayed, e.g. the 
+    status of an operation. 
+  </P>
+  <P>
+    The pull down menus are used to start operations in uDraw(Graph). 
+    Menus can be selected either with the 
+  <A href="gui_mous.html" target="_top">mouse</A> 
+    or triggered by using the 
+  <A href="gui_keyb.html" target="_top">keyboard</A>.
+    The following menus are available in uDraw(Graph): 
+  <UL>
+  <LI>
+<A href="gui_file.html" target="_top">File Menu</A>
+</LI>
+  <LI>
+<A href="gui_edit.html" target="_top">Edit Menu</A>
+</LI>
+  <LI>
+<A href="gui_view.html" target="_top">View Menu</A>
+</LI>
+  <LI>
+<A href="gui_navi.html" target="_top">Navigation Menu</A>
+</LI>
+  <LI>
+<A href="gui_abst.html" target="_top">Abstraction Menu</A>
+</LI>
+  <LI>
+<A href="gui_lay.html" target="_top">Layout Menu</A>
+</LI>
+  <LI>
+<A href="gui_opt.html" target="_top">Options Menu</A>
+</LI>
+  <LI>
+<A href="gui_help.html" target="_top">Help Menu</A>
+</LI>
+  </UL>
+  </P>
+  <P>
+    The icon bar at the left side of each base window contains icons 
+    (buttons) for direct access to some frequently used operations. 
+    uDraw(Graph) offers the following icons: 
+  <UL>
+  <LI>
+  <IMG border="1" alt="" width="" height="" src="uDG31_but_fo.gif">
+  <A href="gui_file.html" target="_top">File/Open...</A>
+  </LI>
+  <LI>
+  <IMG border="1" alt="" width="" height="" src="uDG31_but_sa.gif">
+  <A href="gui_file.html" target="_top">File/Save As...</A>
+  </LI>
+  <LI>
+  <IMG border="1" alt="" width="" height="" src="uDG31_but_pr.gif">
+  <A href="gui_file.html" target="_top">File/Print...</A>
+  </LI>
+  <LI>
+  <IMG border="1" alt="" width="" height="" src="uDG31_but_sc.gif">
+  <A href="gui_view.html" target="_top">View/Scale...</A>
+  </LI>
+  <LI>
+  <IMG border="1" alt="" width="" height="" src="uDG31_but_im.gif">
+  <A href="gui_lay.html" target="_top">Layout/Improve All</A>
+  </LI>
+  <LI>
+  <IMG border="1" alt="" width="" height="" src="uDG31_but_po.gif">
+  <A href="gui_opt_alg.html" target="_top">Options/Layout Algorithm.../Preserve Node Order</A>
+  </LI>
+  <LI>
+  <IMG border="1" alt="" width="" height="" src="uDG31_but_mo.gif">
+  <A href="gui_opt_alg.html" target="_top">Options/Layout Algorithm.../Modify Node Order</A>
+  </LI>
+  <LI>
+  <IMG border="1" alt="" width="" height="" src="uDG31_but_fi.gif">
+  <A href="gui_opt_alg.html" target="_top">Options/Layout Algorithm.../Fixed Neighbour Nodes</A>
+  </LI>
+  </UL>
+  </P>
+  <P>
+    Beside these icons, the icon bar may have a second plane if an 
+    external application program (for example the graph editor) is 
+    connected with the 
+  <A href="api.html" target="_top">API</A>. 
+    A uDraw(Graph) application is able to add its own icons to the icon bar. 
+    Of course, these icons are specific to the particular application 
+    and cannot be described here. 
+    Application icons are shown on a second plane of the icon bar.
+    The user can switch between the regular plane (with the icons
+    shown above) and the application plane by selecting the small 
+    arrows at the lower side of the icon bar. 
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

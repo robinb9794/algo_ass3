@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: File Browser</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui_file.html"><B>File Menu</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Save As...</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>Browser to Save Files</H1>
+  
+  <P>
+  <STRONG>Note:</STRONG> 
+    on the Microsoft&reg; Windows&reg; and on the Mac OS&reg; X platform you will get the system 
+    file browser instead of the browser described on this page!
+  </P>
+  <IMG border="0" alt="File Open Browser" width="" height="" src="uDG31_win_save.gif" align="JUSTIFY">
+
+  <P>
+    This file browser can be used to locate a 
+  <A href="conc_gra.html" target="_top">graph</A>
+    or 
+  <A href="conc_sta.html" target="_top">graph status</A>
+    for saving.
+    Graph files contain a 
+  <A href="term.html" target="_top">term representation</A> 
+    with the structure of a graph, but without layout information and
+    node coordinates.
+    On the other side, a status file is always saved by uDraw(Graph) itself 
+    and should have the suffix ".status". 
+    A status contains the graph, the layout information with the position 
+    of graph nodes and edges and most of the current user interface settings. 
+    The format of the status files is not documented, because it is changed
+    with each version, but old status files can always be loaded in an 
+    automatic backward compatibility mode. 
+    Before saving a graph, you have to specify the format using the "Type" 
+    option button. The default format is "status file". 
+  </P>
+  <P>
+    The file browser has two views, one for the directories and one for 
+    the files in the current directory. 
+    The current directory is the one shown in the "Selection" field. 
+    To navigate through the directories, double-click on the elements 
+    in the directory view. 
+    By clicking on "..", you move back to the parent directory. 
+    To choose a file, either select it in the file view and press the
+    "Save" button or simply double-click it. 
+    The browser beeps when you try to access a file or directory for 
+    which you do not have permissions, or when the specified file does 
+    not exist. 
+  </P>
+
+  <H2>Dialog Elements of the File Browser</H2>
+  <UL>
+  <LI>
+  <B>Filter</B>
+<BR>
+    Shows the filter expression currently applied to the file view. 
+    The filter can be selected either with the "Types" option button or 
+    by manually typing wildcards or regular (shell) expressions here. 
+  </LI>
+
+  <LI>
+  <B>Directories</B>
+<BR>
+     A list to show the directories inside the current directory 
+     (which is displayed in the "Selection" field). Double-click
+     on the list elements to navigate through the directories. 
+     ".." moves to the parent directory. 
+  </LI>
+
+  <LI>
+  <B>Files</B>
+<BR>
+     A list to show the files inside the current directory 
+     (which is displayed in the "Selection" field). 
+     Select one of the list elements and press the "Open" button to 
+     load a particular uDraw(Graph) graph or status file. 
+     You can accelerate this by double-clicking a file. 
+  </LI>
+
+  <LI>
+  <B>History</B>
+<BR>
+     Used to go back to a previously visited directory or to the 
+     home directory of the user. 
+  </LI>
+
+  <LI>
+  <B>Types</B>
+<BR>
+     Used to reduce the number of elements in the Files view. 
+     You can choose to see all files (default), only the graph
+     files or only the status files. 
+  </LI>
+
+  <LI>
+  <B>Show hidden</B>
+<BR>
+     Select this check button to see hidden files and directories. 
+  </LI>
+
+  <LI>
+  <B>Selection</B>
+<BR>
+     This text entry field shows the current selection which is modified 
+     when you browse through the directories. The browser usually suggests 
+     an appropriate initial selection. You can also edit the "Selection" 
+     field by hand: if the entered selection is a directory, the browser 
+     will move to that directory, otherwise the specified file is opened
+     immediately.
+  </LI>
+
+  <LI>
+  <B>Save</B>
+<BR>
+     Push button to save the file specified in the "Selection" field. 
+     When the file already exists, a dialog will appear to ask the user 
+     for confirmation. 
+     When saving the graph is not possible, a dialog will appear to
+     inform the user after the browser has already been closed.
+     Please check the file and directory permissions and the available
+     hard disk space in this case and use the menu again in order to 
+     save the graph.
+  </LI>
+
+  <LI>
+  <B>Cancel </B>
+<BR>
+     Push button to close the file browser without performing any action. 
+  </LI>
+
+  <LI>
+  <B>Help </B>
+<BR>
+     Push button to start the 
+  <A href="gnrl_use.html#help_system" target="_top">online help system</A>
+     with this page. 
+  </LI>
+  </UL>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

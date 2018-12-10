@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Layout Algorithm Dialog</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui_opt.html"><B>Options Menu</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Layout Algorithm...</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>Layout Algorithm Dialog Window</H1>
+  
+  <IMG border="0" alt="Layout Algorithm Dialog" width="" height="" src="uDG31_win_alg.gif" align="JUSTIFY">
+
+  <P>
+    This dialog window is used to control the graph layout algorithm 
+    (automatic layout with edge crossing reduction) and interactive 
+    fine-tuning operations (manual layout). 
+  </P>
+  <P>
+    By default, the automatic layout algorithm keeps the nodes at their 
+    current levels when a new layout is calculated. 
+    This behavior can be switched off by deselecting check button 
+    "Keep Nodes at Levels". 
+    In this case, nodes are assigned back to their initial level when 
+    the layout algorithm is started again with menu Layout/Improve All. 
+    This will undo previous vertical fine-tuning operations.
+    The quality slider is used to adjust the accuracy of the layout 
+    algorithm by adjusting the number of iterations. 
+    The higher the slider value, the better the layout results which 
+    may give you a more reduced number of edge crossings. 
+    But a high setting may need an enormous computing time, especially 
+    for very large graphs.
+    In this case you should first try a low setting to see if the 
+    result is suitable for your needs.
+  </P>
+  <P>
+    You can use fine-tuning (manual layout) to move a node in horizontal 
+    direction or in vertical direction to another level 
+    (for top-down and bottom-up 
+  <A href="gui_lay.html#orientation" target="_top">layout orientations</A>, 
+    exchange horizontal and vertical for the other orientations).
+    To move a node, select it with the left mouse button and hold the
+    button pressed while moving the mouse.
+    In all cases of fine-tuning, uDraw(Graph) will keep a hierarchical graph 
+    visualization, so moving a node usually affects the position of
+    other nodes, causing some layout rearrangements.
+    Read more about 
+  <A href="conc_lay.html" target="_top">graph layout</A>
+    and hierarchical visualizations in the concept chapter. 
+  </P>
+  <P>
+    Some constraints can be set for fine-tuning to control the horizontal 
+    movement of a node. 
+    The three constraints specify the behavior when a node that is moved 
+    with the mouse will touch its left or right neighbour node at the
+    same level. 
+    A neighbour node is touched when the minimal node distance has been 
+    reached.
+  <UL>
+  <LI>
+    In default mode "Preserve Node Order", the touched node is moved as 
+    well to keep the order of nodes. 
+  </LI>
+  <LI>
+    In mode "Modify Node Order", the moved node and the touched node 
+    exchange their position as soon as there is enough space to do so. 
+    This mode is useful to modify the order of nodes on a level, e.g. 
+    to remove edge crossings by hand. 
+  </LI>
+  <LI>
+    In the third mode "Fixed Neighbour Nodes", fine-tuning stops as soon 
+    as a neighbour node is touched. 
+    This is useful to protect the position of neighbour nodes. 
+  </LI>
+  </UL>
+    Fine-tuning constraints can also be set with the buttons of the
+    icon bar, see
+  <A href="gui_base.html" target="_top">base window</A>.
+  </P>
+
+  <H2>
+    Dialog Elements of the Layout Algorithm Window
+  </H2>
+  <UL>
+  <LI>
+  <B>Keep Nodes at Levels </B>
+<BR>
+    To choose whether or not the graph nodes are kept at their current 
+    level when a new graph layout is calculated by starting the layout
+    algorithm with menu 
+  <A href="gui_lay.html" target="_top">Layout/Improve All</A>. 
+    Nodes may be assigned to a new level by using vertical fine-tuning. 
+    If you want to set the nodes back at their initial levels with the 
+    next run of the layout algorithm, then deselect this check button. 
+  </LI>
+
+  <LI>
+  <B>Quality</B>
+<BR>
+    To set the accuracy of the graph layout algorithm to some abstract 
+    value between 1 and 5. 
+    The higher the slider value, the better the layout results 
+    (reduced number of edge crossings). 
+    Be careful with a high value in combination with very large graphs,
+    this may take an enormous computation time.
+  </LI>
+
+  <LI>
+  <B>Preserve Node Order</B>
+<BR>
+    Fine-tuning constraint for horizontal node movement to keep the 
+    order of nodes at a level.   
+  </LI>
+
+  <LI>
+  <B>Modify Node Order</B>
+<BR>
+    Fine-tuning constraint for horizontal node movement to exchange 
+    the order of nodes at a level. 
+  </LI>
+
+  <LI>
+  <B>Fixed Neighbour Nodes</B>
+<BR>
+    Fine-tuning constraint for horizontal node movement to freeze 
+    the position of all other nodes at a level. 
+  </LI>
+
+  <LI>
+  <B>Ok</B>
+<BR>
+    Push button to accept the current settings of this dialog window. 
+    Without pressing this button, modifications to these options are not 
+    considered.   
+  </LI>
+
+  <LI>
+  <B>Cancel</B>
+<BR>
+    Push button to close the layout algorithm dialog window without 
+    performing any action.
+  </LI>
+
+  <LI>
+  <B>Reset</B>
+<BR>
+    Push button to undo any modification to these options which were not
+    confirmed using the "Ok" push button yet.
+    So reset goes back to the current settings. 
+  </LI>
+
+  <LI>
+  <B>Help </B>
+<BR>
+     Push button to start the 
+  <A href="gnrl_use.html#help_system" target="_top">online help system</A>
+     with this page. 
+  </LI>
+  </UL>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

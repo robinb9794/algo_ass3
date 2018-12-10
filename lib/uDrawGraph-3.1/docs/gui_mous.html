@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Using the Mouse</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Using the Mouse</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Using the Mouse</H1>
+  
+  <P>
+    In uDraw(Graph) you can use the three buttons of the mouse this way: 
+  <UL>
+  <LI>
+    The left mouse button is used for selecting and moving items. 
+  </LI>
+  <LI>
+    The middle mouse button is used for 2D-scrolling and drag &amp; drop. 
+  </LI>
+  <LI>
+    The right mouse button is used for pop-up menu operations. 
+  </LI>
+  </UL>
+  </P>
+  <P>
+    If your mouse has only two buttons there are two possibilities.
+    On the Windows&reg; platform, the middle mouse button is simulated in
+    uDraw(Graph) by keeping the CTRL-Key on the keyboard pressed while 
+    using the left mouse button. 
+    On the UNIX&reg; and Linux&reg; platform, you have to refer to the
+    documentation of your X11<SUP class="tm">TM</SUP> environment to see how the middle 
+    mouse button is simulated (often this is done by pressing both
+    mouse buttons simultaneously).
+    If you have a wheel mouse with two visible buttons, you might check 
+    if the wheel can be pressed, because the wheel is often used
+    as the middle mouse button. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> On Mac OS&reg; X the standard mouse has only one
+  button. This is the left mouse button described here. If you want to
+  have access to the features described for the other mouse buttons,
+  you have to install a 3-button mouse. We have noticed that middle
+  and right mouse buttons are misbehaving for some products, because
+  middle mouse button (or scrolling wheel) triggers the right mouse
+  button event and the right mouse button triggers the middle mouse
+  button event. For future releases we will try to have a better
+  integration into Mac OS&reg;, hopefully even for one button.
+  </P>
+
+  <A name="left"></A>
+  <H2>Left Mouse Button</H2>
+  <P>
+    As usually, this mouse button is used for any kind of selection, 
+    activation, movement and for placing the text cursor. 
+    In the 
+  <A href="gui_base.html" target="_top">graph area</A> 
+    of a uDraw(Graph) base window, this button is used to select nodes 
+    and edges. 
+    By holding the SHIFT key, more than one node can be selected at 
+    the same time, but only one edge, so selection of multiple edges 
+    is not available.
+    After making a new selection, the old one is lost. 
+    Many nodes can be selected in one step by using rubber band selection. 
+    To do so, click on empty space in the graph area with the left mouse
+    button and hold it. 
+    Then move the mouse by still pressing the button.
+    You can see a moving rectangular area on the screen (rubber band). 
+    After releasing the mouse button, all nodes are selected
+    which are completely inside this rectangle. 
+  </P>
+  <P>
+    A user can extend or reduce the current selection by using the SHIFT
+    key and the left mouse button simultaneously. 
+    With SHIFT-select, you add or remove a particular node from the set 
+    of currently selected nodes, depending on whether or not the node was 
+    selected before. 
+    In other words: With SHIFT, the old selection will not 
+    be lost after a new selection.
+    SHIFT selection also works in combination with rubber band selection. 
+  </P>
+  <P>
+  <A href="conc_fin.html" target="_top">Fine-tuning</A>
+    of a graph layout also works with the left mouse button. 
+    Dragging a node (i.e. holding down the button while moving the mouse)
+    can be used to place it at a new position, for example to customize
+    the layout according to your own ideas. 
+  </P>
+
+  <A name="middle"></A>
+  <H2>Middle Mouse Button (or equivalent operation with a 2-button mouse, see above)</H2>
+  <P>
+  <STRONG>Note:</STRONG> 
+    if you have only a 2-button mouse without emulation for the
+    middle mouse button, then the functions of the middle mouse button 
+    are not directly available for you. 
+    But they are only accelerators for functions that can be accessed 
+    elsewhere, too.
+    Namely you can scroll with the vertical and horizontal scrollbars
+    of the base window. 
+    Instead of using drag &amp; drop, you can achieve the same insertion
+    operations with the menus, for example in the graph editor application.
+  </P>
+  <P>
+    The middle mouse button is used for moving and copying elements. 
+    You can usually use the button to move (i.e. scroll) 
+    the visible part of a graph area in a base window. 
+    As long as you press the middle mouse button anywhere in the graph area, 
+    the window will scroll in both dimensions at the same time when
+    you move the mouse.
+    This is called 2D-scrolling. 
+  </P>
+  <P>
+    The optional 
+  <A href="conc_dad.html" target="_top">drag &amp; drop mode</A> 
+    is also controlled with the middle mouse button.
+    An application program connected to the uDraw(Graph) API (for example
+    the graph editor delivered with the distribution) 
+    can activate the drag &amp; drop mode. 
+    Afterwards, the 2D-scrolling is switched off and the middle mouse
+    button is used for drag &amp; drop operations, for example to 
+    connect two nodes with a new edge by dragging a line from one node
+    to the other.
+    This only works when an application program is connected to the API. 
+  </P>
+
+  <A name="right"></A>
+  <H2>Right Mouse Button</H2>
+  <P>
+    This mouse button is used for working with pop-up menus. 
+    By clicking with the right button in the graph area of a base window, 
+    the user is able to select an operation by browsing through menus and 
+    submenus and releasing the mouse button over the desired menu entry. 
+    For acceleration, the graph area has a built-in pop-up menu with 
+    some frequently used functions.
+  </P>
+  <P>
+    Pop-up menus can also be used by an application program connected
+    to the API.
+    Here, nodes and edges in a graph can have a special 
+  <A href="term_nattr.html#menu" target="_top">pop-up attribute</A>
+    where the menu is defined. 
+    This pop-up menu is displayed when the user selects the node
+    or edge with the right mouse button.
+    Instead of starting a built-in operation when the button is released
+    over a menu entry, a callback information is sent back by the API
+    to inform the application about the choice of the user.
+    Then the application is free to decide what to do next, depending 
+    on the context and choice.
+    When the right mouse button is pressed on a node or edge which does not
+    have this special attribute (the default), the regular pop-up menu 
+    is displayed which is also available over free space of the 
+  <A href="gui_base.html" target="_top">base window</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    X Window System and X11 are trademarks of The Open Group.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Term Representation Edge Attributes</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="term.html"><B>Term Representation</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Edge Attributes</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Supported Edge Attributes</H1>
+  
+  <UL>
+  <LI>
+  <A href="term_eattr.html#object" target="_top">OBJECT</A>
+  </LI>
+  <LI>
+  <A href="term_eattr.html#fontfamily" target="_top">FONTFAMILY</A>
+  </LI>
+  <LI>
+  <A href="term_eattr.html#fontstyle" target="_top">FONTSTYLE</A>
+  </LI>
+  <LI>
+  <A href="term_eattr.html#info" target="_top">INFO</A>
+  </LI>
+  <LI>
+  <A href="term_eattr.html#edgecolor" target="_top">EDGECOLOR</A>
+  </LI>
+  <LI>
+  <A href="term_eattr.html#edgepattern" target="_top">EDGEPATTERN</A>
+  </LI>
+  <LI>
+  <A href="term_eattr.html#_dir" target="_top">_DIR</A>
+  </LI>
+  <LI>
+  <A href="term_eattr.html#head" target="_top">HEAD</A>
+  </LI>
+  <LI>
+  <A href="term_eattr.html#menu" target="_top">Pop-Up Menu</A>
+  </LI>
+  </UL>
+  <A name="object"></A>
+  <H2>Edge Attribute "OBJECT"</H2>
+  <P>
+    This attribute is used to set an 
+  <A href="new_major.html" target="_top">edge label</A>.
+    The label is displayed with the edge in grey in the background. 
+    When the edge is selected, the label is displayed in the
+    foreground using the color of the edge.
+    See node attribute
+  <A href="term_nattr.html#object" target="_top">OBJECT</A>,
+    too.
+    The text, i.e. the attribute value, can be an arbitrary string.
+    International characters are supported (ISO 8bit). 
+    Even multi-line text is possible using a "\n" character 
+    inside the attribute value. 
+    The default value for this attribute is the empty string "". 
+  </P>
+
+  <A name="fontfamily"></A>
+  <H2>Edge Attribute "FONTFAMILY"</H2>
+  <P>
+    This is used to visualize the text of an edge label in a different font. 
+    Supported values are: "lucida" (default), "times", "helvetica", 
+    and "courier". 
+    See node attribute
+  <A href="term_nattr.html#fontfamily" target="_top">FONTFAMILY</A>,
+    too.
+  </P>
+
+  <A name="fontstyle"></A>
+  <H2>Edge Attribute "FONTSTYLE"</H2>
+  <P>
+    This is used to visualize the text of an edge label in a different font. 
+    Supported values are: "normal", "bold" (default), "italic", 
+    and "bold_italic". 
+    See node attribute
+  <A href="term_nattr.html#fontstyle" target="_top">FONTSTYLE</A>,
+    too.
+  </P>
+
+  <A name="info"></A>
+  <H2>EdgeAttribute "INFO"</H2>
+  <P>
+    This is used to define the 
+  <A href="new_major.html" target="_top">tooltip text</A> 
+    that appears after a delay when the mouse pointer is over 
+    the edge. Tooltips can be controlled with menu
+  <A href="gui_opt_gen.html" target="_top">Layout/General Settings...</A>.
+    See node attribute
+  <A href="term_nattr.html#info" target="_top">INFO</A>,
+    too.
+  </P>
+
+  <A name="edgecolor"></A>
+  <H2>Edge Attribute "EDGECOLOR"</H2>
+  <P>
+    Can be used to define the color of an edge. 
+    The value of this attribute can be any X11<SUP class="tm">TM</SUP> colorname on UNIX&reg;
+    and Linux&reg; platforms (see file lib/X11/rgb.txt in your X11<SUP class="tm">TM</SUP> directory).
+    On all platforms, a RGB color specification in a format like "#0f331e"
+    can be used.
+    Here, "0f" is the hexadecimal value for the red part of the color, 
+    "33" is the green part and "1e" is the blue part of the color. 
+    Hence, a palette of 16.7 million colors is supported. 
+    The default color for edges is "black". 
+    See node attribute
+  <A href="term_nattr.html#color" target="_top">COLOR</A>,
+    too.
+  </P>
+
+  <A name="edgepattern"></A>
+  <H2>Edge Attribute "EDGEPATTERN"</H2>
+  <P>
+    This attribute is responsible for setting different style
+    information of the edge.
+    The syntax is more complicated than the other attributes.
+    The string value of the attribute has 4 parameters, separated by ";".
+    Namely: 
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">type;shape;width;spline</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    where:
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">
+    type::=single|double, shape::=solid|dotted|dashed, 
+    width::=&lt;int&gt;, spline::=0|1
+  </TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+  
+    So, to visualize an edge using a solid, double-lined spline
+    with a width of 3 pixels, you use: 
+  <BR>
+    a("EDGEPATTERN","double;solid;3;1").
+  </P>
+  <P>
+    In former releases, the possible values for this attribute
+    were "solid" (default), "dotted", "dashed", "thick" and "double".
+    These old values are still supported for compatibility and are
+    translated to the new style using the following conventions:
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">"solid" = "single;solid;1;0"</TD>
+</TR>
+  <TR>
+<TD class="table">"dotted" = "single;dotted;1;0"</TD>
+</TR>
+  <TR>
+<TD class="table">"dashed" = "single;dashed;1;0"</TD>
+</TR>
+  <TR>
+<TD class="table">"thick" = "single;solid;3;0</TD>
+</TR>
+  <TR>
+<TD class="table">"double" = "double;solid;5;0"</TD>
+</TR>
+  </TABLE>
+</P>
+  </P>
+
+  <A name="_dir"></A>
+  <H2>Edge Attribute "_DIR"</H2>
+  <P>
+    This attribute is used to control the arrow of an edge. 
+    In a graph visualization, each edge usually has an arrow pointing 
+    to the child node. 
+    This attribute can be used to let the arrow be drawn inverse 
+    (i.e. pointing to the parent), to get an arrow at both sides of 
+    an edge or to suppress arrows for a particular edge. The supported 
+    attribute values are: "last" (1 arrow pointing to the child, default), 
+    "first" (1 arrow to the parent), "both" (2 arrows to the parent and 
+    to children) and "none" (no arrows). 
+  </P>
+  <P>
+    In former releases, the possible values for this attribute
+    were "normal" (same as last, default), "inverse" (same as first), 
+    "both" (unchanged) and "node" (unchanged). These old values
+    values are still supported for compatibility.
+  </P>
+
+  <A name="head"></A>
+  <H2>Edge Attribute "HEAD"</H2>
+  <P>
+    With this attribute you can control the shape of the edge's arrows.
+    The possible values are: "farrow" (default), "arrow", "oarrow", "fcircle", 
+    and "circle", where a leading 'f' means filled and a leading 'o' means open.   
+  </P>
+
+  <A name="menu"></A>
+  <H2>Edge Attribute for Pop-Up Menu</H2>
+  <P>
+    This attribute defines a pop-up menu for an edge. 
+    This has to be done with a completely different syntax.
+    Instead of using "a(...,...)", menus are defined with "m(menus)". 
+    The syntax for the 
+  <A href="api_cmd_app_menu.html#create_menus" target="_top">menus parameter</A>
+    is described in the API documentation.
+    The pop-up menu is displayed when the user presses the right 
+    mouse button over the edge. 
+    In this case, the ID of the menu is sent to the application,
+    so this attribute does not make sense when no application is 
+    connected to the API.
+    Please take a look in the section about 
+  <A href="api_gui_extend.html" target="_top">user interface extension</A> 
+    for further information regarding menus. 
+    See node attribute for
+  <A href="term_nattr.html#menu" target="_top">pop-up menus</A>,
+    too.
+  </P>
+
+ 
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    X Window System and X11 are trademarks of The Open Group.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,162 @@
+[
+l("Memex",n("anything",[a("OBJECT","Memex"),a("_GO","rhombus"),a("COLOR","yellow")],
+    [
+    e("anything",[],
+    l("Reactive Engine",n("anything",[a("OBJECT","Reactive Engine"),a("_GO","rhombus"),a("COLOR","yellow")],
+        [
+        e("anything",[],
+    	l("Alto",n("anything",[a("OBJECT","Alto"),a("_GO","ellipse"),a("COLOR","lightgreen")],
+    	    [
+            e("anything",[],
+    	    l("Bravo",n("anything",[a("OBJECT","Bravo"),a("COLOR","lightblue")],
+    	        [
+                e("anything",[a("EDGECOLOR","red"),a("EDGEPATTERN","dotted")],
+    	    	r("BravoX"))
+    	        ]))),
+            e("anything",[],
+    	    l("BravoX",n("anything",[a("OBJECT","BravoX"),a("COLOR","lightblue")],
+    	        [
+                e("anything",[],
+    	    	r("Lisa")),
+                e("anything",[],
+    	    	r("Star (8010)"))
+    	        ]))),
+            e("anything",[],
+    	    r("Smalltalk")),
+            e("anything",[],
+    	    l("SIL",n("anything",[a("OBJECT","SIL"),a("COLOR","lightblue")],[]))),
+            e("anything",[],
+    	    l("Draw",n("anything",[a("OBJECT","Draw"),a("COLOR","lightblue")],
+    	        [
+                e("anything",[],
+    	    	r("Star (8010)"))
+    	        ]))),
+            e("anything",[],
+    	    l("Flyer",n("anything",[a("OBJECT","Flyer"),a("COLOR","lightblue")],
+    	        [
+                e("anything",[],
+    	    	r("Doodle"))
+    	        ]))),
+            e("anything",[],
+    	    l("Markup",n("anything",[a("OBJECT","Markup"),a("COLOR","lightblue")],
+    	        [
+            	e("anything",[],
+    	    	l("Doodle",n("anything",[a("OBJECT","Doodle"),a("COLOR","lightblue")],
+    	    	    [
+                    e("anything",[],
+    	    	    r("ViewPoint (6085)")),
+            	    e("anything",[],
+    	    	    l("Deluxe Paint",n("anything",[a("OBJECT","Deluxe Paint"),a("COLOR","lightblue")],[]))),
+    	    	    ])))
+    	        ]))),
+            e("anything",[],
+    	    l("Press",n("anything",[a("OBJECT","Press"),a("COLOR","lightblue")],
+    	        [
+            	e("anything",[],
+    	    	l("Interpress",n("anything",[a("OBJECT","Interpress"),a("COLOR","lightblue")],
+    	            [
+                    e("anything",[],
+    	    	    r("Star (8010)")),
+            	    e("anything",[],
+    	    	    l("Postscript",n("anything",[a("OBJECT","Postscript"),a("COLOR","lightblue")],[]))),
+    	            ]))),
+    	        ]))),
+            e("anything",[],
+    	    l("Office Talk",n("anything",[a("OBJECT","Office Talk"),a("COLOR","lightblue")],
+    	        [
+                e("anything",[],
+    	    	r("Star (8010)"))
+    	        ]))),
+    	    ]))),
+        e("anything",[],
+    	l("Smalltalk",n("anything",[a("OBJECT","Smalltalk"),a("_GO","circle"),a("COLOR","lightred")],
+    	    [
+            e("anything",[],
+    	    l("Pygmalion",n("anything",[a("OBJECT","Pygmalion"),a("COLOR","lightblue")],
+    	        [
+                e("anything",[],
+    	    	r("Star (8010)"))
+    	        ]))),
+            e("anything",[],
+    	    l("Lisa",n("anything",[a("OBJECT","Lisa"),a("_GO","ellipse"),a("COLOR","lightgreen")],
+    	        [
+            	e("anything",[],
+    	    	l("Macintosh",n("anything",[a("OBJECT"," Macintosh "),a("_GO","ellipse"),a("COLOR","lightgreen")],
+    	            [
+            	    e("anything",[a("EDGECOLOR","red"),a("EDGEPATTERN","dotted")],
+    	    	    l("Mac II",n("anything",[a("OBJECT","Mac II"),a("_GO","ellipse"),a("COLOR","lightgreen")],[])))
+    	            ]))),
+    	        ]))),
+            e("anything",[],
+    	    l("Star (8010)",n("anything",[a("OBJECT","Star (8010)"),a("_GO","ellipse"),a("COLOR","lightgreen")],
+    	        [
+            	e("anything",[],
+    	    	r("Lisa")),    	        
+            	e("anything",[],
+    	    	l("Metaphor Workstation",n("anything",[a("OBJECT","Metaphor Workstation"),a("_GO","ellipse"),a("COLOR","lightgreen")],[]))),
+    	    	e("anything",[a("EDGECOLOR","red"),a("EDGEPATTERN","dotted")],
+    	    	l("ViewPoint (6085)",n("anything",[a("OBJECT","ViewPoint  (6085)"),a("_GO","ellipse"),a("COLOR","lightgreen")],
+		    [
+    	    	    e("anything",[a("EDGECOLOR","red"),a("EDGEPATTERN","dotted")],
+    	    	    l("ViewPoint 2.0",n("anything",[a("OBJECT","ViewPoint 2.0"),a("_GO","ellipse"),a("COLOR","lightgreen")],[])))
+		    ]))),    	        
+            	e("anything",[],
+    	    	l("Cognition MCAE System",n("anything",[a("OBJECT"," Cognition MCAE System "),a("_GO","ellipse"),a("COLOR","lightgreen")],[]))), 
+    	    	e("anything",[],
+    	    	l("Interleaf",n("anything",[a("OBJECT","Interleaf"),a("COLOR","lightblue")],[]))),    	        
+    	        ]))),
+            e("anything",[],
+    	    l("Gypsy",n("anything",[a("OBJECT","Gypsy"),a("_GO","ellipse"),a("COLOR","lightgreen")],
+    	        [
+                e("anything",[],
+    	    	r("BravoX")),
+                e("anything",[],
+    	    	r("Lisa"))
+    	        ]))),
+    	    ])))
+        ]))),
+    e("anything",[],
+    l("NLS",n("anything",[a("OBJECT","NLS"),a("_GO","ellipse"),a("COLOR","lightgreen")],
+        [
+        e("anything",[],
+    	r("Alto")),
+        e("anything",[],
+    	r("Star (8010)")),
+    	e("anything",[a("EDGECOLOR","red"),a("EDGEPATTERN","dotted")],
+    	l("Augement",n("anything",[a("OBJECT"," Augement "),a("_GO","ellipse"),a("COLOR","lightgreen")],[]))),
+        ]))),
+    e("anything",[],
+    l("Sketchpad",n("anything",[a("OBJECT","Sketchpad "),a("_GO","ellipse"),a("COLOR","lightgreen")],
+        [
+        e("anything",[],
+    	r("SIL")),
+        e("anything",[],
+    	r("Draw"))
+        ])))
+    ])),
+l("SRI",n("anything",[a("OBJECT"," SRI "),a("_GO","circle"),a("COLOR","lightred")],
+    [
+    e("anything",[],
+    l("Mesa",n("anything",[a("OBJECT","Mesa"),a("_GO","circle"),a("COLOR","lightred")],
+        [
+    	e("anything",[a("EDGECOLOR","red"),a("EDGEPATTERN","dotted")],
+    	l("Cedar",n("anything",[a("OBJECT","Cedar"),a("_GO","circle"),a("COLOR","lightred")],[]))),
+    	e("anything",[],
+    	l("Tajo (XDE)",n("anything",[a("OBJECT","Tajo (XDE)"),a("_GO","ellipse"),a("COLOR","lightgreen")],
+    	    [
+            e("anything",[],
+    	    r("ViewPoint (6085)"))
+    	    ]))),
+        ])))
+    ])),
+l("Simula",n("anything",[a("OBJECT","Simula"),a("_GO","circle"),a("COLOR","lightred")],
+    [
+    e("anything",[],
+    r("Smalltalk"))
+    ]))
+]
+
+{ Development of the Xerox Star. The graph shows how related Systems
+  influenced each other (the red, dotted lines represents direct 
+  sucessors of a system). 
+}

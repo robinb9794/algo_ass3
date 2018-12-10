@@ -1,0 +1,824 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: User Interface Configuration</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">User Interface Configuration</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+     
+   
+  
+  <H1>User Interface Configuration</H1>
+  
+  <P>
+    Configuring the user interface is a way to determine the
+    appearance of all menus, the icon bar and the footer area of 
+    the uDraw(Graph)
+  <A href="gui_base.html" target="_top">base windows</A>.
+    So you can reorder the given menus and icons, insert your own
+    application menus and icons at any position or remove the menus, icons
+    or footer completely.
+    Another option is to 
+  <A href="api_gui_extend.html" target="_top">extend the user interface</A>
+    in the traditional way.
+    Please refer to the chapter
+  <A href="api_gui_extend.html" target="_top">User Interface Extension</A>
+    to read about the motivation for extending or configuring the
+    uDraw(Graph) user interface.
+  </P>
+  
+  <H2>
+    Configurable Parts of the User Interface
+  </H2>
+  <P>
+    The 
+  <A href="gui_base.html" target="_top">base window</A>
+    has three configurable areas, namely the pull-down menus, the
+    icon bar (with two planes) and the footer area where messages and
+    status information is displayed.
+    Additionally, the default
+  <A href="gui_pop.html" target="_top">pop-up menu</A>
+    and the handling of closing events for base windows can be configured.
+    The configuration is done at initialization time by reading a 
+    configuration file when uDraw(Graph) is started.
+    In the configuration file, all visible parts have to be defined
+    exactly once.
+    Parts not mentioned there are removed from the user interface, so
+    it is even possible to get base windows without menus, icons and 
+    footer.
+    A base window that is already visible cannot be reconfigured,
+    so this has to be done at start-up time or when the corresponding
+    context is opened in
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>.
+  </P>
+  <P>
+    With user interface configuration, an application program connected 
+    to the API can add (or reorder or reduce) menus and icons 
+    in any way.
+    This is not possible with the traditional 
+  <A href="api_gui_extend.html" target="_top">user interface extensions</A>.
+    Further, the application can define radio menus similar to the 
+  <A href="gui_lay.html" target="_top">Layout/Orientation</A> 
+    menu and radio icons similar to the last three icons of the 
+    standard 
+  <A href="gui_base.html" target="_top">icon bar</A>. 
+  </P>
+
+  <A name="config_file"></A>
+  <H2>
+    The User Interface Configuration File
+  </H2>
+  <P>
+    Only one configuration file is used at a time, but you can have
+    more to work with different settings.
+    The name of a configuration file is arbitrary, but the suffix 
+    of the filename has to be ".menu". 
+    Please look at the description of the command
+  <A href="api_cmd_gui.html#configure" target="_top">gui(configure(...))</A> 
+    to read the details about location and naming of configuration 
+    files. 
+  </P>
+  <P>
+    The file must have one configuration command at each line according 
+    to the 
+  <A href="api_gui_config_syntax.html" target="_top">configuration file syntax</A>. 
+    Some commands have parameters like basic types (e.g. string) or
+    further commands. 
+    Some commands have a corresponding "finish_..." command to 
+    declare the end of the corresponding block.
+    The easiest way to configure the user interface is to look at some
+    examples.
+    They are located in directory "$UDG_HOME/lib/uDrawGraph" of the 
+    distribution.
+    You can copy and edit them for your own purpose.
+    The directory contains three user interface configuration files:
+  </P>
+
+  <UL>
+  <LI>
+  <B>File "uDrawGraph.menu"</B>
+<BR> 
+  <P>
+    A configuration for the standard user interface of uDraw(Graph)
+    that appears after every start without using command-line option
+  <A href="opt.html#nogui" target="_top">-nogui</A>.
+    The file is not actually used by the system, it only serves as
+    an example.
+  </P>
+  </LI>    
+  <LI>
+  <B>File "uDrawGraph_cfe.menu"</B>
+<BR> 
+  <P>
+    Same as above, but this is the standard user interface 
+    that appears when a connected application has taken
+  <A href="api_gui_extend.html#control_file_events" target="_top">control of the file menu events</A>.
+    There are some small differences regarding necessary activation 
+    commands in order to get the same behavior known from previous
+    releases when the
+  <A href="api_gui_extend.html#control_file_events" target="_top">file menu events are interposed</A>.
+    Please read the
+  <A href="api_gui_config.html#transition" target="_top">transition guideline</A>
+    below for further details. 
+  </P>
+  </LI>    
+
+  <LI>
+  <B>File "gedit.menu"</B>
+<BR> 
+  <P>
+    This is the actual user interface configuration used by the 
+  <A href="edit.html" target="_top">graph editor application</A>. 
+    It contains menus and icons for both the uDraw(Graph) standard operations
+    and the graph editor operations attached to the "Edit" menu.
+  <STRONG>Note:</STRONG> 
+    do not change this file without having a copy, because it is 
+    used by the system when the graph editor is connected.
+    Otherwise the user interface may be damaged.
+  </P>
+  </LI>
+  </UL>
+
+  <P>
+    As you can see from the examples, it is even possible to rebuild 
+    the complete user interface without losing any function of uDraw(Graph). 
+    You can decide on your own about the user interface parts that are 
+    kept, changed or removed.
+  </P>
+
+  <H2>Top-level Configuration Commands</H2>
+  <P>
+    By using a top-level command in the configuration file, you 
+    declare the configurable part of the user interface.
+    Unfinished commands of the previous top-level command are  
+    automatically finished this way.
+    Please refer to the 
+  <A href="api_gui_config_syntax.html" target="_top">configuration file syntax</A>,
+    too.
+  </P>
+
+  <UL>
+  <A name="menubar"></A>
+  <LI>
+  <B>menubar</B>
+<BR>
+  <P>
+    The menu bar is the part of the 
+  <A href="gui_base.html" target="_top">pull-down menus</A>
+    that is always visible. 
+    It is the topmost area of the base window containing the entries
+    "File", "Edit", etc.
+    With the top-level command "menubar" you can define the whole 
+    pull-down menu hierarchy, i.e. the menu bar and all the menus that
+    can be reached from this point.
+    The menu bar will not be visible when this top-level 
+    command is not used in the configuration file.
+    The "menubar" top-level command is followed by
+  <A href="api_gui_config.html#menubar_commands" target="_top">menu bar configuration commands</A>
+    and a final command "finish_menubar" to declare the end of this block.
+  </P>
+  </LI>
+
+  <A name="popup_menu"></A>
+  <LI>
+  <B>popup_menu</B>
+<BR>
+  <P>
+    To define the 
+  <A href="gui_pop.html" target="_top">default pop-up menu</A>
+    that appears when the 
+  <A href="gui_mous.html#right" target="_top">right mouse button</A>
+    is pressed over free space in the 
+  <A href="gui_base.html" target="_top">graph area</A>
+    or over a node/edge that does not have an own 
+  <A href="term_nattr.html#menu" target="_top">pop-up menu</A> 
+    using node/edge attributes.
+    No default pop-up menu will be available when this top-level 
+    command is not used in the configuration file.
+    The "popup_menu" top-level command is followed by
+  <A href="api_gui_config.html#menu_commands" target="_top">menu configuration commands</A>
+    and a final command "finish_popup_menu" to declare the end of this block.
+  </P>
+  </LI>
+    
+  <A name="iconbar"></A>
+  <LI>
+  <B>
+    iconbar 
+  <A href="api_gui_config_syntax.html#which_iconbar" target="_top">which_iconbar</A>
+  </B>
+<BR>
+  <P>
+    To define the whole content of the 
+  <A href="gui_base.html" target="_top">icon bar</A>
+    at the left side of the base window.
+    The icon bar has two planes, the regular plane ("first",  
+    intended for built-in operations) and the application plane ("second",
+    originally intended for icons sent by API command
+  <A href="api_cmd_app_menu.html#create_icons" target="_top">app_menu(create_icons(...))</A>).
+    When two planes are defined, the user will have a small arrow symbol 
+    at the bottom of the icon bar to switch between both planes.
+    You can use the "iconbar" top-level command twice in a configuration 
+    file, i.e. one for each plane which is specified by parameter 
+  <A href="api_gui_config_syntax.html#which_iconbar" target="_top">which_iconbar</A>.
+    If only one plane is defined, then this will be the one that becomes
+    visible in the base window, even if it is the "second".
+    The icon bar will not be visible when this top-level 
+    command is not used in the configuration file.
+    The "iconbar" top-level command is followed by
+  <A href="api_gui_config.html#iconbar_commands" target="_top">icon bar configuration commands</A>
+    and a final command "finish_iconbar" to declare the end of this block.
+  </P>
+  </LI>
+
+  <A name="message_bar"></A>
+  <LI>
+  <B>message_bar</B>
+<BR>
+  <P>
+    To define that the base window should have a message bar. 
+    The message bar is the left part of the footer area. 
+    In the message bar, all standard text messages of uDraw(Graph) are
+    displayed as well as the messages sent by an application with the
+    API command
+  <A href="api_cmd_window.html#show_message" target="_top">window(show_message(...))</A>.
+    If this top-level command is not used in the configuration file, 
+    uDraw(Graph) will not display any messages and the above API command 
+    to show messages has no effect. 
+    The footer area will not be visible in the base window when both
+    the message and status bar are omitted in the configuration file.
+    The "message_bar" top-level command has no parameters, so there is no 
+    need to finish this command. 
+  </P>
+  </LI>
+
+  <A name="status_bar"></A>
+  <LI>
+  <B>status_bar</B>
+<BR>
+  <P>
+    To define that the base window should have a status bar. 
+    The status bar is the right part of the footer area. 
+    In the status bar, only messages are displayed that are sent by 
+    an application with the API command
+  <A href="api_cmd_window.html#show_status" target="_top">window(show_status(...))</A>.
+    If this top-level command is not used in the configuration file, 
+    the API command to show the status has no effect. 
+    The footer area will not be visible in the base window when both
+    the message and status bar are omitted in the configuration file.
+    The "status_bar" top-level command has no parameters, so there is no 
+    need to finish this command. 
+  </P>
+  </LI>
+
+  <A name="close_event"></A>
+  <LI>
+  <B>close_event 
+  <A href="api_gui_config_syntax.html#close_id" target="_top">close_id</A>
+  <A href="api_gui_config_syntax.html#close_type" target="_top">close_type</A>
+  </B>
+<BR>
+  <P>
+    This top-level command can be used to define the behavior when a
+    base window is closed, either by menu
+  <A href="gui_file.html" target="_top">File/Close</A> 
+    or the equivalent generic window function of the operating system
+    respective window manager.
+    With the "close_event" top-level command, the application will
+    receive the answer 
+    "menu_selection(&lt;close_id&gt;)" (where "close_id" is taken from
+    the configuration file)
+    and has to react either by closing the corresponding context or by
+    ignoring the event, similar to the recommended action on the 
+    "#%close" menu selection event  
+  <A href="api_gui_extend.html#recommended_actions" target="_top">described on the user interface extension page</A>.
+    Make sure that the "close_id" is unique with respect to the other
+    menu IDs in your configuration file.
+    With the parameter "close_type", you can specify that the event will 
+    be sent when any base window is closed ("window") or only when the
+    last base window of a context is closed ("context").
+    If the "close_event" toplevel command is not used, base windows 
+    will be closed by uDraw(Graph) without notification. 
+    The "close_event" command has a fixed number of parameters, so 
+    there is no need to finish this command. 
+  </P>
+  </LI>
+  </UL>
+
+  <A name="menubar_commands"></A>
+  <H2>
+    Menu Bar Configuration Commands
+  </H2>
+  <P>
+    These commands are available to configure the top-level entries used for
+    accessing the pull-down menus which are displayed in the menu bar 
+    (i.e. "File", "Edit", "View" etc. in the default user interface). 
+    Please refer to the 
+  <A href="api_gui_config_syntax.html" target="_top">configuration file syntax</A>,
+    too.
+  </P>
+
+  <UL>
+  <A name="menu"></A>
+  <LI>
+  <B>
+    menu 
+  <A href="api_gui_config_syntax.html#label" target="_top">label</A>
+  <A href="api_gui_config_syntax.html#mne" target="_top">?mne?</A>
+  </B>
+<BR>
+  <P>
+    To specify a regular entry in the menu bar. 
+    All menu entries are added from left to right in the menu bar 
+    according to the order of the menu commands in the menu bar part 
+    of the configuration file. 
+    The first parameter of this command is used to specify
+    the label (text) of the menu and the second, which is optional,
+    is a mnemonic character for 
+  <A href="gui_keyb.html" target="_top">keyboard activation</A> 
+    of the menu.
+    The mnemonic character is either an integer or a 
+  <A href="api_gui_config.html#language_key" target="_top">language key</A> 
+    that maps to an integer.
+    It specifies the n-th character of the label that should be used 
+    as mnemonic, where "0" is the first character of the label and "-1" 
+    means no mnemonic.
+    The mnemonic character is underlined in the user interface. 
+    This command has to be followed by 
+  <A href="api_gui_config.html#menu_commands" target="_top">menu configuration commands</A> 
+    and finished with a final "finish_menu" command. 
+  </P>
+  </LI>
+
+  <A name="help_menu"></A>
+  <LI>
+  <B>
+    help_menu 
+  </B>
+<BR>
+  <P>
+    To specify a special entry for the help menu in the menu bar. 
+    This menu is added to the menu bar according to a particular
+    style-guide.
+    On UNIX&reg; and Linux&reg; platforms, the help menu is always at the
+    rightmost position of the menu bar and on Windows&reg; and Mac OS&reg; platforms
+    it is the last entry in the menu bar, directly next to the previous entry.
+    The label (text) of the help menu is predefined.
+    On UNIX&reg; and Linux&reg;, it is the current value of the
+  <A href="api_gui_config.html#language_key" target="_top">language key</A> 
+    "#%Help" and on Windows&reg; it is just "?".
+    A suitable mnemonic is used.
+    This command has to be followed by 
+  <A href="api_gui_config.html#menu_commands" target="_top">menu configuration commands</A> 
+    and finished with a final "finish_menu" command. 
+  </P>
+  </LI>
+  </UL>
+
+  <A name="menu_commands"></A>
+  <H2>
+    Menu Configuration Commands
+  </H2>
+  <P>
+    These commands can be used to define an entry in a 
+  <A href="api_gui_config.html#menu" target="_top">menu</A>
+    or 
+  <A href="api_gui_config.html#help_menu" target="_top">help_menu</A>
+    of a menu bar, in a 
+  <A href="api_gui_config.html#submenu_entry" target="_top">submenu_entry</A>,
+    in a 
+  <A href="api_gui_config.html#radio_menu_entry" target="_top">radio_menu_entry</A>
+    or in a
+  <A href="api_gui_config.html#popup_menu" target="_top">popup_menu</A>.
+    The order of menu entries in the user interface is determined
+    by the order in the configuration file.
+  </P>
+
+  <UL>
+  <A name="menu_entry"></A>
+  <LI>
+  <B>  
+    menu_entry 
+  <A href="api_gui_config_syntax.html#menu_id" target="_top">menu_id</A>
+  <A href="api_gui_config_syntax.html#label" target="_top">label</A>
+  <A href="api_gui_config_syntax.html#mne" target="_top">?mne?</A>
+  <A href="api_gui_config_syntax.html#modifier" target="_top">?modifier</A>
+  <A href="api_gui_config_syntax.html#acc" target="_top">acc?</A>
+  </B>
+<BR>  
+  <P>
+    With this command, a menu entry specific to an application program
+    can be added to a menu. 
+    The first parameter specifies the identifier of the menu that is
+    sent back to the application using API answer
+  <A href="api_answ_all.html#menu_selection" target="_top">menu_selection(&lt;menu_id&gt;)</A>
+    when the menu entry is selected by the user.
+    This identifier can also be used in API command
+  <A href="api_cmd_gui.html#activate_menus" target="_top">gui(activate_menus(...))</A>
+    to enable the corresponding menu entry and in 
+  <A href="api_cmd_gui.html#set_radio_menus" target="_top">gui(set_radio_menus(...))</A>
+    to set the current value if the menu entry is part of a radio menu.
+    Note that all menu identifiers must be unique in a configuration file.
+    The second parameter specifies the label (text) for this entry. 
+    The last three parameters are optional, where "mne" 
+    specifies the mnemonic of this entry 
+  (<A href="api_gui_config.html#menu" target="_top">see command "menu"</A>
+    for details about mnemonics).
+    The fourth parameter "modifier" specifies the modifier key for 
+    the 
+  <A href="gui_keyb.html" target="_top">keyboard accelerator</A> 
+    of this entry (supported values are: "Control", "Shift", "Meta", "Alt", 
+    "" or a 
+  <A href="api_gui_config.html#language_key" target="_top">language key</A>
+    mapping to one of these values) and
+    the fifth parameter "acc" is the corresponding key used for acceleration
+    (should be a single character like "a" or a 
+  <A href="api_gui_config.html#language_key" target="_top">language key</A>
+    mapping to a character).
+    The last two parameters must be used together.
+  </P>
+  </LI>
+
+  <A name="sys_menu_entry"></A>
+  <LI>
+  <B>  
+    sys_menu_entry 
+  <A href="api_gui_config_syntax.html#function" target="_top">function</A>
+  <A href="api_gui_config_syntax.html#label" target="_top">label</A>
+  <A href="api_gui_config_syntax.html#mne" target="_top">?mne?</A>
+  <A href="api_gui_config_syntax.html#modifier" target="_top">?modifier</A>
+  <A href="api_gui_config_syntax.html#acc" target="_top">acc?</A>
+  </B>
+<BR>  
+  <P>
+    With this command, a system menu entry available in the standard 
+    uDraw(Graph) user interface can be added to a menu. 
+    The first parameter specifies the system function.
+    Please refer to the configuration file of the standard user interface
+    (in "$UDG_HOME/lib/uDrawGraph/uDrawGraph.menu") for the settings.
+    The remaining parameters are the same as in command
+  <A href="api_gui_config.html#menu_entry" target="_top">menu_entry</A>.
+    System menu entries cannot be activated or deactivated by the 
+    application, because they are handled by uDraw(Graph) according 
+    to internal rules. 
+    The application is not informed about the selection of this entry. 
+  </P>
+  </LI>
+
+  <A name="submenu_entry"></A>
+  <LI>
+  <B>  
+    submenu_entry 
+  <A href="api_gui_config_syntax.html#label" target="_top">label</A>
+  <A href="api_gui_config_syntax.html#mne" target="_top">?mne?</A>
+  </B>
+<BR>  
+  <P>
+    This command is used for a group of menu entries that belongs to
+    a common submenu.
+    The parameters are the label (text) and optional mnemonic character
+    of the menu, as described for command
+  <A href="api_gui_config.html#menu_entry" target="_top">menu_entry</A>.
+    Command "submenu_entry" is used to enclose the menu entries 
+    that should belong to the submenu.
+    This command has to be followed by 
+  <A href="api_gui_config.html#menu_commands" target="_top">menu configuration commands</A> 
+    and finished with a final "finish_submenu_entry" command
+    after the last entry of the submenu. 
+  </P>
+  </LI>
+
+  <A name="radio_menu_entry"></A>
+  <LI>
+  <B>  
+    radio_menu_entry 
+  <A href="api_gui_config_syntax.html#menu_var" target="_top">menu_var</A>
+  </B>
+<BR>  
+  <P>
+    This command is used for a group of menu entries with "radio button" 
+    semantic like menu
+  <A href="gui_lay.html" target="_top">Layout/Orientation</A>
+    where one entry of the group is selected at a time.
+    The parameter "menu_var" is a unique identifier for the radio entry.
+    At initialization time, no entry of the group is selected.
+    Please use command 
+  <A href="api_cmd_gui.html#set_radio_menus" target="_top">gui(set_radio_menus(...))</A>
+    to set the initial value for all radio menus.
+    Command "radio_menu_entry" is used to enclose the menu entries 
+    that should belong to the group.
+    This command has to be followed by 
+  <A href="api_gui_config.html#menu_commands" target="_top">menu configuration commands</A> 
+    and finished with a final "finish_radio_menu_entry" command
+    after the last entry of the group. 
+  </P>
+  </LI>
+
+  <A name="blank_menu"></A>
+  <LI>
+  <B>  
+    blank 
+  </B>
+<BR>  
+  <P>
+    To set a separator line in the menu in order to group
+    particular menu entries in a visual manner.
+  </P>
+  </LI>
+  </UL>
+
+  <A name="iconbar_commands"></A>
+  <H2>Icon Bar Configuration Commands</H2>
+  <P>
+    These commands are available to configure the content of the icon bar. 
+    Please refer to the 
+  <A href="api_gui_config_syntax.html" target="_top">configuration file syntax</A>,
+    too.
+  </P>
+
+  <UL>
+  <A name="icon_entry"></A>
+  <LI>
+  <B>
+    icon_entry 
+  <A href="api_gui_config_syntax.html#icon_id" target="_top">icon_id</A>
+  <A href="api_gui_config_syntax.html#bitmap" target="_top">bitmap</A>
+  <A href="api_gui_config_syntax.html#help" target="_top">?help?</A>
+  </B>
+<BR>
+  <P>
+    With this command, an icon specific to an application program
+    can be added to the icon bar. 
+    The first parameter specifies the identifier of the icon that is
+    send back to the application using API answer
+  <A href="api_answ_all.html#icon_selection" target="_top">icon_selection(&lt;icon_id&gt;)</A>
+    when the icon is selected by the user.
+    This identifier can also be used in API command
+  <A href="api_cmd_gui.html#activate_icons" target="_top">gui(activate_icons(...))</A>
+    to enable the corresponding icon and in 
+  <A href="api_cmd_gui.html#set_radio_icons" target="_top">gui(set_radio_icons(...))</A>
+    to set the current value if the icon if part of a radio icon.
+    Note that all icon identifiers must be unique in a configuration file.
+    The second parameter "bitmap" specifies the file with the bitmap used 
+    for the icon. 
+    This can be a uDraw(Graph) system bitmap
+    (the settings can be found in the configuration file of the 
+    standard user interface in "$UDG_HOME/lib/uDrawGraph/uDrawGraph.menu")
+    or a file name in one of the directories specified by environment 
+    variable
+  <A href="var.html#udg_icondir" target="_top">$UDG_ICONDIR</A>.
+    The bitmap file used for icons must be in X11<SUP class="tm">TM</SUP> Bitmap format 
+    (".xbm") with a size of 18x18 pixel. 
+    The third optional parameter "help" is a short text or
+  <A href="api_gui_config.html#language_key" target="_top">language key</A>
+    mapping to a text that describes the semantic of the icon operation.
+    The help text is automatically displayed in the footer area of the 
+    base window as long as the mouse pointer is over the icon. 
+  </P>
+  </LI>
+
+  <A name="sys_icon_entry"></A>
+  <LI>
+  <B>
+    sys_icon_entry 
+  <A href="api_gui_config_syntax.html#function" target="_top">function</A>
+  <A href="api_gui_config_syntax.html#bitmap" target="_top">bitmap</A>
+  <A href="api_gui_config_syntax.html#help" target="_top">?help?</A>
+  </B>
+<BR>
+  <P>
+    With this command, a system icon available in the standard uDraw(Graph)
+    user interface can be added to the icon bar. 
+    The first parameter specifies the system function. 
+    Please refer to the configuration file of the standard user interface 
+    (in "$UDG_HOME/lib/uDrawGraph/uDrawGraph.menu") for the settings.
+    The remaining parameters are the same as in command
+  <A href="api_gui_config.html#icon_entry" target="_top">icon_entry</A>.
+    System icons cannot be activated or deactivated by the 
+    application, because they are handled by uDraw(Graph) according to 
+    internal rules. 
+    The application is not informed about the selection of this icon. 
+  </P>
+  </LI>
+    
+  <A name="radio_icon_entry"></A>
+  <LI>
+  <B>  
+    radio_icon_entry 
+  <A href="api_gui_config_syntax.html#icon_var" target="_top">icon_var</A>
+  </B>
+<BR>  
+  <P>
+    This command is used for a group of icons with "radio button" 
+    semantic like the last three icons in the icon bar of the standard
+  <A href="gui_base.html" target="_top">base window</A>
+    where one icon of the group is selected at a time.
+    The parameter "icon_var" is a unique identifier for the radio icon entry.
+    At initialization time, no icon of the group is selected.
+    Please use command 
+  <A href="api_cmd_gui.html#set_radio_icons" target="_top">gui(set_radio_icons(...))</A>
+    to set the initial value for all radio icons.
+    Command "radio_icon_entry" is used to enclose the icon entries 
+    that should belong to the group.
+    This command has to be followed by 
+  <A href="api_gui_config.html#icon_commands" target="_top">icon configuration commands</A> 
+    and finished with a final "finish_radio_icon_entry" command
+    after the last icon entry of the group. 
+  </P>
+  </LI>
+
+  <A name="blank_icon"></A>
+  <LI>
+  <B>  
+    blank 
+  </B>
+<BR>  
+  <P>
+    To set a separator gap in the icon bar in order to group
+    particular icons in a visual manner.
+  </P>
+  </LI>
+  </UL>
+
+  <A name="language_key"></A>
+  <H2>
+    Regular Strings, Internationalized Strings and Language Keys
+  </H2>
+  <P>
+    In the
+  <A href="api_gui_config_syntax.html" target="_top">configuration file syntax</A>,
+    you can find the non-terminal symbols "string" and "lang_string".
+    Both are strings, enclosed by a double quote (").
+    A "lang_string" can be a regular string or a language key that maps
+    to a string.
+    A string that is using a language key is called internationalized
+    string, because the mapping can be exchanged in order to support 
+    different languages.
+    The chapter about
+  <A href="int.html" target="_top">internationalization</A>
+    describes this mechanism in detail.
+    A language key always starts with "#%..." and is replaced by the
+    value it currently maps to at run-time.
+    Note that the non-terminal symbol "string" in the syntax must not be
+    a language key.
+  </P>
+
+  <A name="activation"></A>
+  <H2>
+    Activation and Deactivation of Menus and Icons
+  </H2>
+  <P>
+    All menus and icons that are defined in a configuration file 
+    are automatically deactivated after starting uDraw(Graph)
+    (system menus/icons used in a configuration file are not affected).
+    The application program has to activate them with the API commands 
+  <A href="api_cmd_gui.html#activate_menus" target="_top">gui(activate_menus(...))</A>
+    and 
+  <A href="api_cmd_gui.html#activate_icons" target="_top">gui(activate_icons(...))</A>
+    Both commands enable the menus (or icons) specified in the parameter
+    and automatically disable all remaining application menus (or icons). 
+  </P>
+  <P>
+    The system menus/icons are activated or deactivated by uDraw(Graph). 
+    Menu entries defined with command 
+  <A href="api_gui_config.html#submenu_entry" target="_top">submenu_entry</A>,
+  <A href="api_gui_config.html#menu" target="_top">menu</A>
+    and
+  <A href="api_gui_config.html#help_menu" target="_top">help_menu</A>
+    are only containers for other menu entries and do not need to be 
+    manually activated by the application.
+    They are automatically activated by uDraw(Graph) when at least one of
+    their entries is activated and they are deactivated otherwise.
+    Note that this feature is not available for the traditional way of
+  <A href="api_gui_extend.html" target="_top">user interface extension</A>
+    when submenus are created with API command
+  <A href="api_cmd_app_menu.html#create_menus" target="_top">app_menu(create_menus(...))</A>.
+  </P>
+
+  <A name="transition"></A>
+  <H2>
+    Transition from User Interface Extensions 
+  </H2>
+  <P>
+    If your application program has taken advantage of 
+  <A href="api_gui_extend.html" target="_top">user interface extensions</A>
+    known from previous releases by using API command
+  <A href="api_cmd_app_menu.html#control_file_events" target="_top">app_menu(control_file_events)</A>
+    and you want to migrate to the user interface configuration described
+    here, then you can simply use (or derive from) the predefined 
+    configuration file "$UDG_HOME/lib/uDrawGraph/uDrawGraph_cfe.menu".
+    For the dynamic part, simply use the API command
+  <A href="api_cmd_gui.html#activate_menus" target="_top">gui(activate_menus(...))</A>
+    instead of
+  <A href="api_cmd_app_menu.html#activate_menus" target="_top">app_menu(activate_menus(...))</A>
+    and
+  <A href="api_cmd_gui.html#activate_icons" target="_top">gui(activate_icons(...))</A>
+    instead of
+  <A href="api_cmd_app_menu.html#activate_icons" target="_top">app_menu(activate_icons(...))</A>.
+    In this case, your application program has to be modified at one point,
+    because the following API command activates both the menus and icons
+    of the corresponding operations:
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">app_menu(activate_menus(["#%open","#%saveas","#%print"]))</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    With user interface configuration this has to be done in two steps:
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">gui(activate_menus(["#%open","#%saveas","#%print"]))</TD>
+</TR>
+  <TR>
+<TD class="table">gui(activate_icons(["#%open","#%saveas","#%print"]))</TD>
+</TR>
+  </TABLE>
+</P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    X Window System and X11 are trademarks of The Open Group.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

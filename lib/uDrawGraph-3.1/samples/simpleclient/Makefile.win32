@@ -1,0 +1,19 @@
+all:: sample_socket.exe sample_pipe.exe
+
+sample_pipe_win.obj: sample_pipe_win.c
+	CL -c -W3 sample_pipe_win.c
+
+sample_socket.obj: sample_socket.c
+	CL -c -W3 sample_socket.c
+
+common.obj: common.c
+	CL -c -W3 common.c
+
+sample_pipe.exe: common.obj sample_pipe_win.obj
+	LINK -out:sample_pipe.exe sample_pipe_win.obj common.obj ws2_32.lib mswsock.lib user32.lib
+
+sample_socket.exe: common.obj sample_socket.obj
+	LINK -out:sample_socket.exe sample_socket.obj common.obj ws2_32.lib mswsock.lib user32.lib
+
+clean::
+	DEL *.exe *.obj

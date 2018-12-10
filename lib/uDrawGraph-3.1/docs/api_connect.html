@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: How to connect an Application to the API</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Connecting an Application</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>How to connect an Application to the API</H1>
+  
+  <P>
+    From a technical point of view, communication between uDraw(Graph) 
+    and a connected application program is performed with two pipes.
+    One is used to send commands to the uDraw(Graph) API, e.g. to transmit 
+    graphs, to attach menus/icons or to call menu functions.
+    The other one is used to receive the answers, e.g. return values, 
+    user events, etc.
+    Alternatively, bi-directional TCP/IP socket communication can be
+    used where uDraw(Graph) acts as a socket server and the application 
+    program is a socket client. 
+    The following figure illustrates this approach: 
+  </P>
+
+  <P>
+  
+  <IMG border="1" alt="API communication types" width="" height="" src="uDG31_connect.gif">
+  <BR>
+  
+    Types of API communication
+  <BR>
+  </P>
+
+  <P>
+    Only one application program can be connected with uDraw(Graph) at a time, 
+    but this client process is able to visualize many graphs in different 
+    windows at a time, see 
+  <A href="api_multi_modes.html" target="_top">multi-graph/view/window modes</A>. 
+    If there is a need to have many applications communicating with 
+    uDraw(Graph) in a system architecture scenario, then the application 
+    programmer has to provide a single "concentrator process" which 
+    synchronizes the communication between uDraw(Graph) and all individual 
+    applications.
+  </P>
+
+  <A name="pipe"></A>
+  <H1>Communication with Pipes</H1>
+
+  <H2>Choose which way to go</H2>
+
+  <P>
+    There are two options for connecting an application to the API with pipes. 
+    Either uDraw(Graph) is doing this job, which is the easiest way, or 
+    the application connects uDraw(Graph) in order to have more flexibility. 
+    The point is whether uDraw(Graph) or the application is the parent process.
+    The advantage of the first solution where uDraw(Graph) is responsible for
+    establishing connection is that the application programmer does not have 
+    to deal with process and pipe programming.
+    In this case, all an application program has to do is sending commands 
+    to the API by printing on the standard output ("stdout") and 
+    receiving the answers from the API by reading from "stdin". 
+    Further, if uDraw(Graph) has launched the application process, the user 
+    will be able to disconnect the application later in order to connect 
+    another one. 
+  </P>
+  <P>
+    The disadvantage of this solution is that the application's "stdin" 
+    and "stdout" have to be exclusively reserved for communication with
+    uDraw(Graph). 
+    If more flexibility is needed, e.g. to use other file descriptors 
+    than "stdin" and "stdout", then the application has to establish 
+    the communication with uDraw(Graph) on its own, 
+  <A href="api_connect.html#pipe_by_application" target="_top">read below</A>
+    for details. 
+  </P>
+
+  <A name="pipe_by_uDG"></A>
+  <H2>Either uDraw(Graph) connects the Application...</H2>
+  <P>
+    uDraw(Graph) is able to connect an application program at start-up time 
+    using command-line option 
+  <A href="opt.html#startappl" target="_top">-startappl</A> 
+    or at run-time with menu 
+  <A href="gui_file.html" target="_top">File/Connect Application...</A>. 
+    By connecting an application, uDraw(Graph) forks a new process, creates 
+    two pipes for communication, binds "stdin" and "stdout" of the new 
+    process to the end of the pipes and finally starts the specified 
+    application program.
+    The application has to wait for the initial 
+  <A href="api_answ_all.html#initialization" target="_top">ok</A> 
+    answer before commands are sent to the API.
+    This is done by simply printing them on "stdout". 
+    Answers from the API are available for the application by reading 
+    from "stdin". 
+  </P>
+  <P>
+    When the connection has been performed by uDraw(Graph), the user is 
+    able to shutdown the currently connected application at any time 
+    using menu 
+  <A href="gui_file.html" target="_top">File/Disconnect Application</A>. 
+    But this only works in case of support by the application.
+    It has to terminate after receiving answer 
+  <A href="api_answ_all.html#disconnect" target="_top">disconnect</A>. 
+  </P>
+
+  <A name="pipe_by_application"></A>
+  <H2>... or the Application connects uDraw(Graph)</H2>
+  <P>
+    The application program has to start uDraw(Graph) on its own when the 
+    more comfortable method of connection  
+  (<A href="api_connect.html#pipe_by_uDG" target="_top">described above</A>) 
+    is not suitable.
+    To do so, the application has to perform the tasks described below
+    (example code for establishing a pipe communication with uDraw(Graph) is 
+    provided in the distribution, look at the directory "simpleclient" 
+    in  "samples"):
+  </P>
+  <UL>
+  <LI>
+  <B>Forking a new process</B>
+<BR> 
+    This is the child process used for uDraw(Graph). 
+  </LI>
+  <LI>
+  <B>Creating two pipes</B>
+<BR>
+    One to send commands and the other one to receive answers from the API.
+  </LI>
+  <LI>
+  <B>Redirecting the file descriptors</B>
+<BR> 
+    "stdin" and "stdout" of the new child process (uDraw(Graph)) have to be 
+    connected with one side of both pipes. 
+    The parent process (application) has to connect two free file 
+    descriptors to the other end of both pipes.
+  </LI>
+  <LI>
+  <B>Start uDraw(Graph)</B>
+<BR>
+    Execute uDraw(Graph) with command-line option 
+  <A href="opt.html#pipe" target="_top">-pipe</A> 
+    in the forked child process. 
+  </LI>
+  </UL>
+  <P>
+  <STRONG>Note:</STRONG> 
+    the application has to set line-buffered I/O before starting
+    communication with uDraw(Graph) via pipes. 
+    For example, in "C" it can be done this way:
+  </P>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1" width="350">
+<TR>
+<TH COLSPAN="0">
+    Setting line-buffered I/O in UNIX&reg;/Linux&reg;
+  </TH>
+</TR>
+<TR>
+<TD class="table">setbuf(stdout,NULL); setbuf(stdin,NULL);</TD>
+</TR>
+</TABLE>
+</P>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1" width="350">
+<TR>
+<TH COLSPAN="0">
+    Setting line-buffered I/O in Windows&reg;
+  </TH>
+</TR>
+<TR>
+<TD class="table">setvbuf(stdin,NULL,_IONBF,0); setvbuf(stdout,NULL,_IONBF,0);</TD>
+</TR>
+</TABLE>
+</P>
+
+  <P>
+    After establishing connection, uDraw(Graph) sends an initial 
+  <A href="api_answ_all.html#initialization" target="_top">ok</A> 
+    answer for synchronization. 
+    The application must not start sending commands to the API 
+    before receiving this answer. 
+    uDraw(Graph) is unable to disconnect the application if it has 
+    not established the connection on its own. 
+    So, menu 
+  <A href="gui_file.html" target="_top">File/Disconnect Application</A> 
+    is always deactivated for the connection method described 
+    in this paragraph. 
+  </P>
+
+  <H1>Communication with TCP/IP Sockets</H1>
+  <P>
+    A more flexible way of communication is to use TCP/IP sockets
+    instead of pipes.
+    This way it is even possible to start uDraw(Graph) and the application
+    program on different computers in a network or even at different
+    sites. 
+    Please read the 
+  <A href="api_connect.html#pipe" target="_top">chapter above</A> 
+    about pipe communication as well, because some pieces of information mentioned
+    there are relevant for any type of communication.
+  </P>
+
+  <H2>uDraw(Graph) operating in Socket Server Mode</H2> 
+  <P>
+    With socket communication, uDraw(Graph) always acts as the socket server 
+    that listens on a specified port for connection requests from an 
+    application. 
+    Initiating the socket server mode can be done either at start-up
+    time using command-line option 
+  <A href="opt.html#server" target="_top">-server</A> 
+    or at run-time with menu
+  <A href="gui_file.html" target="_top">File/Connect Application ...</A>. 
+    In both ways, the socket port can be specified where uDraw(Graph) 
+    should listen for connection requests and subsequent API commands.
+    If not specified, the standard port 2542 is used which has been 
+    exclusively registered for uDraw(Graph) by the 
+  <NOBR><A href="http://www.iana.org/" target="_blank">Internet Assigned Numbers Authority</A></NOBR> 
+    (IANA) since 1998.
+    It is recommended to use this reserved standard port in order to avoid 
+    conflicts with other socket services.
+  </P>
+
+  <P>
+    After entering the socket server mode, uDraw(Graph) listens on the 
+    specified port until a socket connection request is received from
+    an application program. 
+    Then the application is connected to the API and subsequent
+    connection requests from other applications are ignored unless the 
+    connected application disconnects, because only one application 
+    can be connected to the API at a time. 
+    After the application has disconnected, uDraw(Graph) will automatically 
+    start listening again for connection requests when the command-line 
+    option
+  <A href="opt.html#server" target="_top">-server</A> 
+    has been used or as soon as another application is connected 
+    with menu
+  <A href="gui_file.html" target="_top">File/Connect Application ...</A>
+    in socket server mode.
+  </P>
+  <P>
+    If a port ("old") has been specified with option
+  <A href="opt.html#server" target="_top">-server</A> 
+    and afterwards menu 
+  <A href="gui_file.html" target="_top">File/Connect Application ...</A>
+    is used with a different port ("new"), 
+    then uDraw(Graph) stops listening on the old port and immediately 
+    starts listening on the new port. 
+    After the application has disconnected in this case, uDraw(Graph) will
+    start listening again on the old port.
+  </P>
+
+  <H2>Starting the Application as a Socket Client</H2>
+  <P>    
+    An application program can be connected to the API as a socket 
+    client in two ways.	
+    One option is to simply execute the application program stand-alone 
+    after uDraw(Graph) has been started with command-line option 
+  <A href="opt.html#server" target="_top">-server</A>.
+    On the other hand, uDraw(Graph) can start the application by using menu
+  <A href="gui_file.html" target="_top">File/Connect Application ...</A>.
+    In this case, choose the communication type "TCP/IP Sockets" in the
+  <A href="gui_file_connect_opt.html" target="_top">connection dialog</A>.
+  </P>
+  <P>    
+    In both cases, the application has to set up the communication by
+    connecting to the uDraw(Graph) socket port as client.
+    The way this can be done depends on the implementation language
+    and libraries used for the application.
+    Please consult your documentation and programming manuals for details
+    or search for socket programming tutorials in the Internet.
+    Example code for establishing socket communication with uDraw(Graph) 
+    is provided in the distribution, look under "simpleclient" in directory 
+    "samples".
+  </P>
+  <P>    
+    You can test the socket communication using the 
+  <A href="edit.html" target="_top">graph editor application</A>
+    that can act as a socket client with appropriate command-line options.
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">uDrawGraph(.exe) -server</TD>
+</TR>
+  <TR>
+<TD class="table">grapheditor(.exe) -client</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>    
+    This will connect the graph editor application to uDraw(Graph) using 
+    sockets. Both programs can even be executed on different computers
+    that are connected by a network.
+  </P>
+
+  <A name="transmit"></A>
+  <H1>Testing API Transmission</H1>
+  <P>
+    After establishing a connection for the first time between your 
+    application and uDraw(Graph), you should test the transmission by 
+    sending command
+  <A href="api_cmd.html#nothing" target="_top">nothing</A>
+    several times to the API. 
+    The connection works when you receive the answer "ok" as a reply 
+    for each command that was sent to the API. 
+    uDraw(Graph) only accepts valid commands according to the 
+  <A href="api_cmd.html" target="_top">API syntax</A>.
+    All other messages are treated as a syntax error by sending answer
+  <A href="api_answ_all.html#communication_error" target="_top">communication_error</A>
+    back to the application. 
+    Tip: You can play with the API by starting uDraw(Graph) in a 
+    command-line (i.e. shell) with option 
+  <A href="opt.html#pipe" target="_top">-pipe</A>.
+    Afterwards you can enter commands in the command-line to send 
+    them to the API. 
+    Do not forget to finish the command with the RETURN/ENTER key.
+    The answers from the API are also displayed in the command-line 
+    in this case. 
+    You can find some examples for commands in the "samples/api" 
+    directory of the distribution.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    API commands must not have newline or return characters inside. 
+    They must have exactly one newline at the end of the command. 
+    No other characters, even no spaces must follow this concluding 
+    return, except of the next complete command. 
+    If these restrictions are not considered, communication with the 
+    API will likely fail. 
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

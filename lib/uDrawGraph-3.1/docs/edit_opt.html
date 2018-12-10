@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Starting the Graph Editor</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="edit.html"><B>Graph Editor</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Options</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Command-Line Options of the Graph Editor</H1>
+  
+  <P>
+    The following command-line options can be used when starting
+    the graph editor application: 
+  <UL>
+  <LI>
+  <B>
+    -client &lt;hostname&gt;:&lt;port&gt; 
+  </B>
+<BR>
+    To start the graph editor as a TCP/IP socket client and connect 
+    it to an already running uDraw(Graph) process on host &lt;hostname&gt;
+    and port &lt;port&gt;. 
+    Make sure that uDraw(Graph) has been started as a TCP/IP socket server
+    using option
+  <A href="opt.html#server" target="_top">-server</A>
+    on the same host and port.
+    Also make sure that your operating system or firewall is configured
+    to allow communication on this socket port.
+    Both parameters can be omitted to use the following defaults (2542
+    is the standard socket port exclusively registered for uDraw(Graph)):
+  <UL>
+  <LI>"-client" means localhost:2542</LI>
+  <LI>"-client &lt;hostname&gt;" means &lt;hostname&gt;:2542</LI>
+  <LI>"-client :&lt;port&gt; means localhost:&lt;port&gt;</LI>
+  </UL> 
+  </LI>
+
+  <LI>
+  <B>
+    -display &lt;X11-display&gt;
+  </B>
+<BR>
+    (This option is not available on the Windows&reg; platform.)
+    Same as in uDraw(Graph).
+    To send the graphical output (i.e. the dialog windows of the graph 
+    editor) to the specified X11<SUP class="tm">TM</SUP> display, for example to start the graph 
+    editor on one computer and redirect the user interface to be displayed 
+    on another computer. X11<SUP class="tm">TM</SUP> displays are specified in a format like 
+    "&lt;hostname&gt;:&lt;display&gt;.0".
+  </LI>
+
+  <LI>
+  <B>
+    -font { normal | large | extra_large }
+  </B>
+<BR>
+    Same as in uDraw(Graph).
+    To set the fonts in the dialog windows of the graph editor to a 
+    larger size. 
+    Fonts larger than the default value "normal" are very useful for 
+    demonstrations when people should read the text of menus, dialog 
+    windows etc. from the distance.
+  </LI>
+
+  <LI>
+  <B>-naming_scheme</B>
+<BR>
+    To predefine the string value used in the 
+  <A href="edit_name.html" target="_top">naming scheme dialog</A> window
+    of the graph editor. 
+    If not set, the default is "#%NamingDlg.Node #", 
+    where "#%NamingDlg.Node" is a language key from the graph editor 
+    language translation file. 
+    Refer to
+  <A href="int.html" target="_top">internationalization</A>
+    for details.
+  </LI>
+
+  <LI>
+  <B>-nogui</B>
+<BR>
+    Start the graph editor to reconfigure the uDraw(Graph) user interface
+    in order to add some extra menus, see section about
+  <A href="edit_start.html#reconfig" target="_top">starting the graph editor</A>.
+  <STRONG>Note:</STRONG> 
+    communication fails if you start uDraw(Graph) with option "-nogui" 
+    and the graph editor without, or vice versa.
+  </LI>
+
+  <LI>
+  <B>-help</B>
+<BR>
+    Same as in uDraw(Graph).
+    Displays a help message to inform about the command-line syntax
+    and exits immediately.
+  </LI>
+  </UL>
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    X Window System and X11 are trademarks of The Open Group.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

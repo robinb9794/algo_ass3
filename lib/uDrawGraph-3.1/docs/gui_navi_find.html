@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Find Dialog</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui_navi.html"><B>Navigation Menu</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Find...</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>Find Dialog Window</H1>
+  
+  <IMG border="0" alt="Find Dialog" width="" height="" src="uDG31_win_find.gif" align="JUSTIFY">
+
+  <P>
+    This dialog window is used to find nodes in a graph that match 
+    a specified text string. 
+    The string has to be entered in the "Find" field of the dialog. 
+    Two search options are available: 
+    "Consider Case" to distinguish between upper and lower case letters 
+    and "Exact Match" to ignore nodes where the entered string 
+    appears as a substring. 
+    Both options are not activated by default, so you have to select
+    the corresponding check buttons to get the described behavior. 
+  </P>
+  <P>
+    After typing the text, the search can be started with the "Find" 
+    push button. 
+    This will not close the window. 
+    If exactly one graph node is selected, then the search starts 
+    after this node, otherwise at the topmost and leftmost node 
+    of the graph visualization. 
+    The operation is looking at each node of a level from the left 
+    to the right and continues with the next level by going from 
+    top to down. 
+    As soon as the text of a node (given by the node's attribute
+  <A href="term_nattr.html#object" target="_top">OBJECT</A>)
+    matches the specified string, the search stops and the found 
+    node is selected. 
+    Movement from the old to the new node is shown with animation 
+    which can be switched off or controlled in speed with menu 
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>. 
+    When no node of the graph matches the entered string, the 
+    search will be stopped after reaching the start node again and 
+    the user will hear a beep. 
+  </P>
+
+  <H2>Dialog Elements of the Find Window</H2>
+  <UL>
+  <LI>
+  <B>Find (text entry field)</B>
+<BR>
+    In this field, you have to enter the text of the node you are 
+    looking for. 
+    Wildcards are not supported, so characters like * or ? do not 
+    have a special meaning.
+    Instead, you can switch between exact and partial match with
+    the "Exact Match" check button.
+  </LI>
+
+  <LI>
+  <B>Consider Case</B>
+<BR>
+    Select this check button when upper and lower case letters 
+    should be distinguished from each other while performing the search.  
+  </LI>
+
+  <LI>
+  <B>Exact Match</B>
+<BR>
+    Select this check button when you do not want to find nodes with 
+    a text containing the string you are looking for as a substring. 
+  </LI>
+
+  <LI>
+  <B>Find</B>
+<BR>
+    Push button to start the search by looking for a node that 
+    matches the string displayed in the text entry field. 
+  </LI>
+
+  <LI>
+  <B>Close</B>
+<BR>
+    Push button to close the find dialog without performing any action. 
+  </LI>
+
+  <LI>
+  <B>Help</B>
+<BR>
+     Push button to start the 
+  <A href="gnrl_use.html#help_system" target="_top">online help system</A>
+     with this page. 
+  </LI>
+  </UL>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

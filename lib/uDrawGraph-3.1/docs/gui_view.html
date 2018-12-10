@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: View Menu</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">View Menu</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>View Menu</H1>
+  
+  <IMG border="0" alt="Menu File" width="" height="" src="uDG31_men_view.gif" align="JUSTIFY">
+  <P>
+    The "View" menu contains operations for changing the user's view 
+    to the data: 
+  <A href="gui_view.html#multi_view" target="_top">Opening multiple views</A> 
+    to a graph, 
+  <A href="gui_view.html#scaling" target="_top">setting the scale</A> 
+    of a visualization or 
+  <A href="gui_view.html#info" target="_top">getting information</A>. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    menu operations can also be invoked without the mouse by using
+  <A href="gui_keyb.html" target="_top">keyboard commands</A>. 
+  </P>
+
+  <A name="multi_view"></A>
+  <H2>Multi-View Management</H2>
+  <UL>
+  <A name="open_new_view"></A>
+  <LI>
+  <B>
+    Open New View
+  </B>
+<BR>
+    This operation opens an additional view (base window) to the graph. 
+    Read more about 
+  <A href="conc_mul.html" target="_top">multi-view and multi-graph</A> 
+    in the concepts document. 
+    All views of a graph are coupled with each other, so interactions 
+    in one view affect the graph visualization in all the other views 
+    of the same graph, too. 
+    But loading a graph in one view disconnects this particular base 
+    window from the other views, so the new graph is only displayed 
+    in the view where the load operation was invoked. 
+    This way, the user can load many different graphs at a time 
+    (multi-graph). The maximal number of open base windows in 
+    uDraw(Graph) is 64. 
+  </LI>
+
+  <A name="open_survey_view"></A>
+  <LI>
+  <B>
+    Open Survey View
+  </B>
+<BR>
+    This operation also opens an additional view to the graph, but with 
+    some special properties.
+    Read more about 
+  <A href="conc_mul.html" target="_top">multi-view</A> 
+    in the concept document. 
+    The base window, where this operation was invoked, is called 
+    detail view. 
+    A survey view, which appears after using this operation, shows
+    the graph in a reduced scale to see the whole structure at any time.
+    The scale of a survey view reduced automatically when the window 
+    size is manipulated. 
+    A survey view shows the currently visible area of the corresponding 
+    detail view with a blue rectangle. 
+    This rectangle is only visible in a survey view when the scale is 
+    small enough to show the complete graph. 
+    So, if the blue rectangle has become invisible in a survey view, 
+    then use menu "View/Fit Scale to Window" (see below) to get the 
+    blue rectangle back. 
+    If the scale of the survey view is 100%, because the graph is small
+    enough and already completely visible in the detail view, you
+    will not see the rectangle as well. 
+    You can move the blue rectangle by holding the left mouse button
+    in order to scroll in the corresponding detail view. 
+    Another useful feature of the survey view is automatic scrolling. 
+    When the user selects a node in the survey view, the same node is
+    brought to the center in the corresponding detail view with 
+    animation. 
+    Scrolling to the selected node can be switched off in dialog 
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A> 
+    by deselecting checkbox "On selection in Survey View". 
+    Animation can be switched off in dialog 
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A> 
+    by selecting checkbox "No Animation".
+    The maximal number of open base windows in uDraw(Graph) is 64. 
+  </LI>
+  </UL>
+
+  <A name="scaling"></A>
+  <H2>Scaling</H2>
+  <UL>
+  <A name="full_scale"></A>
+  <LI>
+  <B>
+    Full Scale
+  </B>
+<BR>
+    Used to set the graph visualization scale to 100%. 
+  </LI>
+
+  <A name="fit_scale_to_window"></A>
+  <LI>
+  <B>
+    Fit Scale to Window
+  </B>
+<BR>
+    Used to set the graph visualization scale to the maximal 
+    rate where the graph is completely visible in the base window. 
+  </LI>
+
+  <A name="scale"></A>
+  <LI>
+  <B>
+  <A href="gui_view_scale.html" target="_top">Scale...</A>
+  </B>
+<BR>
+    Used to set the graph visualization scale to any rate between 
+    1% and 100%. Read more about 
+  <A href="conc_int.html" target="_top">scaling</A> 
+    in the concept document. 
+    After selecting this menu entry, a 
+  <A href="gui_view_scale.html" target="_top">scale dialog</A>
+    window will appear to set the scale. 
+    In a reduced scale, all interactive operations are still available. 
+    The scale of a graph can only be reduced with this operation, but 
+    not magnified.
+    To magnify a graph visualization, choose a bigger font with dialog 
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>.
+  </LI>
+  </UL>
+
+  <A name="info"></A>
+  <H2>Getting Information</H2>
+  <UL>
+  <A name="graph_info"></A>
+  <LI>
+  <B>
+  <A href="gui_view_info.html" target="_top">Graph Info...</A>
+  </B>
+<BR>
+    This operation displays the 
+  <A href="gui_view_info.html" target="_top">graph info dialog</A>
+    to get statistic information about the currently visualized graph. 
+  </LI>
+
+  <A name="product_information"></A>
+  <LI>
+  <B>
+  <A href="gui_view_prod.html" target="_top">Product Information...</A>
+  </B>
+<BR>
+    This operation shows a dialog window with
+  <A href="gui_view_prod.html" target="_top">uDraw(Graph) product information</A>.
+  </LI>
+  </UL>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

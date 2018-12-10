@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: New Graph Editor</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="new.html"><B>New Features</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Graph Editor</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>
+    Improved Graph Editor
+  </H1>
+  
+  <P>
+    This page covers new features and modifications in version 3.0, 
+    compared to the previous release V2.1.
+
+  <UL>
+  <LI>
+  <B>Socket Communication</B>
+<BR>
+    The new graph editor application takes advantage of new features
+    in version 3.0. The editor can talk to the
+  <A href="api.html" target="_top">API</A> via 
+  <A href="new_sockets.html" target="_top">sockets</A>, 
+    so for example you can start uDraw(Graph) with option -server on 
+    one computer and the graph editor with option -client 
+    &lt;hostname&gt; on another computer afterwards.
+  </LI>  
+ 
+  <LI>
+  <B>Compact Dialogs</B>
+<BR>
+    The dialogs of the graph editor have been re-designed to be more
+    compact and handy. 
+    New features like 
+  <A href="new_major.html" target="_top">tooltips</A>,
+  <A href="new_major.html" target="_top">edge labels</A> 
+    or
+  <A href="new_attrs.html" target="_top">color icons</A>
+    can be used here.
+  </LI>  
+
+  <LI>
+  <B>User Interface Configuration</B>
+<BR>
+    When connecting the graph editor to the API at start-up time
+    of uDraw(Graph) (e.g. using option -graphedit), the user interface
+    is 
+  <A href="new_gui.html" target="_top">reconfigured</A>. 
+    To avoid confusion, it looks almost the same afterwards, except for 
+    additional entries in the "View" and "Help" menu.
+    The additional "Edit" menu and icons are the same as in the previous 
+    release.
+  </LI>  
+
+  <LI>
+  <B>Passing Filenames at Start</B>
+<BR>
+    It is now possible to start uDraw(Graph) from command-line with 
+    the graph editor and an initial graph which is passed to 
+    the editor, e.g. "uDrawGraph(.exe) -graphedit my_graph_file.status"
+  </LI>  
+
+  </UL>
+  </P>
+
+  <P>
+    Next:
+  <A href="new_platform.html" target="_top">
+    New Platform Microsoft&reg; Windows&reg;</A>.
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

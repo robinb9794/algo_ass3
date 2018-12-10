@@ -1,0 +1,438 @@
+API Examples 
+
+This file contains examples for commands that can be send to the
+uDraw(Graph) API version 3.0 and above. To play with the API you
+can send the commands by starting uDraw(Graph) in a shell with commandline
+option -pipe and copy/paste the commands into the shell. The answers
+from the API are printed in the shell.
+
+Note for Windows users: To enter the commands on a command shell you have
+to download the lastest console version (e.g. uDrawGraph-3.1-win32-console.exe)
+which then has to be started instead of uDrawGraph.exe. This version will offer you the
+needed command shell.
+
+Some important notes:
+
+  1. Before you start you have to replace all three occurences of
+     '....' in the commands below by the absolute path of the
+     directory where you've installed uDraw(Graph) (i.e the value of shell
+     variable $UDG_HOME).
+     Some of the examples below save files (3.5, 3.6, 3.7, 3.10). They assume
+     a writable directory /tmp. If this does not exist please either
+     create it or rename the path.
+
+  2. Send only one command at a time to the API. Don't send the comment 
+     lines which are enclosed by '/*' and '*/'!
+        
+  3. This document with uDraw(Graph) API commands is not a tutorial. It's 
+     a text to show the usage of each command, but not how to combine
+     them in order to use particular features of uDraw(Graph). Refer to
+     the online documentation for detailed information about the API.
+     
+-----------------------------------------------------------------------------
+
+1. Commands of category graph(...): 
+=================================== 
+
+graph(new([l("1",n("A",[a("OBJECT","Node 1")],[l("1>2",e("A",[],l("2",n("B",[a("OBJECT","Node 2")],[l("2>4",e("A",[],l("4",n("A",[a("OBJECT","Node 4")],[])))),l("2>5",e("C",[],l("5",n("A",[a("OBJECT","Node 5")],[]))))])))),l("1>3",e("C",[],l("3",n("B",[a("OBJECT","Node 3")],[l("3>6",e("C",[],l("6",n("A",[a("OBJECT","Node 6")],[])))),l("3>4",e("C",[],r("4")))]))))]))]))
+        /* 1.1.  Sends a graph in term representation format for        */
+        /*       visualization.                                         */
+
+graph(new_placed([l("1",n("A",[a("OBJECT","Node 1")],[l("1>2",e("A",[],l("2",n("B",[a("OBJECT","Node 2")],[l("2>4",e("A",[],l("4",n("A",[a("OBJECT","Node 4")],[])))),l("2>5",e("C",[],l("5",n("A",[a("OBJECT","Node 5")],[]))))])))),l("1>3",e("C",[],l("3",n("B",[a("OBJECT","Node 3")],[l("3>6",e("C",[],l("6",n("A",[a("OBJECT","Node 6")],[])))),l("3>4",e("C",[],r("4")))]))))]))]))
+        /* 1.2.  Same as above, put starts the layout algorithm (i.e.   */
+        /*       edge crossing minimization) before showing the graph.  */
+
+graph(mixed_update([new_node("7","C",[a("OBJECT","Node 7")]),new_edge("7>2","B",[],"7","2")]))
+        /* 1.3.  Updates the structure of the current graph which was   */
+        /*       loaded with command 1.2 above.                         */
+
+graph(change_attr([node("2",[a("COLOR","#f20fa2"),a("OBJECT","New Text\n   Here!")]),edge("2>5",[a("EDGEPATTERN","double"),a("EDGECOLOR","red")])]))
+        /* 1.4.  Updates node/edge attributes of the current graph      */
+        /*       which was loaded with command 1.2 above.               */
+
+
+2. Commands of category multi(...): 
+=================================== 
+
+multi(new_context)
+        /* 2.1.  Opens an additional context to visualize another graph.*/
+
+multi(open_context("some context id"))
+        /* 2.2.  Same as above, but with a given context-id.            */
+
+multi(set_context("some context id"))
+        /* 2.3   Sets the current context which is the graph affected by*/
+        /*       all the other API commands.                            */
+
+        
+3. Commands of category menu(...): 
+================================== 
+
+menu(file(new))
+        /* 3.1.  Removes the graph and clears the window.               */
+        
+menu(file(open_graph("..../samples/graphs/graph_example.udg")))
+        /* 3.2.  Loads a graph in term representation format from file. */
+        
+menu(file(open_graph_placed("..../samples/graphs/graph_example.udg")))
+        /* 3.3.  Same as above, put starts the layout algorithm (i.e.   */
+        /*       edge crossing minimization) before showing the graph.  */
+        
+menu(file(open_status("..../samples/graphs/xerox_star.status")))
+        /* 3.4.  Loads a graph in status format from file.              */
+
+menu(file(save_graph("/tmp/xerox_star.udg")))
+        /* 3.5.  Saves the graph in term representation format to a     */
+        /*       file.                                                  */
+
+menu(file(save_status("/tmp/xerox_star.status")))
+        /* 3.6.  Saves the graph in status format to a file.            */
+
+menu(file(print("/tmp/xerox_star.ps")))
+        /* 3.7   Saves the graph in PostScript format to a file.        */
+
+menu(file(print_to_printer))
+        /* 3.8   Prints the graph in PostScript format to the		*/
+	/*       currently selected printer.                            */
+
+menu(file(print))
+        /* 3.9.  Opens the print dialog window.                         */
+        
+menu(file(export(true,"gif","/tmp/xerox_star.gif")))
+        /* 3.10. Exports the whole graph in GIF Format to a file.       */
+
+menu(file(export))
+        /* 3.11. Opens the export dialog window.                        */
+        
+menu(file(close))
+        /* 3.12. Closes the current context.                            */
+
+menu(file(exit))
+        /* 3.13. Exits uDraw(Graph).                               */
+        /*       Afterwards, start uDraw(Graph) again and          */
+        /*       send command 3.4.                                      */
+
+menu(view(open_new_view))
+        /* 3.14. Opens another view window to the same graph.           */
+
+menu(view(open_survey_view))
+        /* 3.15. Opens a survey view window to the same graph.          */
+
+menu(view(full_scale))
+        /* 3.16. Sets the scale to 100%.                                */
+
+menu(view(fit_scale_to_window))
+        /* 3.17. Sets the scale such that the graph fits into the       */
+        /*       window.                                                */
+
+menu(view(scale(50)))
+        /* 3.18. Sets the scale to the given value between 1 and 100.   */
+
+menu(view(scale))
+        /* 3.19. Opens the scale dialog window.                         */
+        
+menu(view(graph_info))
+        /* 3.20. Opens the graph info dialog window.                    */
+        
+menu(view(uDrawGraph_info))
+        /* 3.21. Opens the uDraw(Graph) info dialog window.        */
+        
+menu(navigation(select_parents(["Alto"])))
+        /* 3.22. Selects all parent nodes of the given node(s) in the   */
+        /*       graph previously loaded before with command 3.4.       */
+
+menu(navigation(select_parent("@M")))
+        /* 3.23. Selects parent node of the given edge in the		*/
+        /*       graph previously loaded before with command 3.4.       */
+
+menu(navigation(select_siblings(["Alto"])))
+        /* 3.24. Selects all sibling nodes of the given node(s) in the  */
+        /*       graph previously loaded before with command 3.4.       */
+
+menu(navigation(select_children(["Alto"])))
+        /* 3.25. Selects all parent nodes of the given node(s) in the   */
+        /*       graph previously loaded before with command 3.4.       */
+
+menu(navigation(select_child("@J")))
+        /* 3.26. Selects child node of the given edge in the		*/
+        /*       graph previously loaded before with command 3.4.       */
+
+menu(navigation(navigator("Alto",down,false)))
+        /* 3.27. Navigates in the given direction in the graph          */
+        /*       previously loaded before with command 3.4. by starting */
+        /*       at the given node.                                     */
+
+menu(navigation(navigator))
+        /* 3.28. Opens the navigator dialog window.                     */
+
+menu(navigation(find("mac",false,false)))
+        /* 3.29. Searches a node with text "mac" in the graph previously*/
+        /*       loaded before with command 3.4. The two boolean flags  */
+        /*       are used for considering the case and exact match.     */
+
+menu(navigation(find))
+        /* 3.30. Opens the find dialog window.                          */
+
+menu(abstraction(hide_subgraph(["Alto"])))
+        /* 3.31. Hides the subgraph of the given nodes(s) in the graph  */
+        /*       previously loaded before with command 3.4.             */
+
+menu(abstraction(show_subgraph(["Alto"])))
+        /* 3.32. Shows the subgraph again of the given nodes(s) in the  */
+        /*       graph previously loaded before with command 3.4.       */
+        
+menu(abstraction(restore_all_subgraphs))
+        /* 3.33. Restores all subgraph abstractions in one step         */
+
+menu(abstraction(hide_edges(["Alto"])))
+        /* 3.34. Hides the edges of the given nodes(s) in the graph     */
+        /*       previously loaded before with command 3.4.             */
+
+menu(abstraction(show_edges(["Alto"])))
+        /* 3.35. Shows the edges again of the given nodes(s) in the     */
+        /*       graph previously loaded before with command 3.4.       */
+        
+menu(abstraction(restore_all_edges))
+        /* 3.36. Restores all egde abstractions in one step.            */
+
+menu(layout(improve_all))
+        /* 3.37. Start the layout algorithm for the whole graph.        */
+
+menu(layout(improve_edges))
+        /* 3.38. Start the layout algorithm only for the dummies        */
+        /*       to get a better edge routing.                          */
+
+menu(layout(improve_spacing))
+        /* 3.39. Calculates a more compact layout which is useful after */
+        /*       hiding subgraphs.                                      */
+
+menu(layout(orientation(left_right)))
+        /* 3.40. Switches the layout orientation.                       */
+
+menu(option(layout_algorithm))
+        /* 3.41. Opens the layout algorithm dialog window.              */
+
+menu(option(layout_settings))
+        /* 3.42. Opens the layout settings dialog window.               */
+
+menu(option(general_settings))
+        /* 3.43. Opens the general settings dialog window.              */
+
+menu(option(save))
+        /* 3.44. Save the options.			                */
+
+4. Commands of category app_menu(...): 
+====================================== 
+
+app_menu(create_menus([submenu_entry("applmenu","Application",[menu_entry("applmenu A","Command A"),menu_entry("applmenu B","Command B"),blank,submenu_entry("applmenu_sub","Submenu",[menu_entry("applmenu C","Command C"),menu_entry("applmenu D","Command D"),])])]))
+        /* 4.1.  Attaches some menus to uDraw(Graph)'s Edit menu.
+        /*       The menus can be activated with command 4.2.           */
+        
+app_menu(activate_menus(["applmenu","applmenu A","applmenu_sub","applmenu C","applmenu D"]))
+        /* 4.2.  Activates menus previously created with command 4.1.   */
+
+app_menu(create_icons([icon_entry("icon 1","testicon.xbm","Explanation for icon 1"),icon_entry("icon 2","testicon.xbm","Explanation for icon 2"),blank,icon_entry("icon 3","testicon.xbm","Explanation for icon 3"),blank]))
+        /* 4.3.  Attaches some icons to uDraw(Graph)'s icon bar.   */
+        /*       The icons can be activated with command 4.4.           */
+
+app_menu(activate_icons(["icon 1","icon 2","icon 3"]))
+        /* 4.4.  Activates icons previously created with command 4.3.   */
+        
+app_menu(control_file_events)
+        /* 4.5.  Takes control on the events of the uDraw(Graph)   */
+        /*       File menu.                                             */
+        
+        
+5. Commands of category set(...): 
+================================= 
+
+set(layout_accuracy(4))
+        /* 5.1.  Sets the quality of the graph layout algorithm.        */
+        
+set(font_size(18))
+        /* 5.2.  Sets the font size used for text of graph nodes.       */
+        
+set(gap_width(10))
+        /* 5.3.  Sets the minimal distance between nodes at a level.    */
+        
+set(gap_height(10))
+        /* 5.4.  Sets the minimal distance between graph levels.        */
+        
+set(multi_edge_gap(10))
+        /* 5.5.  Sets the distance used for drawing multi-edges.        */
+        
+set(self_edge_radius(10))
+        /* 5.6.  Sets the radius used for drawing self-edges.           */
+        
+set(animation_speed(80))
+        /* 5.7.  Sets the speed of scrolling animation which is used    */
+        /*       when moving the focus in a graph visualization (e.g.   */
+        /*       navigation).                                           */
+
+set(manual_layout(fixed))
+        /* 5.8.  Sets the constraint used for fine-tuning to fixed.     */
+        
+set(edge_style(all))
+        /* 5.9.  Draw all edges as splines.				*/
+
+set(tooltip_delay(0))
+        /* 5.10. Sets the tooltip delay to 0, which means, that         */
+	/*	 tooltips are displayed immediately.			*/
+                
+6. Commands of category window(...): 
+====================================
+
+window(title("my window title"))
+        /* 6.1.  Sets the title of the uDraw(Graph) window.        */
+        
+window(show_message("This is a message"))
+        /* 6.2.  Displays an temporary information message in the       */
+        /*       windows footer area.                                   */
+
+window(show_status("A Status"))
+        /* 6.3.  Displays an permanent status message in the windows    */
+        /*       footer area.                                           */
+        
+window(position(300,400))
+        /* 6.4.  Sets the origin position of the uDraw(Graph)      */
+        /*       window.                                                */
+
+window(size(400,400))
+        /* 6.5.  Sets the width and height of the uDraw(Graph)     */
+        /*       window.                                                */
+
+window(raise)
+        /* 6.6.  Brings the uDraw(Graph) window to the front.      */
+
+window(iconify)
+        /* 6.7.  Iconifies the uDraw(Graph) window.                */
+
+window(deiconify)
+        /* 6.8.  Deiconifies the uDraw(Graph) Presenter window.    */
+
+window(deactivate)
+        /* 6.9.  Blocks all user input.                                 */
+
+window(activate)
+        /* 6.10. Enables user input again.                              */
+
+window(file_browser(true,"my own file browser","Open","","",[bt("C Files","*.c","to open a C file"),bt("all Files","*","to open all files")],true))
+        /* 6.11. Displays a customized file browser for private use.    */
+
+window(background("#406fa8"))
+        /* 6.12. Sets the background of the graph window to color	*/
+	/*	 #406fa8 (some sort of blue).                           */
+
+
+7. Commands of category tcl(...): 
+=================================
+
+tcl(eval("button .b -text Hello -command {uDrawGraph tcl_answer Pressed} ; pack .b"))
+        /* 7.1.  Sends a Tcl/Tk script to uDraw(Graph) for         */
+        /*       execution.                                             */
+
+tcl(eval_file("<some Tcl/Tk script>"))
+        /* 7.2.  Load a Tcl/Tk script from file for execution.          */
+
+
+8. Commands of category special(...): 
+=====================================
+
+special(select_nodes(["Alto","Smalltalk"]))
+        /* 8.1.  Selects the given nodes in the graph previously loaded */
+        /*       before with command 3.4.                               */
+        
+special(focus_node("Mac II"))
+        /* 8.2.  Scrolls to the given node in the graph previously      */
+        /*       loaded before with command 3.4.                        */
+
+special(focus_node_animated("Memex"))
+        /* 8.3.  Scrolls to the given node in the graph previously      */
+        /*       loaded before with command 3.4. by using animation.    */
+
+special(add_language("gedit"))
+        /* 8.4.  Loads the language definition file for the grapheditor. */
+        /*       Send command:						 */
+	/*	   window(show_message("#%Help.Gedit"))			 */
+	/*	 to see a translation in the left footer.		 */
+	/*	 The command uses the file:				 */
+	/*	   $UDG_HOME/lib/uDrawGraph/gedit_${UDG_LANG}.lang	 */
+
+9. Commands for visualization definitions:
+==========================================
+
+To see the effects of the following commands, please send command 1.1 first.
+
+visual(new_rules([nr("A",[a("COLOR","#ff0000")]),nr("B",[a("COLOR","#0000ff")]),er("A",[a("EDGECOLOR","#ff0000")]),er("C",[a("EDGECOLOR","#0000ff")])]))
+        /* 9.1.  Set visualization rules to define the color of nodes   */
+        /*       and edges.                                             */
+
+graph(change_type([node("1","B")]))
+        /* 9.2.  Change the type of a node to let another rule match.   */
+
+visual(add_rules([nr("A",[a("COLOR","#00ff00"),a("_GO","triangle")])]))
+        /* 9.3.  Change visualization rules for a node type to set      */
+        /*       color and geometrical object.                          */
+
+graph(change_attr([node("2",[a("COLOR","white")])]))
+        /* 9.4. Attributes specified for individual nodes precede rules.*/
+        
+set(rules_first(true))
+        /* 9.5. Or you have to define that rules precede individual     */
+        /*      attributes.                                             */
+
+visual(new_rules([nr("",[a("COLOR","#ff0000"),a("_GO","circle"),m([menu_entry("Knoten Typ A","Knoten vom Typ A"),blank,submenu_entry("","Submenu",[menu_entry_disabled("Submenu 1","Submenu 1"),menu_entry("Submenu 2","Submenu 2")]),submenu_entry_disabled("","Disabled Submenu",[])])]),er("A",[m([menu_entry("Kante Typ A","Kante vom Typ A")])]),er("",[a("EDGECOLOR","#ff0000"),a("HEAD","circle")])]))
+        /* 9.6. Overwrite the default attributes for nodes and edges.   */
+        /*      attributes. Press right mouse button over a node, to see*/
+        /*      how node popup menus work.                              */
+
+10. Commands for drag and drop:
+===============================
+
+To see the effects of the following commands, please send command 1.1 first.
+
+drag_and_drop(dragging_on)
+        /* 10.1. Switch drag and drop mode on.                          */
+
+Now press the middle mouse button somewhere in the graph area but not over a
+node!
+
+drag_and_drop(new_node_at_coord(new_node("DD","C",[a("OBJECT","DD")])))
+        /* 10.2. Insert a new node at the coordinate.                   */
+
+Now press the middle mouse button over a node and drag the mouse to some place
+in the graph-area but not over a node and release the button.
+
+drag_and_drop(new_edge_and_node_at_coord(new_node("DD2","C",[a("OBJECT","DD2")]),new_edge("DD","B",[],"....","DD2")))
+        /* 10.3. Replace "...." by the ID returned in the event you've  */
+        /*       just got. This inserts a new edge and node.            */
+
+11. Commands of category gui(...): 
+==================================
+
+To see the effects of the following commands, please start a new instance of
+uDraw(Graph) with option -nogui, i.e.:
+	uDrawGraph -pipe -nogui
+and send command:
+	special(add_language("gedit"))
+as the first command.
+
+gui(configure("gedit"))
+        /* 11.1. Configure the user interface of uDraw(Graph) with the	*/
+        /*       configuration file of the grapheditor. (Please         */
+	/*	 remember, that you'll only get the menus of the	*/
+	/*	 grapheditor, not its functionality!)			*/
+	/*	 The command uses the file:			*/
+	/*	   $UDG_HOME/lib/uDrawGraph/gedit.menu			*/
+
+gui(activate_menus(["#%exit"]))
+        /* 11.2. Activate the menu entry with id #%exit. This activates	*/
+	/*	 the File menu and the "Exit uDraw(Graph)" entry	*/
+	/*	 in the File menu.					*/
+
+gui(activate_icons(["S:D"]))
+        /* 11.3. Activate the icon with id S:D. This activates the	*/
+	/*	 Drag & Drop icon, which is the last one in the second	*/
+	/*	 icon bar.						*/
+
+

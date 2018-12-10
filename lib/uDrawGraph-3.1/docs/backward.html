@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Backward compatibility</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Backward compatibility</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  <H1>Backward compatibility of uDraw(Graph) 3.1</H1>
+  
+  <P>
+    Starting with uDraw(Graph) 3.1 our product has a new name. Formerly it
+    was known as daVinci (V1.0 to V2.1) or daVinci
+    Presenter 3.0.x (supported and maintained by the company b-novative GmbH).
+    Due to a trademark conflict we are not allowed to use the name
+    daVinci longer than the year 2006. Therefore we have decided
+    to rename our software to uDraw(Graph) immediately.
+  </P>
+  <P>
+    Unfortunately the name daVinci was used in several places of
+    the program and therefore we had to change some system features that
+    affect all users. Our usual backward compatibilty mode allows you
+    to use your old applications and your old graphs without any changes. But
+    it is recommended to change all the occurences of daVinci in
+    your applications to be prepared for the year 2007.
+  </P>
+   <P>
+    <STRONG>Note:</STRONG> We do not guarantee that the backward compatibility
+    mode explained on this page is integrated in our software longer than
+    December 31, 2006.
+  </P>
+   <P>
+    The following changes have been made to the system:
+  </P>
+  <UL>
+  <LI>
+  <B>Renamed binaries</B>
+<BR>
+  <P>
+    The binary of uDraw(Graph) is now called uDrawGraph(.exe) and can be found
+    and executed in the "bin" directory of the distribution. Additionally
+    we had to rename the tool "gml2daVinci" to
+    <A href="tool.html#gml2udg" target="_top">"gml2udg"</A>, it can
+    be found in the same directory. For backward compatibility there should
+    be links in the "bin" directory with the old names of the binaries.
+  </P>
+  </LI>
+  <LI>
+  <B>Renamed environment variables</B>
+<BR>
+  <P>
+    Nearly all <A href="var.html" target="_top">environment variables</A> had to be
+    renamed. The main variable to specify the location of the uDraw(Graph)
+    distribution directory is now called
+    <A href="var.html#udg_home" target="_top">UDG_HOME</A>. The other two variables
+    are called <A href="var.html#udg_icondir" target="_top">UDG_ICONDIR</A> and
+    <A href="var.html#udg_lang" target="_top">UDG_LANG</A> now. But if you still
+    use the old variable names uDraw(Graph) will use them until you set the
+    new ones (recommended!).
+  </P>
+  </LI>
+  <LI>
+  <B>File name suffix for graph files is now ".udg"</B>
+<BR>
+    <P>
+    Formerly we have used the suffix ".daVinci" for graph files. This
+    has been changed to ".udg". All files in the "samples/graphs" directory of
+    the distribution have been renamed. But the
+    <A href="gui_file_open.html" target="_top">File/Open... dialog</A> will still
+    load and show *.daVinci files if you choose type "Graph Files".
+    If the backward compatibility mode discovers an old suffix in the file
+    that should be opened and you have the right to rename it, a dialog
+    window appears to ask you if renaming should be done for this file
+    automatically.
+    </P>
+  <P>
+  <IMG border="0" alt="Renaming Question" width="" height="" src="uDG31_back_ask.gif" align="JUSTIFY">    
+  </P>
+  <P>
+    Just say "Yes" or "No" as you like or "No, don't ask again" if you don't
+    want to be asked this question again. If you use the menu
+    <A href="gui_opt.html#save" target="_top">Option/Save Options</A> after selecting
+    "No, don't ask again" your decision is rembered forever.
+  </P>
+  <P>
+    New graph files are always stored with the new suffix in the
+    <A href="gui_file_save.html" target="_top">File/Save... dialog</A>.
+  </P>
+  </LI>
+  <LI>
+  <B>Renamed and changed API commands</B>
+<BR>
+  <P>
+  The API command menu(view(daVinci_info)) is now
+  <A href="api_cmd_menu.html#view_uDrawGraph_info" target="_top">menu(view(uDrawGraph_info))</A>. But as expected the old command still works.
+  </P>
+  <P>
+    The API command
+    <A href="api_cmd_special.html#version" target="_top">special(version)</A>
+    now answers
+    <A href="api_answ_all.html#version" target="_top">version("uDraw(Graph) 3.1")</A>.
+  </P>
+  </LI>
+  <LI>
+  <B>Changes in the Tcl/Tk interface</B>
+<BR>
+  <P>
+  In the <A href="api_tcl.html" target="_top">Tcl/Tk interface</A> the
+  "daVinci" command has been renamed to "uDrawGraph". But using the
+  old name of the command will still work.
+  </P>
+  </LI>
+  <LI>
+  <B>Renamed internal files</B>
+<BR>
+  <P>
+  uDraw(Graph) stores two internal files in the users home directory. These are
+  named "$HOME/.uDrawGraph" for the options saved with menu
+  <A href="gui_opt.html#save" target="_top">Option/Save Options</A> and
+  "$HOME/.uDrawGraph&lt;VERSION&gt;" to rember that the user has already accepted
+  the license conditions for the current &lt;VERSION&gt;. uDraw(Graph) will still load the options file with
+  the old name "$HOME/.daVinci" until the user first saves the
+  options in uDraw(Graph).
+  </P>
+  </LI>
+  </UL>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Leonardo da Vinci is a registered trademark of Hans-Georg M&uuml;ller, Gelsenkirchen, Germany.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

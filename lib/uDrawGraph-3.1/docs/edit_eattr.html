@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Edge Attributes</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="edit.html"><B>Graph Editor</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="edit_edge.html"><B>Edit/Edge Menu</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Edge Attributes</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>Edge Attributes Window</H1>
+  
+  <IMG border="0" alt="Edge Attributes" width="" height="" src="uDG31_edit_eattr.gif" align="JUSTIFY">
+  <P>
+    This 
+  <A href="edit.html" target="_top">graph editor</A> 
+    dialog window is used to set the attributes of an edge in the graph.
+    The dialog items in this window reflect the currently supported 
+    edge attributes in uDraw(Graph) (refer to the
+  <A href="term_eattr.html" target="_top">term representation</A> 
+    for details about edge attributes). 
+    You can open this dialog with menu
+  <A href="edit_edge.html" target="_top">Edit/Edge/Attributes...</A>,
+    with the 
+  <A href="edit_epop.html" target="_top">edge pop-up menu</A>,
+    with the 
+  <A href="edit_icons.html" target="_top">graph editor icons</A> 
+    or with a simple double-click on an edge when the graph editor is
+    connected to the uDraw(Graph) API.
+  </P>
+
+  <H2>
+    Dialog Elements of the Edge Attributes Window
+  </H2>
+  <UL>
+  <A name="edge_text"></A>
+  <LI>
+  <B>
+    Edge-Text
+  </B>
+<BR>
+    This field specifies the edge label which is displayed in grey
+    behind the edge in the graph visualization. 
+    When you select the edge, the label is displayed with the edge
+    color in the foreground.
+    It is possible to use multi-line text by typing RETURN. 
+  </LI>
+
+  <A name="font"></A>
+  <LI>
+  <B>
+    Font
+  </B>
+<BR>
+    Here you can choose the font family and style used to draw the 
+    text of the edge. 
+  </LI>
+
+  <A name="tooltip_text"></A>
+  <LI>
+  <B>
+    Tooltip-Text
+  </B>
+<BR>
+    This field specifies the text of an edge's tooltip.
+    With activated tooltips in uDraw(Graph), this text will automatically
+    appear in a small pop-up window (after a delay) as long as the 
+    mouse pointer is over the edge.
+    Tooltips can be controlled in menu
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings</A>.
+  </LI>
+
+  <A name="as_spine"></A>
+  <LI>
+  <B>
+    As Spline
+  </B>
+<BR>
+    With this option you can decide that the edge is visualized
+    with a spline (i.e. curve) when it spans more than one level
+    of nodes. 
+    If not set, straight line segments are used instead.
+    These individual spline settings are only considered by uDraw(Graph) 
+    when the edge style is set to "As defined in Graph" in dialog
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>.
+  </LI>
+
+  <A name="direction"></A>
+  <LI>
+  <B>
+    Direction
+  </B>
+<BR>
+    This is used to define the position of the edge's arrows. 
+    By default, each edge has an arrow pointing to the child node. 
+    With this menu it is possible to let the edge pointing to the 
+    parent node, to both the parent and the child node or to omit 
+    the arrows for the currently selected edge. 
+    Note that the arrows are only visual attributes of the edge 
+    and changing the direction does not manipulate the parent/child 
+    relationship in the graph. 
+  </LI>
+
+  <A name="shape"></A>
+  <LI>
+  <B>
+    Shape
+  </B>
+<BR>
+    Here you can specify the pattern of the currently selected edge. 
+    An edge can be visualized with a solid (default), dotted or dashed
+    line.
+  </LI>
+
+  <A name="shape"></A>
+  <LI>
+  <B>
+    Shape
+  </B>
+<BR>
+    Here you can specify the pattern of the currently selected edge. 
+    An edge can be visualized with a solid (default), dotted or dashed
+    line.
+  </LI>
+
+  <A name="head"></A>
+  <LI>
+  <B>
+    Head
+  </B>
+<BR>
+    Used to define the shape of arrow head. 
+    You will not see them when the "Direction" is set to a line with 
+    no arrows.
+    There are four different kinds of arrow heads available.
+  </LI>
+
+  <A name="type"></A>
+  <LI>
+  <B>
+    Type
+  </B>
+<BR>
+    To choose whether a single or double line should be used to visualize
+    the selected edge.
+  </LI>
+
+  <A name="width"></A>
+  <LI>
+  <B>
+    Width
+  </B>
+<BR>
+    With this slider you can define the thickness of the edge between 1
+    and 10 pixel.
+  </LI>
+
+  <A name="color"></A>
+  <LI>
+  <B>
+    Color
+  </B>
+<BR>
+    Click on the colored field to get a palette of colors.
+    Here you can specify the color of an edge by choosing it from the 
+    palette.
+    To modify the palette, use the "Edit Color..." button in
+    the palette to open the 
+  <A href="edit_color.html" target="_top">color editor</A>. 
+  </LI>
+
+  <LI>
+  <B>Apply</B>
+<BR>
+    Push button to accept the current settings of this dialog window. 
+    The window remains open afterwards.
+    Without pressing this button, modifications to these options are not 
+    considered.   
+  </LI>
+
+  <LI>
+  <B>Close</B>
+<BR>
+    Push button to close the edge attributes dialog window without 
+    performing any action.
+  </LI>
+
+  <LI>
+  <B>Reset</B>
+<BR>
+    Push button to undo any modification to these options which were not
+    confirmed using the "Apply" push button yet.
+    So reset goes back to the current settings. 
+  </LI>
+
+  <LI>
+  <B>Help</B>
+<BR>
+     Push button to start the 
+  <A href="gnrl_use.html#help_system" target="_top">online help system</A>
+     with this page. 
+  </LI>
+  </UL>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

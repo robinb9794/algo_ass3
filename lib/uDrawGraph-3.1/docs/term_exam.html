@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Term Representation Example</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="term.html"><B>Term Representation</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Example</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Example of a Term Representation</H1>
+  
+  <P>
+    This example demonstrates a complex term representation of a graph, 
+    where most of the available node and edge attributes are used. 
+    The figure below shows the resulting graph visualization in 
+    uDraw(Graph).
+  </P>
+  <P>
+  <PRE> [
+ l("Node A",n("Module",[a("COLOR","#f31d8b"),
+                        a("OBJECT","Node A"),
+                        a("_GO","ellipse"),
+                        a("FONTFAMILY","helvetica")],
+    [
+    l("Edge A-&gt;B",e("",[a("EDGECOLOR","red")],
+     l("Node B",n("anything",[a("COLOR","light steel blue"),
+                              a("BORDER","double"),
+                              a("OBJECT","Node B\nThis node has two lines")],
+        [
+        l("Edge B-&gt;D",e("",[a("EDGEPATTERN","dotted"),
+                            a("_DIR","inverse")],
+         r("Node D")))
+        ])))),
+    l("Edge A-&gt;C",e("",[a("EDGEPATTERN","dotted"),
+                        a("EDGECOLOR","#0054aa")],
+     l("Node C",n("anything",[a("_GO","image"),
+                              a("IMAGE","uDrawGraph_logo.gif"),
+                              a("COLOR","gray"),
+                              a("OBJECT","Node C"),
+                              a("FONTSTYLE","italic")],
+        [
+        l("Edge C-&gt;D",e("anything",[a("EDGECOLOR","#00aaaa"),
+                                    a("_DIR","both")],
+         l("Node D",n("Module",[a("OBJECT","Node D"),
+                                a("_GO","text"),
+                                a("FONTFAMILY","times"),
+                                a("FONTSTYLE","italic")],[])))),
+        l("Edge C-&gt;F",e("anything",[a("EDGEPATTERN","double")],
+         r("Node F")))
+        ])))),
+    l("Edge A-&gt;E",e("",[a("EDGEPATTERN","dashed"),
+                        a("_DIR","none")],
+     l("Node E",n("anything",[a("COLOR","LightGray"),
+                              a("FONTFAMILY","courier"),
+                              a("FONTSTYLE","normal"),
+                              a("BORDER","double"),
+                              a("OBJECT","Node E"),
+                              a("_GO","rhombus")],
+        [
+        l("Edge E-&gt;F",e("anything",[a("EDGEPATTERN","thick")],
+         l("Node F",n("anything",[a("COLOR","#00dddd"),
+                                  a("OBJECT","Node F"),
+                                  a("HIDDEN","true")],
+            [
+            l("Edge F-&gt;G",e("anything",[],
+             l("Node G",n("anything",[a("OBJECT","Node G")],[]))))
+
+            ]))))
+        ]))))
+    ]))
+ ]</PRE>
+  </P> 
+  <P>
+  
+  <IMG border="1" alt="Visualization of Example" width="" height="" src="uDG31_term3.gif">
+  <BR>
+  
+    Visualization of the example in uDraw(Graph)
+  <BR>
+  </P>
+
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

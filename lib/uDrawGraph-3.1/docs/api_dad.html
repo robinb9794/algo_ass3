@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Drag and Drop Mode</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Drag and Drop Mode</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+     
+   
+  
+  <H1>Drag and Drop Mode</H1>
+  
+  <P>
+    The drag and drop mode can be used for direct manipulation in a 
+    graph visualization to let the user create nodes and edges 
+    in cooperation with an application program in the most elegant way.
+    The drag and drop mode can only be used inside one 
+    or between two
+    uDraw(Graph)
+  <A href="gui_base.html" target="_top">base windows</A>,
+    but not in connection with third party programs (i.e. you cannot
+    drag objects from other applications and you cannot drop uDraw(Graph)
+    nodes in other applications' windows).
+    So the mode described here has nothing to do with native drag and 
+    drop that might be offered by the underlying operating system. 
+    Please read about
+  <A href="conc_dad.html" target="_top">drag and drop basics</A>
+    in the concepts chapter.
+    Examples showing 
+  <A href="tut_edit_dad.html" target="_top">how to use the drag and drop feature</A>
+    in the graph editor application can be found in the tutorial.
+  </P>
+  <P>
+    First of all, your application has to activate the drag and drop mode
+    using API command
+  <A href="api_cmd_dad.html#drag_and_drop_on" target="_top">drag_and_drop(dragging_on)</A>.
+    This command disables 
+  <A href="gui_mous.html#middle" target="_top">2-D scrolling</A>.
+    The following scenarios may occur when the user takes advantage of
+    the drag and drop mode.
+    Your application has to react in an appropriate manner, for example by
+    sending the API commands suggested below.
+    If you are not sure about particular details, you can see how the 
+    graph editor application communicates with uDraw(Graph) when drag and drop 
+    operations are used. 
+    To do so, use the two command-line options
+  <A href="opt.html#graphedit" target="_top">-graphedit</A>
+    and
+  <A href="opt.html#log" target="_top">-log</A>.
+  </P>
+  
+  <UL>
+  <A name="create_node"></A>
+  <LI>
+  <B>
+    Creating a new unconnected node
+  </B>
+<BR>
+  <P>
+    In this case, the user presses the 
+  <A href="gui_mous.html#middle" target="_top">middle mouse button</A>
+    somewhere in the 
+  <A href="gui_base.html" target="_top">graph area</A>
+    of a base window where no other node is under the mouse pointer.
+    The API sends the answer 
+  <A href="api_answ_all.html#create_node" target="_top">create_node(...)</A>
+    and the application should react by sending command
+  <A href="api_cmd_dad.html#new_node_at_coord" target="_top">drag_and_drop(new_node_at_coord(...))</A> 
+    to insert a new node. 
+    uDraw(Graph) will try to insert the new node at the coordinates where the 
+    mouse button was released. 
+  </P>
+  </LI>
+
+  <A name="create_child"></A>
+  <LI>
+  <B>  
+    Creating a new child node connected with a parent by a new edge 
+  </B>
+<BR>
+  <P>
+    Here, the user selects a node ("origin") with the 
+  <A href="gui_mous.html#middle" target="_top">middle mouse button</A>,
+    moves the mouse pointer to another location while keeping the mouse
+    button pressed and releases the button somewhere over empty space 
+    in the graph area.
+    The API sends the answer 
+  <A href="api_answ_all.html#create_node_and_edge" target="_top">create_node_and_edge(...)</A>
+    and the application should react by sending command 
+  <A href="api_cmd_dad.html#new_edge_and_node_at_coord" target="_top">drag_and_drop(new_edge_and_node_at_coord(...))</A> 
+    to insert a new node and an edge that connects the new node with a 
+    parent node which is the origin.
+    uDraw(Graph) will try to insert the new node at the coordinates
+    where the mouse button was released. 
+    An abstract edge starting at the origin will follow the mouse
+    pointer as long as the mouse button is still pressed.
+  </P>
+  </LI>
+
+  <A name="create_edge"></A>
+  <LI>
+  <B>  
+    Creating a new edge between existing nodes
+  </B>
+<BR>
+  <P>
+    Same as creating a child node
+  (<A href="api_dad.html#create_child" target="_top">see above</A>),
+    but here the user releases the 
+  <A href="gui_mous.html#middle" target="_top">middle mouse button</A>
+    over an existing node ("target") instead of empty space.
+    The API sends the answer 
+  <A href="api_answ_all.html#create_edge" target="_top">create_edge(...)</A>
+    and the application should react by sending command 
+  <A href="api_cmd_graph.html#update" target="_top">graph(update(...))</A> 
+    to insert a new edge between origin and target node that are
+    specified in the answer.
+    When the mouse pointer reaches a node as long as the mouse button 
+    is still pressed, this node is temporarily inverted to show the
+    potential drop target.
+  </P>
+  </LI>
+
+  <A name="create_node_copy"></A>
+  <LI>
+  <B>  
+    Creating a new unconnected node as copy
+  </B>
+<BR>
+  <P>
+    Here, the user selects a node ("origin") with the 
+  <A href="gui_mous.html#middle" target="_top">middle mouse button</A>
+    while pressing the SHIFT-key,
+    moves the mouse pointer to another location while keeping the mouse
+    button pressed and releases the button somewhere over empty space 
+    in the graph area (or even in the graph area of another uDraw(Graph) 
+    base window in 
+  <A href="api_multi_modes.html" target="_top">multi-graph/view mode</A>).
+    The API sends the answer 
+  <A href="api_answ_all.html#drop_node" target="_top">drop_node(...)</A>,
+    where the node ID, context ID and window ID (if applicable) 
+    of the origin is specified and the last node ID is an empty string.
+    The application should react by sending command 
+  <A href="api_cmd_dad.html#new_node_at_coord" target="_top">drag_and_drop(new_node_at_coord(...))</A> 
+    to insert a new node. 
+    uDraw(Graph) will try to insert the new node at the coordinates where the 
+    mouse button was released.
+    The new node should be a copy, so your application has to create it 
+    with all of the attribute values of the origin.
+  </P>
+  </LI>
+
+  <A name="create_child_copy"></A>
+  <LI>
+  <B>  
+    Creating a new child node as copy
+  </B>
+<BR>
+  <P>
+    Same as creating an unconnected node as copy
+  (<A href="api_dad.html#create_child_copy" target="_top">see above</A>),
+    but here the user releases the 
+  <A href="gui_mous.html#middle" target="_top">middle mouse button</A>
+    over an existing node ("target") instead of empty space, either in the
+    same or a different base window. 
+    The API sends the answer 
+  <A href="api_answ_all.html#drop_node" target="_top">drop_node(...)</A>,
+    where the node ID, context ID and window ID (if applicable) 
+    of the origin is specified and the last node ID is the target.
+    The application should react by sending command 
+  <A href="api_cmd_dad.html#new_edge_and_node_at_coord" target="_top">drag_and_drop(new_edge_and_node_at_coord(...))</A> 
+    to insert a new node and an edge that connects the new node with a 
+    parent node which is the target.
+    uDraw(Graph) will try to insert the new node at the coordinates where the 
+    mouse button was released.
+    The new node should be a copy, so your application has to create it 
+    with all of the attribute values of the origin.
+  </P>
+  </LI>
+  </UL>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

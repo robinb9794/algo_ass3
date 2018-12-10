@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tutorial, Multi-View</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_mul.html"><B>Views</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Multi-View</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 4.1: Multi-View: Using many Views to one Graph  
+  </H1>
+  
+  <P>
+    First of all you have to load a graph. 
+    This time we do it by using a 
+  <A href="opt.html" target="_top">command-line argument</A>
+    when uDraw(Graph) is started.
+    If you have already started uDraw(Graph) then quit it now with menu 
+  <A href="gui_file.html" target="_top">File/Exit uDraw(Graph)</A>. 
+    Start the system again by appending the file name of a graph or 
+    status file in the command-line.
+    (Using the command-line may be unusual for users familiar with 
+    Microsoft&reg; Windows&reg;.
+    Refer to your Windows&reg; documentation on how to get access to
+    the command-line. Otherwise you can skip this and load a graph with
+    the ordinary user interface operations.)
+    As you have already guessed, we suggest to use file 
+    "graph_example.udg" in the "samples/graphs" directory of the uDraw(Graph) 
+    distribution again. 
+    So for example, when you are in the topmost directory of the 
+    distribution, you can enter the following in the command-line
+    (use the ".exe" suffix only on the Windows&reg; platform):
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">bin/uDrawGraph(.exe) samples/graphs/graph_example.udg</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    After you have got a base window with a graph visualization, open 
+    a second view to this graph by selecting menu
+  <A href="gui_view.html" target="_top">View/Open New View</A>. 
+    This will give you an additional base window showing the same graph. 
+    In fact the two views (base windows) are connected with each other, 
+    so interactions in one view are also applied to the other view
+    (except for scrolling and setting the scale). 
+    Make some fine-tuning steps by moving nodes to new positions. 
+    You can see that both views will be updated when interactions 
+    take place in any of the two windows. 
+  </P>
+  <P>
+    Open even more views to this graph from any existing window to 
+    get a total number of, say, five windows. 
+    The maximal number of open base windows in uDraw(Graph) is 64. 
+    You can now close each individual view with menu 
+  <A href="gui_file.html" target="_top">File/Close</A> without 
+    quitting uDraw(Graph). 
+    The last base window cannot be closed.   
+  </P>
+  <P>
+    End of Exercise 4.1.
+  <A href="tut_mul.html" target="_top">Go back to the Section 4 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

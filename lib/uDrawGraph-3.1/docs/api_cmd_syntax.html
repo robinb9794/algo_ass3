@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Syntax</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Syntax</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Syntax</H1>
+  
+  <P>
+    Commands and answers of the uDraw(Graph) API are so called "terms" 
+    that can be built hierarchically by applying substitution rules of the
+    syntax definition. 
+    The syntax of 
+  <A href="api_cmd.html" target="_top">commands</A>
+    and 
+  <A href="api_answ.html" target="_top">answers</A>
+    is defined in a "Backus-Naur" form. 
+    This syntax grammar is a set of substitution rules where each rule
+    has a left and right hand side separated by "::=". 
+    A rule may have different alternative cases on the right hand side, 
+    separated by vertical bars "|". 
+    Terminal symbols of the grammar are written in bold face and have to 
+    occur in the term. 
+    Non-terminal symbols are links to other rules and have to be 
+    substituted by one of the cases of the particular rule. 
+    This substitution process continues until no non-terminal symbols 
+    remain. 
+    To say it in another word: commands and answers are exclusively 
+    composed of terminal symbols. 
+    The start symbol for the commands is the rule 
+  <A href="api_cmd.html#uDG_command" target="_top">uDG_command</A> 
+    and for the answers 
+  <A href="api_answ.html#uDG_answer" target="_top">uDG_answer</A>.
+  </P>
+  <P>
+    For example, consider the following rules: 
+  </P>
+
+<P class="grammar">
+<TABLE border="0">
+
+<TR>
+<TD COLSPAN="2">uDG_command::=</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>tcl(</STRONG><A href="api_cmd_syntax.html#tcl_cmd" target="_top">tcl_cmd</A><STRONG>)</STRONG></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><EM>... other cases ...</EM></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="tcl_cmd"></A>tcl_cmd::=</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><STRONG>eval(</STRONG><A href="api_param.html#string" target="_top">string</A><STRONG>)</STRONG></TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif">|</TD><TD><STRONG>eval_file(</STRONG><A href="api_cmd_syntax.html#filename" target="_top">filename</A><STRONG>)</STRONG>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+
+<TR>
+<TD COLSPAN="2"><A name="filename"></A>filename::=</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="10" height="1" alt="" src="space.gif"></TD><TD><A href="api_param.html#string" target="_top">string</A>.</TD><TD><EM></EM></TD>
+</TR>
+<TR>
+<TD><IMG width="1" height="5" alt="" src="space.gif"></TD><TD></TD>
+</TR>
+
+</TABLE>
+</P>
+
+  <P>
+    Here are some examples for valid commands with respect to this 
+    simple grammar:
+  </P>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1" width="350">
+  <TR>
+<TD class="table">
+    tcl(eval("button .b -text Hello -command exit; pack .b"))
+  </TD>
+</TR>
+  <TR>
+<TD class="table">
+    tcl(eval_file("my_file.tcl"))
+  </TD>
+</TR>
+  </TABLE>
+</P>
+  
+  <P>
+    Usually, white space (i.e. space, tab or return/newline characters 
+    between non-terminal symbols) is allowed, but should not be
+    used in a term to reduce the amount of transmitted data. 
+    Return or newline characters must not be used in a term if sent to
+    the API. 
+    The reason for this restriction is that a newline character is 
+    required to signal the end of a command if sent on a pipe. 
+    So with a newline inside, the term will be split at this position, 
+    resulting in a syntax error for the command fragment. 
+    If you need to have newline characters inside of a string (e.g. 
+    to visualize 
+  <A href="term_nattr.html#object" target="_top">a node with multi-line text</A>),
+    you can use the escape mechanism known from the "C" programming
+    language (i.e. "\n"). 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    Because Tcl/Tk is used for the implementation of the uDraw(Graph)
+    user interface, some characters have a special meaning.
+    Braces ("{" and "}") are used as delimiters for sending strings 
+    to Tcl/Tk. 
+    As a restriction, you cannot use unbalanced braces somewhere inside 
+    of an API 
+  <A href="api_param.html#string" target="_top">string</A>,
+    even if they are escaped with "\". 
+    Using strings like "}" or "{" inside of an API command will result 
+    in Tcl/Tk error messages on command-line, whereas a balanced "{}" is 
+    allowed.
+    So you have to avoid sending strings with unbalanced braces.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

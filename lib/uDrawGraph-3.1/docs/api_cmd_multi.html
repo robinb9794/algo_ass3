@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Multi Mode Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Multi Mode Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Multi Mode Commands</H1>
+  
+  <P>
+    For background information about the commands described on this page, 
+    refer to the
+  <A href="api_multi_modes.html" target="_top">information about the multi-graph, multi-view and multi-window modes</A>
+    in the corresponding section of the API reference.
+  </P>
+  <P>
+    On this page, API commands of the multi mode category are described. 
+    This category covers all commands to work with more than one
+    graph, view or window at a time.
+    The commands of this category are enclosed by keyword "multi(...)". 
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+  </P>
+
+  <A name="new_context"></A>
+  <H2>multi(new_context)</H2>
+  <P>
+    This command opens a new context by operating in 
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>. 
+    If uDraw(Graph) has been in the default single-graph mode 
+    and a graph was loaded before sending this command, 
+    then this graph will be automatically removed to 
+    start with an empty base window for the first context,
+  <A href="api_multi_modes.html#initialization" target="_top">read note about initialization</A>. 
+    Otherwise, if uDraw(Graph) is already in multi-graph mode, 
+    an additional empty base window will appear. 
+    In both cases, the current context (which specifies the graph 
+    that will be affected by subsequent commands sent to the API) 
+    will be the new one until this is changed with command 
+  <A href="api_cmd_multi.html#set_context" target="_top">multi(set_context(...))</A>
+    or until another new context is opened.
+  </P>
+  <P>
+    As with most commands, the answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A> 
+    is sent back to the application to confirm the execution. 
+    In the  
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>
+    (respective
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>),
+    all answers sent back to the application will have a preluding 
+  <A href="api_answ_all.html#context" target="_top">context(...)</A> 
+    (or 
+  <A href="api_answ_all.html#context_window" target="_top">context_window(...)</A>)
+    answer which specifies the graph/context (and window) where the event 
+    happened, 
+  <A href="api_multi_modes.html#two_answers" target="_top">refer for more information</A>. 
+    When a new context is opened, uDraw(Graph) will choose an unused 
+  <A href="api_param.html#context_id" target="_top">context_id</A>
+    (and 
+  <A href="api_param.html#window_id" target="_top">window_id</A>)
+    which is returned to the application in the preluding 
+    "context(...)" (or "context_window(...)") answer that will follow
+    immediately after executing this command.
+    This means, by opening the first context, your application program 
+    will always receive two answers.
+    First, answer "context(...)" (or "context_window(...)") with the 
+    ID of the new context (and the new window) and afterwards "ok". 
+    Your application has to store this context ID (and window ID) 
+    to be able to apply commands to this context (and window) later. 
+    The context ID (and window ID) returned by this command will also 
+    be used later in the preluding "context(...)" (or "context_window(...)") 
+    of any answer that is sent back to the application in multi-graph 
+    (or multi-window) mode. 
+    Further, the context ID (and window ID) can be used by the application 
+    to set the current context with command 
+  <A href="api_cmd_multi.html#set_context" target="_top">multi(set_context(...))</A>.
+  </P>
+
+  <A name="open_context"></A>
+  <H2>
+    multi(open_context(<A href="api_param.html#context_id" target="_top">context_id</A>))
+  </H2>
+  <P>
+    This command opens a new context in the same way like 
+  <A href="api_cmd_multi.html#new_context" target="_top">multi(new_context)</A>,
+    but here the context ID is not chosen by uDraw(Graph), but specified
+    by the application as parameter. 
+  <STRONG>Note:</STRONG> 
+    An initial underscore ("_") is not allowed for context IDs 
+    given by the application. 
+    The command returns answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>
+    with a preluding 
+  <A href="api_answ_all.html#context" target="_top">context(...)</A>
+    answer (or 
+  <A href="api_answ_all.html#context_window" target="_top">context_window(...)</A>
+    answer in 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>),
+    where the context ID is the one used in the parameter of this command
+    (the window ID cannot be specified by the application). 
+    The current context (which specifies the graph 
+    that will be affected by subsequent commands sent to the API) 
+    will be the new one until this is changed with command 
+  <A href="api_cmd_multi.html#set_context" target="_top">multi(set_context(...))</A>
+    or until another new context is opened.
+  </P>
+
+  <A name="set_context"></A>
+  <H2>
+    multi(set_context(<A href="api_param.html#context_id" target="_top">context_id</A>))
+  </H2>
+  <P>
+    This command is used in 
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>
+    to set the current context to the specified ID of a context that was
+    previously opened with command
+  <A href="api_cmd_multi.html#new_context" target="_top">multi(new_context)</A>
+    or
+  <A href="api_cmd_multi.html#open_context" target="_top">multi(open_context(...))</A>.
+    Afterwards, all commands sent to the API are applied to the 
+    graph that is represented by the current context, so to 
+    manipulate different graphs, the application has to switch 
+    between the contexts by using this command. 
+    The specified context has to be still open, so it must not be closed 
+    by the user or the application before (this is propagated
+    with a 
+  <A href="api_answ_all.html#close" target="_top">close</A>
+    answer). 
+    In
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>,
+    this command should not be used, use 
+  <A href="api_cmd_multi.html#set_context_win" target="_top">multi(set_context(context_id,window_id))</A>
+    instead.
+  </P>
+
+  <A name="set_context_win"></A>
+  <H2>
+    multi(set_context(<A href="api_param.html#context_id" target="_top">context_id</A>,<A href="api_param.html#window_id" target="_top">window_id</A>))
+  </H2>
+  <P>
+    Same as 
+  <A href="api_cmd_multi.html#set_context" target="_top">multi(set_context(context_id))</A>
+    above, but used in
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>
+    where it is possible to address all individual base windows of a 
+    context (called "views").
+    The additional window ID parameter used here is returned by the
+  <A href="api_answ_all.html#context_window" target="_top">context_window(...)</A>
+    answer that is returned after opening the context in multi-window mode
+    with command
+  <A href="api_cmd_multi.html#new_context" target="_top">multi(new_context)</A>
+    or 
+  <A href="api_cmd_multi.html#open_context" target="_top">multi(open_context(...))</A>
+    In
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>,
+    this command must not be used, use 
+  <A href="api_cmd_multi.html#set_context" target="_top">multi(set_context(context_id))</A>
+    instead.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Term Representation Multi-Edges</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="term.html"><B>Term Representation</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Multi- and Self-Edges</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Multi-Edges and Self-Edges</H1>
+  
+  <P>
+    Multi-edges and self-edges are special kinds of edges that are 
+    treated in a different way in the graph layout. 
+    Multi-edges occur when there are two or more edges between the 
+    same parent and child node. 
+    All these edges form one multi-edge. 
+    The single edges of a multi-edge are spread in the middle
+    between the parent and the child (see figure below).
+    The gap between the single edges can be adjusted with the
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A> 
+    dialog window. 
+  </P>
+  <P>
+    Self-edges are edges where the parent and child node are the same, 
+    i.e. a node that has an edge pointing to itself. 
+    Self-edges are visualized with a circular edge at the left respective
+    lower side of the node. 
+    The user can adjust the radius of self-edges with the 
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A> 
+    dialog window. 
+    Multi self-edges are also possible when a node has edges with a 
+    reference to itself many times in its list of children. 
+    These edges are visualized by writing the number of self-edges 
+    in the middle of the circle. 
+    The attributes of self-edges are considered in the graph 
+    visualization, but it is undefined which self-edge of a 
+    multi self-edge is taken for the attributes. 
+    So for example, if you have a multi self-edge containing a red 
+    and a blue self-edge, then it is not defined whether the multi 
+    self-edge is drawn in red or blue. 
+  </P>
+  <P>
+    There is no special handling for multi-edges and self-edges
+    in the term representation. 
+    So to define a multi-edge, one single edge to the child can be 
+    defined as a subterm and the other single edge is a reference
+    to the same subterm.
+  </P>
+  <P>
+  
+  <IMG border="1" alt="Multi-Edge and Self-Edge" width="" height="" src="uDG31_multi_self.gif">
+  <BR>
+  
+    Visualization of multi-edges and self-edges in uDraw(Graph)
+  <BR>
+  </P>
+ 
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

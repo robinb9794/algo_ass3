@@ -1,0 +1,7 @@
+  [
+  l("Node 1",n("Some Node",[a("OBJECT","Node 1")],
+        [
+        e("Some edge",[],
+          l("Node 2",n("Some Node",[a("OBJECT","Node 2")],[])))
+        ]))
+  ]

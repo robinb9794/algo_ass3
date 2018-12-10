@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tutorial, Edit with Drag&amp;Drop</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_edit.html"><B>Graph Editor</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Drag &amp; Drop</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 5.4: Using Drag and Drop 
+  </H1>
+  
+  <P>
+    In the previous sections you have used menus and icons to 
+    manipulate the graph. 
+    With the 
+  <A href="conc_dad.html" target="_top">drag and drop</A> 
+    feature of uDraw(Graph), you are able to directly manipulate 
+    the graph with the mouse when the graph editor is connected to the API.
+    (more details about drag and drop can be found in the
+  <A href="edit_dad.html" target="_top">graph editor documentation</A>).
+    Just click the 
+  <A href="gui_mous.html" target="_top">middle mouse button</A> somewhere 
+    over free space in the 
+  <A href="gui_base.html" target="_top">graph area</A> 
+    of the base window. 
+    A new node will be inserted directly at the position of the 
+    mouse pointer, if this is possible according to the principles of 
+  <A href="conc_lay.html" target="_top">hierarchical graph layout</A>.
+    Now press the middle mouse button over an existing node and drag 
+    (i.e. move) the mouse while still holding the button. 
+    An abstract edge will follow the mouse pointer. 
+    Move the mouse pointer somewhere over the graph area but not
+    over another node and release the button. 
+    You have created a new child node for the parent where you have
+    started with dragging the edge.
+  </P>
+  <P>
+  
+  <IMG border="1" alt="Drag and Drop 1" width="" height="" src="uDG31_dad1.gif">
+  <IMG border="0" alt="" width="" height="" src="space.gif">
+  <IMG border="1" alt="Drag and Drop 2" width="" height="" src="uDG31_dad2.gif">
+  <BR>
+  
+    Dragging a new child node with the middle mouse button
+  <BR>
+  </P>
+  <P>
+    Last but not least insert a new edge between two nodes. 
+    Again press the button over an existing node but now move the 
+    pointer to the designated child node while holding the mouse button
+    pressed. 
+    You will see that all nodes you pass with the pointer are drawn 
+    inverted to indicate which node becomes the child node if you
+    release the button. 
+    After releasing the button over a node, a new edge is inserted
+    between the parent where dragging was started and the child where
+    the button was released. 
+    You can even insert a self-edge when you release the button over 
+    the node where you have started with dragging (you have to move the 
+    mouse a little bit before releasing the button). 
+  </P>
+  <P>
+  
+  <IMG border="1" alt="Drag and Drop 3" width="" height="" src="uDG31_dad3.gif">
+  <IMG border="0" alt="" width="" height="" src="space.gif">
+  <IMG border="1" alt="Drag and Drop 4" width="" height="" src="uDG31_dad4.gif">
+  <BR>
+  
+    Dragging a new edge with the middle mouse button
+  <BR>
+  </P>
+  <P>
+    Another way to use drag and drop is to copy a node. 
+    Just press the SHIFT-key and the middle mouse button over a node.
+    The node is drawn inverted to indicate dragging, but it will not follow
+    the mouse. 
+    Then move the mouse to another place in the graph area or if you 
+    are editing several graphs move it even to another window and 
+    release the button there. 
+    A copy of the node (with the same attributes and text) is inserted. 
+    If you have released the button over another node, the copy of the 
+    node is inserted as a child node of the node under the mouse pointer, 
+    together with its connecting edge. 
+  </P>
+  <P>
+    End of Exercise 5.4.
+  <A href="tut_edit.html" target="_top">Go back to the Section 5 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

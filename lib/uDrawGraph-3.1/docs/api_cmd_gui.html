@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API GUI Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">GUI Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API GUI Commands</H1>
+  
+  <P>
+    For background information about the commands described on this page, 
+    refer to the
+  <A href="api_gui_config.html" target="_top">information about user interface configuration</A> 
+    in the corresponding section of the API reference.
+    Alternatively, you can use 
+  <A href="api_gui_extend.html" target="_top">user interface extension</A>
+    to control some aspects of the user interface.
+  </P>
+  <P>
+    On this page, API commands of the graphical user interface category are 
+    described. 
+    This category covers all commands to configure the uDraw(Graph) 
+    user interface by adding dialog elements (i.e. menus and icons) 
+    that are exclusively used by the application.
+    The commands of this category are enclosed by keyword "gui(...)".
+    They are only available when command-line option 
+  <A href="opt.html#nogui" target="_top">-nogui</A> has been used. 
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+  </P>
+
+  <A name="configure"></A>
+  <H2>
+    gui(configure(<A href="api_param.html#filename" target="_top">filename</A>))
+  </H2>
+  <P>
+    To configure the user interface of a new, unconfigured context 
+    using the configuration file "filename". 
+    The suffix ".menu" is automatically added behind "filename".
+    The file has to be in the current working directory, in directory
+    "$UDG_HOME/lib/uDrawGraph" or anywhere when an absolute filename is 
+    used.
+    For each context (see
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>),
+    this command can only be used once, because it is not possible 
+    to reconfigure the user interface of an already open base window. 
+    When uDraw(Graph) is started with command-line option 
+  <A href="opt.html#nogui" target="_top">-nogui</A>, no initial base window
+    will appear as long as this command or command
+  <A href="api_cmd_window.html#deiconify" target="_top">window(deiconify)</A>
+    have not been used.
+    The same is true for each subsequent context opened afterwards.
+    So with option "-nogui", you have to configure the user interface
+    for any new context before you can see the first base window.
+    This way it is possible to switch the user interface with every 
+    context.
+    More details are available in the 
+  <A href="api_gui_config.html" target="_top">user interface configuration guide</A>.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+
+  <A name="activate_menus"></A>
+  <H2>
+    gui(activate_menus(<A href="api_param.html#menu_ids" target="_top">menu_ids</A>))
+  </H2>
+  <P>
+    To activate the application menu entries specified by "menu_ids",
+    so it is possible to select them with the mouse. 
+    All the other entries previously defined in the configuration file 
+    and not member of list "menu_ids" are automatically deactivated at 
+    the same time, so they cannot be selected by the user. 
+    In other words, the application only has to enable the menus that 
+    should be available at a time without deactivating the other ones. 
+    The built-in menu entries of uDraw(Graph) cannot be activated using the API. 
+    More details are available in the
+  <A href="api_gui_config.html#activation" target="_top">user interface configuration guide</A>.
+  </P>
+
+  <A name="set_radio_menus"></A>
+  <H2>
+    gui(set_radio_menus(<A href="api_param.html#menu_ids" target="_top">menu_ids</A>))
+  </H2>
+  <P>
+    To select the specified "menu_ids" in a radio menu.
+    A radio menu is a group of menu entries where only one entry of a 
+    group can be selected at a time, either by the user or by the
+    application using this command.
+    The menu IDs in the parameter must exclusively belong to radio menus.
+    Make sure that only one entry of a radio menu is used here at a time.
+    More details are available in the
+  <A href="api_gui_config.html#activation" target="_top">user interface configuration guide</A>.
+  </P>
+
+  <A name="activate_icons"></A>
+  <H2>
+    gui(activate_icons(<A href="api_param.html#icon_ids" target="_top">icon_ids</A>))
+  </H2>
+  <P>
+    To activate the application icon entries specified by "icon_ids",
+    so it is possible to select them with the mouse. 
+    All the other entries previously defined in the configuration file 
+    and not member of list "icon_ids" are automatically deactivated at 
+    the same time, so they cannot be selected by the user. 
+    In other words, the application only has to enable the icons that 
+    should be available at a time without deactivating the other ones. 
+    The built-in icon entries of uDraw(Graph) cannot be activated using the API. 
+    More details are available in the
+  <A href="api_gui_config.html#activation" target="_top">user interface configuration guide</A>.
+  </P>
+
+  <A name="set_radio_icons"></A>
+  <H2>
+    gui(set_radio_icons(<A href="api_param.html#icon_ids" target="_top">icon_ids</A>))
+  </H2>
+  <P>
+    To select the specified "icon_ids" in a radio icon.
+    A radio icon is a group of icon entries where only one entry of a 
+    group can be selected at a time, either by the user or by the
+    application using this command.
+    The icon IDs in the parameter must exclusively belong to radio icons.
+    Make sure that only one entry of a radio icon is used here at a time.
+    More details are available in the
+  <A href="api_gui_config.html#activation" target="_top">user interface configuration guide</A>.
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

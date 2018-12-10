@@ -1,0 +1,20 @@
+  [
+  l("Node 1",n("Some Node",[a("OBJECT","Node 1")],
+  	[
+        e("Some edge",[],
+          l("Node 3",n("Some Node",[a("OBJECT","Node 3"),a("_GO","box")],
+          	[
+        	e("Self Edge",[],
+          	  r("Node 3"))
+          	])))
+       	])),
+  l("Node 2",n("Some Node",[a("OBJECT","Node 2")],
+  	[
+        e("Some edge",[],
+	  r("Node 3")),
+        e("Some edge",[],
+	  r("Node 2")),
+        e("Some edge",[],
+	  r("Node 2"))
+	]))
+  ]

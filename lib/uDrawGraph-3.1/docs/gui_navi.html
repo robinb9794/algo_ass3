@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Navigation Menu</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Navigation Menu</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Navigation Menu</H1>
+  
+  <IMG border="0" alt="Navigation File" width="" height="" src="uDG31_men_navi.gif" align="JUSTIFY">
+  <P>
+    The "Navigation" menu contains operations for performing 
+  <A href="gui_navi.html#selection" target="_top">actions on the node selection</A>, 
+    such as selecting relatives and neighbours of a node, and to 
+  <A href="gui_navi.html#search" target="_top">search for nodes</A> 
+    with a particular text. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    menu operations can also be invoked without the mouse by using
+  <A href="gui_keyb.html" target="_top">keyboard commands</A>. 
+  </P>
+
+  <A name="selection"></A>
+  <H2>Node Selection Operations</H2>
+  <UL>
+  <A name="select_parents"></A>
+  <LI>
+  <B>
+    Select Parents
+  </B>
+<BR>
+    This menu entry is used to highlight the parent nodes of the current
+    selection which can be one or more nodes or an edge.
+    After using this operation, the selection will change to all parents.
+    The parents of a node are the predecessor nodes that are connected by 
+    edges. 
+  </LI>
+
+  <A name="select_siblings"></A>
+  <LI>
+  <B>
+    Select Siblings
+  </B>
+<BR>
+    This menu entry is used to highlight the sibling nodes of the current
+    selection which can be one or more nodes.
+    After using this operation, the selection will change to all siblings.
+    The siblings of a node are all children of all parents of that node. 
+  </LI>
+
+  <A name="select_children"></A>
+  <LI>
+  <B>
+    Select Children
+  </B>
+<BR>
+    This menu entry is used to highlight the child nodes of the current
+    selection which can be one or more nodes or an edge.
+    After using this operation, the selection will change to all children.
+    The children of a node are the successor nodes that are connected by 
+    edges. 
+  </LI>
+
+  <A name="navigator"></A>
+  <LI>
+  <B>
+  <A href="gui_navi_navi.html" target="_top">Navigator...</A>
+  </B>
+<BR>
+    Used to move the focus in a graph. 
+    Starting at a selected node, both neighbour and relative nodes can 
+    be reached in all four directions. 
+    After selecting this menu entry, a 
+  <A href="gui_navi_navi.html" target="_top">navigator dialog</A> 
+    window will appear. 
+  <STRONG>Note:</STRONG> 
+    navigation is also available by using the 
+  <A href="gui_keyb.html" target="_top">cursor keys</A> 
+    of the keyboard.     
+  </LI>
+  </UL>
+
+  <A name="search"></A>
+  <H2>Search Operations</H2>
+  <UL>
+  <A name="find"></A>
+  <LI>
+  <B>
+  <A href="gui_navi_find.html" target="_top">Find ...</A>
+  </B>
+<BR>
+    To search for a node with a particular text. 
+    After selecting this menu entry, the
+  <A href="gui_navi_find.html" target="_top">find dialog</A>
+    window will appear. 
+    If exactly one node is selected, the search starts 
+    after this node, otherwise it begins at the topmost and leftmost 
+    node in the graph visualization (for top-down layouts). 
+  </LI>
+
+  <A name="find_again"></A>
+  <LI>
+  <B>
+    Find Again
+  </B>
+<BR>
+    To continue a previous search operation to find the next node 
+    with the text that has been specified before in the 
+  <A href="gui_navi_find.html" target="_top">find dialog</A>,
+    without opening this window again. 
+    Therefore, the operation is only available when a text has been 
+    entered in the find dialog before. 
+    If exactly one node is selected, the search continues 
+    after this node, otherwise it begins at the topmost and leftmost 
+    node in the graph visualization (for top-down layouts). 
+    This operation beeps when there is no node matching the search 
+    criterion. 
+  </LI>
+  </UL>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

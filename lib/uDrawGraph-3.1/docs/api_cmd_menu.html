@@ -1,0 +1,1018 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Menu Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Menu Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Menu Commands</H1>
+  
+  <P>
+    On this page, API commands of the menu category are described. 
+    This category covers all commands to call the functions of the
+    pull-down menus which are available in the uDraw(Graph) 
+  <A href="gui_base.html" target="_top">base window</A>.
+    The commands of this category are enclosed by keyword "menu(...)". 
+    The menu commands are further divided into subcategories with 
+    respect to the menu they belong to, so for example you can find 
+    the functions of menu 
+  <A href="gui_file.html" target="_top">File</A> 
+    in the "menu(file(...))" subcategory, and so on. 
+    Here is a list of all subcategories on this page: 
+  </P>
+
+  <UL>
+  <LI>
+  <A href="api_cmd_menu.html#file" target="_top">File Menu Category</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#view" target="_top">View Menu Category</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation" target="_top">Navigation Menu Category</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#abstraction" target="_top">Abstraction Menu Category</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#layout" target="_top">Layout Menu Category</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#option" target="_top">Option Menu Category</A>
+  </LI>
+  </UL>
+  
+  <P>
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+  </P>
+
+  <A name="file"></A>
+  <H1>File Menu Category</H1>
+  <P>
+    The commands of the file category are responsible for input and 
+    output, i.e. loading, saving, and printing. 
+    Further, there are commands to close the current context (i.e. 
+    the actual graph in 
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>) 
+    and to terminate the uDraw(Graph) process. 
+    The file category is the equivalent API function of the 
+  <A href="gui_file.html" target="_top">File</A>
+    menu in the user interface. 
+  </P>
+
+  <A name="file_new"></A>
+  <H2>
+    menu(file(new))
+  </H2>
+  <P>
+    Removes the current graph and clears the base window. 
+  </P>
+
+  <A name="file_open_graph"></A>
+  <H2>
+    menu(file(open_graph(<A href="api_param.html#filename" target="_top">filename</A>)))
+  </H2>
+  <P>
+    To load a new graph from file. 
+    The parameter "filename" specifies an existing file containing 
+    a uDraw(Graph) graph in 
+  <A href="term.html" target="_top">term representation format</A>. 
+    After loading a graph this way, the	
+  <A href="conc_lay.html" target="_top">layout algorithm</A>
+    for edge crossing reduction is not started automatically. 
+    You can either do this later using command 
+  <A href="api_cmd_menu.html#layout_improve_all" target="_top">menu(layout(improve_all))</A> 
+    or by combining both steps with command
+  <A href="api_cmd_menu.html#file_open_graph_placed" target="_top">menu(file(open_graph_placed(...)))</A>
+    to avoid that the intermediate layout before edge crossing reduction 
+    is shown to the user.
+    Alternatively, you can avoid file access by sending the graph 
+    in term representation format directly to the API with command
+  <A href="api_cmd_graph.html#new" target="_top">graph(new(...))</A>. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+
+  <A name="file_open_graph_placed"></A>
+  <H2>
+    menu(file(open_graph_placed(<A href="api_param.html#filename" target="_top">filename</A>)))
+  </H2>
+  <P>
+    This command combines 
+  <A href="api_cmd_menu.html#file_open_graph" target="_top">menu(file(open_graph(...)))</A>
+    (i.e. loading a graph) and 
+  <A href="api_cmd_menu.html#layout_improve_all" target="_top">menu(layout(improve_all))</A>
+    (i.e. starting the layout algorithm to reduce edge crossings) 
+    in one step. 
+    The advantage of using this command rather than the two others 
+    is that the user will not see the intermediate graph visualization
+    where the layout algorithm is not applied.
+    The parameter "filename" specifies an existing file containing 
+    a uDraw(Graph) graph in 
+  <A href="term.html" target="_top">term representation format</A>. 
+    Alternatively, you can avoid file access by sending the graph 
+    in term representation format directly to the API with command
+  <A href="api_cmd_graph.html#new_placed" target="_top">graph(new_placed(...))</A>. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+  
+  <A name="file_open_status"></A>
+  <H2>
+    menu(file(open_status(<A href="api_param.html#filename" target="_top">filename</A>)))
+  </H2>
+  <P>
+    To load a 
+  <A href="conc_sta.html" target="_top">graph status</A>
+    from the specified file which was previously saved by uDraw(Graph). 
+    A status contains a graph with all layout information and user 
+    interface settings. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+  
+  <A name="file_save_graph"></A>
+  <H2>
+    menu(file(save_graph(<A href="api_param.html#filename" target="_top">filename</A>)))
+  </H2>
+  <P>
+    Saves the current graph in 
+  <A href="term.html" target="_top">term representation format</A>
+    to the specified file which should have the suffix ".udg". 
+    By choosing the term representation format, only the graph structure 
+    is stored and the layout information will be lost.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+
+  <A name="file_save_status"></A>
+  <H2>
+    menu(file(save_status(<A href="api_param.html#filename" target="_top">filename</A>)))
+  </H2>
+  <P>
+    Saves the 
+  <A href="conc_sta.html" target="_top">status</A>
+    of the current graph to the specified file which should have the 
+    suffix ".status". 
+    By choosing the status format, the graph structure will be stored
+    as well as layout information and user interface settings. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+
+  <A name="file_print"></A>
+  <H2>
+    menu(file(print(<A href="api_param.html#filename" target="_top">filename</A>)))
+  </H2>
+  <P>
+    Saves the current graph in PostScript&reg; format to the
+    specified file which should have the suffix ".ps".
+    The generated file is EPSF compliant (encapsulated PostScript&reg;) 
+    and can be printed either on a PostScript&reg; printer or imported 
+    in suitable software. 
+    Refer for more 
+  <A href="gui_file_print.html#postscript" target="_top">information about the uDraw(Graph) PostScript&reg; interface</A>. 
+    The options of the PostScript&reg; interface available in the 
+  <A href="gui_file_print.html" target="_top">print dialog window</A> 
+    are not accessible using the API.
+    This command will always use a PostScript&reg; scale of 1:1 
+    without centering. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+
+  <A name="file_print_to_printer"></A>
+  <H2>
+    menu(file(print_to_printer))
+  </H2>
+  <P>
+    Similar to command 
+  <A href="api_cmd_menu.html#file_print" target="_top">menu(file(print(...)))</A>,
+    but sends the graph to a PostScript&reg; printer rather than saving
+    it to a file.
+    The print command used to access the printer can be set with command
+  <A href="api_cmd_set.html#print" target="_top">set(print(...))</A>.
+    Refer for more 
+  <A href="gui_file_print.html#postscript" target="_top">information about the uDraw(Graph) PostScript&reg; interface</A>. 
+    The options of the PostScript&reg; interface available in the 
+  <A href="gui_file_print.html" target="_top">print dialog window</A> 
+    are not accessible using the API.
+    This command will always use the default page size and a PostScript&reg; 
+    scale of 1:1 without centering. 
+  </P>
+
+  <A name="file_print2"></A>
+  <H2>
+    menu(file(print))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_file_print.html" target="_top">print dialog window</A> 
+    if a graph is loaded.
+    Nothing will happen when no graph is loaded in the current context.
+  </P>
+
+  <A name="file_export"></A>
+  <H2>
+    menu(file(export(<A href="api_param.html#boolean" target="_top">boolean</A>,<A href="api_param.html#string" target="_top">string</A>,<A href="api_param.html#filename" target="_top">filename</A>)))
+  </H2>
+  <P>
+    To export the current graph in a common graphics format to "filename".
+    The whole graph is exported when "boolean" is "true", otherwise only
+    the currently visible area of the graph is saved. The "string"
+    parameter is used to specify the file format, either "gif", "tiff"  or "png".
+  </P>
+  <P>
+    In order to use the export feature, it is necessary to have an open
+    uDraw(Graph) 
+  <A href="gui_base.html" target="_top">base window</A>
+    which must not be covered by other windows.
+    When using the export, uDraw(Graph) tries to raise the base window to
+    bring it in front of all other windows (on Windows&reg; platforms this
+    might fail due to restrictions of the operating system).
+    The export does not work when the base window is 
+  <A href="api_cmd_window.html#iconify" target="_top">iconified</A>
+    or when uDraw(Graph) operates in the background without a user interface
+    directly after starting the system with commandline option
+  <A href="opt.html#nogui" target="_top">-nogui</A>.
+    In this case the API answer
+  <A href="api_answ_all.html#communication_error" target="_top">communication_error</A>
+    is sent.
+    Make sure that the base window is visible in the front if you experience
+    any problems with export.
+  </P>
+
+  <P>
+  <STRONG>Note:</STRONG> Windows&reg; users please use "/" (slash) instead of "\" (backslash) as a directory separator.
+  </P>
+
+  <A name="file_export2"></A>
+  <H2>
+    menu(file(export))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_file_export.html" target="_top">export dialog window</A> 
+    if a graph is loaded.
+    Nothing will happen when no graph is loaded in the current context.
+  </P>
+
+  <A name="file_close"></A>
+  <H2>
+    menu(file(close))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#close" target="_top">close</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    To close the current context in 
+  <A href="api_multi_modes.html" target="_top">multi-graph</A>
+    or 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>.
+    This will remove all base windows which are opened in the
+    current context. 
+    Afterwards, the closed context cannot be used any further. 
+    To proceed, the application has to open a new context with command 
+  <A href="api_cmd_multi.html#new_context" target="_top">multi(new_context)</A>
+    or specify one of the remaining contexts to be the new current context 
+    using command
+  <A href="api_cmd_multi.html#set_context" target="_top">multi(set_context(...))</A>.
+    All other commands will be ignored as long as a new current context 
+    is not specified.
+    This command is not available in the default single-graph mode. 
+    It is even possible to close the last context without quitting uDraw(Graph). 
+    After closing the last context, no window will be visible any longer, 
+    but the uDraw(Graph) process is still running in the background. 
+    In this situation, the application can open a new first context and a 
+    new base window will come back. 
+  </P>
+
+  <A name="file_exit"></A>
+  <H2>
+    menu(file(exit))
+  </H2>
+  <P>
+    To quit the system. 
+    This will terminate the uDraw(Graph) process. 
+  </P>
+
+  <A name="view"></A>
+  <H1>View Menu Category</H1>
+  <P>
+    The commands of the view category are used to open additional 
+    views (i.e. base windows) of the current graph, to set the scale 
+    and to open some dialog windows with information. 
+    The view category is the equivalent API function of the 
+  <A href="gui_view.html" target="_top">View</A>
+    menu in the user interface. 
+  </P>
+
+  <A name="view_open_new_view"></A>
+  <H2>
+    menu(view(open_new_view))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> When in
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>, 
+    this command returns the answer 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    Opens a new view of the current graph which is an additional 
+  <A href="gui_base.html" target="_top">base window</A>
+    showing the same graph, see 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view mode</A>).
+    Each view of a graph is based on the same logical graph structure, 
+    so selection of a node or 
+  <A href="conc_fin.html" target="_top">fine-tuning</A>
+    in one view will manipulate all the other views of the same graph, too. 
+    One exception is the 
+  <A href="conc_int.html" target="_top">scale</A>,
+    so each view may have its own scale. 
+    From a technical point of view, multi-view windows are not the same
+    as 
+  <A href="api_multi_modes.html" target="_top">multi-graph</A>
+    windows in different contexts which show different graphs and are 
+    independent from each other. 
+    Multi-view is a feature of the user interface, so the application is 
+    unable to control multi-view windows, e.g. to close one particular 
+    view (base window). 
+    In the multi-view mode, the application can only open another view 
+    by using this API command without being able to control it later.
+  </P>
+  <P>
+    In multi-view mode, commands that are related to one specific 
+    window (e.g.
+  <A href="api_cmd_menu.html#view_set_scale" target="_top">setting the scale</A>, 
+  <A href="api_cmd_special.html#focus_node" target="_top">focusing nodes</A> or
+  <A href="api_cmd_window.html#position" target="_top">setting the window position</A>)
+    are always applied to the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>
+    which is the oldest view in a context.
+    To solve these restrictions, the 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>
+    has been introduced to be able to control all individual base windows 
+    (views) in a context.
+    This mode is activated with command-line option
+  <A href="opt.html#window_api" target="_top">-window_api</A>.
+    In the multi-window mode, this command returns the answer
+  <A href="api_answ_all.html#open_window" target="_top">open_window</A>
+    rather than
+  <A href="api_answ_all.html#ok" target="_top">ok</A>
+    which is returned in multi-view mode.
+    All views (i.e. base windows) of a context (i.e. graph) will be 
+    removed when the context is closed, either by the user or by the 
+    application with command 
+  <A href="api_cmd_menu.html#file_close" target="_top">menu(file(close))</A>. 
+    The user can open and close new views of a graph at any time. 
+  </P>
+
+  <A name="view_open_survey_view"></A>
+  <H2>
+    menu(view(open_survey_view))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> When in
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>, 
+    this command returns the answer 
+  <A href="api_answ_all.html#open_window" target="_top">open_window</A> 
+    instead of the usual answer
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    Same as command 
+  <A href="api_cmd_menu.html#view_open_new_view" target="_top">menu(file(open_new_view()))</A>,
+    but opens a survey view with special properties.
+    A survey view shows the whole graph in a reduced scale. The
+    currently visible part of the master view is visualized with a 
+    blue rectangle.
+    For the 
+  <A href="gui_view.html" target="_top">special features of the survey view</A>,
+    see the documentation of the corresponding operation in the 
+    user interface section.
+  </P>
+
+  <A name="view_full_scale"></A>
+  <H2>
+    menu(view(full_scale))
+  </H2>
+  <P>
+    Sets the scale to 100%, so all details are visible. 
+    In 
+  <A href="api_multi_modes.html" target="_top">multi-view mode</A>, 
+    this operation will only affect the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>
+    of the current context. 
+  </P>
+
+  <A name="view_fit_scale_to_window"></A>
+  <H2>
+    menu(view(fit_scale_to_window))
+  </H2>
+  <P>
+    Sets the scale to the maximal value where the graph is completely 
+    visible. 
+    In 
+  <A href="api_multi_modes.html" target="_top">multi-view mode</A>, 
+    this operation will only affect the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>
+    of the current context. 
+  </P>    
+
+  <A name="view_scale"></A>
+  <H2>
+    menu(view(scale(<A href="api_param.html#integer" target="_top">integer</A>)))
+  </H2>
+  <P>
+    Sets the scale to the given parameter "integer" which is a percent
+    value that must be from 1 to 100. 
+    So with a scale of 20, the graph is drawn five times smaller than usual. 
+    In scales smaller than 100, the text of nodes is not displayed
+    and other details are dropped as well. 
+    If you have to reduce the graph size without losing these details,
+    then you can switch to a smaller font size with command
+  <A href="api_cmd_set.html#font_size" target="_top">set(font_size(...))</A>
+    or you can reduce the gap between nodes with the commands
+  <A href="api_cmd_set.html#gap_width" target="_top">set(gap_width(...))</A>
+    and
+  <A href="api_cmd_set.html#gap_height" target="_top">set(gap_height(...))</A>.
+    In 
+  <A href="api_multi_modes.html" target="_top">multi-view mode</A>, 
+    this operation will only affect the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>
+    of the current context. 
+  </P>
+
+  <A name="view_scale2"></A>
+  <H2>
+    menu(view(scale))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_view_scale.html" target="_top">scale window</A> 
+    if a graph is loaded.
+    Nothing will happen when no graph is loaded in the current context.
+  </P>
+
+  <A name="view_graph_info"></A>
+  <H2>
+    menu(view(graph_info))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_view_info.html" target="_top">graph info dialog window</A> 
+    if a graph is loaded.
+    Nothing will happen when no graph is loaded in the current context.
+  </P>
+
+  <A name="view_uDrawGraph_info"></A>
+  <H2>
+    menu(view(uDrawGraph_info))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_view_prod.html" target="_top">uDraw(Graph) info dialog window</A>.
+  </P>
+
+  <A name="navigation"></A>
+  <H1>Navigation Menu Category</H1>
+  <P>
+    The commands of the navigation category are used to change the 
+    selection, i.e. the set of currently selected nodes. 
+    There are commands to select the parent-, sibling- and child nodes 
+    for a given set of nodes or edges. 
+    Further, there are commands to navigate to related nodes and find 
+    particular nodes based on textual search. 
+    The navigation category is the equivalent API function of the 
+  <A href="gui_navi.html" target="_top">Navigation</A>
+    menu in the user interface. 
+  </P>
+  <P>
+    All commands of this category do not return answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A> 
+    for confirmation. 
+    Instead, they return the new selection by using answer
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels(...)</A>.
+    Of course, any navigation command may fail, for example when there 
+    is no node that matches a particular string used in command
+  <A href="api_cmd_menu.html#navigation_find" target="_top">menu(navigation(find(...)))</A>.
+    A failed navigation command will not modify the current selection 
+    and will return the current (former) selection as result. 
+    So to see whether or not the command was successful, you have to
+    compare the node selection before and after sending the navigation 
+    command. 
+    If both selections are the same, then the navigation has failed, 
+    otherwise it was successful. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    if you are looking for an API command to select a set of nodes or 
+    one particular edge in the graph, then this category is
+    obviously the wrong place (because nodes are not selected by menus, 
+    but with the mouse). 
+    Refer to the
+  <A href="api_cmd_special.html" target="_top">special category</A>
+    for commands to select particular nodes or an edge.
+  </P>
+
+  <A name="navigation_select_parents"></A>
+  <H2>
+    menu(navigation(select_parents(<A href="api_param.html#node_ids" target="_top">node_ids</A>)))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels</A> 
+    instead of the usual answer of 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    Selects all of the parent nodes of the nodes specified by parameter 
+    "node_ids". 
+    The returned answer is either the list of parents (which is the new
+    current selection) or the former selection when this operation has 
+    failed (i.e. when there are no parents for the given nodes). 
+  </P>
+
+  <A name="navigation_select_parent"></A>
+  <H2>
+    menu(navigation(select_parent(<A href="api_param.html#edge_id" target="_top">edge_id</A>)))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    Selects the parent node of the edge specified by parameter 
+    "edge_id". 
+    The returned answer is either a list with the parent (which is the new
+    current selection) or the former selection when this operation has 
+    failed (i.e. when the edge has no parent). 
+  </P>
+
+  <A name="navigation_select_siblings"></A>
+  <H2>
+    menu(navigation(select_siblings(<A href="api_param.html#node_ids" target="_top">node_ids</A>)))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    Selects all of the sibling nodes (i.e. all children of all parents) 
+    of the nodes specified by parameter "node_ids". 
+    The returned answer is either the list of siblings (which is the new 
+    current selection) or the former selection when this operation has
+    failed (i.e. when there are no siblings for the given nodes). 
+  </P>
+
+  <A name="navigation_select_children"></A>
+  <H2>
+    menu(navigation(select_children(<A href="api_param.html#node_ids" target="_top">node_ids</A>)))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    Selects all of the child nodes of the nodes specified by parameter
+    "node_ids". 
+    The returned answer is either the list of children (which is the new
+    current selection) or the former selection when this operation has
+    failed (i.e. when there are no children for the given nodes). 
+  </P>
+
+  <A name="navigation_select_child"></A>
+  <H2>
+    menu(navigation(select_child(<A href="api_param.html#edge_id" target="_top">edge_id</A>)))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    Selects the child node of the edge specified by parameter 
+    "edge_id". 
+    The returned answer is either a list with the child (which is the new
+    current selection) or the former selection when this operation has 
+    failed (i.e. when the edge has no child). 
+  </P>
+
+  <A name="navigation_navigator"></A>
+  <H2>
+    menu(navigation(navigator(<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#direction" target="_top">direction</A>,<A href="api_param.html#boolean" target="_top">boolean</A>)))
+  </H2>
+  <P>
+    Selects the nearest neighbour node according to the given direction 
+    by starting at the specified node with ID "node_id". 
+    Geometrical navigation is used when the boolean parameter is "false".
+    In this mode the relations given by the edges are ignored, so for 
+    example when the upward direction is used, one will navigate to the
+    nearest node at the previous level. 
+    On the other side, when "true" is used for this parameter, 
+    structural navigation is used which takes the edges' relations into 
+    account. 
+    Navigating in upward direction with structural navigation will
+    select the "nearest" parent node with respect to the center x 
+    coordinate of all parents. 
+  </P>
+  <P>
+    <STRONG>Note 1:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    <STRONG>Note 2:</STRONG>
+    The navigation command considers the current layout orientation 
+    that can be set with command
+  <A href="api_cmd_menu.html#layout_orientation" target="_top">menu(layout(orientation(...)))</A>. 
+    So "down" in a graph with a left-to-right layout will navigate 
+    to the same node as "left" in a top-down layout of the same graph. 
+    The answer of this command is either the node where the navigation 
+    command has moved to (which is the new current selection) or the 
+    former selection when this operation has failed 
+    (e.g. by navigating in upward direction starting at the nodes 
+    of the first level in a top-down layout). 
+  </P>
+
+  <A name="navigation_navigator"></A>
+  <H2>
+    menu(navigation(navigator))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_navi_navi.html" target="_top">navigator dialog window</A> 
+    if a graph is loaded.
+    Nothing will happen when no graph is loaded in the current context.
+  </P>
+
+  <A name="navigation_find"></A>
+  <H2>
+    menu(navigation(find(<A href="api_param.html#string" target="_top">string</A>,<A href="api_param.html#boolean" target="_top">boolean</A>,<A href="api_param.html#boolean" target="_top">boolean</A>)))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#node_selections_labels" target="_top">node_selections_labels</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    To search for a node with text "string". 
+    The text of a node is the value of the node's attribute 
+  <A href="term_nattr.html#object" target="_top">OBJECT</A>
+    in the term representation of the graph. 
+    The first "boolean" parameter of the command is a flag to show
+    that the case shall be considered.
+    Use "false" when upper and lower case letters (e.g. "A" and "a") 
+    shall be equal for the search. 
+    The second "boolean" parameter is a flag to show that an exact
+    match shall be applied.
+    Use "false" when a search string like "raw" shall match a node
+    with text "uDraw(Graph)", for example.
+    If exactly one node is selected before using this command, 
+    then the search starts at this node. 
+    Otherwise, the search will start at the leftmost and topmost node 
+    (for top-down layouts). 
+    The returned answer is either the first node found by the search 
+    operation (which is the new current selection) or the former
+    selection when this operation has failed (e.g. when there is no 
+    node in graph that matches the string). 
+  </P>
+
+  <A name="navigation_find2"></A>
+  <H2>
+    menu(navigation(find))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_navi_find.html" target="_top">find dialog window</A> 
+    if a graph is loaded.
+    Nothing will happen when no graph is loaded in the current context.
+  </P>
+
+  <A name="abstraction"></A>
+  <H1>Abstraction Menu Category</H1>
+  <P>
+    The commands of the abstraction category are responsible for 
+    hiding particular details in a graph visualization. 
+    An abstraction does not manipulate the internal graph structure, 
+    it only has a temporary effect on the visualization of the graph. 
+    There are two forms of abstraction: subgraph abstractions and 
+    edge abstractions. 
+    Hidden subgraphs or edges can be restored for each individual node/edge
+    with the "show..." commands or for all node/edges in one step with the 
+    "restore..." commands.
+    The abstraction category is the equivalent API function of the 
+  <A href="gui_abst.html" target="_top">Abstraction</A>
+    menu in the user interface. 
+  </P>
+
+  <A name="abstraction_hide_subgraph"></A>
+  <H2>
+    menu(abstraction(hide_subgraph(<A href="api_param.html#node_ids" target="_top">node_ids</A>)))
+  </H2>
+  <P>
+    To hide the subgraphs of the nodes specified by "node_ids". 
+    Nodes that are already hidden are ignored.
+    This kind of abstraction removes all children of a specified node 
+    from the visualization that can be exclusively reached by 
+    starting at the specified nodes. 
+    The hiding process stops as soon as there is a node with a
+    parent that cannot be reached from "node_ids".
+    For more 
+  <A href="gui_abst.html" target="_top">information about subgraph abstractions</A>
+    see the documentation of the corresponding operation in the
+    user interface section.
+  </P>
+
+  <A name="abstraction_show_subgraph"></A>
+  <H2>
+    menu(abstraction(show_subgraph(<A href="api_param.html#node_ids" target="_top">node_ids</A>)))
+  </H2>
+  <P>
+    To undo a subgraph abstraction for the nodes specified by "node_ids". 
+    Nodes that are not hidden are ignored.
+  </P>
+
+  <A name="abstraction_restore_all_subgraphs"></A>
+  <H2>
+    menu(abstraction(restore_all_subgraphs))
+  </H2>
+  <P>
+    To undo all subgraph abstractions in the graph in one step. 
+  </P>
+
+  <A name="abstraction_hide_edges"></A>
+  <H2>
+    menu(abstraction(hide_edges(<A href="api_param.html#node_ids" target="_top">node_ids</A>)))
+  </H2>
+  <P>
+    To hide the edges of the nodes specified by "node_ids". 
+    Nodes that are already hidden are ignored.
+    This kind of abstraction removes all incoming and outgoing edges 
+    of the specified nodes from the visualization. 
+    For more 
+  <A href="gui_abst.html" target="_top">information about edge abstractions</A>
+    see the documentation of the corresponding operation in the
+    user interface section.
+  </P>
+
+  <A name="abstraction_show_edges"></A>
+  <H2>
+    menu(abstraction(show_edges(<A href="api_param.html#node_ids" target="_top">node_ids</A>)))
+  </H2>
+  <P>
+    To undo an edge abstraction for the nodes specified by "node_ids". 
+    Nodes that are not hidden are ignored.
+  </P>
+
+  <A name="abstraction_restore_all_edges"></A>
+  <H2>
+    menu(abstraction(restore_all_edges))
+  </H2>
+  <P>
+    To undo all edge abstractions in the graph in one step. 
+  </P>
+
+  <A name="layout"></A>
+  <H1>Layout Menu Category</H1>
+  <P>
+    The commands of the layout category are used to optimize the 
+    layout of a graph by arranging the nodes and edges. 
+    There are commands to start the graph layout algorithm with 
+    different options (i.e. edge crossing reduction), to move nodes 
+    closer together and to set the orientation of the graph layout. 
+    The layout category is the equivalent API function of the 
+  <A href="gui_lay.html" target="_top">Layout</A>
+    menu in the user interface. 
+  </P>
+    
+  <A name="layout_improve_all"></A>
+  <H2>
+    menu(layout(improve_all))
+  </H2>
+  <P>
+    This command starts the 
+  <A href="conc_lay.html" target="_top">layout algorithm</A>
+    to improve the visualization quality of the whole graph by 
+    reducing unnecessary edge crossings and edge bends. 
+    This is done by reordering all the nodes and dummy nodes.
+    Processing this operation may take a long time, depending on 
+    the size of the graph and the accuracy of the layout
+    algorithm that can be set with command 
+  <A href="api_cmd_set.html#layout_accuracy" target="_top">set(layout_accuracy(...))</A>. 
+    This is the reason why the layout algorithm is not applied
+    automatically after loading a graph,
+    so the user or the application are free to do this at any time. 
+  </P>
+
+  <A name="layout_improve_edges"></A>
+  <H2>
+    menu(layout(improve_edges))
+  </H2>
+  <P>
+    Similar to
+  <A href="api_cmd_menu.html#layout_improve_all" target="_top">menu(layout(improve_all))</A>, 
+    but here the command can only reorder dummy nodes in order to get a better
+    routing of long span edges. 
+    The order of the regular nodes on the levels is not changed. 
+  </P>
+
+  <A name="layout_improve_selected"></A>
+  <H2>
+    menu(layout(improve_selected))
+  </H2>
+  <P>
+    Similar to
+  <A href="api_cmd_menu.html#layout_improve_all" target="_top">menu(layout(improve_all))</A>, 
+    but here the command can only reorder the nodes that are currently
+    selected and the dummy nodes of their edges.
+    The order of the remaining nodes is left unchanged. 
+  </P>
+
+  <A name="layout_improve_nodes"></A>
+  <H2>
+    menu(layout(improve_nodes(<A href="api_param.html#node_ids" target="_top">node_ids</A>)))
+  </H2>
+  <P>
+    Similar to
+  <A href="api_cmd_menu.html#layout_improve_selected" target="_top">menu(layout(improve_selected))</A>, 
+    but this command reorders the nodes supplied in the parameter instead
+    of the selected nodes. 
+  </P>
+
+  <A name="layout_improve_spacing"></A>
+  <H2>
+    menu(layout(improve_spacing))
+  </H2>
+  <P>
+    Similar to
+  <A href="api_cmd_menu.html#layout_improve_all" target="_top">menu(layout(improve_all))</A>, 
+    but here the command keeps the order of node and dummy nodes, 
+    so only the relative position and distance between nodes may vary.
+    This is especially useful after hiding nodes with command
+  <A href="api_cmd_menu.html#abstraction_hide_subgraph" target="_top">menu(abstraction(hide_subgraph(...)))</A>
+    to utilize the free space without losing the order of nodes.
+  </P>
+
+  <A name="layout_orientation"></A>
+  <H2>
+    menu(layout(orientation(<A href="api_param.html#orientation" target="_top">orientation</A>)))
+  </H2>
+  <P>
+    To set the layout orientation in the graph according to parameter 
+    "orientation". 
+    The default orientation is top-down where the root nodes of the graph 
+    are at the top and edges are leading downwards. 
+    The other three directions are bottom-up, left-to-right and
+    right-to-left.
+  </P>
+
+
+  <A name="option"></A>
+  <H1>Option Menu Category</H1>
+  <P>
+    The commands of the option menu category are used to open the 
+    option dialogs and to save the options. 
+    Individual options can be set with commands of the
+  <A href="api_cmd_set.html#html" target="_top">set category</A>.
+    The option category is the equivalent API function of the 
+  <A href="gui_opt.html" target="_top">Options</A>
+    menu in the user interface. 
+  </P>
+    
+  <A name="option_layout_algorithm"></A>
+  <H2>
+    menu(option(layout_algorithm))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_opt_alg.html" target="_top">layout algorithm dialog window</A>.
+  </P>
+
+  <A name="option_layout_settings"></A>
+  <H2>
+    menu(option(layout_settings))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_opt_set.html" target="_top">layout settings dialog window</A>.
+  </P>
+
+  <A name="option_general_settings"></A>
+  <H2>
+    menu(option(general_settings))
+  </H2>
+  <P>
+    Opens the  
+  <A href="gui_opt_gen.html" target="_top">general settings dialog window</A>.
+  </P>
+
+  <A name="option_save"></A>
+  <H2>
+    menu(option(save))
+  </H2>
+  <P>
+    Saves the current settings of the option dialogs for permanent use.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    Adobe and PostScript are registered trademarks of Adobe Systems, Inc.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

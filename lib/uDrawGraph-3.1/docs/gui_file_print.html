@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Print Dialog</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui_file.html"><B>File Menu</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Print...</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>Print Dialog Window</H1>
+  
+  <IMG border="0" alt="Print Dialog" width="" height="" src="uDG31_win_print.gif" align="JUSTIFY">
+
+  <P>
+    This dialog window can be used to set options and target before 
+    printing the current graph in PostScript&reg; format. The graph
+    can be sent either to a PostScript&reg; printer or saved in a file 
+    for import in another program which is able to import the
+    PostScript&reg; format. 
+    Read the 
+  <A href="gui_file_print.html#postscript" target="_top">
+    notes about PostScript&reg;</A>
+    below for more information.
+    You cannot directly send the graph to the printer here, if it does 
+    not support PostScript&reg;.
+    In this case you have to use third-party software installed on your
+    computer which has printer access. 
+    Either print the graph in PostScript&reg; format to a file in this 
+    dialog (if your software can import  PostScript&reg; or use
+    the 
+  <A href="gui_file_export.html" target="_top">export dialog</A>
+    to create a file in the more common GIF,  TIFF or 
+    PNG formats.
+    Afterwards import this file in your third-party software and 
+    print the graph there.
+  </P>
+  <P>
+    Initially, the options in this dialog are set so the graph 
+    is sent to a printer, fits on the page according to the specified
+    size and is centered on the page. Before printing, the user is 
+    able to modify these settings. Beside using the window's dialog
+    items, this can also be done with direct manipulation of the 
+    "paper picture" in the lower part of the window: 
+  </P>
+  <UL>
+  <LI>
+    Click on the symbolized graph (on the paper symbol) to switch 
+    the "Center Graph on Page" check button.
+  </LI>
+  <LI>
+    Click on the paper symbol (i.e. on the border around the graph) 
+    to switch the "Page Orientation" option button. 
+  </LI>
+  <LI>
+    Click on the symbolized printer or disk icon to switch the 
+    "Send to" radio buttons. 
+  </LI>
+  </UL>
+    The measure unit (either cm or inch) and the print command can be 
+    set in dialog 
+  <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>
+    permanently. 
+
+  <H2>Dialog Elements of the Print Window</H2>
+  <UL>
+  <LI>
+  <B>Page Size</B>
+<BR>
+     Specifies the size of the page used for printing the graph, 
+     either A3, A4, A5, Letter or Legal. Please refer to your printer 
+     documentation to choose the appropriate value. 
+     The resulting page size (in cm or inch) is displayed in the window. 
+     This size is used to center the graph correctly on a page and has 
+     no effect when the "Center Graph on Page" check button is not
+     selected. 
+  </LI>
+
+  <LI>
+  <B>Page Orientation</B>
+<BR>
+     Specifies the orientation of the graph on the page, either 
+     Landscape or Portrait. The resulting page width and height
+     (in cm or inch) is displayed in the window. The initial orientation 
+     is set automatically to get a maximal scale (e.g. Landscape, if 
+     the graph height is smaller than the width).
+  </LI>
+
+  <LI>
+  <B>Center Graph on Page</B>
+<BR>
+     Select this check button to center the graph on the page. You 
+     have to choose the right page size of your printer to get 
+     proper results. Usually, centering is desired when a graph 
+     is printed on paper, but not when a PostScript&reg; file is
+     imported in another application. So, if the user switches the 
+     "Send to" radio buttons, then this check button is automatically 
+     set (centered for printers, not centered for files). 
+     Of course, this automatic setting can be corrected afterwards. 
+  </LI>
+
+  <LI>
+  <B>Print Scale</B>
+<BR>
+    This slider sets the scale in the PostScript&reg; representation 
+    of the graph. The "Fit to Page" button calculates the maximal 
+    scale where the graph is completely visible on the page (but 
+    not larger than a scale of 1:1). This is also the scale used 
+    as initial value. After manipulating the scale, the actual width 
+    and height of the graph will be displayed (in cm or inch) in 
+    the picture in the lower part of the window. 
+    Width and height are drawn in red when the graph exceeds the 
+    current dimensions of the page. 
+    A special scale is 1:1 where one inch on the screen is one inch in
+    the generated PostScript&reg; file (for 72dpi screens). 
+    To get this scale, simply click on the 1:1 label. 
+  <STRONG>Note:</STRONG> 
+    the uDraw(Graph) PostScript&reg; interface has a minimal scale 
+    with a magnification rate of 0.1 which is the "Small" value of 
+    the scale slider. No smaller scales are supported, so very large 
+    graphs may not fit on the page of the selected size. 
+    The "Fit to Page" button does not reduce the scale if the scale 
+    slider is already at the minimal value.
+    Choose a larger page size or do not use the "Center Graph on Page" 
+    option in this case. 
+  </LI>
+
+  <LI>
+  <B>Color Mode</B>
+<BR>
+    With these radio buttons you can choose the mode that is used for
+    printing. 
+    The mode is independent of the printers capabilities, so "Color" 
+    can be printed on a b/w printer and "Grayscale" can be printed on 
+    a color printer (which should give you identical color-less results).
+  </LI>
+
+  <LI>
+  <B>Send to</B>
+<BR>
+    Used to select the target of the graph in PostScript&reg; representation, 
+    either a printer specified by the "Print Command" field or a file
+    specified by the "File Name" field. 
+    Switching these radio buttons also manipulates the 
+    "Center Graph on Page" check button for more convenience (see above). 
+  </LI>
+
+  <LI>
+  <B>Print Command</B>
+<BR>
+    This specifies the command used for printing the graph on a 
+    PostScript&reg; printer after the "Print" push button is
+    pressed. 
+    To enable the text entry, set "Send to" to "Printer".
+    The required syntax is the same used in a UNIX&reg; or Windows&reg; 
+    shell for printing files, but without the file name. Options to
+    the print command may also be typed here. 
+    Please read the
+  <A href="gui_opt_gen.html#printing" target="_top">print options</A>
+    if you are not sure what to enter here, especially on the
+    Windows&reg; platform.
+  </LI>
+
+  <LI>
+  <B>File Name</B>
+<BR>
+    This specifies the file name where the PostScript&reg; representation 
+    of a graph is stored after the print push button is pressed. 
+    To enable the text entry, set "Send to" to "File" or press the
+    browse button.
+    Either type the file name directly into this field or use the 
+    file browser for more convenience by pressing the browse button.
+    The file browser is similar to the one used to
+  <A href="gui_file_save.html" target="_top">save a graph</A>.
+  </LI>
+
+  <LI>
+  <B>Print or Save</B>
+<BR> 
+    Push button to either print the graph in PostScript&reg; format on 
+    a printer or save it in a file, according to the "Send to"
+    radio buttons. 
+  </LI>
+
+  <LI>
+  <B>Cancel</B>
+<BR> 
+     Push button to close the print dialog without performing any action. 
+  </LI>
+
+  <LI>
+  <B>Help </B>
+<BR>
+     Push button to start the 
+  <A href="gnrl_use.html#help_system" target="_top">online help system</A>
+     with this page. 
+  </LI>
+  </UL>
+
+  <A name="postscript"></A>
+  <H2>Notes about PostScript&reg; in uDraw(Graph)</H2>
+  <P>
+    The output generated by uDraw(Graph) is PostScript&reg; Level-1 code, 
+    compliant to the Adobe&reg; Document Structuring Conventions (DSC). 
+    To output is compliant to the guidelines for document exchange in 
+    "Encapsulated PostScript Format" (EPSF, often called EPS), so you 
+    can load a PostScript&reg; graph created by uDraw(Graph) in third-party
+    software that support EPSF import. 
+    The optional PostScript&reg; preview part ("Encapsulated PostScript 
+    Interchange", EPSI) is not generated, so after importing a 
+    PostScript&reg; graph created by uDraw(Graph) you may not see the
+    graph on the screen, but it will appear on paper after printing.
+    You can use third-party software packages to add the optional 
+    preview part to any PostScript&reg; file, e.g. "pstoepsi".
+    Please use a web search engine to find such software for your
+    operating system.
+  </P>
+  <P>
+    uDraw(Graph) usually places a graph on one PostScript&reg; page, 
+    regardless of the size of the graph visualization, so multi-page 
+    output for getting huge posters is not directly supported. 
+    You can use third-party software packages to split a large
+    PostScript&reg; file on several pages (to stick them together),
+    e.g. "ps_poster".
+    Please use a web search engine to find such software for your
+    operating system.
+  </P>
+  <P>
+  <UL>
+  <LI>
+    If the PostScript&reg; scale you have selected with the "Print Scale" 
+    slider is too large, then the graph will not be completely visible 
+    on the page after printing. 
+    If you intend to send the graph to a printer, choose a suitable
+    page size supported by the printer and press the "Fit to Page" 
+    button afterwards to avoid such problems. 
+  </LI>
+  <LI>
+    The coordinates of nodes and edges in PostScript&reg; are taken from 
+    the screen representation of the graph. 
+    PostScript&reg; fonts and screen fonts may vary in character width, 
+    so for the PostScript&reg; graph it is possible that the text of a 
+    node is quite smaller than the node itself, in opposition to the 
+    screen representation. 
+    In rare cases, the text may overlap the boundary of a node. 
+  </LI>
+  <LI>
+    Screen font "Helvetica" is always replaced by the PostScript&reg; 
+    font "HelveticaNarrow" to avoid problems with overlapping. 
+  </LI>
+  <LI>
+    The uDraw(Graph) default font "Lucida" is not a popular font in 
+    PostScript&reg;. 
+    So, the PostScript&reg; files generated by uDraw(Graph) will always
+    check if the PostScript&reg; interpreter in use (e.g. the printer) 
+    supports "Lucida" and will use font "Helvetica" otherwise. 
+  </LI>
+  </UL>
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    Adobe and PostScript are registered trademarks of Adobe Systems, Inc.
+  
+    GIF is a service mark property of CompuServe, Inc.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

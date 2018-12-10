@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tutorial, Printing</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_bas.html"><B>Basic Tasks</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Printing</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 1.4: Printing a Graph Visualization 
+  </H1>
+  
+  <P>
+    You can print a graph on a PostScript&reg; printer directly from 
+    uDraw(Graph) to get the current layout on paper. 
+    For this operation the 
+  <A href="gui_file_print.html" target="_top">print dialog</A> 
+    window is needed which will appear after selecting menu 
+  <A href="gui_file.html" target="_top">File/Print...</A> 
+    (or by pressing the printer button of the icon bar). 
+  </P>
+  <P>
+    But this time we will use the keyboard instead of the mouse 
+    for choosing this menu operation. 
+    Press the keys ALT and f simultaneously which is usually written 
+    as ALT+F. 
+    This will open the 
+  <A href="gui_file.html" target="_top">File menu</A>.
+    f is the underlined character (mnemonic) of the "File" menu, the 
+    keyboard equivalent for mouseless operation. 
+    After opening the menu with these two keys, you can navigate 
+    through all menus with the four cursor keys of the keyboard. 
+    By pressing the RETURN (or ENTER) key, you select the currently 
+    highlighted menu entry. 
+    In an opened menu, you have another option to choose from a menu 
+    by pressing the mnemonic character (at this time without the ALT key!) 
+    of one of the shown menu entries. 
+    For example, when the "File" menu is open, you select the Print... 
+    entry by pressing the p key. 
+    So the overall keyboard command to select this particular menu 
+    from start is ALT+F P (upper case letters are not significant here,
+    so do not use the SHIFT key here). 
+    You can read 
+  <A href="gui_keyb.html" target="_top">more about keyboard usage</A>
+    by following this reference. 
+  </P>
+  <P>
+    After opening the
+  <A href="gui_file_print.html" target="_top">print dialog</A> 
+    window with one of the methods described above, you have the 
+    opportunity to set some options before the file is actually printed. 
+    Let us assume that you want to print the currently loaded graph 
+    on one of the PostScript&reg; printers in your network. 
+    First of all, you need to know the command used for printing
+    PostScript&reg; files at your site. 
+    For example, if you usually use the UNIX&reg; command 
+  </P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">lpr -P our_ps_printer my_file.ps</TD>
+</TR>
+  </TABLE>
+</P>
+  <P>
+    to print file my_file.ps on printer our_ps_printer, you have 
+    to enter "lpr -P our_ps_printer" in the "Print Command" field 
+    of the print dialog. 
+    Please read the
+  <A href="gui_opt_gen.html#printing" target="_top">print options</A>
+    if you are not sure what to enter here, especially on a 
+    Windows&reg; platform.
+  </P>
+  <P>
+    Be sure that you have set the correct page size supported by 
+    your printer. 
+    If this is not the default format A4 then choose another setting 
+    with the "Page Size" option button and press the "Fit to Page" 
+    button afterwards to ensure that the graph will be completely 
+    visible and centered on the paper. 
+    Finally, you can send the graph in PostScript&reg; format to 
+    the printer by pressing the print push button. 
+  </P>
+  <P>
+    End of Exercise 1.4.
+  <A href="tut_bas.html" target="_top">Go back to the Section 1 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    Adobe and PostScript are registered trademarks of Adobe Systems, Inc.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

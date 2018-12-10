@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>
+    uDraw(Graph) 3.1 Online Documentation: Tutorial, Vertical Fine-Tuning
+  </TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_opt.html"><B>Optimizing Layouts</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Vertical Fine-Tuning</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 2.3:  Vertical Fine-Tuning 
+  </H1>
+  
+  <P>
+    The previous exercise of this chapter deals with vertical fine tuning, 
+    used to move a selected node to a different level.
+    From the section 1 of the tutorial you already know that 
+    uDraw(Graph) generates a hierarchical layout where all
+    edges are pointing downwards. 
+    By moving one node to a new level, the hierarchical property of the 
+    drawing might be violated. 
+    So for example, when you move a node one level downwards, 
+    then probably the children of this node need to be moved as well 
+    (and their children, and so on) to guarantee that each child node 
+    is at least one level under its parent node. 
+  </P>
+  <P>
+    Ok, enough explanation. Just do it: Select a node, for example 
+    one at the topmost level, hold down the left mouse button and move 
+    the mouse slowly downwards. 
+    As soon as the mouse pointer reaches the center coordinate of the
+    next level, a dynamic incremental layout process starts to move 
+    the node to the new level and to rearrange the subgraph with the 
+    children (as it is explained above). 
+    Incremental layout may take some time, especially when large parts 
+    of the graph have to be rearranged. 
+    So either you have to be patient or you have to order a more 
+    powerful computer. ;-) 
+  </P>
+  <P>
+    It is possible that the total graph layout is getting worse 
+    after several vertical fine tuning steps. 
+    So start the global layout algorithm to clean up that mess. 
+    You can see that uDraw(Graph) keeps the nodes at their current 
+    level to preserve your vertical fine tuning operations. 
+    You can also play with the other automatic layout operations in
+    the 
+  <A href="gui_lay.html" target="_top">Layout</A>
+    menu. 
+    Layout/Improve Edges keeps the order of nodes by re-routing
+    the edges and Layout/Improve Spacing keeps the order of nodes
+    and the edge routing while modifying the space between them.
+    If you want the nodes back at their initial level after starting 
+    the layout algorithm, then you must deactivate the 
+    "Keep Nodes at Levels" check button (so it is no longer 
+    highlighted) in the
+  <A href="gui_opt_alg.html" target="_top">layout algorithm dialog</A>, 
+    available after selecting menu 
+  <A href="gui_opt.html" target="_top">Options/Layout Algorithm</A>. 
+    Do not forget to press the ok button in the dialog to 
+    activate this new setting! 
+  </P>
+  <P>
+    End of Exercise 2.3.
+  <A href="tut_opt.html" target="_top">Go back to the Section 2 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

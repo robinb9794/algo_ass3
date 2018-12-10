@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Tutorial, Saving</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut.html"><B>Tutorial</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="tut_bas.html"><B>Basic Tasks</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Saving</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>
+    Tutorial Exercise 1.3: Saving the Status of a Graph
+  </H1>
+  
+  <P>
+    Assuming that you are a careful person, you might wish to store 
+    the current layout of the graph in a file. 
+    As stated before, a file with the term representation of a graph 
+    ("*.udg" file) does not contain layout information, so this 
+    way your modifications to the layout will be lost in a later session. 
+    To store a graph together with information about the current 
+    layout (node coordinates etc), you can choose the alternative 
+    graph storage format, called status. 
+    A status also contains most of the user interface settings, so 
+    by loading a status file, a previous session can be restored 
+    very easily. 
+  </P>
+  <P>
+    As before you need a file browser to save the current layout to 
+    a status file. One way to do so is by selecting menu 
+  <A href="gui_file.html" target="_top">File/Save As...</A>. 
+    But this time we will use the 
+  <A href="gui_base.html" target="_top">icon bar</A> 
+    of the base window for more comfort. 
+    Move the mouse pointer to the save button which looks like this: 
+  </P>
+  <P>
+  <IMG border="1" alt="Save As Icon" width="" height="" src="uDG31_but_sa.gif">
+    Button of the icon bar to save a graph 
+  </P>
+  <P>
+    When the mouse pointer is over this button, a message is displayed 
+    in the 
+  <A href="gui_base.html" target="_top">footer area</A> 
+    with a short explanation of the button's function. 
+    Now press the button to get the 
+  <A href="gui_file_save.html" target="_top">file browser</A>
+    for saving files. 
+    Pressing this button on the icon bar is the same as selecting menu 
+  <A href="gui_file.html" target="_top">File/Save As...</A>. 
+  </P>
+  <P>
+    In the file browser, you have to choose the file type you want to 
+    save by using the "Types" option button: 
+    Either "Status Files" (default) or "Graph Files". 
+    Saving the current graph in term representation format by using 
+    type "Graph Files" does not make sense at the moment, because the 
+    structure of the graph is still the same, which means that
+    you would get the same file as loaded before. 
+    So use the default type "Status Files" so the title of 
+    the browser window shows "Save As Status". 
+  </P>
+  <P>
+    The browser usually suggests a name for the file you want to save. 
+    The file name of the graph (term representation) you have loaded 
+    before is "graph_example.udg", so the suggested file name is 
+    "graph_example.status". 
+    Status files should usually have suffix "*.status". 
+    Unfortunately, the suggested file name already exists (as you can 
+    see in the Files view of the browser) and you do not want to 
+    overwrite it. 
+    By the way, the browser will ask you before overwriting files. 
+    So choose a new name for your file by editing the selection field 
+    of the browser. 
+    Click in the field to get a text cursor and erase the file name 
+    (but not the directory) with the Backspace key of the keyboard. 
+    Then enter a new file name, e.g. "my_graph.status", and press the 
+    save push button to start the saving operation. 
+  </P>
+  <P>
+    If you do not have write permissions for the "samples/graphs" 
+    directory of the uDraw(Graph) distribution, then saving will
+    fail and a notice window will appear. 
+    In this case, open the browser again to repeat this operation, 
+    but at this time choose another directory where you have 
+    permissions to write, for example your home directory. 
+  </P>
+  <P>
+    End of Exercise 1.3.
+  <A href="tut_bas.html" target="_top">Go back to the Section 1 Overview</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

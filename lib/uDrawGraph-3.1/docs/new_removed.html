@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Removed Features</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="new.html"><B>New Features</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Removed Features</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>
+    Removed Features and Important Modifications
+  </H1>
+  
+  <P>
+    This page covers new features and modifications in version 3.0,
+    compared to the previous release V2.1. 
+  <UL>
+  <LI>
+  <B>Subscription Option</B>
+<BR>
+    The e-mail notification and subscription option, which was displayed 
+    at the first start in previous releases, has been removed. 
+    Please use the 
+  <NOBR><A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/service/mailing_lists.html" target="_blank">registration page</A></NOBR> if you are interested in getting all important
+    announcements regarding uDraw(Graph). 
+  </LI>   
+
+  <LI>
+  <B>No Support for V1.1 Status Files</B>
+<BR>
+    uDraw(Graph) since version 3.0 cannot load status files written by the previous release 
+    V1.1 (this was the first public release in 1993). Loading status 
+    files written by V1.2 or later is still supported. 
+    You can determine the version of a status file by loading it in a text 
+    editor. The version is displayed at the beginning.
+    Work-around: load the V1.1 status file in the previous release V2.1 
+    and save the status there to load it in uDraw(Graph).  
+  </LI>   
+
+  <LI>
+  <B>Keyboard Control for Dialog Windows</B>
+<BR>
+    The keyboard control for dialog windows has been removed.
+  </LI>   
+
+  <LI>
+  <B>Removed API Commands</B>
+<BR>
+    The 
+  <A href="api.html" target="_top">API command</A> 
+    set(no_cache(boolean)) has been disabled, because the function
+    is no longer necessary.
+    When sent to the API, this command will be ignored and answered
+    immediately with ok.
+    The commands graph(update(mixed_update)) and 
+    graph(update_and_change_attr(mixed_updates,attr_changes),
+    where mixed_updates is a common list for both node and edge updates,
+    have been renamed to 
+  <A href="api_cmd_graph.html#mixed_update" target="_top">graph(mixed_update(mixed_updates)))</A> 
+    and
+  <A href="api_cmd_graph.html#mixed_update_and_change_attr" target="_top">graph(mixed_update_and_change_attr(mixed_updates,attr_changes)</A>.
+    The former commands never worked reliable due to overloading
+    conflicts with the commands of the same name that have different 
+    lists for node and edge updates.
+  </LI>   
+
+  <LI>
+  <B>Removed Command-Line Options</B>
+<BR>
+    The 
+  <A href="opt.html" target="_top">command-line options</A> 
+    -speedy and -nocache, relics from the early 
+    days, have been disabled. When used, these options will be ignored.
+  </LI>   
+
+  </UL>
+  </P>
+
+  <P>
+    Back to
+  <A href="new.html" target="_top">new feature overview</A>.
+  </P>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,662 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Answers</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">API Answers</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Answers</H1>
+  
+  <P>
+    For background information about the answers described on this page, 
+    refer to the
+  <A href="api_gui_config.html" target="_top">information about API answers</A> 
+    in the corresponding section of the API reference.
+  </P>
+  <P>
+    On this page, all answers of the uDraw(Graph) API are described. These 
+    answers are sent back to an application program connected to the API. 
+    Click here to get an 
+  <A href="api_answ.html" target="_top">overview of all API answers</A>. 
+  </P>
+
+  <A name="ok"></A>
+  <H2>
+    ok
+  </H2>
+  <P>
+    This answer is returned by the API to confirm the successful execution 
+    of a command that was sent to the API. 
+    Exceptions: the 
+  <A href="api_answ_info.html#commands_without_ok" target="_top">commands listed here</A>
+    do not return ok, they return another answer instead. 
+    If the execution of a command has failed, then answer 
+  <A href="api_answ_all.html#communication_error" target="_top">communication_error(...)</A>
+    is sent instead of "ok". 
+    For synchronization, "ok" is also sent to the application at 
+  <A href="api_answ_info.html#initialization" target="_top">initialization time</A>
+    after the application has been successfully connected to uDraw(Graph). 
+  </P>
+
+  <A name="communication_error"></A>
+  <H2>
+    communication_error(<A href="api_param.html#string" target="_top">string</A>)
+  </H2>
+  <P>
+    This answer is returned by the API to inform about a failure regarding the 
+    previous command.
+    In parameter "string", the application can find an error message describing 
+    the reason for the failure. 
+    Usually, an exception like this should not happen when the application
+    meets all rules and restrictions of the commands sent to the API.
+  </P>
+
+  <A name="node_selections_labels"></A>
+  <H2>
+    node_selections_labels(<A href="api_param.html#node_ids" target="_top">node_ids</A>)
+  </H2>
+  <P>
+    This answer is returned by the API to inform the application about selection 
+    of nodes in the graph after using the following API commands: 
+  </P>
+
+  <UL>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_parents" target="_top">menu(navigation(select_parents(...)))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_parent" target="_top">menu(navigation(select_parent(...)))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_siblings" target="_top">menu(navigation(select_siblings(...)))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_children" target="_top">menu(navigation(select_children(...)))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_select_child" target="_top">menu(navigation(select_child(...)))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_navigator" target="_top">menu(navigation(navigator(...)))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#navigation_find" target="_top">menu(navigation(find(...)))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_special.html#select_nodes" target="_top">special(select_nodes(...)))</A>
+  </LI>
+  </UL>
+
+  <P>
+    Further, answer "node_selections_labels(...)" is sent to the application 
+    as an event after the user has selected a set of nodes in the graph 
+    visualization. 
+    In the parameter "node_ids" of the answer, the application can find the 
+    identifiers of all nodes that are currently selected. 
+    These identifiers are specified in the 
+  <A href="term.html" target="_top">term representation</A>
+    of the graph. 
+    Many nodes can be selected in uDraw(Graph) at a time, so the parameter of the answer
+    is a list of identifiers. 
+    The list is empty when the user has deselected all nodes. 
+    After loading a graph, no node is selected by default. 
+  </P>
+
+  <A name="node_double_click"></A>
+  <H2>
+    node_double_click
+  </H2>
+  <P>
+    This answer is returned by the API after the user has selected a node twice 
+    within a specific short time interval. 
+    Note that the answer has no parameter because it refers to the previous node 
+    selection. 
+    So if the user clicks on a node with id "something" twice, then after the 
+    first click uDraw(Graph) sends the answer node_selections_labels(["something"]). 
+    When the second mouse click is detected within a short time interval, 
+    uDraw(Graph) will send answer node_double_click to inform that the last selection 
+    was a double click. 
+  </P>
+
+  <A name="edge_selection_label"></A>
+  <H2>
+    edge_selection_label(<A href="api_param.html#edge_id" target="_top">edge_id</A>)
+  </H2>
+  <P>
+    This answer is returned by the API to inform the application about selection 
+    of one edge in the graph after using the following API command: 
+  </P>
+
+  <UL>
+  <LI>
+  <A href="api_cmd_special.html#select_edge" target="_top">special(select_edge(...))</A>
+  </LI>
+  </UL>
+
+  <P>
+    Further, answer "edge_selection_label(...)" is sent to the application 
+    as an event after the user has selected an edge in the graph 
+    visualization. 
+    In the parameter "edge_id" of the answer, the application can find the 
+    identifier of the edge that is currently selected. 
+    This identifier is specified in the 
+  <A href="term.html" target="_top">term representation</A>
+    of the graph. 
+    Unlike nodes, only one edge can be selected at a time in uDraw(Graph), 
+    so the parameter of this answer is not a list.
+  </P>
+
+  <A name="edge_selection_labels"></A>
+  <H2>
+    edge_selection_labels(<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#node_id" target="_top">node_id</A>)
+  </H2>
+  <P>
+    This is an obsolete alternative form of answer 
+  <A href="api_answ_all.html#edge_selection_label" target="_top">edge_selection_label(...)</A>,
+    see above.
+    It is still available for backward compatibility in case of
+    loading an old graph that does not have edge IDs.
+    These IDs were recommended in previous V1.x versions, but not
+    required.
+    Since V2.x, these IDs are mandatory. 
+    Your application should be able to handle answer 
+    "edge_selection_labels(...)".
+    The first parameter "node_id" is the parent and the second "node_id" 
+    is the child node of the currently selected edge. 
+  </P>
+
+  <A name="edge_double_click"></A>
+  <H2>
+    edge_double_click
+  </H2>
+  <P>
+    This answer is returned by the API after the user has selected an 
+    edge twice within a specific short time interval. 
+    Note that the answer has no parameter because it refers to the 
+    previous edge selection. 
+    So if the user clicks on an edge with id "something" twice, then 
+    after the first click uDraw(Graph) sends the answer 
+    edge_selection_label(["something"]). 
+    When the second mouse click is detected within a short time 
+    interval, uDraw(Graph) will send answer edge_double_click to 
+    inform that the last selection was a double click. 
+  </P>
+
+  <A name="menu_selection"></A>
+  <H2>
+    menu_selection(<A href="api_param.html#menu_id" target="_top">menu_id</A>)
+  </H2>
+  <P>
+    This answer is returned by the API to inform the application 
+    about selection of an application menu. 
+    The application program is able to attach its own menu entries 
+    to uDraw(Graph) using either
+  <A href="api_gui_extend.html" target="_top">user interface extension</A>
+    or
+  <A href="api_gui_config.html" target="_top">configuration</A>.
+    The "menu_id" found in the parameter of this answer
+    is the identifier specified at creation time of the selected 
+    menu. 
+    The application is also able to
+  <A href="api_gui_extend.html#interpose_file_events" target="_top">control the uDraw(Graph) "File" menu</A> using command
+  <A href="api_cmd_app_menu.html#control_file_events" target="_top">app_menu(control_file_events)</A>.
+    In this case, answer "menu_selection(...)" is also used to
+    inform the application about selection events in the "File" 
+    menu. 
+    Make sure to read the
+  <A href="api_gui_extend.html#recommended_actions" target="_top">recommended actions</A>
+    in order to be able to handle this events correctly.
+  </P>
+
+  <A name="icon_selection"></A>
+  <H2>
+    icon_selection(<A href="api_param.html#icon_id" target="_top">icon_id</A>)
+  </H2>
+  <P>
+    This answer is returned by the API to inform the application 
+    about selection of an application icon. 
+    The application program is able to attach its own menu icons 
+    to uDraw(Graph) using either 
+  <A href="api_gui_extend.html" target="_top">user interface extension</A>
+    or
+  <A href="api_gui_config.html" target="_top">configuration</A>.
+    The "icon_id" found in the parameter of this answer
+    is the identifier specified at creation time of the selected 
+    icon. 
+  </P>
+
+  <A name="popup_selection_node"></A>
+  <H2>
+    popup_selection_node(<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#menu_id" target="_top">menu_id</A>)
+  </H2>
+  <P>
+    This answer is returned by the API to inform the application 
+    about selection of a pop-up menu of a node. 
+    The application program is able to attach its own individual
+    pop-up menu entries to each node by setting the 
+  <A href="term_nattr.html#menu" target="_top">pop-up menu attribute</A>.
+    The "node_id" found in the parameter of this answer is the 
+    identifier of the node where the pop-up menu was selected.
+    The "menu_id" is the identifier specified at creation time of 
+    the selected menu. 
+  </P>
+
+  <A name="popup_selection_edge"></A>
+  <H2>
+    popup_selection_edge(<A href="api_param.html#edge_id" target="_top">edge_id</A>,<A href="api_param.html#menu_id" target="_top">menu_id</A>)
+  </H2>
+  <P>
+    This answer is returned by the API to inform the application 
+    about selection of a pop-up menu of an edge.
+    The application program is able to attach its own individual
+    pop-up menu entries to each edge by setting the 
+  <A href="term_eattr.html#menu" target="_top">pop-up menu attribute</A>.
+    The "edge_id" found in the parameter of this answer is the 
+    identifier of the edge where the pop-up menu was selected.
+    The "menu_id" is the identifier specified at creation time of 
+    the selected menu. 
+  </P>
+
+  <A name="context"></A>
+  <H2>
+    context(<A href="api_param.html#context_id" target="_top">context_id</A>)
+  </H2>
+  <P>
+    This answer is sent by the API only in 
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>.
+    It is used to specify the context (i.e. graph) where the
+    event happened. 
+    The event answer itself will be sent afterwards with the following
+    answer, see concept of
+  <A href="api_multi_modes.html#two_answers" target="_top">two answers in multi-graph mode</A>
+    The "context_id" found in the parameter of the answer is the 
+    context identifier which has been assigned at creation time 
+    using the commands 
+  <A href="api_cmd_multi.html#new_context" target="_top">multi(new_context)</A>
+    or 
+  <A href="api_cmd_multi.html#open_context" target="_top">multi(open_context)</A>.
+    The identifier can be used with command
+  <A href="api_cmd_multi.html#set_context" target="_top">set_context(...)</A>
+    to set the context (graph) affected by subsequent commands.
+    If your application does not want to deal with more than one 
+    graph at a time, i.e. when it does not enter the multi-graph mode 
+    by opening a first context, then it will never receive the 
+    context answers. 
+  </P>
+
+  <A name="context_window"></A>
+  <H2>
+    context_window(<A href="api_param.html#context_id" target="_top">context_id</A>,<A href="api_param.html#window_id" target="_top">window_id</A>)
+  </H2>
+  <P>
+    This answer is sent by the API only in 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>.
+    It is used to specify the context (i.e. graph) and window where 
+    the event happened. 
+    The event answer itself will be sent afterwards with the following
+    answer, see concept of
+  <A href="api_multi_modes.html#two_answers" target="_top">two answers in multi-window mode</A>
+    The "context_id" found in the first parameter of the answer is the 
+    context identifier which has been assigned at creation time 
+    using the commands 
+  <A href="api_cmd_multi.html#new_context" target="_top">multi(new_context)</A>
+    or 
+  <A href="api_cmd_multi.html#open_context" target="_top">multi(open_context)</A>.
+    The "window_id" in the second parameter is automatically assigned
+    by uDraw(Graph). 
+    It is passed to the application with the preluding answer of
+    answer
+  <A href="api_answ_all.html#open_window" target="_top">open_window</A>
+    at the time when a new base window is opened.
+  </P>
+
+  <A name="open_window"></A>
+  <H2>
+    open_window
+  </H2>
+  <P>
+    This answer is returned by the API only in 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>
+    to inform the application about a new base window in a
+    context (graph). 
+    This is done to confirm the following API commands: 
+  </P>
+
+  <UL>
+  <LI>
+  <A href="api_cmd_menu.html#view_open_new_view" target="_top">menu(view(open_new_view))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_menu.html#view_open_survey_view" target="_top">menu(view(open_survey_view))</A>
+  </LI>
+  </UL>
+
+  <P>
+    Further, this answer is sent to the application as an event 
+    after the user has opened a new base window. 
+    The window ID is automatically assigned by uDraw(Graph) 
+    and can be taken from the preluding 
+  <A href="api_answ_all.html#context_window" target="_top">context_window(...)</A>
+    answer that has been sent directly before this answer.
+  </P>
+
+  <A name="close_window"></A>
+  <H2>
+    close_window(<A href="api_param.html#window_id" target="_top">window_id</A>)
+  </H2>
+  <P>
+    This answer is returned by the API only in 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>
+    as an event after the user has closed a base window. 
+    The window ID parameter is the identifier of the closed window. 
+    After closing a window, the window ID cannot be used any further.
+    Afterwards, the application has to open a new window or specify 
+    one of the remaining windows to be the new current window in the
+    context.
+    All other commands will be ignored, because after closing, the 
+    current window will be undefined as long as a new one is not
+    specified. 
+  </P>
+
+  <A name="tcl_answer"></A>
+  <H2>
+    tcl_answer(<A href="api_param.html#string" target="_top">string</A>)
+  </H2>
+  <P>
+    This answer is returned by the API to pass results or 
+    information from   
+  <A href="api_tcl.html" target="_top">Tcl/Tk scripts</A>
+    back to the application. 
+    These scripts can be sent to the uDraw(Graph) Tcl/Tk interface 
+    by using the following API commands: 
+  </P>
+
+  <UL>
+  <LI>
+  <A href="api_cmd_tcl.html#eval" target="_top">tcl(eval(...))</A>
+  </LI>
+  <LI>
+  <A href="api_cmd_tcl.html#eval_file" target="_top">tcl(eval_file(...))</A>
+  </LI>
+  </UL>
+
+  <P>
+    Both commands return "tcl_answer(...)" for confirmation rather than 
+    the usual "ok" answer. 
+    The string in this answer is the return value of the Tcl/Tk script 
+    after finishing execution. 
+    uDraw(Graph) is blocked while executing these scripts.
+    On the other hand, "tcl_answer(...)" may also occur as an event at 
+    any time. 
+    The uDraw(Graph) Tcl/Tk interface offers the opportunity to
+    send arbitrary messages back to the application via the API by using 
+    a special Tcl-command inside of a Tcl/Tk script.
+    These messages are forwarded by uDraw(Graph) to the application with 
+    API-answer "tcl_answer(...)". 
+  </P>
+
+  <A name="browser_answer"></A>
+  <H2>
+    browser_answer(<A href="api_param.html#string" target="_top">string</A>,<A href="api_param.html#string" target="_top">string</A>)
+  </H2>
+  <P>
+    This answer is returned by the API to confirm the API command 
+  <A href="api_cmd_window.html#file_browser" target="_top">window(file_browser(...))</A>. 
+    uDraw(Graph) is blocked until the user has closed the file browser.
+    In the first string parameter you can find the chosen (absolute)
+    filename and the second string contains the last setting of the 
+    type menu in the file browser. 
+    Both strings of the answer are empty when the user has canceled 
+    the browser. 
+  </P>
+
+  <A name="create_node"></A>
+  <H2>
+    create_node
+  </H2>
+  <P>
+    This answer is returned by the API only in
+  <A href="api_dad.html" target="_top">drag and drop mode</A>
+    to inform the application that the user has released the middle 
+    mouse button over a free area and that no node was selected when 
+    the middle mouse button was pressed before.
+    The coordinates where the mouse button is released are stored 
+    internally in uDraw(Graph) and can be reused when the commands
+  <A href="api_cmd_dad.html#new_node_at_coord" target="_top">drag_and_drop(new_node_at_coord(...))</A> 
+    or
+  <A href="api_cmd_dad.html#new_node_and_edge_at_coord" target="_top">drag_and_drop(new_node_and_edge_at_coord(...))</A>
+    are sent to the API.
+    The recommended behavior to react on this event is to insert a
+    new node at the mouse position by using 
+    the command
+  <A href="api_cmd_dad.html#new_node_at_coord" target="_top">drag_and_drop(new_node_at_coord(...))</A>.
+  </P>
+
+  <A name="create_node_and_edge"></A>
+  <H2>
+    create_node_and_edge(<A href="api_param.html#node_id" target="_top">node_id</A>)
+  </H2>
+  <P>
+    This answer is returned by the API only in
+  <A href="api_dad.html" target="_top">drag and drop mode</A>
+    to inform the application that the user has released the middle 
+    mouse button over a free area and that the node with the given
+    "node_id" was selected when the middle mouse button was pressed
+    before.
+    The coordinates where the mouse button is released are stored 
+    internally in uDraw(Graph) and can be reused when the commands
+  <A href="api_cmd_dad.html#new_node_at_coord" target="_top">drag_and_drop(new_node_at_coord(...))</A> 
+    or
+  <A href="api_cmd_dad.html#new_node_and_edge_at_coord" target="_top">drag_and_drop(new_node_and_edge_at_coord(...))</A>
+    are sent to the API.
+    The recommended behavior to react on this event is to insert a
+    new node at the mouse position that is connected to the existing 
+    node supplied in the parameter "node_id" with a new edge by using 
+    the command
+  <A href="api_cmd_dad.html#new_node_and_edge_at_coord" target="_top">drag_and_drop(new_node_and_edge_at_coord(...))</A>.
+  </P>
+
+  <A name="create_edge"></A>
+  <H2>
+    create_edge(<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#node_id" target="_top">node_id</A>)
+  </H2>
+  <P>
+    This answer is returned by the API only in
+  <A href="api_dad.html" target="_top">drag and drop mode</A>
+    to inform the application that the user has released 
+    the middle mouse button over a node (second "node_id")
+    and that the node with the first "node_id" was selected 
+    when the middle mouse button was pressed before.
+    The recommended behavior to react on this event is to insert 
+    a new edge between the first and the second node by using 
+    command
+  <A href="api_cmd_graph.html#update" target="_top">graph(update(...))</A>. 
+  </P>
+
+  <A name="drop_node"></A>
+  <H2>
+    drop_node(<A href="api_param.html#node_id" target="_top">node_id</A>,<A href="api_param.html#context_id" target="_top">context_id</A>,<A href="api_param.html#window_id" target="_top">window_id</A>,<A href="api_param.html#node_id" target="_top">node_id</A>)
+  </H2>
+  <P>
+    This answer is returned by the API only in
+  <A href="api_dad.html" target="_top">drag and drop mode</A>
+    to inform the application that the user has released 
+    the middle mouse button over a node (second "node_id")
+    or free area (second "node_id" is empty, i.e. "")
+    and that a node (first "node_id") was selected when 
+    the middle mouse button was pressed together with the
+    SHIFT-Key.
+    The coordinates where the mouse button is released are stored 
+    internally in uDraw(Graph) and can be reused when the commands
+  <A href="api_cmd_dad.html#new_node_at_coord" target="_top">drag_and_drop(new_node_at_coord(...))</A> 
+    or
+  <A href="api_cmd_dad.html#new_node_and_edge_at_coord" target="_top">drag_and_drop(new_node_and_edge_at_coord(...))</A>
+    are sent to the API.
+    The second ("context_id") and third parameter ("window_id")
+    belong to the first "node_id" and specify the origin of the
+    drag and drop operation.
+    The destination is the second "node_id". Its context and
+    window ID can be taken from the preluding 
+  <A href="api_answ_all.html#context_window" target="_top">context_window(...)</A>
+    answer.
+    There is no recommended behavior to react on this event. 
+  </P>
+
+  <A name="disconnect"></A>
+  <H2>
+    disconnect
+  </H2>
+  <P>
+    This answer is returned by the API after the user has selected menu 
+  <A href="gui_file.html" target="_top">File/Disconnect</A>. 
+    When this event happens, the application is obliged to terminate,
+    so the user is able to connect another application to the API.
+    Disconnection is only possible when uDraw(Graph) has established the 
+    API connection, e.g. by using menu
+  <A href="gui_file.html" target="_top">File/Connect Application...</A>
+    or command-line option
+  <A href="opt.html#startappl" target="_top">-startappl</A>.
+  </P>
+
+  <A name="close"></A>
+  <H2>
+    close
+  </H2>
+  <P>
+    This answer is returned by the API only in 
+   <A href="api_multi_modes.html" target="_top">multi-graph mode</A>.
+    or 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>
+    to inform the application that the current context (i.e. graph) has 
+    been closed. 
+    This can be done either by the application itself using API command
+  <A href="api_cmd_menu.html#file_close" target="_top">menu(file(close))</A> 
+    or by the user with menu 
+  <A href="gui_file.html" target="_top">File/Close</A>. 
+    After closing a context, the corresponding graph and all of its views
+    (base windows) will be removed and the corresponding context ID 
+    cannot be used any further. 
+    Afterwards, the application has to open a new context or specify one 
+    of the remaining contexts to be the new current context. 
+    All other commands will be ignored, because after closing, the current 
+    context will be undefined as long as a new one is not specified. 
+    So answer "close" is either sent as result to confirm command 
+  <A href="api_cmd_menu.html#file_close" target="_top">menu(file(close))</A> 
+    or as an event at any time if the user has selected menu 
+  <A href="gui_file.html" target="_top">File/Close</A>
+    in the last open view  of a context. 
+    If it is not appropriate to allow that the user can close a context
+    on his own, then the application can 
+  <A href="api_gui_extend.html#interpose_file_events" target="_top">control the events of the File menu</A> 
+    to interpose before the context is actually closed. 
+    The context ID of the closed context can be taken from the preluding 
+  <A href="api_answ_all.html#context" target="_top">context(...)</A>
+    answer (or
+  <A href="api_answ_all.html#context_window" target="_top">context_window(...)</A>
+    answer in multi-window mode)
+    that was sent directly before. 
+  </P>
+
+  <A name="quit"></A>
+  <H2>
+    quit
+  </H2>
+  <P>
+    This answer is sent by the API on termination, e.g. when the user has 
+    selected menu 
+  <A href="gui_file.html" target="_top">File/Exit</A>.
+    At this time, the application should stop sending further commands 
+    to the API. 
+    If it is not appropriate to allow the user to exit 
+    uDraw(Graph) on his own, then the application can 
+  <A href="api_gui_extend.html#interpose_file_events" target="_top">control the events of the File menu</A> 
+    to interpose before uDraw(Graph) is actually terminated. 
+  </P>
+
+  <A name="version"></A>
+  <H2>
+    version(<A href="api_param.html#string" target="_top">string</A>)
+  </H2>
+  <P>
+    This answer is sent by the API on command 
+    <A href="api_cmd_special.html#version" target="_top">special(version)</A>.
+    In parameter "string", the application can find  a description of the version of uDraw(Graph).
+    For more information see
+    <A href="api_cmd_special.html#version" target="_top">special(version)</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

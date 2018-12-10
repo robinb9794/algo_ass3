@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: File Menu</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">File Menu</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>File Menu</H1>
+  
+  <IMG border="0" alt="Menu File" width="" height="" src="uDG31_men_file.gif" align="JUSTIFY">
+  <P>
+    The "File" menu contains functions for performing 
+  <A href="gui_file.html#files" target="_top">operations on files</A> 
+    such as opening, saving, printing and exporting. 
+    It also has function for 
+  <A href="gui_file.html#api" target="_top">connecting an application</A>
+    to the API and for 
+  <A href="gui_file.html#close" target="_top">closing the program</A>.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    Menu operations can also be invoked without the mouse by using
+  <A href="gui_keyb.html" target="_top">keyboard commands</A>. 
+  </P>
+
+  <A name="files"></A>
+  <H2>File and Printer Management</H2>
+  <UL>
+  <A name="new"></A>
+  <LI>
+  <B>
+    New
+  </B>
+<BR>
+    To clear the graph area, i.e. removing the graph in the base window. In 
+  <A href="conc_mul.html" target="_top">multi-view mode</A> 
+    when there are different views (base windows) for one graph, this 
+    operation only affects the base window where this operation was 
+    invoked and not the other views of the graph.
+    In this case the cleared view will be disconnected from the other 
+    views to act independently. 
+  </LI>
+
+  <A name="open"></A>
+  <LI>
+  <B>
+  <A href="gui_file_open.html" target="_top">Open...</A>
+  </B>
+<BR>
+    To load a uDraw(Graph) 
+  <A href="conc_gra.html" target="_top">graph</A> 
+    or 
+  <A href="conc_sta.html" target="_top">graph status</A> 
+    from file. After selecting this menu entry, a 
+  <A href="gui_file_open.html" target="_top">file browser</A>
+    appears to specify the file name. In
+  <A href="conc_mul.html" target="_top">multi-view mode</A>
+    loading a graph in one view will display the new graph only in 
+    the base window where this operation was invoked. In this case this 
+    view will be disconnected from the other views to act independently. 
+  </LI>
+
+  <A name="save"></A>
+  <LI>
+  <B>
+    Save
+  </B>
+<BR>
+    To save the current
+  <A href="conc_sta.html" target="_top">graph status</A> 
+    to a file for loading it in a later session. 
+    This operations stores the status directly without showing a file 
+    browser. The file name for the status is generated automatically,
+    if possible. 
+    For example when the graph "my_graph.udg" is loaded, the file name 
+    for this operation will be "my_graph.status" in the same directory.
+    The menu is disabled if no graph name is available, for example when
+    a new one is created with the graph editor.
+  <STRONG>Note:</STRONG> 
+    this operation overwrites a file with the same name without 
+    asking the user to confirm. 
+  </LI>
+
+  <A name="save_as"></A>
+  <LI>
+  <B>
+  <A href="gui_file_save.html" target="_top">Save As...</A>
+  </B>
+<BR>
+    To save the current
+  <A href="conc_gra.html" target="_top">graph</A> 
+    or 
+  <A href="conc_sta.html" target="_top">graph status</A> 
+    to a file. After selecting this menu entry, a 
+  <A href="gui_file_open.html" target="_top">file browser</A>
+    appears to specify the file name. Saving a status is used to 
+    be able to restore the current session later, especially to preserve 
+    the layout of a graph. 
+  </LI>
+
+  <A name="print"></A>
+  <LI>
+  <B>
+  <A href="gui_file_print.html" target="_top">Print...</A>
+  </B>
+<BR>
+    To send the current graph in 
+  <A href="gui_file_print.html#postscript" target="_top">PostScript&reg;</A> 
+    format to a printer or to store it in a PostScript&reg; file. 
+    After selecting this menu entry, the
+  <A href="gui_file_print.html" target="_top">print dialog window</A>
+    appears to specify the parameters. 
+  </LI>
+  
+  <A name="export"></A>
+  <LI>
+  <B>
+  <A href="gui_file_export.html" target="_top">Export...</A>
+  </B>
+<BR>
+    To save the current graph in different image formats, e.g. GIF, 
+    TIFF  or PNG.
+    After selecting this menu entry, the
+  <A href="gui_file_export.html" target="_top">export dialog window</A>
+    appears to specify the parameters. 
+  </LI>
+  </UL>
+
+  <A name="api"></A>
+  <H2>Application Management</H2>
+  <UL>
+  <A name="connect_application"></A>
+  <LI>
+  <B>
+  <A href="gui_file_connect.html" target="_top">Connect Application...</A>
+  </B>
+<BR>
+    To connect a uDraw(Graph) application to the
+  <A href="api.html" target="_top">API</A>.
+    After selecting this menu entry, a 
+  <A href="gui_file_connect.html" target="_top">file browser</A>
+    appears to specify the file name of the application executable and its 
+    options. Afterwards you have to specify additional parameters 
+    in the 
+  <A href="gui_file_connect_opt.html" target="_top">connection options dialog</A>
+    which appears after the file browser.
+    Read 
+  <A href="conc_api.html" target="_top">more about applications</A>
+    in the concept chapter. 
+    An external application program can use uDraw(Graph) as a graphical 
+    user interface for graphs. One application is the
+    graph editor which is delivered with the distribution. 
+  </LI>
+
+  <A name="disconnect_application"></A>
+  <LI>
+  <B>
+    Disconnect Application
+  </B>
+<BR>
+    To disconnect a uDraw(Graph) application which is currently connected to the
+  <A href="api.html" target="_top">API</A>.
+    Afterwards the API is free to connect another application. 
+    Disconnecting is only possible when the application supports this 
+    feature, i.e. it has to terminate after receiving the event answer 
+  <A href="api_answ_all.html#disconnect" target="_top">disconnect</A>.
+    from the API. 
+  </LI>
+  </UL>
+
+  <A name="close"></A>
+  <H2>Closing</H2>
+  <UL>
+  <LI>
+  <B>
+    Close 
+  </B>
+<BR>
+    To close the base window where this operation is invoked, but without 
+    terminating the whole program. This menu is only available in 
+  <A href="conc_mul.html" target="_top">multi-view mode</A> 
+    when the graph is displayed in more than one view (i.e. base window).
+    The last view to a graph cannot be closed. 
+  </LI>
+    
+  <A name="exit"></A>
+  <LI>
+  <B>
+    Exit 
+  </B>
+<BR>
+    To exit a session by terminating the program. 
+    uDraw(Graph) itself will not ask the user to confirm before quitting, 
+    so be sure to save the graph status if you want to keep the layout 
+    for a later session.
+    An application connected to the API may ask the user to confirm
+    if there are unsaved changes.
+    The graph editor delivered with uDraw(Graph) will do so, for example.
+  </LI>
+  </UL>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Adobe and PostScript are registered trademarks of Adobe Systems, Inc.
+  
+    GIF is a service mark property of CompuServe, Inc.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

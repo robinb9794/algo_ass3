@@ -1,0 +1,482 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Application Menu Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Application Menu Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Application Menu Commands</H1>
+  
+  <P>
+    For background information about the commands described on this page, 
+    refer to the
+  <A href="api_gui_extend.html" target="_top">information about user interface extension</A> 
+    in the corresponding section of the API reference.
+    Alternatively, you can use 
+  <A href="api_gui_config.html" target="_top">user interface configuration</A>
+    to control more aspects of the user interface.
+  </P>
+  <P>
+    On this page, API commands of the application menu category are 
+    described. 
+    This category covers all commands to extend the uDraw(Graph) 
+    user interface by attaching dialog elements (i.e. menus and icons) 
+    that are exclusively used by the application.
+    The commands of this category are enclosed by keyword "app_menu(...)".
+    They are not available when command-line option 
+  <A href="opt.html#nogui" target="_top">-nogui</A> has been used. 
+    In this case you have to use the commands of 
+  <A href="api_cmd_gui.html" target="_top">category graphical user interface</A>
+    instead.
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+  </P>
+
+  <A name="create_menus"></A>
+  <H2>
+    app_menu(create_menus(<A href="api_param.html#menus" target="_top">menus</A>))
+  </H2>
+  <P>
+    Creates a menu for the application specified by list "menus" which are
+    attached to the
+  <A href="gui_edit.html" target="_top">Edit</A> 
+    menu in the uDraw(Graph) user interface. 
+  <A href="api_gui_extend.html#application_menus" target="_top">Details about application menus</A>
+    are available in the user interface extension guide.
+    The menus are built hierarchically, so they may contain submenus 
+    to realize cascades. 
+    The menus will appear in the same order in the user interface as 
+    the entries in the list. 
+    The parameter "menus" is also used for pop-up menus that are 
+    created by using the
+  <A href="term_nattr.html#menu" target="_top">pop-up menu node attribute</A>
+    and
+  <A href="term_eattr.html#menu" target="_top">pop-up menu edge attribute</A>
+    in the graph, so special cases for pop-up menus are described here.
+    The following menu entry elements can be used in list "menus":
+  </P>
+
+  <UL>
+  <A name="menu_entry"></A>
+  <LI>
+  <B>
+    menu_entry(<A href="api_param.html#menu_id" target="_top">menu_id</A>,<A href="api_param.html#menu_label" target="_top">menu_label</A>) 
+  </B>
+<BR>
+  <P>
+    A single menu entry, where "menu_id" is the identifier sent back 
+    to the application with answer 
+  <A href="api_answ_all.html#menu_selection" target="_top">menu_selection(...)</A>
+    when the user selects this entry. 
+    Further, the "menu_id" can be used with command 
+  <A href="api_cmd_app_menu.html#activate_menus" target="_top">app_menu(activate_menus(...))</A>
+    to enable this menu entry in the user interface. 
+    "menu_label" is the text of the entry that will appear in the menu. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG>
+    The parameter "menu_label" can be a language key starting with 
+    "#%..." to use the 
+  <A href="int.html" target="_top">internationalization feature</A>
+    for multilingual interfaces.
+    This menu entry does not have a mnemonic, so for regular pull-down menus 
+    you should use 
+  <A href="api_cmd_app_menu.html#menu_entry_mne" target="_top">menu_entry_mne(...)</A>
+    instead to provide 
+  <A href="gui_keyb.html" target="_top">access by keyboard</A>.
+    But use "menu_entry(...)" for pop-up menus, because naturally they cannot 
+    be controlled with the keyboard.
+  </P>
+  </LI>
+
+  <A name="menu_entry_mne"></A>
+  <LI>
+  <B>
+    menu_entry_mne(<A href="api_param.html#menu_id" target="_top">menu_id</A>,<A href="api_param.html#menu_label" target="_top">menu_label</A>,<A href="api_param.html#menu_mne" target="_top">menu_mne</A>,<A href="api_param.html#menu_mod" target="_top">menu_mod</A>,<A href="api_param.html#menu_acc" target="_top">menu_acc</A>) 
+  </B>
+<BR>
+  <P>
+    Same as 
+  <A href="api_cmd_app_menu.html#menu_entry" target="_top">menu_entry(...)</A>
+    above, but with three additional parameters.
+    "menu_mne" is a string with one character used as 
+  <A href="gui_keyb.html" target="_top">mnemonic</A>,
+    so this character must exist in parameter "menu_label".
+    The mnemonic character will be underlined in the menu for keyboard 
+    access.
+    The last two parameters are used to specify an optional 
+  <A href="gui_keyb.html" target="_top">keyboard accelerator</A>.
+    Parameter "menu_mod" is the modifier key, either alt, shift, control, 
+    meta, none
+    (do not quote this parameter, e.g. no "alt"!). 
+    "menu_acc" is the accelerator key. 
+    So with the alt modifier and "A" for the accelerator key, 
+    you can select the corresponding menu entry by pressing "Alt" and "A" 
+    together on the keyboard.
+    The accelerators of existing uDraw(Graph) menus must not be overloaded,
+    so do not use the control modifier with O, S, P, C, X, N, L, T, F, A 
+    or I.
+  </P>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+<TR>
+<TH COLSPAN="0">Example:</TH>
+</TR>
+<TR>
+<TD class="table">menu_entry_mne("id1","my menu","y",alt,"m")</TD>
+</TR>
+</TABLE>
+</P>
+
+  <P>
+  <STRONG>Note:</STRONG>
+    The parameters "menu_label", "menu_mne" and "menu_acc" can be a 
+    language key starting with "#%..." to use the 
+  <A href="int.html" target="_top">internationalization feature</A>
+    for multilingual interfaces.
+    The parameter "menu_mod" is an enumeration and not a string, but 
+    here you can use the unquoted value lookup followed by a "string"
+    which is a language key.
+    Note that this string must not begin with "#%...", although it 
+    is a language key used to retrieve the actual text from the 
+    translation table.
+    Simply remove the "#%" when you use a language key for this
+    parameter, because the lookup in the translation table is done 
+    in any case, so the distinction between a usual string 
+    (without "#%") and a language key (with "#%") is not necessary 
+    here.
+  </P>
+    
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+<TR>
+<TH COLSPAN="0">Example:</TH>
+</TR>
+<TR>
+<TD class="table">menu_entry_mne("id1","#%m1","#%m1_mne",lookup "#%m1_mod","#%m1_acc")</TD>
+</TR>
+</TABLE>
+</P>
+  <P>
+    For pop-up menus, the entry "menu_entry_mne(...)" is not recommended, 
+    because naturally pop-up menus cannot be controlled with the keyboard.
+    Use entry
+  <A href="api_cmd_app_menu.html#menu_entry" target="_top">menu_entry(...)</A>
+    instead.
+  </P>
+  </LI>
+
+  <A name="menu_entry_disabled"></A>
+  <LI>
+  <B>
+    menu_entry_disabled(<A href="api_param.html#menu_id" target="_top">menu_id</A>,<A href="api_param.html#menu_label" target="_top">menu_label</A>) 
+  </B>
+<BR>
+  <P>
+    Same as 
+  <A href="api_cmd_app_menu.html#menu_entry" target="_top">menu_entry(...)</A>
+    above, but here the entry is always deactivated and can never be 
+    selected with the mouse.
+    Do not use this entry for regular pull-down menus,
+    because these entries can be activated (and deactivated) with 
+    API command
+  <A href="api_cmd_app_menu.html#activate_menus" target="_top">app_menu(activate_menus(...))</A>.
+    This is not possible in pop-up menus, where the menu is an
+  <A href="term_nattr.html#menu" target="_top">attribute value</A>
+    of a particular node/edge.
+    To activate and deactivate entries in a pop-up menu, you have to 
+    create a new menu with normal and deactivated entries.
+    Afterwards, you have to set this menu as the value of the 
+    pop-up menu attribute for the node/edge, either with command
+  <A href="api_cmd_graph.html#change_attr" target="_top">graph(change_attr(...))</A>
+    or more easily with
+  <A href="term_type.html" target="_top">types</A>
+    and
+  <A href="conc_def.html" target="_top">visualization definitions</A>.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG>
+    The parameter "menu_label" can be a language key starting with 
+    "#%..." to use the 
+  <A href="int.html" target="_top">internationalization feature</A>
+    for multilingual interfaces.
+  </P>
+  </LI>
+  
+  <A name="submenu_entry"></A>
+  <LI>
+  <B>
+    submenu_entry(<A href="api_param.html#menu_id" target="_top">menu_id</A>,<A href="api_param.html#menu_label" target="_top">menu_label</A>,<A href="api_param.html#menus" target="_top">menus</A>) 
+  </B>
+<BR>
+  <P>
+    A submenu (i.e. cascade) that contains another list of menu entries, 
+    specified by parameter "menus". 
+    "menu_id" can be used with command 
+  <A href="api_cmd_app_menu.html#activate_menus" target="_top">app_menu(activate_menus(...))</A>
+    to enable this submenu in the user interface. 
+    Submenus can be opened by the user, but not selected, so their "menu_id" 
+    will never be sent back to the application with a menu selection
+    event. 
+    You have to read above, because all the other information about
+  <A href="api_cmd_app_menu.html#menu_entry" target="_top">menu_entry(...)</A>
+    applies to this entry, too.
+  </P>
+  </LI>
+
+  <A name="submenu_entry_mne"></A>
+  <LI>
+  <B>
+    submenu_entry_mne(<A href="api_param.html#menu_id" target="_top">menu_id</A>,<A href="api_param.html#menu_label" target="_top">menu_label</A>,<A href="api_param.html#menus" target="_top">menus</A>,<A href="api_param.html#menu_mne" target="_top">menu_mne</A>) 
+  </B>
+<BR>
+  <P>
+    Same as 
+  <A href="api_cmd_app_menu.html#submenu_entry" target="_top">submenu_entry(...)</A>,
+    but with an additional mnemonic.
+    You have to read above, because all the other information about
+  <A href="api_cmd_app_menu.html#menu_entry_mne" target="_top">menu_entry_mne(...)</A>
+    applies to this entry, too (except for modifier and accelerator which are
+    not present here).
+  </P>
+  </LI>
+
+  <A name="submenu_entry_disabled"></A>
+  <LI>
+  <B>
+    submenu_entry_disabled(<A href="api_param.html#menu_id" target="_top">menu_id</A>,<A href="api_param.html#menu_label" target="_top">menu_label</A>,<A href="api_param.html#menus" target="_top">menus</A>) 
+  </B>
+<BR>
+  <P>
+    Same as 
+  <A href="api_cmd_app_menu.html#submenu_entry" target="_top">submenu_entry(...)</A>,
+    but always disabled.
+    You have to read above, because all the other information about
+  <A href="api_cmd_app_menu.html#menu_entry_disabled" target="_top">menu_entry_disabled(...)</A>
+    applies to this entry, too.
+  </P>
+  </LI>
+
+  <A name="blank_menu"></A>
+  <LI>
+  <B>
+    blank 
+  </B>
+<BR>
+  <P>
+     A separator line in the menu to group particular menu entries. 
+  </P>
+  </LI>
+  </UL>
+
+  <A name="create_icons"></A>
+  <H2>
+    app_menu(create_icons(<A href="api_param.html#icons" target="_top">icons</A>))
+  </H2>
+  <P>
+    Creates icons for the application specified by list "icons" which are
+    attached to the application plane of the
+  <A href="gui_base.html" target="_top">icon bar</A>
+    in the uDraw(Graph) user interface. 
+  <A href="api_gui_extend.html#application_menus" target="_top">Details about application icons</A>
+    are available in the user interface extension guide.
+    The icons will appear in the same order in the user interface as 
+    the entries in the list. 
+    The following icon entry elements can be used in list "icons":
+  </P>
+    
+  <UL>
+  <A name="icon_entry"></A>
+  <LI>
+  <B>
+    icon_entry(<A href="api_param.html#icon_id" target="_top">icon_id</A>,<A href="api_param.html#filename" target="_top">filename</A>,<A href="api_param.html#lang_string" target="_top">lang_string</A>) 
+  </B>
+<BR>
+  <P>
+    A single icon entry, where "icon_id" is the identifier sent back 
+    to the application with answer 
+  <A href="api_answ_all.html#icon_selection" target="_top">icon_selection(...)</A>
+    when the user selects this entry. 
+    Further, the "icon_id" can be used with command 
+  <A href="api_cmd_app_menu.html#activate_icons" target="_top">app_menu(activate_icons(...))</A>
+    to enable this icon entry in the user interface. 
+    The "filename" specifies the file with the bitmap used for the icon. 
+    This can be a uDraw(Graph) system bitmap
+    (the settings can be found in the configuration file of the 
+    standard user interface in "$UDG_HOME/lib/uDrawGraph/uDrawGraph.menu")
+    or a file name in one of the directories specified by environment 
+    variable
+  <A href="var.html#udg_icondir" target="_top">$UDG_ICONDIR</A>.
+    The bitmap file used for icons must be in X11<SUP class="tm">TM</SUP> Bitmap format 
+    (".xbm") with a size of 18x18 pixel. 
+    The third optional parameter "help" is a short text or
+  <A href="api_gui_config.html#language_key" target="_top">language key</A>
+    mapping to a text that describes the semantic of the icon operation.
+    The help text is automatically displayed in the footer area of the 
+    base window as long as the mouse pointer is over the icon. 
+  </P>
+  <P>
+  <STRONG>Note:</STRONG>
+    The parameter "string" can be a language key starting with 
+    "#%..." to use the 
+  <A href="int.html" target="_top">internationalization feature</A>
+    for multilingual interfaces.
+  </P>
+  </LI>
+
+  <A name="blank_icon"></A>
+  <LI>
+  <B>
+    blank 
+  </B>
+<BR>
+  <P>
+    A separator gap in the icon bar in order to group particular icons 
+    in a visual manner.
+  </P>
+  </LI>
+  </UL>
+
+  <A name="activate_menus"></A>
+  <H2>
+    app_menu(activate_menus(<A href="api_param.html#menu_ids" target="_top">menu_ids</A>))
+  </H2>
+  <P>
+    To activate the application menu entries specified by "menu_ids",
+    so it is possible to select them with the mouse. 
+    All the other entries previously created by 
+  <A href="api_cmd_app_menu.html#create_menus" target="_top">app_menu(create_menus(...))</A>
+    and not member of list "menu_ids" are automatically deactivated at 
+    the same time, so they cannot be selected by the user. 
+    In other words, the application only has to enable the menus that 
+    should be available at a time without deactivating the other ones. 
+  <A href="api_gui_extend.html#application_menus" target="_top">Details about application menus</A>
+    are available in the user interface extension guide.
+  </P>
+  <P>
+  <STRONG>Note:</STRONG> 
+    after controlling the "File" (see below), the application also has to 
+    activate and deactivate the "File" menu entries of the File menu.
+    They have a special menu ID, see
+  <A href="api_gui_extend.html#interpose_file_events" target="_top">user interface extension guide</A>.
+  </P>
+
+  <A name="activate_icons"></A>
+  <H2>
+    app_menu(activate_icons(<A href="api_param.html#icon_ids" target="_top">icon_ids</A>))
+  </H2>
+  <P>
+    To activate the application icon entries specified by "icon_ids",
+    so it is possible to select them with the mouse. 
+    All the other entries previously created by 
+  <A href="api_cmd_app_menu.html#create_icons" target="_top">app_menu(create_icons(...))</A>
+    and not member of list "icon_ids" are automatically deactivated at 
+    the same time, so they cannot be selected by the user. 
+    In other words, the application only has to enable the icons that 
+    should be available at a time without deactivating the other ones. 
+  <A href="api_gui_extend.html#application_menus" target="_top">Details about application icons</A>
+    are available in the user interface extension guide.
+  </P>
+
+  <A name="control_file_events"></A>
+  <H2>
+    app_menu(control_file_events)
+  </H2>
+  <P>
+    After sending this command, the application declares to take 
+    control on the events of the uDraw(Graph) 
+  <A href="gui_file.html" target="_top">File</A>
+    menu. 
+    Afterwards, the entries in the "File" menu can be enabled and disabled 
+    using command 
+  <A href="api_cmd_app_menu.html" target="_top">app_menu(activate_menus(...))</A>
+    just like any other application menu entry.
+    The entries of the "File" menu have a special menu ID, listed in the
+  <A href="api_gui_extend.html#interpose_file_events" target="_top">user interface extension guide</A>.
+    After using this command, uDraw(Graph) will not perform any operation
+    when an entry of the "File" menu is selected by the user. 
+    Instead, an event is sent by the API with answer 
+  <A href="api_answ_all.html#menu_selection" target="_top">menu_selection(...)</A>
+    to let the application decide what to do. 
+    Read more about controlling the "File" menu in the 
+  <A href="api_gui_extend.html#interpose_file_events" target="_top">user interface extension guide</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    X Window System and X11 are trademarks of The Open Group.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

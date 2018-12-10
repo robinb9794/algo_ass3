@@ -1,0 +1,452 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: API Window Commands</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="api.html"><B>API</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Window Commands</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>API Window Commands</H1>
+  
+  <P>
+    On this page, API commands of the window category are described. 
+    This category covers all commands to manipulate uDraw(Graph)
+  <A href="gui_base.html" target="_top">base windows</A>.
+    In 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view mode</A>,
+    when one graph is shown in many base windows, some of the commands 
+    of this category are only applied to the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>
+    which is the oldest view.
+    Use the
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>
+    in order to manipulate any view/base window of a context.
+    The commands of this category are enclosed by keyword "window(...)". 
+    Click here to get an 
+  <A href="api_cmd.html" target="_top">overview of all API commands</A>. 
+  </P>
+
+  <A name="title"></A>
+  <H2>
+    window(title(<A href="api_param.html#string" target="_top">string</A>))
+  </H2>
+  <P>
+    Sets the title of the 
+  <A href="gui_base.html" target="_top">base window</A>
+    to "string". 
+    A permanent prefix  "uDraw(Graph) 3.1 - " is used in the title which
+    cannot be changed.
+    In 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view</A>
+    and
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>,
+    this operation affects all views of the current context.
+  </P>
+
+  <A name="show_message"></A>
+  <H2>
+    window(show_message(<A href="api_param.html#lang_string" target="_top">lang_string</A>))
+  </H2>
+  <P>
+    Displays a message "string" in the left 
+  <A href="gui_base.html" target="_top">footer area</A>
+    of the base window.
+    This command should be used to show temporary information, for example
+    to inform the used about success of an operation. 
+    For permanent messages, command 
+  <A href="api_cmd_window.html#show_status" target="_top">window(show_status(...))</A> 
+    should be used instead. 
+    The left footer area is also used by uDraw(Graph) to show system 
+    information, so it is possible that the messages supplied here 
+    are overwritten.
+    In 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view</A>
+    and
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>,
+    this operation affects all views of the current context.
+    The parameter "string" can be a language key starting with 
+    "#%..." to use the 
+  <A href="int.html" target="_top">internationalization feature</A>
+    for multilingual interfaces.
+  </P>
+
+  <A name="show_status"></A>
+  <H2>
+    window(show_status(<A href="api_param.html#lang_string" target="_top">lang_string</A>))
+  </H2>
+  <P>
+    Displays a message "string" in the right 
+  <A href="gui_base.html" target="_top">footer area</A>
+    of the base window. 
+    This command should be used to show permanent information like the
+    current status.
+    For temporary information, command 
+  <A href="api_cmd_window.html#show_message" target="_top">window(show_message(...))</A> 
+    should be used instead. 
+    The right footer area is not used by uDraw(Graph) to show system 
+    information.
+    In 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view</A>
+    and
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>,
+    this operation affects all views of the current context.
+    The parameter "string" can be a language key starting with 
+    "#%..." to use the 
+  <A href="int.html" target="_top">internationalization feature</A>
+    for multilingual interfaces.
+  </P>
+
+  <A name="position"></A>
+  <H2>
+    window(position(<A href="api_param.html#integer" target="_top">integer</A>,<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    Sets the origin (i.e. upper left corner) of the 
+  <A href="gui_base.html" target="_top">base window</A> 
+    to the given coordinates,
+    where the first "integer" is the new x coordinate (in pixel) 
+    and the second is the new y coordinate. 
+    Do not use negative values or values larger than the screen. 
+    In 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view mode</A>,
+    this operation will only affect the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>,
+    of the current context. 
+  </P>
+
+  <A name="size"></A>
+  <H2>
+    window(size(<A href="api_param.html#integer" target="_top">integer</A>,<A href="api_param.html#integer" target="_top">integer</A>))
+  </H2>
+  <P>
+    Sets the width and height of the   
+  <A href="gui_base.html" target="_top">base window</A> 
+    to the given values,
+    where the first "integer" is the new window width (in pixel) 
+    and the second is the new height. 
+    Do not use negative values or values larger than the screen. 
+    In 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view mode</A>,
+    this operation will only affect the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>,
+    of the current context. 
+  </P>
+
+  <A name="raise"></A>
+  <H2>
+    window(raise)
+  </H2>
+  <P>
+    Raises the 
+  <A href="gui_base.html" target="_top">base window</A> 
+    to the front such that it lays on top of all the other windows. 
+    In 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view mode</A>,
+    this operation will only affect the 
+  <A href="api_multi_modes.html#master_view" target="_top">master view</A>,
+    of the current context. 
+  </P>
+
+  <A name="iconify"></A>
+  <H2>
+    window(iconify)
+  </H2>
+  <P>
+    Iconifies the
+  <A href="gui_base.html" target="_top">base window</A>,
+    so it will disappear, but is still available by an iconic symbol.
+    To undo this command, use
+  <A href="api_cmd_window.html#deiconify" target="_top">window(deiconify)</A>. 
+    In 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view</A>
+    and
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>,
+    this operation affects all views of the current context.
+  </P>
+
+  <A name="deiconify"></A>
+  <H2>
+    window(deiconify)
+  </H2>
+  <P>
+    Deiconifies the
+  <A href="gui_base.html" target="_top">base window</A>,
+    so it will appear again if it was iconified before.
+    To undo this command, use
+  <A href="api_cmd_window.html#iconify" target="_top">window(iconify)</A>. 
+    In 
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view</A>
+    and
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>,
+    this operation affects all views of the current context.
+  </P>
+
+  <A name="deactivate"></A>
+  <H2>
+    window(deactivate)
+  </H2>
+  <P>
+    Disables all user input in uDraw(Graph). 
+    This will affect the whole system, especially all views/windows of all
+    contexts in
+  <A href="api_multi_modes.html" target="_top">multi-graph mode</A>.
+    After disabling the windows, the user is unable to manipulate 
+    any element of the user interface, so no event answers are sent to the 
+    application until the windows will be enabled again with command
+  <A href="api_cmd_window.html#activate" target="_top">window(activate)</A>.
+  </P>
+
+  <A name="activate"></A>
+  <H2>
+    window(activate)
+  </H2>
+  <P>
+    Enables the user input in uDraw(Graph) again after this has been 
+    disabled before with 
+  <A href="api_cmd_window.html#deactivate" target="_top">window(deactivate)</A>.
+    Even in
+  <A href="api_multi_modes.html" target="_top">multi-graph</A>,
+  <A href="api_multi_modes.html#multi_view" target="_top">multi-view</A>
+    and 
+  <A href="api_multi_modes.html#multi_window" target="_top">multi-window mode</A>,
+    the whole system is affected by this command and not only the 
+    views/windows of the current context.
+  </P>
+
+  <A name="background"></A>
+  <H2>
+    window(background(<A href="api_param.html#string" target="_top">string</A>))
+  </H2>
+  <P>
+    Sets the background of the 
+  <A href="gui_base.html" target="_top">base window</A>
+    to the color specified by parameter "string".
+    This is a RGB value like "#0f331e" in the same format as used for 
+    command-line option
+  <A href="opt.html#graphbg" target="_top">-graphbg</A>.
+  </P>
+
+  <A name="file_browser"></A>
+  <H2>
+    window(file_browser(<A href="api_param.html#boolean" target="_top">boolean</A>,<A href="api_param.html#lang_string" target="_top">lang_string</A>,<A href="api_param.html#lang_string" target="_top">lang_string</A>,<A href="api_param.html#string" target="_top">string</A>,<A href="api_param.html#string" target="_top">string</A>,<A href="api_param.html#btypes" target="_top">btypes</A>,<A href="api_param.html#boolean" target="_top">boolean</A>))
+  </H2>
+  <P>
+    <STRONG>Note:</STRONG> This command returns the answer 
+  <A href="api_answ_all.html#browser_answer" target="_top">browser_answer</A> 
+    instead of the usual answer 
+  <A href="api_answ_all.html#ok" target="_top">ok</A>!
+  </P>
+  <P>
+    With this command, the application can use the uDraw(Graph) 
+  <A href="gui_file_open.html" target="_top">file browser</A>
+    for its own purpose
+    (on Microsoft&reg; platforms, this command will show the native Windows&reg;
+    file browser and on Mac OS&reg; X platforms, this will show the native
+    Mac OS&reg; file browser which does not have all the features described below).
+    This file browser does not start any operation in uDraw(Graph) after 
+    the user has selected a file. 
+    Instead, the selected file (and chosen type) is returned to the 
+    application by sending answer 
+  <A href="api_answ_all.html#browser_answer" target="_top">browser_answer</A>.
+    Due to the manifold features of the file browser, the application has
+    to specify several parameters with the following semantic: 
+  </P>
+
+  <UL>
+  <LI>
+  <B>boolean (first one)</B>
+<BR>
+    Flag for opening a file. 
+    Use true when the browser is used to open a file and use false
+    when the file is saved. 
+    There are two differences between an open and save browser: 
+    In opposition to the save browser, the open browser does not ask 
+    the user for confirmation when the selected file already exist
+    and it does not allow to  choose a file that does not exist.
+  </LI>
+
+  <LI>
+  <B>string (first one)</B>
+<BR>
+    Window title of the file browser. 
+    This parameter can be a language key starting with 
+    "#%..." to use the 
+  <A href="int.html" target="_top">internationalization feature</A>
+    for multilingual interfaces.
+  </LI>
+
+  <LI>
+  <B>string (second one)</B>
+<BR>
+    Short text label used for the leftmost button that is responsible 
+    for closing the browser. 
+    Should be usually "Open", "Save" or something like that. 
+    This parameter can be a language key starting with 
+    "#%..." to use the 
+  <A href="int.html" target="_top">internationalization feature</A>
+    for multilingual interfaces.
+  </LI>
+
+  <LI>
+  <B>string (third one)</B>
+<BR>
+    Initial directory of the browser. If empty (i.e. ""), the home 
+    directory of the user is used as default. 
+  </LI>
+
+  <LI>
+  <B>string (forth one)</B>
+<BR>
+    Initial file name of the browser in the initial directory, 
+    can be empty (i.e. ""). 
+    The entry of the selection field of the browser at start-up 
+    will be composed by the initial directory and the initial file.
+  </LI>
+
+  <LI>
+  <B>btypes</B>
+<BR>
+  
+    A list of file type (i.e. suffix) specifications, available in 
+    the "Types" menu of the browser. 
+    The list must have at least one entry to retrieve the default type 
+    of the browser which is always the first type of the list. 
+    An empty list is not allowed and will force an error. 
+    Each element of this list is composed by three string parameters:
+  <BR>
+  
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">bt(lang_string,string,lang_string)</TD>
+</TR>
+  </TABLE>
+</P>
+
+  
+    Here, the first string is a plain text description of the type (e.g. 
+    "GIF Files"), the second string is a file type pattern for the suffix
+    (e.g. "*.gif") and the third string is a postfix for the title of the
+    file browser (e.g. "GIF"), so the complete title is "Open GIF" when 
+    the GIF type is selected. This part of the browser title will change 
+    when the user switches to another file type.
+    The first and third string parameter (not the file type pattern!)
+    can be a language key starting with "#%..." to use the 
+  <A href="int.html" target="_top">internationalization feature</A>
+    for multilingual interfaces.
+  <BR>
+
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+<TR>
+<TH COLSPAN="0">Complete btype example:</TH>
+</TR>
+<TR>
+<TD class="table">[bt("GIF Files","*.gif","GIF"),bt("All Files,"*","")]</TD>
+</TR>
+</TABLE>
+</P>
+  </LI>
+
+  <LI>
+  <B>boolean (second one)</B>
+<BR>
+    Flag to show hidden files initially. 
+    Should be usually false to filter the hidden files. 
+    The user can modify this setting at any time by using the 
+    "Show hidden" check button of the browser. 
+  </LI>
+  </UL>
+
+  <P>
+    In opposite to the file browsers used by uDraw(Graph), the file 
+    browser available with this command is modal (i.e. it will block 
+    all user input in any other uDraw(Graph) window), until it is closed 
+    by the user. 
+    At this time, the application will be informed about the selected 
+    file with API answer 
+  <A href="api_answ_all.html#browser_answer" target="_top">browser_answer(string,string)</A>,
+    where the first "string" is the absolute file name of the selected 
+    file and the second "string" is the plain text of the current type 
+    selected in the browser (i.e. the first parameter of the "bt" list 
+    elements in the example shown above). 
+    Both strings are empty when the user has canceled the file browser.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

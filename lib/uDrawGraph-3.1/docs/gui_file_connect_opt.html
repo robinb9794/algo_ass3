@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Connect Application Options</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui.html"><B>User Interface</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gui_file.html"><B>File Menu</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Connect Application Options</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  <H1>Option Dialog to Connect Application</H1>
+  
+  <IMG border="0" alt="Connect Application Options" width="" height="" src="uDG31_win_con_opt.gif" align="JUSTIFY">
+
+  <P>
+    This dialog window is used to specify additional options that are 
+    needed when an external program is connected to the 
+  <A href="api.html" target="_top">API</A>
+    using menu
+  <A href="gui_file.html" target="_top">File/Connect Application...</A>.
+    The communication type you choose has to be supported by the
+    selected application program.
+    When using pipes, the application has to read API commands on stdin
+    and write API answers on stdout.
+    When using sockets, the application has to use a specific sockets port
+    for communication. 
+    Starting with version 3.0, the
+  <A href="edit.html" target="_top">graph editor</A> 
+    delivered with uDraw(Graph) supports both types.
+    For other third-party application programs, please refer to the 
+    documentation to see the supported communication types.
+  </P>
+
+  <H2>Dialog Elements of the Connect Application Option Window
+  </H2>
+  <UL>
+  <LI>
+  <B>Communication Type</B>
+<BR>
+    Used to select the transport protocol used for communication with
+    the application. 
+    Pipes are the standard for uDraw(Graph), but they are only supported
+    on UNIX&reg; and Linux&reg; platforms.
+    On Windows&reg;, please choose socket communication.
+    The application program you want to connect must support the
+    uDraw(Graph) 
+  <A href="api.html" target="_top">API</A>
+    protocol and the type of communication you have selected.
+    Please refer to the documentation of the application.
+  </LI>
+
+  <LI>
+  <B>Socket Port</B>
+<BR>
+    When socket communication is selected, the socket port can be
+    specified here. 
+    The default is port 2542 which is exclusively registered for
+    uDraw(Graph), so usually there is no need to modify the default value.
+  </LI>
+
+  <LI>
+  <B>Command-Line Options</B>
+<BR>
+    Here you can enter the options you want to pass to the application.
+    When using sockets, the default "-client :2542" is displayed here.
+    This is the convention of the standard
+  <A href="edit.html" target="_top">graph editor</A>
+    to be informed about the socket port where the uDraw(Graph) server
+    is listening.
+    Please remove this entry if your application has any problems
+    with this option.
+  </LI>
+
+  <LI>
+  <B>Connect</B>
+<BR>
+    Push button to start the application executable file (specified in the 
+  <A href="gui_file_connect.html" target="_top">browser</A>
+    before) and connect it to the API. 
+  </LI>
+
+  <LI>
+  <B>Cancel </B>
+<BR>
+    Push button to close the option dialog without performing any action. 
+  </LI>
+
+  <LI>
+  <B>Reset </B>
+<BR>
+    Push button to undo any modification to these options which were not
+    confirmed using the "Ok" push button yet.
+    So reset goes back to the current settings. 
+  </LI>
+
+  <LI>
+  <B>Help </B>
+<BR>
+    Push button to start the 
+  <A href="gnrl_use.html#help_system" target="_top">online help system</A>
+    with this page. 
+  </LI>
+  </UL>
+
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    UNIX is a registered trademark of X/Open Company, Ltd.
+  
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Microsoft, Windows, Windows NT, Windows 2000 and Internet Explorer are trademarks 
+    or registered trademarks of Microsoft Corporation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

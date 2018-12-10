@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Concepts / Fine-Tuning</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="conc.html"><B>Concepts</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Fine-Tuning</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Fine-Tuning of a Layout</H1>
+  
+  <P>
+    An automatically generated graph is never perfect. 
+    To overcome this deficit, uDraw(Graph) offers interactive fine-tuning 
+    operations. 
+    Fine-tuning is available at any time, before or after improving 
+    edge crossings with menu
+  <A href="gui_lay.html" target="_top">Layout/Improve All</A>. 
+    Fine-tuning is even useful to remove obvious edge crossings which
+    cannot be removed by the layout algorithm. 
+    Then after fine-tuning, the layout algorithm can be started again to 
+    eliminate more edge crossings. 
+    The following description is written for fine-tuning in a top-down 
+    layout, for other orientations the terms "horizontal" and "vertical" 
+    have to be exchanged. 
+  </P>
+  <P>
+    Fine-tuning works by selecting a node with the left mouse button. 
+    The button needs to be pressed while the mouse is moved to a new 
+    position (dragging). 
+    Regular nodes can be moved both in horizontal and vertical direction,
+    but dummy nodes can only be moved horizontally. 
+    Fine-tuning in uDraw(Graph) is more than moving a node to another position,
+    because moving a node automatically corrects the position of neighbour 
+    nodes in order to preserve a correct hierarchical layout.
+    For example, if a node is moved horizontally and has reached its 
+    neighbour node then either both nodes have to exchange their position 
+    (mode "Modify Node Order") or the neighbour node has to be moved as well 
+    (mode "Preserve Node Order"), depending on the current setting for 
+    fine-tuning.
+    Furthermore, if a node is moved to the next or previous level, then 
+    the child or parent subgraphs may have to be moved as well to keep 
+    a hierarchical layout where all edges point downwards. 
+  </P>
+  <P>
+    For horizontal fine-tuning (i.e. moving a node on a level to the 
+    left or to the right), there are three modes that can be set with 
+    menu 
+  <A href="gui_opt_alg.html" target="_top">Options/Layout Algorithm...</A>
+    or by using the last three icons 
+    of the icon bar at the left side of the base window. 
+    The fine-tuning mode defines the behavior when a moved node has 
+    touched its left or right neighbour node at the same level. 
+    A neighbour node is touched when the minimal node distance is reached.
+  <UL>
+  <LI>
+    In default mode "Preserve Node Order", the touched node is moved 
+    as well to keep the order of nodes on a level. 
+  </LI>
+  <LI>
+    In mode "Modify Node Order", the moved node and the touched node 
+    will exchange their position as soon as there is enough space to 
+    do so. This mode is useful to rearrange the order of nodes on a 
+    level, e.g. to remove edge crossings by hand. 
+  </LI>
+  <LI>
+    In the third mode "Fixed Neighbour Nodes", fine-tuning will stop as 
+    soon as a neighbour node is touched. This is useful to
+    protect the position of all neighbour nodes. 
+  </LI>
+  </UL>
+    Vertical fine-tuning is used to move a node to a different level. 
+    This is only possible with regular nodes. 
+    Dummy nodes which are used to fill long span edges cannot be moved 
+    vertically. 
+    A node that is dragged is moved to the next or previous level as 
+    soon as the level coordinate (i.e. the center of all nodes at this 
+    level) is reached by the mouse pointer. 
+    At this time, dynamic layout may automatically start to rearrange 
+    the layout. 
+    This is needed to keep a hierarchical layout. 
+  </P>
+  <H2>Important notes about fine-tuning</H2>
+  <P>
+  <UL>
+  <LI>
+    After starting the layout algorithm, the x-coordinates and order 
+    of all nodes are recalculated, but their current level
+    will be kept. This preserves previous vertical fine-tuning, but 
+    eliminates horizontal adjustments. 
+    If you want to place the nodes back to their default level, you 
+    have to deselect checkbox "Keep Nodes at Levels" in the 
+  <A href="gui_opt_alg.html" target="_top">Options/Layout Algorithm...</A> 
+    dialog. 
+  </LI>
+  <LI>
+    Modifying the layout dimensions with the 
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>
+    dialog eliminates previous horizontal fine-tuning steps. 
+    So the final dimensions should be set before starting with 
+    extensive fine-tuning. 
+  </LI>
+  <LI>
+    Unnecessary space to the left and the right of the visualization 
+    is removed immediately after you have released the mouse button. 
+  </LI>
+  </UL>
+  </P>
+
+  <P>
+    Next:
+  <A href="conc_sta.html" target="_top">Graph Status</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

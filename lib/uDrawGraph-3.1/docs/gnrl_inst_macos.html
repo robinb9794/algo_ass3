@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Installation on Mac OS X</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="gnrl.html"><B>General Information</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Installation on Mac OS X</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Installation on Mac OS&reg; X</H1>
+  
+  <P>
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1" width="350">
+<TR>
+<TH COLSPAN="0">
+    Installation Overview
+  </TH>
+</TR>
+<TR>
+<TD class="table">
+    1. Get uDraw(Graph) by ftp.
+  </TD>
+</TR>
+<TR>
+<TD class="table">
+    2. Install the distribution.
+  </TD>
+</TR>
+<TR>
+<TD class="table">
+    
+    3. Specify installation directory in $UDG_HOME.
+    <BR>
+  </TD>
+</TR>
+<TR>
+<TD class="table">
+    4. Be sure to have a browser for the help system (Mozilla&reg; preferred).
+  </TD>
+</TR>
+<TR>
+<TD class="table">
+    5. Start executable file "uDrawGraph" in the "bin" directory.
+  </TD>
+</TR>
+<TR>
+<TD class="table">
+    6. Read and accept the license conditions.
+  </TD>
+</TR>
+</TABLE>
+</P>
+  </P>
+
+  <H1>Installation in detail:</H1>
+  <H2>
+    1. Get uDraw(Graph) Distribution
+  </H2>
+  <P>
+    First you have to download a uDraw(Graph) distribution by ftp, see
+  <NOBR><A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/download/" target="_blank">http://www.informatik.uni-bremen.de/uDrawGraph/en/download/</A></NOBR>.
+  </P>
+  <P>
+  Additional informations and known limitations of the Mac OS&reg; X version can be found in the 
+  <A href="http://www.informatik.uni-bremen.de/uDrawGraph/download/README_MacOSX.txt" target="_top">README</A> file, that is also contained in every distribution.
+  </P>
+
+  <H2>
+    2. Install Distribution 
+  </H2>
+  <P>
+    In most cases the tar.gz distribution should be expanded automatically
+    after the downlaod by tools like StuffIt Expander. If not, you have to open 
+    a shell (Utilities -&gt; Terminal), use "tar -xzf *.tar.gz"
+    to install the distribution. 
+    This creates the directory "uDrawGraph-&lt;Version&gt;",
+    where &lt;Version&gt; is the version number of the release.
+    uDraw(Graph) can be placed in any directory. 
+    To move the software to another location, you need to move
+    this directory completely to some other directory.
+  </P>
+
+  <H2>
+    3. Specify Installation Directory 
+  </H2>
+  <P>
+    (This step is not neccessary on Mac OS&reg;, because a wrapper script is
+     used, if it doesn't work, please consider this step!)
+    on Linux&reg;.)
+  </P>
+  <P>
+    You have to set the environment
+    variable UDG_HOME to the absolute
+    file name of the directory where the system is installed on your
+    computer. Be careful with changing the location of the
+    distribution after users have saved their options and read this
+    note about environment variable <A href="var.html#udg_home" target="_top">$UDG_HOME</A>
+    for details.
+  </P>
+  <P>
+    For example, if you have installed
+    uDraw(Graph) in your home directory "/Users/me", then the 
+    environment variable has to be set using the following command
+    (try "echo $SHELL" to see the kind of shell you currently use):
+  </P>
+  <P>
+    For (t)csh shell users: 
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">
+    setenv UDG_HOME /Users/me/uDrawGraph-&lt;Version&gt;
+  </TD>
+</TR>
+  </TABLE>
+</P>
+  </P>
+  <P>
+    For (ba)sh shell users: 
+  <P>
+<TABLE border="0" bgcolor="#b6bfdd" cellpadding="5" cellspacing="1">
+  <TR>
+<TD class="table">
+    export UDG_HOME=/Users/me/uDrawGraph-&lt;Version&gt;
+  </TD>
+</TR>
+  </TABLE>
+</P>
+  </P>
+  <P>
+    You should make these settings permanent by putting this command 
+    into file ~/.cshrc (for (t)csh users) or ~/.profile (for (ba)sh users).
+  </P>
+
+  <H2>
+    4. Browser for Help System 
+  </H2>
+  <P>
+    Finally, make sure that you have installed a web browser 
+    to work with the online documentation and help system directly from
+    the uDraw(Graph) user interface. 
+    Netscape&reg; Navigator&reg;, Mozilla&reg; or Firefox&reg; are preferred. 
+    Unfortunately uDraw(Graph) tries to open a new browser window for each consecutive
+    call to the help system currently. At the first start, uDraw(Graph) will
+    try to start the binary /Applications/Mozilla.app/Contents/MacOS/mozilla-bin.
+    If this can't be found, the help system will not appear. In this case,
+    please use menu <A href="gui_opt_gen.html" target="_top">Options/General Settings...</A>
+    to specify the browser as described in <A href="gnrl_use.html" target="_top">Using the Online Documentation</A>.
+  </P>
+
+  <H2>
+    5. Start 
+  </H2>
+  <P>
+    The command you have to start is "uDrawGraph" in the "bin" directory. 
+  </P>
+
+  <H2>
+    6. Accept License Conditions 
+  </H2>
+  <P>
+    A window for license agreement appears
+    when the user starts uDraw(Graph) for the first time.
+    Please read the terms of the agreement carefully. 
+    You can get the full text of this license with the Show License button. 
+    The license text is also available in file "LICENSE.txt" in the 
+    installation directory. 
+    By confirming the license window, you accept and agree to become bound 
+    by all terms of this license. 
+    Please press the "Quit" button in the license agreement window if you do 
+    not agree to this license.   
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    Linux is a registered trademark of Linus Torvalds.
+  
+    Netscape and Navigator are registered trademarks of Netscape Communications Corporation.
+  
+    Mozilla and Firefox are registered trademarks of The Mozilla Foundation.
+  
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

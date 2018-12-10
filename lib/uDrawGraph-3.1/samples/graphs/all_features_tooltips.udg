@@ -1,0 +1,31 @@
+ [
+ l("Node A",n("Module",[a("COLOR","#f31d8b"),a("OBJECT","Node A"),a("_GO","ellipse"),a("FONTFAMILY","helvetica"),a("INFO","Colored ellipse")],
+        [
+        l("Edge A->B",e("",[a("EDGECOLOR","#ff0000"),a("EDGEPATTERN","single;solid;4;0"),a("HEAD","farrow"),a("_DIR","normal"),a("OBJECT",""),a("FONTFAMILY","lucida"),a("FONTSTYLE","bold"),a("INFO","Red edge")],
+         l("Node B",n("anything",[a("COLOR","light steel blue"),a("OBJECT","Node B\nThis node has two lines"),a("BORDER","double"),a("INFO","Multi-line node\nwith double border")],
+                [
+                l("Edge B->D",e("",[a("EDGEPATTERN","single;dotted;1;0"),a("HEAD","farrow"),a("_DIR","inverse"),a("OBJECT","Edge Label"),a("FONTFAMILY","lucida"),a("FONTSTYLE","bold"),a("INFO","Dotted edge\nbackward")],
+                 r("Node D")))
+                ])))),
+        l("Edge A->C",e("",[a("EDGECOLOR","#0054aa"),a("EDGEPATTERN","single;dotted;1;0"),a("OBJECT",""),a("INFO","Colored dotted edge")],
+         l("Node C",n("anything",[a("IMAGE","uDrawGraph_logo.gif"),a("COLOR","gold"),a("OBJECT",""),a("_GO","image"),a("FONTSTYLE","italic"),a("INFO","Node with GIF image")],
+                [
+                l("Edge C->D",e("anything",[a("EDGECOLOR","#00aaaa"),a("EDGEPATTERN","single;solid;1;0"),a("_DIR","both"),a("OBJECT",""),a("INFO","Colored edge in both directions")],
+                 l("Node D",n("Module",[a("OBJECT","Node D"),a("_GO","text"),a("FONTFAMILY","times"),a("FONTSTYLE","italic"),a("INFO","Text node")],[])))),
+                l("Edge C->F",e("anything",[a("EDGEPATTERN","double;solid;5;0"),a("OBJECT",""),a("INFO","Double edge")],
+                 r("Node F")))
+                ])))),
+        l("Edge A->E",e("",[a("EDGEPATTERN","single;dashed;1;0"),a("_DIR","none"),a("OBJECT",""),a("INFO","Dashed edge\nwithout direction")],
+         l("Node E",n("anything",[a("COLOR","LightGray"),a("OBJECT","Node E"),a("_GO","rhombus"),a("FONTFAMILY","courier"),a("FONTSTYLE","normal"),a("BORDER","double"),a("INFO","Grey rhombus node")],
+                [
+                l("Edge E->F",e("anything",[a("EDGEPATTERN","single;solid;3;0"),a("OBJECT",""),a("INFO","Thick edge")],
+                 r("Node F")))
+                ])))),
+        l("@A",e("edge",[a("EDGECOLOR","#ff0000"),a("EDGEPATTERN","single;solid;1;1"),a("HEAD","farrow"),a("_DIR","normal"),a("OBJECT","Spline !"),a("FONTFAMILY","lucida"),a("FONTSTYLE","bold"),a("INFO","Red edge")],
+         l("Node F",n("anything",[a("COLOR","#00dddd"),a("OBJECT","Node F"),a("HIDDEN","true"),a("INFO","Node with abstraction")],
+                [
+                l("Edge F->G",e("anything",[a("EDGEPATTERN","single;solid;1;0"),a("OBJECT",""),a("INFO","Normal edge")],
+                 l("Node G",n("anything",[a("OBJECT","Node G"),a("INFO","Normal node")],[]))))
+                ]))))
+        ]))
+ ]

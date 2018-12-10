@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML lang="en-us">
+<HEAD>
+<META name="uDrawGraph-root" content="">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>uDraw(Graph) 3.1 Online Documentation: Concepts / Graph Layout</TITLE>
+<STYLE type="text/css">
+    <!--
+    P,LI,UL,OL,TD,TH,BODY,B { font-size:12pt; font-family:Helvetica,Arial; }
+    PRE { font-size:12pt; font-family:Courier; }
+    P.tbd { font-size:14pt; color:#ff0000; }
+    H1 { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H1.large { font-size:18pt; font-family:Helvetica,Arial; font-weight:bold; }
+    H2 { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold; }
+    TH.table { background-color:#b6bfdd; }
+    TD.table { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; }
+    TD.pricetable { background-color:#b6bfdd; border-color:#ffffff; border-top-style:solid; border-top-width:thin; text-align:right; }
+    TD,BODY { color:#00000; background-color:#ffffff; }
+    TD.blue { background-color:#383887; }
+    TD.grey { background-color:#cccccc; }
+    B.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.header { font-size:12pt; font-family:Helvetica,Arial; font-weight:bold;  }
+    DIV.footer { font-size:10pt; font-family:Helvetica,Arial; color:#000000; }
+    DIV.title { font-size:14pt; font-family:Helvetica,Arial; font-weight:bold;}
+    SUP.tm { font-style:normal; font-size:x-small; vertical-align:top; }
+    A.webmaster { font-size:10pt; font-family:Helvetica,Arial; color:#ffffff; }
+    //-->
+    </STYLE>
+</HEAD>
+<BODY>
+<TABLE border="0" cellspacing="0" cellpadding="0" summary="blind table">
+<TR>
+<TD align="left">
+<DIV class="header">
+<A href="http://www.informatik.uni-bremen.de/uDrawGraph/en/"><IMG alt="University of Bremen" border="0" align="top" src="uni-bremen.gif"></A>
+</DIV>
+</TD>
+</TR>
+<TR>
+<TD valign="top" align="left">
+<HR noshade size="1">
+<DIV class="header">
+<B class="header">Manual</B>
+</DIV>
+<HR noshade size="1">
+<DIV class="header">
+<A href="main.html"><B>Main</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><A href="conc.html"><B>Concepts</B></A><B><IMG alt="->" src="small_arrow.gif" WIDTH="18" HEIGHT="9"></B><B class="header">Graph Layout</B>
+</DIV>
+<HR noshade size="1">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+  
+  <H1>Graph Layout</H1>
+  
+  <P>
+    A graph is displayed in the base window after a 
+  <A href="term.html" target="_top">term representation</A>
+    has loaded from file.
+    In a hierarchical layout, nodes of the same hierarchy layer are 
+    assigned to one horizontal level so all edges point downwards. 
+    Edges passing more than one level ("long span edges") are filled up 
+    with dummy nodes at each passed level. 
+    Dummy nodes are not part of the term representation, they are 
+    introduced automatically. 
+    Usually, they are invisible, but highlighted with small bullets when 
+    the corresponding edge is selected or when they are touched by the
+    mouse pointer. 
+  </P>
+  <P>
+  <A href="gui_file.html" target="_top">After loading a graph</A>,
+    a simple layout is applied without processing the edge crossing 
+    reduction. 
+    This means that all child nodes of a graph are placed in the initial 
+    order found in the term representation. 
+    A layout algorithm is available to reduce the number of edge crossings, 
+    resulting in better layouts.
+    For large graphs, this edge crossing reduction can be a lengthy 
+    operation, so it always has to be started by the user with menu 
+  <A href="gui_lay.html" target="_top">Layout/Improve All</A>. 
+    The edge crossing reduction calculates a new graph layout with 
+    (probably) fewer edge crossings by rearranging the order of nodes 
+    at each level. 
+    This graph layout algorithm has a random component, so two layout 
+    calculations of the same graph may yield different results. 
+    The advantage of this technique is that the average number of 
+    edge crossings is usually smaller. 
+  </P>
+  <P>
+    Using menu
+  <A href="gui_lay.html" target="_top">Layout/Orientation</A>
+    it is possible to set the direction of a graph layout. 
+    The default orientation is top-down to get 
+    horizontal levels and edges pointing downwards. 
+    The other three layout orientations left-to-right, right-to-left 
+    and bottom-up can be optionally set with the menu.
+  </P>
+  <P>
+    After calculating the layout, the graph is drawn in the base 
+    window. The visualization of nodes and edges (e.g. font, color, 
+    shape, icon, line pattern, etc) is determined by their 
+  <A href="term_attr.html" target="_top">attributes</A>
+    in the term representation. 
+    A text string, taken from attribute OBJECT, is placed inside each node.
+    The size of the nodes is automatically adapted to match the actual 
+    extension of the text. 
+    Multi-line text including newline characters is also supported. 
+    For the layout the minimal distance between nodes at the same level 
+    and the distance between levels (called gap width and height) can 
+    be set with menu 
+  <A href="gui_opt_set.html" target="_top">Options/Layout Settings...</A>. 
+  </P>
+  
+  <A name="select"></A>
+  <H2>Selection</H2>
+  <P>
+    If a node is selected by the user with the mouse, it will be drawn 
+    with a shadow. 
+    Many nodes can be selected at a time using the SHIFT-key or with a
+    rubber band selection. 
+    Edges can be selected, too, but only one at a time (i.e. multiple 
+    selection for edges is currently not possible). 
+    Edge selection is a useful trick to trace the route and find the 
+    parent and child node of very long edges. 
+  </P>
+
+  <A name="incr"></A>
+  <H2>Incremental Graph Layout</H2>
+  <P>
+    If the layout algorithm (edge crossing reduction) is started with
+    menu 
+  <A href="gui_lay.html" target="_top">Layout/Improve All</A>, 
+    uDraw(Graph) optimizes the overall layout of the graph.
+    Due to the basic principles of these algorithms, even minimal changes 
+    to a graph structure result in major changes in the layout.
+    To overcome this problem, uDraw(Graph) has a unique incremental 
+    graph layout algorithm to introduce updates in a graph with a
+    minimal number of modifications.
+  </P>
+  <P>
+    Graph updates sent to the uDraw(Graph) 
+  <A href="api.html" target="_top">API</A> 
+    are inserted into the existing graph layout incrementally instead 
+    of forcing a completely new layout. 
+    So the layout before the update is preserved as much as possible 
+    in order to support layout stability. 
+    Of course, after doing some incremental updates, the graph layout 
+    may be getting worse, so a new global graph layout might be
+    necessary. 
+    The user can do this at any time with menu 
+  <A href="gui_lay.html" target="_top">Layout/Improve All</A>.
+  </P>
+
+  <P>
+    Next:
+  <A href="conc_def.html" target="_top">Visualization Definition</A>.
+  </P>
+  
+<BR>
+<IMG width="1" height="50" alt="" src="space.gif"><BR>
+<HR noshade size="1">
+<DIV class="footer">
+    All other trademarks mentioned herein are the property of their
+    respective owners.
+    Information on this page is subject to change without notice.
+    Please send comments regarding this online documentation to 
+    <A href="uDrawGraph@informatik.uni-bremen.de">uDrawGraph@informatik.uni-bremen.de</A>.
+    </DIV>
+<BR>
+</TD>
+</TR>
+<TR>
+<TD class="footer" align="right" valign="middle">
+<DIV class="footer">
+    Copyright &copy; 2005, Universit&auml;t Bremen. All rights reserved.
+    <IMG width="5" height="1" alt="" src="space.gif"></DIV>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>
