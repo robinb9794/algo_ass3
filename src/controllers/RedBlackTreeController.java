@@ -11,26 +11,20 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import models.ViewModel;
 import redblack.*;
-import views.InsertionWindow;
 import views.RedBlackTreeInsertionWindow;
 import workers.UDrawGraphClient;
 
-public class RedBlackTreeController {
-    private ViewModel viewModel;
-    private InsertionWindow insertionWindow;
-
-    private RedBlackTree redBlackTree;
-    private UDrawGraphClient graphClient;
+public class RedBlackTreeController extends SuperTreeController{
+    private RedBlackTree redBlackTree;    
 
     public RedBlackTreeController() {
-        this.viewModel = new ViewModel();
         this.insertionWindow = new RedBlackTreeInsertionWindow();
         this.redBlackTree = new RedBlackTree();
         this.graphClient = new UDrawGraphClient();
 	}
-	
+    
+    @Override
 	public void work() {
         insertionWindow.buildInteractionPanel();
         insertionWindow.addWindowListener(new WindowAdapter(){
@@ -49,13 +43,19 @@ public class RedBlackTreeController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String key = insertionWindow.insertionField.getText();
-                JPanel infoRow = getNewInfoRow(key);
-                insertionWindow.infoPanel.add(infoRow);
-                insertionWindow.infoPanel.revalidate();
-                
-                graphClient.newNode(new Node(key));
+                if(keyIsValid(key)){
+                    JPanel infoRow = getNewInfoRow(key);
+                    insertionWindow.infoPanel.add(infoRow);
+                    insertionWindow.infoPanel.revalidate();
+                    redBlackTree.insert(key);
+                }else
+                    showErrorDialog("The key must have no less than 4 letters and no numbers.");                
             }
         };
+    }
+
+    private boolean keyIsValid(String key){
+        return key.length() >= 4 && !key.matches(".*\\d+.*");
     }
 
     private JPanel getNewInfoRow(String key){

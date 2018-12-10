@@ -8,7 +8,7 @@ import views.SelectionWindow;
 public class SelectionController {
 	private SelectionWindow selectionWindow;
 	
-	private RedBlackTreeController redBlackTreeController;
+	private SuperTreeController treeController;
 	
 	public SelectionController() {
 		selectionWindow = new SelectionWindow();
@@ -24,8 +24,8 @@ public class SelectionController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
                 selectionWindow.dispose();
-				redBlackTreeController = new RedBlackTreeController();
-				redBlackTreeController.work();
+				treeController = new RedBlackTreeController();
+				treeController.work();
 			}
 		});
 		

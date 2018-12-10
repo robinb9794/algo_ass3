@@ -1,16 +1,17 @@
 package redblack;
 
-import workers.UDrawGraphClient;
+import java.math.BigInteger;
 
-public class RedBlackTree<K extends Comparable<K>> {	
+public class RedBlackTree {
 	private Node root;
 	
 	public Node getRoot() {
 		return this.root;
 	}
 	
-	public Node search(K key) {
-		Node tmp = root;
+	public Node search(String key) {
+        Node tmp = root;
+        String binaryKeyToInsert = new BigInteger(key.getBytes()).toString(2);
 		while(tmp != null) {
 			final int RES = tmp.getKey().compareTo(key);
 			if(RES == 0)
@@ -20,15 +21,17 @@ public class RedBlackTree<K extends Comparable<K>> {
 		return null;
 	}	
 	
-	public void insert(K key) {
-		System.out.println("Inserting node: " + key.toString());
-		NodeHandler nodeHandler = new NodeHandler(root);
+	public void insert(String key) {
+        NodeHandler nodeHandler = new NodeHandler(root);
+        String binaryKeyToInsert = new BigInteger(key.getBytes()).toString(2);
+        String tmpKey = "";
 		while(!nodeHandler.isNull()) {
 			if(nodeHandler.getNode(NodeFamily.NODE).is4Node()) {
 				nodeHandler.getNode(NodeFamily.NODE).convert4Node();
 				nodeHandler.split();
-			}
-			final int RES = key.compareTo((K) nodeHandler.getNode(NodeFamily.NODE).getKey());
+            }
+            tmpKey = new BigInteger(nodeHandler.getNode(NodeFamily.NODE).getKey()).toString(2);
+			final int RES = key.compareTo(nodeHandler.getNode(NodeFamily.NODE).getKey());
 			if(RES == 0)
 				return;
 			nodeHandler.down(RES < 0);
@@ -71,18 +74,15 @@ public class RedBlackTree<K extends Comparable<K>> {
 		}
 		
 		public void rotate(int i) {
-			System.out.print("Rotating");
 			Node dad = nodes[i];
 			Node son = nodes[i-1];
 			boolean sonIsRed = son.isRed();
 			son.setIsRed(dad.isRed());
 			dad.setIsRed(sonIsRed);			
 			if(dad.getLeft() == son) {
-				System.out.println(" clockwise");
 				dad.setLeft(son.getRight());
 				son.setRight(dad);
 			}else {
-				System.out.println(" counter clockwise");
 				dad.setRight(son.getLeft());
 				son.setLeft(dad);
 			}

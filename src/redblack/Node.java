@@ -1,20 +1,20 @@
 package redblack;
 
-public class Node<K extends Comparable<K>> {
-	private K key;
+public class Node {
+	private String key;
 	Node left = null;
 	Node right = null;
 	boolean isRed;
 	
-	public Node(K key) {
+	public Node(String key) {
 		this.key = key;
 	}
 	
-	public K getKey() {
+	public String getKey() {
 		return this.key;
 	}
 	
-	public void setKey(K key) {
+	public void setKey(String key) {
 		this.key = key;
 	}
 	
@@ -47,7 +47,6 @@ public class Node<K extends Comparable<K>> {
 	}
 	
 	public void convert4Node() {
-		System.out.println("Converting 4-Node: " + key.toString());
 		this.isRed = true;
 		this.left.setIsRed(false);
 		this.right.setIsRed(false);
