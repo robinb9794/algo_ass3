@@ -1,27 +1,49 @@
 package workers;
 
 import redblack.*;
+import views.ExeLocator;
 
-import java.net.Socket;
-import java.io.OutputStream;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import javax.swing.JFileChooser;
+
+import java.io.*;
 
 public class UDrawGraphClient{
-    private Socket socket;
-    private OutputStream out;
-    private BufferedReader in;
+    private ExeLocator exeLocator;
+    private PipeManager pipeManager;
+
+    private OutputStream stdin;
+    private InputStream stdout;
+
+    private BufferedReader reader;
+    private BufferedWriter writer;
 
     public UDrawGraphClient(){
-        try{
-            Runtime.getRuntime().exec("sh -c /home/robin/repos/algo_ass3/lib/uDrawGraph-3.1/bin/uDrawGraph -server 2542");
-            socket = new Socket("localhost", 2542);
-            out = socket.getOutputStream();
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        }catch(Exception ex){
-            ex.printStackTrace();
+        this.pipeManager = new PipeManager();
+        this.exeLocator = new ExeLocator();
+        int returnValue = exeLocator.showOpenDialog(null);
+        handleReturnValue(returnValue);
+    }
+
+    private void handleReturnValue(int returnValue){
+        if(returnValue == JFileChooser.APPROVE_OPTION){
+            File exeFile = exeLocator.getSelectedFile();
+            String exePath = exeFile.getAbsolutePath();
+            pipeManager.init(exePath);
+            open(exePath);
         }
     }
+
+    private void open(String exePath){
+        try{
+            stdin = pipeManager.getOutputStream();   
+            stdout = pipeManager.getInputStream();
+            
+            reader = new BufferedReader(new InputStreamReader(stdout));
+            writer = new BufferedWriter(new OutputStreamWriter(stdin));
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }        
+    }    
 
     public void newNode(Node node){
         String message = "graph(mixed_update([new_node(\"" + node.getKey() 
@@ -65,10 +87,11 @@ public class UDrawGraphClient{
 
     private void sendMessage(String message){
         try{
-            out.write((message + "\n").getBytes());
-            String tmp = in.readLine();
+            writer.write(message + "\n");
+            writer.flush();
+            String tmp = reader.readLine();
             if(tmp.compareTo("ok") != 0){
-                tmp = in.readLine();
+                tmp = reader.readLine();
             }
         }catch(Exception ex){
             ex.printStackTrace();
@@ -77,8 +100,8 @@ public class UDrawGraphClient{
 
     public void close(){
         try{
-            out.close();
-            in.close();
+            writer.close();
+            reader.close();
         }catch(Exception ex){
             ex.printStackTrace();
         }

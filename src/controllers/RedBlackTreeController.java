@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import models.ViewModel;
-import redblack.RedBlackTree;
+import redblack.*;
 import views.InsertionWindow;
 import views.RedBlackTreeInsertionWindow;
 import workers.UDrawGraphClient;
@@ -52,7 +52,8 @@ public class RedBlackTreeController {
                 JPanel infoRow = getNewInfoRow(key);
                 insertionWindow.infoPanel.add(infoRow);
                 insertionWindow.infoPanel.revalidate();
-                redBlackTree.insert(key);
+                
+                graphClient.newNode(new Node(key));
             }
         };
     }

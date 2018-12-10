@@ -2,7 +2,7 @@ package redblack;
 
 import workers.UDrawGraphClient;
 
-public class RedBlackTree<K> {	
+public class RedBlackTree<K extends Comparable<K>> {	
 	private Node root;
 	
 	public Node getRoot() {

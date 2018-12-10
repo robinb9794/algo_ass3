@@ -1,6 +1,6 @@
 package redblack;
 
-public class Node<K> {
+public class Node<K extends Comparable<K>> {
 	private K key;
 	Node left = null;
 	Node right = null;
