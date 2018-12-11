@@ -47,6 +47,7 @@ public class Node {
 	}
 	
 	public void convert4Node() {
+        System.out.println("Converting 4-Node: " + key);
 		this.isRed = true;
 		this.left.setIsRed(false);
 		this.right.setIsRed(false);

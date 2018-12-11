@@ -11,7 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import redblack.*;
+import redblack.Node;
+import redblack.RedBlackTree;
 import views.RedBlackTreeInsertionWindow;
 import workers.UDrawGraphClient;
 
@@ -43,11 +44,10 @@ public class RedBlackTreeController extends SuperTreeController{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String key = insertionWindow.insertionField.getText();
-                if(keyIsValid(key)){
-                    JPanel infoRow = getNewInfoRow(key);
-                    insertionWindow.infoPanel.add(infoRow);
-                    insertionWindow.infoPanel.revalidate();
+                if(keyIsValid(key)){                   
                     redBlackTree.insert(key);
+                    updateGUI(key);
+                    resetAndPrintTree();
                 }else
                     showErrorDialog("The key must have no less than 4 letters and no numbers.");                
             }
@@ -71,7 +71,7 @@ public class RedBlackTreeController extends SuperTreeController{
         infoRow.add(deletionButton);
 
         return infoRow;
-    }
+    }    
 
     private ActionListener getDeletionButtonListener(JPanel infoRow, String key){
         return new ActionListener(){
@@ -82,5 +82,42 @@ public class RedBlackTreeController extends SuperTreeController{
                 insertionWindow.infoPanel.repaint();
             }
         };
+    }
+
+    private void updateGUI(String key){
+        JPanel infoRow = getNewInfoRow(key);
+        insertionWindow.insertionField.setText("");
+        insertionWindow.infoPanel.add(infoRow);
+        insertionWindow.infoPanel.revalidate();
+    }
+
+    private void resetAndPrintTree(){
+        graphClient.reset();
+        print(redBlackTree.getRoot(), redBlackTree.getRoot());
+    }
+
+    private void print(Node node, Node dad){
+        graphClient.newNode(node);
+        if (node != redBlackTree.getRoot()) {
+			if(dad.getLeft() != null && dad.getLeft() == node){
+                if(node.isRed())
+                    graphClient.newRedLeftEdge(dad, node);
+                else
+                    graphClient.newLeftEdge(dad, node);
+            }else if(dad.getRight() != null && dad.getRight() == node){
+                if(node.isRed())
+                    graphClient.newRedRightEdge(dad, node);
+                else
+                    graphClient.newRightEdge(dad, node);
+            }
+		}
+		if (node.getLeft() != null) {
+			print(node.getLeft(), node);
+		}
+		if (node.getRight() != null) {
+			print(node.getRight(), node);
+		}
+		if (node.getLeft() == null && node.getRight() == null)
+			graphClient.improve();
     }
 }

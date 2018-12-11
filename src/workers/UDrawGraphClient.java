@@ -100,6 +100,8 @@ public class UDrawGraphClient{
         try{
             writer.write(message + "\n");
             writer.flush();
+            while(!reader.readLine().equals("ok"));
+            Thread.sleep(200);
         }catch(Exception ex){
             ex.printStackTrace();
         }
