@@ -44,18 +44,18 @@ public class RedBlackTreeController extends SuperTreeController{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String key = insertionWindow.insertionField.getText();
-                if(keyIsValid(key)){                   
-                    redBlackTree.insert(key);
+                if(keyIsValid(key)){     
+                    redBlackTree.insert(key);              
                     updateGUI(key);
                     resetAndPrintTree();
                 }else
-                    showErrorDialog("The key must have no less than 4 letters and no numbers.");                
+                    showErrorDialog("The key must have no less than 3 letters and no numbers.");                
             }
         };
     }
 
     private boolean keyIsValid(String key){
-        return key.length() >= 4 && !key.matches(".*\\d+.*");
+        return key.length() >= 3 && !key.matches(".*\\d+.*");
     }
 
     private JPanel getNewInfoRow(String key){

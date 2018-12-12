@@ -7,7 +7,8 @@ public class Node {
 	boolean isRed;
 	
 	public Node(String key) {
-		this.key = key;
+        this.key = key;
+        this.isRed = true;
 	}
 	
 	public String getKey() {

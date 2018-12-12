@@ -12,32 +12,33 @@ public class RedBlackTree {
 	public Node search(String key) {
         Node tmp = root;
         String binaryKeyToInsert = new BigInteger(key.getBytes()).toString(2);
-		while(tmp != null) {
-			final int RES = tmp.getKey().compareTo(key);
-			if(RES == 0)
-				return tmp;
-			tmp = RES < 0 ? tmp.getLeft() : tmp.getRight();
-		}
+		for(int i = 0; tmp != null; i++){
+            if(tmp.getKey().equals(key))
+                return tmp;
+            int bit = (Integer.valueOf(binaryKeyToInsert, 2) & (1 << i));
+            tmp = bit != 0 ? tmp.getRight() : tmp.getLeft();
+        }
 		return null;
 	}	
 	
 	public void insert(String key) {
         NodeHandler nodeHandler = new NodeHandler(root);
-        String binaryKeyToInsert = new BigInteger(key.getBytes()).toString(2);
-        String tmpKey = "";
+        byte[] keyBytes = key.getBytes();
+        boolean left = false;
+        int i = 0;
 		while(!nodeHandler.isNull()) {
 			if(nodeHandler.getNode(NodeFamily.NODE).is4Node()) {
 				nodeHandler.getNode(NodeFamily.NODE).convert4Node();
-				nodeHandler.split();
+				nodeHandler.split(i);
             }
-            tmpKey = new BigInteger(nodeHandler.getNode(NodeFamily.NODE).getKey().getBytes()).toString(2);
-			final int RES = key.compareTo(nodeHandler.getNode(NodeFamily.NODE).getKey());
-			if(RES == 0)
-				return;
-			nodeHandler.down(RES < 0);
+            /*Node tmpNode = nodeHandler.getNode(NodeFamily.NODE);
+            BigInteger tmpBinaryCode = new BigInteger(tmpNode.getKey().getBytes());*/
+            left = (keyBytes[keyBytes.length-1-i] & (1 << i)) == 0 ? true : false;
+            nodeHandler.down(left);
+            i++;
         }
-		nodeHandler.set(new Node(key), NodeFamily.NODE);
-        nodeHandler.split();
+		nodeHandler.set(new Node(key), left);
+        nodeHandler.split(i);
     }	
     
     class NodeHandler {	
@@ -61,16 +62,16 @@ public class RedBlackTree {
             return nodes[i];
         }
         
-        public void set(Node node, int i) {
-            if(nodes[i+1] == null) {
+        public void set(Node node, boolean left) {
+            if(nodes[NodeFamily.DAD] == null) {
                 root = node;
                 root.setIsRed(false);
                 System.out.println("Root is now: " + node.getKey());
-            }else if(nodes[i] != null ? nodes[i+1].getLeft() == nodes[i] : node.getKey().compareTo(nodes[i+1].getKey()) < 0)
-                nodes[i+1].setLeft(node);
+            }else if(left)
+                nodes[NodeFamily.DAD].setLeft(node);
             else
-                nodes[i+1].setRight(node);
-            nodes[i] = node;
+                nodes[NodeFamily.DAD].setRight(node);
+            nodes[NodeFamily.NODE] = node;
         }
         
         public void rotate(int i) {
@@ -89,14 +90,17 @@ public class RedBlackTree {
                 dad.setRight(son.getLeft());
                 son.setLeft(dad);
             }
-            set(son, i);
+            set(son, dad.getLeft() == son);
         }
         
-        public void split() {
+        public void split(int i) {
             Node dad = nodes[NodeFamily.DAD];
             if(dad != null && dad.isRed()) {
                 System.out.println("Splitting");
-                if(nodes[NodeFamily.GRAND_DAD].getKey().compareTo(dad.getKey()) < 0 != dad.getKey().compareTo(nodes[NodeFamily.NODE].getKey()) < 0)
+                byte[] grandDadBytes = nodes[NodeFamily.GRAND_DAD].getKey().getBytes();
+                byte[] dadBytes = nodes[NodeFamily.DAD].getKey().getBytes();
+                boolean shouldRotateAtDad = ((grandDadBytes[i%8] & (1 << (i-2))) == 1) != ((dadBytes[i%8] & (1 << (i-1))) == 1);
+                if(shouldRotateAtDad)
                     rotate(NodeFamily.DAD);
                 rotate(NodeFamily.GRAND_DAD);
             }
