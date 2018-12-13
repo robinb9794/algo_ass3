@@ -44,18 +44,14 @@ public class RedBlackTreeController extends SuperTreeController{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String key = insertionWindow.insertionField.getText();
-                if(keyIsValid(key)){     
+                if(!key.isEmpty()){
                     redBlackTree.insert(key);              
                     updateGUI(key);
-                    resetAndPrintTree();
+                    resetAndPrintTree();  
                 }else
-                    showErrorDialog("The key must have no less than 3 letters and no numbers.");                
+                     showErrorDialog("Key cannot be empty.");       
             }
         };
-    }
-
-    private boolean keyIsValid(String key){
-        return key.length() >= 3 && !key.matches(".*\\d+.*");
     }
 
     private JPanel getNewInfoRow(String key){
@@ -93,7 +89,7 @@ public class RedBlackTreeController extends SuperTreeController{
 
     private void resetAndPrintTree(){
         graphClient.reset();
-        print(redBlackTree.getRoot(), redBlackTree.getRoot());
+        print(redBlackTree.getRoot(), redBlackTree.getRoot());      
     }
 
     private void print(Node node, Node dad){
@@ -116,8 +112,8 @@ public class RedBlackTreeController extends SuperTreeController{
 		}
 		if (node.getRight() != null) {
 			print(node.getRight(), node);
-		}
-		if (node.getLeft() == null && node.getRight() == null)
-			graphClient.improve();
+        }
+        if(node.getLeft() == null && node.getRight() == null)
+            graphClient.improve();
     }
 }

@@ -26,19 +26,20 @@ public class RedBlackTree {
         byte[] keyBytes = key.getBytes();
         boolean left = false;
         int i = 0;
+        int j = keyBytes.length - 1;
 		while(!nodeHandler.isNull()) {
 			if(nodeHandler.getNode(NodeFamily.NODE).is4Node()) {
 				nodeHandler.getNode(NodeFamily.NODE).convert4Node();
 				nodeHandler.split(i);
             }
-            /*Node tmpNode = nodeHandler.getNode(NodeFamily.NODE);
-            BigInteger tmpBinaryCode = new BigInteger(tmpNode.getKey().getBytes());*/
-            left = (keyBytes[keyBytes.length-1-i] & (1 << i)) == 0 ? true : false;
+            j = (i >= 8 && keyBytes.length > 1 )? (j-1) : j;
+            left = (keyBytes[j] & (1 << i)) == 0 ? true : false;
             nodeHandler.down(left);
             i++;
         }
-		nodeHandler.set(new Node(key), left);
+		nodeHandler.set(new Node(key), NodeFamily.NODE, left);
         nodeHandler.split(i);
+        root.setIsRed(false);
     }	
     
     class NodeHandler {	
@@ -62,45 +63,41 @@ public class RedBlackTree {
             return nodes[i];
         }
         
-        public void set(Node node, boolean left) {
-            if(nodes[NodeFamily.DAD] == null) {
+        public void set(Node node, int kind, boolean left) {
+            if(nodes[kind+1] == null) {
                 root = node;
                 root.setIsRed(false);
-                System.out.println("Root is now: " + node.getKey());
-            }else if(left)
-                nodes[NodeFamily.DAD].setLeft(node);
+            }else if(left || nodes[kind] != null)
+                nodes[kind+1].setLeft(node);
             else
-                nodes[NodeFamily.DAD].setRight(node);
-            nodes[NodeFamily.NODE] = node;
+                nodes[kind+1].setRight(node);
+            nodes[kind] = node;
         }
         
-        public void rotate(int i) {
-            System.out.print("Rotating");
-            Node dad = nodes[i];
-            Node son = nodes[i-1];
-            boolean sonIsRed = son.isRed();
+        public void rotate(int kind) {
+            Node dad = nodes[kind];
+            Node son = nodes[kind-1];
             son.setIsRed(dad.isRed());
-            dad.setIsRed(sonIsRed);			
+            dad.setIsRed(son.isRed());			
             if(dad.getLeft() == son) {
-                System.out.println(" clockwise");
                 dad.setLeft(son.getRight());
                 son.setRight(dad);
             }else {
-                System.out.println(" counter clockwise");
                 dad.setRight(son.getLeft());
                 son.setLeft(dad);
             }
-            set(son, dad.getLeft() == son);
+            set(son, kind, dad.getLeft() == son);
         }
         
         public void split(int i) {
             Node dad = nodes[NodeFamily.DAD];
             if(dad != null && dad.isRed()) {
-                System.out.println("Splitting");
-                byte[] grandDadBytes = nodes[NodeFamily.GRAND_DAD].getKey().getBytes();
                 byte[] dadBytes = nodes[NodeFamily.DAD].getKey().getBytes();
-                boolean shouldRotateAtDad = ((grandDadBytes[i%8] & (1 << (i-2))) == 1) != ((dadBytes[i%8] & (1 << (i-1))) == 1);
-                if(shouldRotateAtDad)
+                byte[] sonBytes = nodes[NodeFamily.NODE].getKey().getBytes();
+                int j = (dadBytes.length > 1) ? (i%8) : 0;
+                int k = (sonBytes.length > 1) ? (i%8) : 0;
+                boolean isDifferentOrientation = ((dadBytes[j] & (1 << (i-2))) == 1) != ((sonBytes[k] & (1 << (i-1))) == 1);
+                if(isDifferentOrientation)
                     rotate(NodeFamily.DAD);
                 rotate(NodeFamily.GRAND_DAD);
             }
