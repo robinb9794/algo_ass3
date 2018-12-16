@@ -1,27 +1,32 @@
 package views;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
-import javax.swing.BoxLayout;
+import javax.swing.JTextField;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Dimension;
-import java.awt.Color;
-
-public class InsertionWindow extends JFrame{
+public class InsertionWindow extends JFrame {
     public JPanel interactionPanel;
+
     public JPanel insertionPanel;
     public JTextField insertionField;
     public JButton insertionButton;
-    public JButton topDownButton;
 
     public JPanel infoPanel;
     public JScrollPane scrollPane;
+
+    public JPanel extraActionsPanel;
+    public JButton searchButton;
+    public JButton topDownButton;   
     
     public InsertionWindow(String title){
         super(title);
@@ -45,7 +50,7 @@ public class InsertionWindow extends JFrame{
 
         insertionButton = new JButton("Insert");
         insertionButton.setPreferredSize(new Dimension(100, 30));
-        insertionPanel.add(insertionButton);
+        insertionPanel.add(insertionButton);        
 
         interactionPanel.add(BorderLayout.NORTH, insertionPanel);
 
@@ -55,10 +60,17 @@ public class InsertionWindow extends JFrame{
 
         interactionPanel.add(BorderLayout.CENTER, scrollPane);
 
+        extraActionsPanel = new JPanel(new GridLayout(2, 1));
+
+        searchButton = new JButton("Search");
+        searchButton.setPreferredSize(new Dimension(100, 30));
+        extraActionsPanel.add(searchButton);
+
         topDownButton = new JButton("-> Top-Down-2-3-4");
         topDownButton.setPreferredSize(new Dimension(250, 30));
+        extraActionsPanel.add(topDownButton);
 
-        interactionPanel.add(BorderLayout.SOUTH, topDownButton);
+        interactionPanel.add(BorderLayout.SOUTH, extraActionsPanel);
 
         add(BorderLayout.CENTER, interactionPanel);
     }

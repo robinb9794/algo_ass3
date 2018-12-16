@@ -2,6 +2,6 @@ package views;
 
 public class RedBlackTreeInsertionWindow extends InsertionWindow{
     public RedBlackTreeInsertionWindow(){
-        super("Red-black tree");
+        super("Assigment 3 - Robin Beyer - Red-black tree");
     }
 }

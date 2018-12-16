@@ -36,6 +36,7 @@ public class RedBlackTreeController extends SuperTreeController{
             }
         });
         insertionWindow.insertionButton.addActionListener(getInsertionButtonListener());
+        insertionWindow.searchButton.addActionListener(getSearchButtonListener());
         insertionWindow.packAndShow();
     }
 
@@ -48,6 +49,23 @@ public class RedBlackTreeController extends SuperTreeController{
                     redBlackTree.insert(key);              
                     updateGUI(key);
                     resetAndPrintTree();  
+                }else
+                     showErrorDialog("Key cannot be empty.");       
+            }
+        };
+    }
+
+    private ActionListener getSearchButtonListener(){
+        return new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String key = insertionWindow.insertionField.getText();
+                if(!key.isEmpty()){
+                    Node searchedNode = redBlackTree.search(key);        
+                    if(searchedNode != null)
+                        showInfoDialog("Key found!");
+                    else
+                        showErrorDialog("Key not found.");
                 }else
                      showErrorDialog("Key cannot be empty.");       
             }
