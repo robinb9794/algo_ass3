@@ -7,71 +7,136 @@ public class RedBlackTree {
 		return this.root;
     }
 	
-	public Node search(String key) {
-        System.out.println(".............................\nSearching _" + key + "_");
-        Node tmp = root;
-        int i = 0;
-		while(tmp != null){
-            System.out.println("Checking tmp key _" + tmp.getKey() + "_");
-            if(tmp.getKey().equals(key))
-                return tmp;
-            byte[] tmpBytes = tmp.getKey().getBytes();
-            int j = tmpBytes.length - 1;
-            j = (i >= 8 && tmpBytes.length > 1 )? (j-1) : j;
-            System.out.println("Checking tmp bit at position " + i + ": " + (((tmpBytes[j] & (1 << i)) == 0) ? "0" : "1"));
-            boolean left = (tmpBytes[j] & (1 << i)) == 0;
-            System.out.println("Going " + (left ? "left" : "right"));
-            tmp = left ? tmp.getLeft() : tmp.getRight();
-        }
-		return null;
-	}	
-	
 	public void insert(String key) {
         System.out.println(".............................\nInserting _" + key + "_");
-        NodeHandler nodeHandler = new NodeHandler(root);
+        NodeHandler h = new NodeHandler(root);
         byte[] keyBytes = key.getBytes();
         boolean left = false;
         int i = 0;
-        int j = keyBytes.length - 1;
-		while(!nodeHandler.isNull()) {
-			if(nodeHandler.getNode(NodeFamily.NODE).is4Node()) {
-				nodeHandler.getNode(NodeFamily.NODE).convert4Node();
-				nodeHandler.split(i);
+        int keyIndex = keyBytes.length - 1;
+		while(!h.isNull()) {
+			if(h.nodes[h.NODE].is4Node()) {
+				h.nodes[h.NODE].convert4Node();
+				h.split(i);
             }
-            j = (i >= 8 && keyBytes.length > 1) ? (j-1) : j;
-            System.out.println("Checking key bit at position " + i + ": " + (((keyBytes[j] & (1 << i)) == 0) ? "0" : "1"));
-            left = (keyBytes[j] & (1 << i)) == 0 ? true : false;
+            keyIndex = (i >= 8 && keyBytes.length > 1) ? (keyIndex-1) : keyIndex;
+            System.out.println("Checking key bit at position " + i + ": " + (((keyBytes[keyIndex] & (1 << i)) == 0) ? "0" : "1"));
+            left = (keyBytes[keyIndex] & (1 << i)) == 0;
             System.out.println("Going down " + (left ? "left" : "right"));
-            nodeHandler.down(left);
+            h.down(left);
             i++;
         }
-		nodeHandler.set(new Node(key), NodeFamily.NODE, left);
-        nodeHandler.split(i);
+		h.set(new Node(key), h.NODE, left, false);
+        h.split(i);
         root.setIsRed(false);
     }	
+
+    public void delete(String key){
+        System.out.println(".............................\nDeleting _" + key + "_");
+        NodeHandler h = new NodeHandler(root);
+        byte[] keyBytes = key.getBytes();
+        boolean left = false;
+        int i = 0;
+        int keyIndex = keyBytes.length - 1;
+        while(!h.isNull()){
+            h.join();
+            keyIndex = (i >= 8 && keyBytes.length > 1) ? (keyIndex-1) : keyIndex;
+            left = (keyBytes[keyIndex] & (1 << i)) == 0;
+            if(h.nodes[h.NODE].getKey().equals(key)){
+                if(h.nodes[h.NODE].getRight() == null){
+                    h.set(h.nodes[h.NODE].getLeft(), h.NODE, false, true);
+                }else{
+                    NodeHandler h2 = new NodeHandler(h);
+                    h2.down(false);
+                    h2.join();
+                    while(h2.nodes[h2.NODE].getLeft() != null){
+                        h2.down(true);
+                        h2.join();
+                    }
+                    h.nodes[h.NODE].setKey(h2.nodes[h2.NODE].getKey());
+                    h2.set(h2.nodes[h.NODE].getRight(), h2.NODE, true, true);
+                }
+                if(root != null)
+                    root.setIsRed(false);
+            }
+            h.down(left);
+            i++;
+        }
+    }
     
     class NodeHandler {	
-        private Node[] nodes = new Node[4];
+        public final int NODE = 0;
+        public final int DAD = 1;
+        public final int GRAND_DAD = 2;
+        public final int GRAND_GRAND_DAD = 3;
+
+        public Node[] nodes = new Node[4];
         
         public NodeHandler(Node node) {
-            nodes[NodeFamily.NODE] = node;
+            nodes[NODE] = node;
+        }
+
+        public NodeHandler(NodeHandler h){
+            nodes[NODE] = h.nodes[NODE];
+            nodes[DAD] = h.nodes[DAD];
+            nodes[GRAND_DAD] = h.nodes[GRAND_DAD];
+            nodes[GRAND_GRAND_DAD] = h.nodes[GRAND_GRAND_DAD];
         }
         
         public void down(boolean left) {
             for(int i = nodes.length - 1; i > 0; i--)
                 nodes[i] = nodes[i-1];
-            nodes[NodeFamily.NODE] = left ? nodes[NodeFamily.DAD].getLeft() : nodes[NodeFamily.DAD].getRight();
+            nodes[NODE] = left ? nodes[DAD].getLeft() : nodes[DAD].getRight();
         }
         
         public boolean isNull() {
-            return nodes[NodeFamily.NODE] == null;
+            return nodes[NODE] == null;
+        }   
+
+        private void join(){
+            if(nodes[NODE].is2Node()){
+                if(nodes[DAD] == null && nodes[NODE].getLeft() != null && nodes[NODE].getLeft().is2Node()
+                    && nodes[NODE].getRight() != null && nodes[NODE].getRight().is2Node()){ // case 1
+                        nodes[NODE].getLeft().setIsRed(true);
+                        nodes[NODE].getRight().setIsRed(true);
+                }else if(nodes[DAD] != null){
+                    NodeHandler nephew = getNephew();
+                    if(nephew.nodes[DAD].isRed()){ // case 6-9
+                        nephew.rotate(GRAND_DAD);
+                        nodes[GRAND_GRAND_DAD] = nodes[GRAND_DAD];
+                        nodes[GRAND_DAD] = nephew.nodes[GRAND_DAD];
+                        nephew = getNephew();
+                    }
+                    if(nephew.nodes[DAD].is2Node()){ // case 2
+                        nodes[NODE].setIsRed(true);
+                        nephew.nodes[DAD].setIsRed(true);
+                        nodes[DAD].setIsRed(false);
+                    }else{
+                        if(!nephew.isNull() && nephew.nodes[NODE].isRed())
+                            nephew.rotate(DAD); // case 4-5
+                        nephew.rotate(GRAND_DAD); // case 3
+                    }
+                }
+            }
+        }
+
+        private NodeHandler getNephew(){
+            Node node = nodes[NODE];
+            Node dad = nodes[DAD];
+            Node grandDad = nodes[GRAND_DAD];
+
+            Node brother = node == dad.getLeft() ? dad.getRight() : dad.getLeft();
+            Node nephew = node == dad.getLeft() ? brother.getLeft() : brother.getRight();
+            NodeHandler h = new NodeHandler(nephew);
+
+            h.nodes[DAD] = brother;
+            h.nodes[GRAND_DAD] = dad;
+            h.nodes[GRAND_GRAND_DAD] = grandDad;
+
+            return h;
         }
         
-        public Node getNode(int i) {
-            return nodes[i];
-        }
-        
-        public void set(Node node, int kind, boolean left) {
+        public void set(Node node, int kind, boolean left, boolean copyColors) {
             if(nodes[kind+1] == null) {
                 System.out.println("Root is now _" + node.getKey() + "_");
                 root = node;
@@ -83,16 +148,30 @@ public class RedBlackTree {
                 System.out.println("Setting node _" + node.getKey() + "_ right from _" + nodes[kind+1].getKey() + "_");
                 nodes[kind+1].setRight(node);
             }
+            if(copyColors && nodes[kind] != null && node != null)
+                node.setIsRed(nodes[kind].isRed());
             nodes[kind] = node;
         }
         
         public void rotate(int kind) {
             Node dad = nodes[kind];
-            System.out.print("Rotating at dad _" + dad.getKey() + "_ ");
+            System.out.print(".............................\nRotating at dad _" + dad.getKey() + "_ ");
             Node son = nodes[kind-1];
             boolean sonIsRed = son.isRed();
-            son.setIsRed(dad.isRed());
-            dad.setIsRed(sonIsRed);			
+
+            if(!sonIsRed){
+                if(son.getLeft() != null)
+                    son.getLeft().setIsRed(false);
+                if(son.getRight() != null)
+                    son.getRight().setIsRed(false);
+                dad.setIsRed(false);
+                dad.getLeft().setIsRed(true);
+                dad.getRight().setIsRed(true);
+            }else{
+                son.setIsRed(dad.isRed());
+                dad.setIsRed(sonIsRed);
+            }
+			
             if(dad.getLeft() == son) {
                 System.out.println("clockwise");
                 dad.setLeft(son.getRight());
@@ -102,25 +181,25 @@ public class RedBlackTree {
                 dad.setRight(son.getLeft());
                 son.setLeft(dad);
             }
-            set(son, kind, nodes[NodeFamily.GRAND_DAD].getLeft() == dad);
+            set(son, kind, nodes[GRAND_DAD].getLeft() == dad, false);
         }
         
         public void split(int i) {
-            Node grandDad = nodes[NodeFamily.GRAND_DAD];
-            Node dad = nodes[NodeFamily.DAD];
-            Node son = nodes[NodeFamily.NODE];
+            Node grandDad = nodes[GRAND_DAD];
+            Node dad = nodes[DAD];
+            Node son = nodes[NODE];
             if(dad != null && dad.isRed()) {
-                System.out.println("Splitting at dad _" + dad.getKey() + "_");
+                System.out.println(".............................\nSplitting at dad _" + dad.getKey() + "_");
                 byte[] dadBytes = dad.getKey().getBytes();
                 byte[] sonBytes = son.getKey().getBytes();
-                int j = (i >= 8 && dadBytes.length > 1) ? (i%8) : dadBytes.length - 1;
-                int k = (i >= 8 && sonBytes.length > 1) ? (i%8) : sonBytes.length - 1;
-                System.out.println("Dad _" + dad.getKey() + "_ is " + (((dadBytes[j] & (1 << (i-2))) == 0) ? "left" : "right") + " from GrandDad _" + grandDad.getKey() + "_");
-                System.out.println("Son _" + son.getKey() + "_ is " + (((sonBytes[k] & (1 << (i-1))) == 0) ? "left" : "right") + " from Dad _" + dad.getKey() + "_");
-                boolean isDifferentOrientation = ((dadBytes[j] & (1 << (i-2))) == 0) != ((sonBytes[k] & (1 << (i-1))) == 0);
+                int dadIndex = (i >= 8 && dadBytes.length > 1) ? (i%8) : dadBytes.length - 1;
+                int sonIndex = (i >= 8 && sonBytes.length > 1) ? (i%8) : sonBytes.length - 1;
+                System.out.println("Dad _" + dad.getKey() + "_ is " + (((dadBytes[dadIndex] & (1 << (i-2))) == 0) ? "left" : "right") + " from GrandDad _" + grandDad.getKey() + "_");
+                System.out.println("Son _" + son.getKey() + "_ is " + (((sonBytes[sonIndex] & (1 << (i-1))) == 0) ? "left" : "right") + " from Dad _" + dad.getKey() + "_");
+                boolean isDifferentOrientation = ((dadBytes[dadIndex] & (1 << (i-2))) == 0) != ((sonBytes[sonIndex] & (1 << (i-1))) == 0);
                 if(isDifferentOrientation)
-                    rotate(NodeFamily.DAD);
-                rotate(NodeFamily.GRAND_DAD);
+                    rotate(DAD);
+                rotate(GRAND_DAD);
             }
         }
     }

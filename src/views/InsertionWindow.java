@@ -25,7 +25,6 @@ public class InsertionWindow extends JFrame {
     public JScrollPane scrollPane;
 
     public JPanel extraActionsPanel;
-    public JButton searchButton;
     public JButton topDownButton;   
     
     public InsertionWindow(String title){
@@ -61,10 +60,6 @@ public class InsertionWindow extends JFrame {
         interactionPanel.add(BorderLayout.CENTER, scrollPane);
 
         extraActionsPanel = new JPanel(new GridLayout(2, 1));
-
-        searchButton = new JButton("Search");
-        searchButton.setPreferredSize(new Dimension(100, 30));
-        extraActionsPanel.add(searchButton);
 
         topDownButton = new JButton("-> Top-Down-2-3-4");
         topDownButton.setPreferredSize(new Dimension(250, 30));

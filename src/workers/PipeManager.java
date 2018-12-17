@@ -12,7 +12,7 @@ public class PipeManager{
             String[] commands = new String[3];
             String os = System.getProperty("os.name");
             if(isWindowsOS(os)){
-
+                // cmd \c start graph.exe -pipe
             }else if(isUnixOS(os)){
                 commands = getUnixCommands(exePath);
             }   

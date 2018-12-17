@@ -41,7 +41,11 @@ public class Node {
 	
 	public void setIsRed(boolean isRed) {
 		this.isRed = isRed;
-	}
+    }
+    
+    public boolean is2Node(){
+        return !isRed && (left == null || !left.isRed()) && (right == null || !right.isRed());
+    }
 	
 	public boolean is4Node() {
 		return left != null && left.isRed() && right != null && right.isRed();

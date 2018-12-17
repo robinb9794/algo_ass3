@@ -51,28 +51,28 @@ public class UDrawGraphClient{
 
     public void newLeftEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
-                            + "\"B\",[a(\"OBJECT\",\"links\")],\"%1$s\",\"%2$s\")]))",
+                            + "\"B\",[a(\"OBJECT\",\"  0\")],\"%1$s\",\"%2$s\")]))",
                             start.getKey(), end.getKey());
         sendMessage(message);
     }
 
     public void newRightEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%1$s\","
-                            + "\"B\",[a(\"OBJECT\",\"rechts\")],\"%1$s\",\"%2$s\")]))", 
+                            + "\"B\",[a(\"OBJECT\",\"  1\")],\"%1$s\",\"%2$s\")]))", 
                             start.getKey(), end.getKey());
         sendMessage(message);
     }
 
     public void newRedLeftEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
-                            + "\"B\",[a(\"EDGECOLOR\",\"red\"),a(\"OBJECT\",\"links\")],\"%1$s\",\"%2$s\")]))",
+                            + "\"B\",[a(\"EDGECOLOR\",\"red\"),a(\"OBJECT\",\"  0\")],\"%1$s\",\"%2$s\")]))",
                             start.getKey(), end.getKey());
         sendMessage(message);
     }
 
     public void newRedRightEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
-                            + "\"B\",[a(\"EDGECOLOR\",\"red\"),a(\"OBJECT\",\"rechts\")],\"%1$s\",\"%2$s\")]))",
+                            + "\"B\",[a(\"EDGECOLOR\",\"red\"),a(\"OBJECT\",\"  1\")],\"%1$s\",\"%2$s\")]))",
                             start.getKey(), end.getKey());
         sendMessage(message);
     }
