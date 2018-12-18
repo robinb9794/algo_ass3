@@ -57,7 +57,7 @@ public class UDrawGraphClient{
     }
 
     public void newRightEdge(Node start, Node end){
-        String message = String.format("graph(mixed_update([new_edge(\"%1$s>%1$s\","
+        String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
                             + "\"B\",[a(\"OBJECT\",\"  1\")],\"%1$s\",\"%2$s\")]))", 
                             start.getKey(), end.getKey());
         sendMessage(message);
@@ -82,7 +82,8 @@ public class UDrawGraphClient{
     }
 
     public void improve(){
-		sendMessage("menu(view(fit_scale_to_window))");
+        sendMessage("menu(view(full_scale))");
+		//sendMessage("menu(view(fit_scale_to_window))");
 		sendMessage("menu(layout(improve_all))");
 	}
 
@@ -98,10 +99,10 @@ public class UDrawGraphClient{
 
     private void sendMessage(String message){
         try{
+            System.out.println(".............................\nSending message: " + message);
             writer.write(message + "\n");
             writer.flush();
             while(!reader.readLine().equals("ok"));
-            Thread.sleep(200);
         }catch(Exception ex){
             ex.printStackTrace();
         }

@@ -52,7 +52,7 @@ public class Node {
 	}
 	
 	public void convert4Node() {
-        System.out.println("Converting 4-Node: " + key);
+        System.out.println("Converting 4-Node _" + key + "_");
 		this.isRed = true;
 		this.left.setIsRed(false);
 		this.right.setIsRed(false);

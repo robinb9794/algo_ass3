@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.File;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -36,6 +39,7 @@ public class RedBlackTreeController extends SuperTreeController{
             }
         });
         insertionWindow.insertionButton.addActionListener(getInsertionButtonListener());
+        insertionWindow.testButton.addActionListener(getTestButtonListener());
         insertionWindow.packAndShow();
     }
 
@@ -46,10 +50,33 @@ public class RedBlackTreeController extends SuperTreeController{
                 String key = insertionWindow.insertionField.getText();
                 if(!key.isEmpty()){
                     redBlackTree.insert(key);              
+                    resetAndPrintTree();
+                    improveTree();
                     updateGUI(key);
-                    resetAndPrintTree();  
                 }else
                      showErrorDialog("Key cannot be empty.");       
+            }
+        };
+    }
+
+    private ActionListener getTestButtonListener(){
+        return new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                try{
+                    File testFile = new File("./testdata.txt");
+                    BufferedReader reader = new BufferedReader(new FileReader(testFile));
+                    String key;
+                    while((key = reader.readLine()) != null){
+                        redBlackTree.insert(key);
+                        updateGUI(key);
+                    }
+                    reader.close();
+                    resetAndPrintTree();
+                    improveTree();
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }                
             }
         };
     }
@@ -114,7 +141,9 @@ public class RedBlackTreeController extends SuperTreeController{
 		if (node.getRight() != null) {
 			print(node.getRight(), node);
         }
-        if(node.getLeft() == null && node.getRight() == null)
-            graphClient.improve();
+    }
+
+    private void improveTree(){
+        graphClient.improve();
     }
 }

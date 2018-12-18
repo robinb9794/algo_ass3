@@ -26,6 +26,7 @@ public class InsertionWindow extends JFrame {
 
     public JPanel extraActionsPanel;
     public JButton topDownButton;   
+    public JButton testButton;
     
     public InsertionWindow(String title){
         super(title);
@@ -64,6 +65,10 @@ public class InsertionWindow extends JFrame {
         topDownButton = new JButton("-> Top-Down-2-3-4");
         topDownButton.setPreferredSize(new Dimension(250, 30));
         extraActionsPanel.add(topDownButton);
+
+        testButton = new JButton("Test");
+        testButton.setPreferredSize(new Dimension(25, 30));
+        extraActionsPanel.add(testButton);
 
         interactionPanel.add(BorderLayout.SOUTH, extraActionsPanel);
 
