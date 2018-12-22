@@ -39,6 +39,7 @@ public class RedBlackTreeController extends SuperTreeController{
             }
         });
         insertionWindow.insertionButton.addActionListener(getInsertionButtonListener());
+        insertionWindow.searchButton.addActionListener(getSearchButtonListener());
         insertionWindow.testButton.addActionListener(getTestButtonListener());
         insertionWindow.packAndShow();
     }
@@ -49,10 +50,30 @@ public class RedBlackTreeController extends SuperTreeController{
             public void actionPerformed(ActionEvent e) {
                 String key = insertionWindow.insertionField.getText();
                 if(!key.isEmpty()){
-                    redBlackTree.insert(key);              
-                    resetAndPrintTree();
-                    improveTree();
-                    updateGUI(key);
+                    boolean alreadyInserted = redBlackTree.search(key);
+                    if(!alreadyInserted){
+                        redBlackTree.insert(key);    
+                        resetAndPrintTree();
+                        updateGUI(key);
+                    }else
+                        showErrorDialog("Key already inserted.");
+                }else
+                     showErrorDialog("Key cannot be empty.");       
+            }
+        };
+    }
+
+    private ActionListener getSearchButtonListener(){
+        return new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String key = insertionWindow.insertionField.getText();
+                if(!key.isEmpty()){
+                    boolean found = redBlackTree.search(key);    
+                    if(found)
+                        showInfoDialog("Key found.");
+                    else
+                        showErrorDialog("Key not found.");
                 }else
                      showErrorDialog("Key cannot be empty.");       
             }
@@ -71,9 +92,8 @@ public class RedBlackTreeController extends SuperTreeController{
                         redBlackTree.insert(key);
                         updateGUI(key);
                     }
-                    reader.close();
                     resetAndPrintTree();
-                    improveTree();
+                    reader.close();
                 }catch(Exception ex){
                     ex.printStackTrace();
                 }                
@@ -104,6 +124,7 @@ public class RedBlackTreeController extends SuperTreeController{
                 insertionWindow.infoPanel.remove(infoRow);
                 insertionWindow.infoPanel.revalidate();
                 insertionWindow.infoPanel.repaint();
+                resetAndPrintTree();
             }
         };
     }
@@ -117,12 +138,12 @@ public class RedBlackTreeController extends SuperTreeController{
 
     private void resetAndPrintTree(){
         graphClient.reset();
-        print(redBlackTree.getRoot(), redBlackTree.getRoot());      
+        print(redBlackTree.getRoot(), redBlackTree.getRoot());  
     }
 
     private void print(Node node, Node dad){
         graphClient.newNode(node);
-        if (node != redBlackTree.getRoot()) {
+        if (node != dad) {
 			if(dad.getLeft() != null && dad.getLeft() == node){
                 if(node.isRed())
                     graphClient.newRedLeftEdge(dad, node);
@@ -135,15 +156,11 @@ public class RedBlackTreeController extends SuperTreeController{
                     graphClient.newRightEdge(dad, node);
             }
 		}
-		if (node.getLeft() != null) {
+		if (node.getLeft() != null)
 			print(node.getLeft(), node);
-		}
-		if (node.getRight() != null) {
-			print(node.getRight(), node);
-        }
-    }
-
-    private void improveTree(){
-        graphClient.improve();
+		if (node.getRight() != null)
+            print(node.getRight(), node);
+        if(node.getLeft() == null && node.getRight() == null)
+            graphClient.improve();    
     }
 }

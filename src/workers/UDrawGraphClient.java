@@ -83,8 +83,7 @@ public class UDrawGraphClient{
 
     public void improve(){
         sendMessage("menu(view(full_scale))");
-		//sendMessage("menu(view(fit_scale_to_window))");
-		sendMessage("menu(layout(improve_all))");
+        sendMessage("menu(layout(improve_all))");
 	}
 
     public void close(){
@@ -99,7 +98,6 @@ public class UDrawGraphClient{
 
     private void sendMessage(String message){
         try{
-            System.out.println(".............................\nSending message: " + message);
             writer.write(message + "\n");
             writer.flush();
             while(!reader.readLine().equals("ok"));
