@@ -39,6 +39,7 @@ public class RedBlackTreeController extends SuperTreeController{
             }
         });
         insertionWindow.insertionButton.addActionListener(getInsertionButtonListener());
+        insertionWindow.topDownButton.addActionListener(getTopDownButtonListener());
         insertionWindow.searchButton.addActionListener(getSearchButtonListener());
         insertionWindow.testButton.addActionListener(getTestButtonListener());
         insertionWindow.packAndShow();
@@ -53,7 +54,7 @@ public class RedBlackTreeController extends SuperTreeController{
                     boolean alreadyInserted = redBlackTree.search(key);
                     if(!alreadyInserted){
                         redBlackTree.insert(key);    
-                        resetAndPrintTree();
+                        printRedBlackTree();
                         updateGUI(key);
                     }else
                         showErrorDialog("Key already inserted.");
@@ -61,6 +62,101 @@ public class RedBlackTreeController extends SuperTreeController{
                      showErrorDialog("Key cannot be empty.");       
             }
         };
+    }
+
+    private void printRedBlackTree(){
+        graphClient.reset();
+        printRedBlackTree(redBlackTree.getRoot(), redBlackTree.getRoot());  
+    }
+
+    private void printRedBlackTree(Node node, Node dad){
+        graphClient.newNode(node);
+        if (node != dad) {
+			if(dad.getLeft() != null && dad.getLeft() == node){
+                if(node.isRed())
+                    graphClient.newRedLeftEdge(dad, node);
+                else
+                    graphClient.newLeftEdge(dad, node);
+            }else if(dad.getRight() != null && dad.getRight() == node){
+                if(node.isRed())
+                    graphClient.newRedRightEdge(dad, node);
+                else
+                    graphClient.newRightEdge(dad, node);
+            }
+        }
+		if (node.getLeft() != null)
+            printRedBlackTree(node.getLeft(), node);
+		if (node.getRight() != null)
+            printRedBlackTree(node.getRight(), node);
+        if(node.getLeft() == null && node.getRight() == null)
+            graphClient.improve();
+    }
+
+    private void updateGUI(String key){
+        JPanel infoRow = getNewInfoRow(key);
+        insertionWindow.insertionField.setText("");
+        insertionWindow.infoPanel.add(infoRow);
+        insertionWindow.infoPanel.revalidate();
+    }
+
+    private JPanel getNewInfoRow(String key){
+        JPanel infoRow = new JPanel();
+        infoRow.setBorder(BorderFactory.createLoweredBevelBorder());
+        infoRow.setLayout(new FlowLayout(FlowLayout.RIGHT));
+
+        JLabel keyLabel = new JLabel(key);
+        infoRow.add(keyLabel);
+
+        JButton deletionButton = new JButton("Delete");
+        deletionButton.addActionListener(getDeletionButtonListener(infoRow, key));
+        infoRow.add(deletionButton);
+
+        return infoRow;
+    }   
+
+    private ActionListener getTopDownButtonListener(){
+        return new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                if(redBlackTree.getRoot() != null)
+                    printTopDownTree();
+                else
+                    showErrorDialog("Nothing to convert.");
+            }
+        };
+    }
+
+    private void printTopDownTree(){
+        graphClient.reset();
+        printTopDownTree(redBlackTree.getRoot(), redBlackTree.getRoot());
+    }
+
+    private void printTopDownTree(Node node, Node dad){
+        String key = node.getKey();
+        Node topDownNode = new Node(key);
+        if((node != dad && !node.isRed()) || node == redBlackTree.getRoot()){
+            if(node.getLeft() != null && node.getLeft().isRed())
+                key = node.getLeft().getKey() + " " + key;
+            if(node.getRight() != null && node.getRight().isRed())
+                key = key + " " + node.getRight().getKey();
+            topDownNode.setKey(key);
+            graphClient.newNode(topDownNode);
+            if(dad != node)
+                graphClient.newAnythingEdge(dad, topDownNode);       
+        }
+
+        if(node.getLeft() != null && !node.isRed())
+            printTopDownTree(node.getLeft(), topDownNode);
+        else if(node.getLeft() != null && node.isRed())
+            printTopDownTree(node.getLeft(), dad);
+
+        if(node.getRight() != null && !node.isRed())
+            printTopDownTree(node.getRight(), topDownNode);
+        else if(node.getRight() != null && node.isRed())
+            printTopDownTree(node.getRight(), dad);
+
+        if(node.getLeft() == null && node.getRight() == null)
+            graphClient.improve();
     }
 
     private ActionListener getSearchButtonListener(){
@@ -92,29 +188,14 @@ public class RedBlackTreeController extends SuperTreeController{
                         redBlackTree.insert(key);
                         updateGUI(key);
                     }
-                    resetAndPrintTree();
+                    printRedBlackTree();
                     reader.close();
                 }catch(Exception ex){
                     ex.printStackTrace();
                 }                
             }
         };
-    }
-
-    private JPanel getNewInfoRow(String key){
-        JPanel infoRow = new JPanel();
-        infoRow.setBorder(BorderFactory.createLoweredBevelBorder());
-        infoRow.setLayout(new FlowLayout(FlowLayout.RIGHT));
-
-        JLabel keyLabel = new JLabel(key);
-        infoRow.add(keyLabel);
-
-        JButton deletionButton = new JButton("Delete");
-        deletionButton.addActionListener(getDeletionButtonListener(infoRow, key));
-        infoRow.add(deletionButton);
-
-        return infoRow;
-    }    
+    }     
 
     private ActionListener getDeletionButtonListener(JPanel infoRow, String key){
         return new ActionListener(){
@@ -124,43 +205,8 @@ public class RedBlackTreeController extends SuperTreeController{
                 insertionWindow.infoPanel.remove(infoRow);
                 insertionWindow.infoPanel.revalidate();
                 insertionWindow.infoPanel.repaint();
-                resetAndPrintTree();
+                printRedBlackTree();
             }
         };
-    }
-
-    private void updateGUI(String key){
-        JPanel infoRow = getNewInfoRow(key);
-        insertionWindow.insertionField.setText("");
-        insertionWindow.infoPanel.add(infoRow);
-        insertionWindow.infoPanel.revalidate();
-    }
-
-    private void resetAndPrintTree(){
-        graphClient.reset();
-        print(redBlackTree.getRoot(), redBlackTree.getRoot());  
-    }
-
-    private void print(Node node, Node dad){
-        graphClient.newNode(node);
-        if (node != dad) {
-			if(dad.getLeft() != null && dad.getLeft() == node){
-                if(node.isRed())
-                    graphClient.newRedLeftEdge(dad, node);
-                else
-                    graphClient.newLeftEdge(dad, node);
-            }else if(dad.getRight() != null && dad.getRight() == node){
-                if(node.isRed())
-                    graphClient.newRedRightEdge(dad, node);
-                else
-                    graphClient.newRightEdge(dad, node);
-            }
-		}
-		if (node.getLeft() != null)
-			print(node.getLeft(), node);
-		if (node.getRight() != null)
-            print(node.getRight(), node);
-        if(node.getLeft() == null && node.getRight() == null)
-            graphClient.improve();    
     }
 }
