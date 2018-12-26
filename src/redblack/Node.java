@@ -1,60 +1,29 @@
 package redblack;
 
-public class Node {
-	private String key;
-	Node left = null;
-	Node right = null;
-	boolean isRed;
-	
+public abstract class Node {
+	protected DataItem dataItem;
+
 	public Node(String key) {
-        this.key = key;
-        this.isRed = true;
+        this.dataItem = new DataItem(key);
+	}
+
+	public Node(String key, String data){
+		this.dataItem = new DataItem(key, data);
 	}
 	
-	public String getKey() {
-		return this.key;
+	public String getKey(){
+		return this.dataItem.getKey();
 	}
-	
-	public void setKey(String key) {
-		this.key = key;
+
+	public void setKey(String key){
+		this.dataItem.setKey(key);
 	}
-	
-	public Node getLeft() {
-		return this.left;
+
+	public String getData(){
+		return this.dataItem.getData();
 	}
-	
-	public void setLeft(Node left) {
-		this.left = left;
-	}
-	
-	public Node getRight() {
-		return this.right;
-	}
-	
-	public void setRight(Node right) {
-		this.right = right;
-	}
-	
-	public boolean isRed() {
-		return this.isRed;
-	}
-	
-	public void setIsRed(boolean isRed) {
-		this.isRed = isRed;
-    }
-    
-    public boolean is2Node(){
-        return !isRed && (left == null || !left.isRed()) && (right == null || !right.isRed());
-    }
-	
-	public boolean is4Node() {
-		return left != null && left.isRed() && right != null && right.isRed();
-	}
-	
-	public void convert4Node() {
-        System.out.println("Converting 4-Node _" + key + "_");
-		this.isRed = true;
-		this.left.setIsRed(false);
-		this.right.setIsRed(false);
+
+	public void setData(String data){
+		this.dataItem.setData(data);
 	}
 }

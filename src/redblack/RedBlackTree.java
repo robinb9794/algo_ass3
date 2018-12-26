@@ -1,22 +1,25 @@
 package redblack;
 
 import workers.ByteManager;
+import interfaces.Tree;
 
-public class RedBlackTree {
+public class RedBlackTree implements Tree{
     private ByteManager byteManager;
 
-    private Node root;
+    private RedBlackNode root;
 
     public RedBlackTree(){
         this.byteManager = new ByteManager();
     }
-	
+    
+    @Override
 	public Node getRoot() {
-		return this.root;
+		return (RedBlackNode) this.root;
     }
 
+    @Override
     public boolean search(String key){
-        Node tmp = root;
+        RedBlackNode tmp = root;
         int i = 0;
         while(tmp != null){
             if(tmp.getKey().equals(key))
@@ -30,11 +33,13 @@ public class RedBlackTree {
         }
         return false;
     }
-	
+    
+    @Override
 	public void insert(String key) {
         NodeHandler h = new NodeHandler(root);
         byte[] keyBytes = byteManager.getKeyBytes(key);
-        System.out.println(".............................\nInserting _" + key + "_ with binary code: " + byteManager.getBinaryCode(keyBytes));
+        RedBlackNode node = new RedBlackNode(key, byteManager.getBinaryCode(keyBytes));
+        System.out.println(".............................\nInserting _" + key + "_ with binary code: " + node.getData());
         boolean left = false;
         int i = -1;
         int keyIndex = byteManager.getKeyIndex(keyBytes);
@@ -52,11 +57,13 @@ public class RedBlackTree {
             System.out.println("Going down " + (left ? "left" : "right"));
             h.down(left);
         }
-		h.set(new Node(key), h.NODE, left, false);
+        
+		h.set(node, h.NODE, left, false);
         h.split(i);
         root.setIsRed(false);
     }	
 
+    @Override
     public boolean delete(String key){
         System.out.println(".............................\nDeleting _" + key + "_");
         NodeHandler h = new NodeHandler(root);
@@ -100,9 +107,9 @@ public class RedBlackTree {
         public final int GRAND_DAD = 2;
         public final int GRAND_GRAND_DAD = 3;
 
-        public Node[] nodes = new Node[4];
+        public RedBlackNode[] nodes = new RedBlackNode[4];
         
-        public NodeHandler(Node node) {
+        public NodeHandler(RedBlackNode node) {
             nodes[NODE] = node;
         }
 
@@ -151,12 +158,12 @@ public class RedBlackTree {
         }
 
         private NodeHandler getNephew(){
-            Node node = nodes[NODE];
-            Node dad = nodes[DAD];
-            Node grandDad = nodes[GRAND_DAD];
+            RedBlackNode node = nodes[NODE];
+            RedBlackNode dad = nodes[DAD];
+            RedBlackNode grandDad = nodes[GRAND_DAD];
 
-            Node brother = node == dad.getLeft() ? dad.getRight() : dad.getLeft();
-            Node nephew = node == dad.getLeft() ? brother.getLeft() : brother.getRight();
+            RedBlackNode brother = node == dad.getLeft() ? dad.getRight() : dad.getLeft();
+            RedBlackNode nephew = node == dad.getLeft() ? brother.getLeft() : brother.getRight();
             NodeHandler h = new NodeHandler(nephew);
 
             h.nodes[DAD] = brother;
@@ -166,7 +173,7 @@ public class RedBlackTree {
             return h;
         }
         
-        public void set(Node node, int kind, boolean left, boolean copyColors) {
+        public void set(RedBlackNode node, int kind, boolean left, boolean copyColors) {
             if(nodes[kind+1] == null) {
                 System.out.println("Root is now _" + node.getKey() + "_");
                 root = node;
@@ -186,9 +193,9 @@ public class RedBlackTree {
         }
         
         public void rotate(int kind) {
-            Node dad = nodes[kind];
+            RedBlackNode dad = nodes[kind];
             System.out.print(".............................\nRotating at dad _" + dad.getKey() + "_ ");
-            Node son = nodes[kind-1];
+            RedBlackNode son = nodes[kind-1];
             boolean sonIsRed = son.isRed();
 
             if(!sonIsRed){
@@ -217,9 +224,9 @@ public class RedBlackTree {
         }
         
         public void split(int i) {
-            Node grandDad = nodes[GRAND_DAD];
-            Node dad = nodes[DAD];
-            Node son = nodes[NODE];
+            RedBlackNode grandDad = nodes[GRAND_DAD];
+            RedBlackNode dad = nodes[DAD];
+            RedBlackNode son = nodes[NODE];
             if(dad != null && dad.isRed()) {
                 System.out.println(".............................\nSplitting at dad _" + dad.getKey() + "_");
                 boolean dadIsLeftFromGrandDad = grandDad.getLeft() == dad;

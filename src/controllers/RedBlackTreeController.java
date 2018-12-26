@@ -6,28 +6,29 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.File;
+import java.io.FileReader;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import redblack.Node;
+import interfaces.Tree;
+import redblack.RedBlackNode;
 import redblack.RedBlackTree;
 import views.RedBlackTreeInsertionWindow;
-import workers.UDrawGraphClient;
+import views.SuperInsertionWindow;
 
-public class RedBlackTreeController extends SuperTreeController{
-    private RedBlackTree redBlackTree;    
+public class RedBlackTreeController extends SuperTreeController {
+    private SuperInsertionWindow insertionWindow;
+    private Tree redBlackTree;
 
     public RedBlackTreeController() {
         this.insertionWindow = new RedBlackTreeInsertionWindow();
         this.redBlackTree = new RedBlackTree();
-        this.graphClient = new UDrawGraphClient();
-	}
-    
+    }
+
     @Override
 	public void work() {
         insertionWindow.buildInteractionPanel();
@@ -66,10 +67,10 @@ public class RedBlackTreeController extends SuperTreeController{
 
     private void printRedBlackTree(){
         graphClient.reset();
-        printRedBlackTree(redBlackTree.getRoot(), redBlackTree.getRoot());  
+        printRedBlackTree((RedBlackNode) redBlackTree.getRoot(), (RedBlackNode) redBlackTree.getRoot());  
     }
 
-    private void printRedBlackTree(Node node, Node dad){
+    private void printRedBlackTree(RedBlackNode node, RedBlackNode dad){
         graphClient.newNode(node);
         if (node != dad) {
 			if(dad.getLeft() != null && dad.getLeft() == node){
@@ -128,12 +129,12 @@ public class RedBlackTreeController extends SuperTreeController{
 
     private void printTopDownTree(){
         graphClient.reset();
-        printTopDownTree(redBlackTree.getRoot(), redBlackTree.getRoot());
+        printTopDownTree((RedBlackNode) redBlackTree.getRoot(), (RedBlackNode) redBlackTree.getRoot());
     }
 
-    private void printTopDownTree(Node node, Node dad){
+    private void printTopDownTree(RedBlackNode node, RedBlackNode dad){
         String key = node.getKey();
-        Node topDownNode = new Node(key);
+        RedBlackNode topDownNode = new RedBlackNode(key);
         if((node != dad && !node.isRed()) || node == redBlackTree.getRoot()){
             if(node.getLeft() != null && node.getLeft().isRed())
                 key = node.getLeft().getKey() + " " + key;

@@ -8,7 +8,8 @@ import views.SelectionWindow;
 public class SelectionController {
 	private SelectionWindow selectionWindow;
 	
-	private SuperTreeController treeController;
+	private SuperTreeController redBlackTreeController;
+	private SuperTreeController patriciaTreeController;
 	
 	public SelectionController() {
 		selectionWindow = new SelectionWindow();
@@ -24,15 +25,17 @@ public class SelectionController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
                 selectionWindow.dispose();
-				treeController = new RedBlackTreeController();
-				treeController.work();
+				redBlackTreeController = new RedBlackTreeController();
+				redBlackTreeController.work();
 			}
 		});
 		
 		selectionWindow.patriciaTreeButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				selectionWindow.dispose();
+				patriciaTreeController = new PatriciaTreeController();
+				patriciaTreeController.work();
 			}
 		});
 		
