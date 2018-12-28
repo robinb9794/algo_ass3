@@ -1,7 +1,14 @@
 package controllers;
 
-import javax.swing.JOptionPane;
+import java.awt.FlowLayout;
 
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import views.SuperInsertionWindow;
 import workers.UDrawGraphClient;
 
 public abstract class SuperTreeController {
@@ -19,5 +26,5 @@ public abstract class SuperTreeController {
 
     protected void showErrorDialog(String message) {
 		JOptionPane.showMessageDialog(null, message, "Error!", JOptionPane.ERROR_MESSAGE);
-	}
+    }
 }

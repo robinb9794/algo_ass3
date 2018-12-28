@@ -9,7 +9,11 @@ public abstract class Node {
 
 	public Node(String key, String data){
 		this.dataItem = new DataItem(key, data);
-	}
+    }
+    
+    public Node(String key, int bitPosition){
+        this.dataItem = new DataItem(key, bitPosition);
+    }
 	
 	public String getKey(){
 		return this.dataItem.getKey();
@@ -25,5 +29,7 @@ public abstract class Node {
 
 	public void setData(String data){
 		this.dataItem.setData(data);
-	}
+    }
+
+    public abstract String getVisualizationKey();
 }

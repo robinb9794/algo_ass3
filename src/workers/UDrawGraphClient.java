@@ -45,42 +45,42 @@ public class UDrawGraphClient{
 
     public void newNode(Node node){
         String message = String.format("graph(mixed_update([new_node(\"%1$s\",\"C\",[a(\"OBJECT\",\"%1$s\"), a(\"_GO\",\"ellipse\")])]))",
-                            node.getKey());
+                            node.getVisualizationKey());
         sendMessage(message);
     }
 
     public void newLeftEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
-                            + "\"B\",[a(\"OBJECT\",\"  0\")],\"%1$s\",\"%2$s\")]))",
-                            start.getKey(), end.getKey());
+                            + "\"B\",[a(\"OBJECT\",\"   0\")],\"%1$s\",\"%2$s\")]))",
+                            start.getVisualizationKey(), end.getVisualizationKey());
         sendMessage(message);
     }
 
     public void newRightEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
-                            + "\"B\",[a(\"OBJECT\",\"  1\")],\"%1$s\",\"%2$s\")]))", 
-                            start.getKey(), end.getKey());
+                            + "\"B\",[a(\"OBJECT\",\"   1\")],\"%1$s\",\"%2$s\")]))", 
+                            start.getVisualizationKey(), end.getVisualizationKey());
         sendMessage(message);
     }
 
     public void newRedLeftEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
-                            + "\"B\",[a(\"EDGECOLOR\",\"red\"),a(\"OBJECT\",\"  0\")],\"%1$s\",\"%2$s\")]))",
-                            start.getKey(), end.getKey());
+                            + "\"B\",[a(\"EDGECOLOR\",\"red\"),a(\"OBJECT\",\"   0\")],\"%1$s\",\"%2$s\")]))",
+                            start.getVisualizationKey(), end.getVisualizationKey());
         sendMessage(message);
     }
 
     public void newRedRightEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
-                            + "\"B\",[a(\"EDGECOLOR\",\"red\"),a(\"OBJECT\",\"  1\")],\"%1$s\",\"%2$s\")]))",
-                            start.getKey(), end.getKey());
+                            + "\"B\",[a(\"EDGECOLOR\",\"red\"),a(\"OBJECT\",\"   1\")],\"%1$s\",\"%2$s\")]))",
+                            start.getVisualizationKey(), end.getVisualizationKey());
         sendMessage(message);
     }
 
     public void newAnythingEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
                             + "\"B\",[],\"%1$s\",\"%2$s\")]))", 
-                            start.getKey(), end.getKey());
+                            start.getVisualizationKey(), end.getVisualizationKey());
         sendMessage(message);
     }
 

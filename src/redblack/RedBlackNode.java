@@ -52,5 +52,10 @@ public class RedBlackNode extends Node{
 		this.isRed = true;
 		this.left.setIsRed(false);
 		this.right.setIsRed(false);
-	}
+    }
+    
+    @Override
+    public String getVisualizationKey(){
+        return this.dataItem.getKey();
+    }
 }

@@ -101,7 +101,7 @@ public class RedBlackTree implements Tree{
         return false;
     }
     
-    class NodeHandler {	
+    private class NodeHandler {	
         public final int NODE = 0;
         public final int DAD = 1;
         public final int GRAND_DAD = 2;
