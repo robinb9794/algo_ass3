@@ -9,7 +9,8 @@ public class SelectionController {
 	private SelectionWindow selectionWindow;
 	
 	private SuperTreeController redBlackTreeController;
-	private SuperTreeController patriciaTreeController;
+    private SuperTreeController patriciaTreeController;
+    private SuperTreeController robddController;
 	
 	public SelectionController() {
 		selectionWindow = new SelectionWindow();
@@ -42,7 +43,14 @@ public class SelectionController {
 		selectionWindow.binaryDecisionDiagramButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+                try{
+                    selectionWindow.dispose();
+                    robddController = new RoBDDController();
+                    robddController.work();
+                }catch(Exception ex){
+                    System.out.println(ex.toString());
+                }
+                
 			}
 		});
 	}

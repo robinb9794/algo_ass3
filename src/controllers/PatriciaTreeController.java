@@ -15,10 +15,8 @@ import interfaces.Tree;
 import redblack.PatriciaNode;
 import redblack.PatriciaTree;
 import views.PatriciaTreeInsertionWindow;
-import views.SuperInsertionWindow;
 
 public class PatriciaTreeController extends SuperTreeController {
-    private SuperInsertionWindow insertionWindow;
     private Tree patriciaTree;
 
     public PatriciaTreeController() {

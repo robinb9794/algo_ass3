@@ -18,10 +18,8 @@ import interfaces.Tree;
 import redblack.RedBlackNode;
 import redblack.RedBlackTree;
 import views.RedBlackTreeInsertionWindow;
-import views.SuperInsertionWindow;
 
 public class RedBlackTreeController extends SuperTreeController {
-    private SuperInsertionWindow insertionWindow;
     private Tree redBlackTree;
 
     public RedBlackTreeController() {

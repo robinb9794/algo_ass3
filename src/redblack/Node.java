@@ -1,6 +1,7 @@
 package redblack;
 
 public abstract class Node {
+    public static final String TYPE = null;
 	protected DataItem dataItem;
 
 	public Node(String key) {
