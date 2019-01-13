@@ -21,12 +21,12 @@ public class RedBlackTree implements Tree{
     public boolean search(String key){
         RedBlackNode tmp = root;
         int i = 0;
+        byte[] keyBytes = byteManager.getKeyBytes(key);
         while(tmp != null){
             if(tmp.getKey().equals(key))
                 return true;
-            byte[] tmpBytes = byteManager.getKeyBytes(tmp.getKey());
-            int byteIndex = byteManager.getKeyIndex(tmpBytes);
-            int bit = byteManager.getShiftedBit(tmpBytes, byteIndex, i);
+            int byteIndex = byteManager.getKeyIndex(keyBytes);
+            int bit = byteManager.getShiftedBit(keyBytes, byteIndex, i);
             boolean left = bit == 0;
             tmp = left ? tmp.getLeft() : tmp.getRight();
             i++;
@@ -175,9 +175,11 @@ public class RedBlackTree implements Tree{
         
         public void set(RedBlackNode node, int kind, boolean left, boolean copyColors) {
             if(nodes[kind+1] == null) {
-                System.out.println("Root is now _" + node.getKey() + "_");
+                if(node != null)
+                    System.out.println("Root is now _" + node.getKey() + "_");
                 root = node;
-                root.setIsRed(false);
+                if(root != null)
+                    root.setIsRed(false);
             }else if(nodes[kind] != null ? nodes[kind+1].getLeft() == nodes[kind] : left){
                 if(node != null)
                     System.out.println("Setting node _" + node.getKey() + "_ left from _" + nodes[kind+1].getKey() + "_");

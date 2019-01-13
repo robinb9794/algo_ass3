@@ -50,14 +50,6 @@ public class PatriciaTreeInsertionWindow extends SuperInsertionWindow {
 
         extraActionsPanel = new JPanel(new GridLayout(2, 1));
 
-        searchButton = new JButton("Search");
-        searchButton.setPreferredSize(new Dimension(250, 30));
-        extraActionsPanel.add(searchButton);
-
-        testButton = new JButton("Insert testdata");
-        testButton.setPreferredSize(new Dimension(25, 30));
-        extraActionsPanel.add(testButton);
-
         interactionPanel.add(BorderLayout.SOUTH, extraActionsPanel);
 
         add(BorderLayout.CENTER, interactionPanel);

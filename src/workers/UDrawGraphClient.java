@@ -49,6 +49,12 @@ public class UDrawGraphClient{
         sendMessage(message);
     }
 
+    public void newNode(String key, String value){
+        String message = String.format("graph(mixed_update([new_node(\"%1$s\",\"C\",[a(\"OBJECT\",\"%2$s\"), a(\"_GO\",\"ellipse\")])]))",
+                            key, value);
+        sendMessage(message);
+    }
+
     public void newLeftEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
                             + "\"B\",[a(\"OBJECT\",\"   0\")],\"%1$s\",\"%2$s\")]))",
@@ -56,10 +62,24 @@ public class UDrawGraphClient{
         sendMessage(message);
     }
 
+    public void newLeftEdge(String start, String end){
+        String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
+                            + "\"B\",[a(\"OBJECT\",\"   0\")],\"%1$s\",\"%2$s\")]))",
+                            start, end);
+        sendMessage(message);
+    }
+
     public void newRightEdge(Node start, Node end){
         String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
                             + "\"B\",[a(\"OBJECT\",\"   1\")],\"%1$s\",\"%2$s\")]))", 
                             start.getVisualizationKey(), end.getVisualizationKey());
+        sendMessage(message);
+    }
+
+    public void newRightEdge(String start, String end){
+        String message = String.format("graph(mixed_update([new_edge(\"%1$s>%2$s\","
+                            + "\"B\",[a(\"OBJECT\",\"   1\")],\"%1$s\",\"%2$s\")]))", 
+                            start, end);
         sendMessage(message);
     }
 
@@ -82,7 +102,7 @@ public class UDrawGraphClient{
                             + "\"B\",[],\"%1$s\",\"%2$s\")]))", 
                             start.getVisualizationKey(), end.getVisualizationKey());
         sendMessage(message);
-    }
+    }    
 
     public void reset(){
         sendMessage("menu(file(new))");

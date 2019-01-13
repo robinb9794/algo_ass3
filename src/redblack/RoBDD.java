@@ -6,19 +6,26 @@ public class RoBDD {
     private final Function TRUE;
     private final Function FALSE;
     private Hashtable<Triple, Function> unique;
+    private static Hashtable<Integer, String> functionNames;
+    private int varCount;
     
     public RoBDD(){
         this.TRUE = new Function(true);
         this.FALSE = new Function(false);
         this.unique = new Hashtable<Triple, Function>();
+        this.functionNames = new Hashtable<Integer, String>();
+        functionNames.put(2147483647, "1");
+        functionNames.put(2147483646, "0");
+        this.varCount = 0;
     }
 
-    Function generateValue(int i){
-        Triple entry = new Triple(i, generateTrue(), generateFalse());
+    public Function generateVar(String name){
+        Triple entry = new Triple(varCount, generateTrue(), generateFalse());
         Function result = unique.get(entry);
         if(result == null){
-            result = new Function(i, generateTrue(), generateFalse());
+            result = new Function(varCount, generateTrue(), generateFalse());
             unique.put(entry, result);
+            functionNames.put(varCount++, name);
         }
         return result;
     }
@@ -39,7 +46,7 @@ public class RoBDD {
         else if(t.isTrue() && e.isFalse())
             return i;
         else{
-            final int value = Math.min(Math.min(i.getValue(), t.getValue()), e.getValue());
+            final int value = Math.min(Math.min(i.getVar(), t.getVar()), e.getVar());
             final Function T = ite(i.getThen(value), t.getThen(value), e.getThen(value));
             final Function E = ite(i.getOtherwise(value), t.getOtherwise(value), e.getOtherwise(value));
             if(T.equals(E))
@@ -54,19 +61,23 @@ public class RoBDD {
         }
     }
 
-    Function and(Function a, Function b){
+    public Function and(Function a, Function b){
         return ite(a, b, generateFalse());
     }
 
-    Function or(Function a, Function b){
+    public Function or(Function a, Function b){
         return ite(a, generateTrue(), ite(b, generateTrue(), generateFalse()));
     }
 
-    Function implication(Function a, Function b){
+    public Function not(Function a){
+        return ite(a, generateFalse(), generateTrue());
+    }
+
+    public Function implication(Function a, Function b){
         return ite(a, ite(b, generateTrue(), generateFalse()), generateTrue());
     }
 
-    Function equivalence(Function a, Function b){
+    public Function equivalence(Function a, Function b){
         return ite(a, ite(b, generateTrue(), generateFalse()), ite(b, generateFalse(), generateTrue()));
     }
 
@@ -87,16 +98,20 @@ public class RoBDD {
             this.then = then;
             this.otherwise = otherwise;
         }
+
+        public String getName(){
+            return functionNames.get(value);
+        }
     
-        Function getThen(int value){
+        public Function getThen(int value){
             return value == this.value ? then : this;
         }
     
-        Function getOtherwise(int value){
+        public Function getOtherwise(int value){
             return value == this.value ? otherwise : this;
         }
     
-        int getValue(){
+        public int getVar(){
             return this.value;
         }
     

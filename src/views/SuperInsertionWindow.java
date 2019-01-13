@@ -17,9 +17,7 @@ public abstract class SuperInsertionWindow extends JFrame {
     public JScrollPane scrollPane;
 
     public JPanel extraActionsPanel;
-    public JButton topDownButton;   
-    public JButton searchButton;
-    public JButton testButton;    
+    public JButton topDownButton;      
 
     public SuperInsertionWindow(String title){
         super(title);

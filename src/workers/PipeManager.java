@@ -11,20 +11,15 @@ public class PipeManager{
         try{
             String[] commands = new String[3];
             String os = System.getProperty("os.name");
-            if(isWindowsOS(os)){
-                // cmd \c start graph.exe -pipe
-            }else if(isUnixOS(os)){
+            if(isUnixOS(os)){
                 commands = getUnixCommands(exePath);
-            }   
-            process = Runtime.getRuntime().exec(commands, null, null);
+                process = Runtime.getRuntime().exec(commands, null, null);
+            }else
+                process =  new ProcessBuilder(exePath, "pipe", "").start();
         }catch(Exception ex){
             ex.printStackTrace();
         }
         
-    }
-
-    private boolean isWindowsOS(String os){
-        return (os.indexOf("win") >= 0);
     }
 
     private boolean isUnixOS(String os){

@@ -39,8 +39,6 @@ public class RedBlackTreeController extends SuperTreeController {
         });
         insertionWindow.insertionButton.addActionListener(getInsertionButtonListener());
         insertionWindow.topDownButton.addActionListener(getTopDownButtonListener());
-        insertionWindow.searchButton.addActionListener(getSearchButtonListener());
-        insertionWindow.testButton.addActionListener(getTestButtonListener());
         insertionWindow.packAndShow();
     }
 
@@ -65,7 +63,8 @@ public class RedBlackTreeController extends SuperTreeController {
 
     private void printRedBlackTree(){
         graphClient.reset();
-        printRedBlackTree((RedBlackNode) redBlackTree.getRoot(), (RedBlackNode) redBlackTree.getRoot());  
+        if(redBlackTree.getRoot() != null)
+            printRedBlackTree((RedBlackNode) redBlackTree.getRoot(), (RedBlackNode) redBlackTree.getRoot());  
     }
 
     private void printRedBlackTree(RedBlackNode node, RedBlackNode dad){

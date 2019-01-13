@@ -44,11 +44,15 @@ public class PatriciaTreeController extends SuperTreeController {
             public void actionPerformed(ActionEvent e){
                 String key = insertionWindow.insertionField.getText();
                 if(!key.isEmpty()){
-                    patriciaTree.insert(key);    
-                    printPatriciaTree();
-                    updateGUI(key);
+                    boolean alreadyInserted = patriciaTree.search(key);
+                    if(!alreadyInserted){
+                        patriciaTree.insert(key);    
+                        printPatriciaTree();
+                        updateGUI(key);
+                    }else
+                        showErrorDialog("Key already inserted.");                    
                 }else
-                     showErrorDialog("Key cannot be empty.");   
+                        showErrorDialog("Key cannot be empty."); 
             }
         };
     }
@@ -90,7 +94,8 @@ public class PatriciaTreeController extends SuperTreeController {
 
     private void printPatriciaTree(){
         graphClient.reset();
-        printPatriciaTree((PatriciaNode) patriciaTree.getRoot(),(PatriciaNode)  patriciaTree.getRoot());
+        if(patriciaTree.getRoot() != null)
+            printPatriciaTree((PatriciaNode) patriciaTree.getRoot(),(PatriciaNode)  patriciaTree.getRoot());
     }
 
     private void printPatriciaTree(PatriciaNode node, PatriciaNode dad){

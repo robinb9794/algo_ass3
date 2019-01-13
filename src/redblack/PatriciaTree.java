@@ -20,7 +20,7 @@ public class PatriciaTree implements Tree{
     public boolean search(String key){
         NodeHandler h = new NodeHandler(root);
         h.search(key);
-        return !h.isNull() && h.nodes[h.NODE].getKey() == key;
+        return !h.isNull() && h.nodes[h.NODE].getKey().equals(key);
     }
 
     @Override
